@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on mazgi.log</title>
+    <link>https://mazgi.github.io/posts/</link>
+    <description>Recent content in Posts on mazgi.log</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 08 Dec 2017 07:00:00 +0900</lastBuildDate>
+    
+	<atom:link href="https://mazgi.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>簡易な技術ドキュメントをHugoで書くと便利だった</title>
+      <link>https://mazgi.github.io/posts/2017.12/technical-docs-with-hugo/</link>
+      <pubDate>Fri, 08 Dec 2017 07:00:00 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2017.12/technical-docs-with-hugo/</guid>
+      <description>サンプルコードのドキュメントをHugoで書いてサンプルコードと一緒に配ったら便利そうだったのでやってみた。
+やりたいこと 仕事で他社さんにサンプルコードとドキュメントをセットでお渡ししたいのだけど社ではGitHub Enterpriseを使っているのでリポジトリを直接見ていただくことが難しいケースがある。
+規模が大きいプロジェクトならSphinx使うと(やる気次第で)いくらでも綺麗なドキュメントが書けそうではあるけど、規模がそれほどじゃないうちはサクッとMarkdownで書いて、でもソースコードとドキュメントが整合性取れててほしいという気持ちになる。
+(今はSphinxもMarkdownで書けるそうだ、最近知った)
+そもそも(私は)ドキュメント書きたくないので、できるだけスクリプトの提供やソースコードコメントで賄って文章量は最小限に抑えたいというモチベーションもあった。
+そこで以下のような作戦を考えた。
+さくせん  ドキュメントはHugoでプレビューしながらMarkdownで書く 生成したHTMLは /docs ディレクトリに突っ込む 社内向けにはGitHub PagesでmasterのHEADをホスティングする 社外向けには最新リリースのアーカイブを提供する  プレビューできるから書くの楽だし、tag打てるからソースコードとドキュメントの整合性も取りやすい。きっと便利！
+できたもの  リポジトリ: https://github.com/mazgi/example-document-with-hugo GitHub Pages: https://mazgi.github.io/example-document-with-hugo/index.html  テーマはこちらを使わせていただいた。
+サイドバーでエントリが一覧できて技術ドキュメントらしさがある。
+https://github.com/vjeantet/hugo-theme-docdock
+工夫 設定ファイルはこれ。
+ 以下で生成したHTML内のリンクが / からの相対PATHになるふいんき(ちゃんと調べていない)  baseURL = &amp;quot;/&amp;quot; relativeURLs = true uglyurls = true  themeの指定  1234567891011 baseURL = &amp;#34;/&amp;#34; languageCode = &amp;#34;en-us&amp;#34; DefaultContentLanguage = &amp;#34;en&amp;#34; title = &amp;#34;Example Document with Hugo&amp;#34; publishDir = &amp;#34;../docs&amp;#34; relativeURLs = true uglyurls = true theme = &amp;#34;docdock&amp;#34; [params] themeVariant = &amp;#34;gray&amp;#34;   また、この設定ファイルとドキュメントのソースコード(Markdown他)を /docs.</description>
+    </item>
+    
+  </channel>
+</rss>
