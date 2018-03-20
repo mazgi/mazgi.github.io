@@ -1,1 +1,0 @@
-# mazgi.github.io
