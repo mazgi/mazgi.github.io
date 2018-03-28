@@ -6,10 +6,29 @@
     <description>Recent content on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 08 Dec 2017 07:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 06 Mar 2018 00:06:04 +0900</lastBuildDate>
     
 	<atom:link href="https://mazgi.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Amazon SageMakerをそれなりの人数で使うときの設定</title>
+      <link>https://mazgi.github.io/posts/2018.03/setup-amazon-sagemaker/</link>
+      <pubDate>Tue, 06 Mar 2018 00:06:04 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2018.03/setup-amazon-sagemaker/</guid>
+      <description>AWSのマネージドJupyterサービスである「Amazon SageMaker」を数十名規模で使う機会があったのでインフラ的に設定した内容などを書いておく。
+SageMakerで何をしたかなどはいずれちゃんとした情報が出ると思う。 出ました！
+=&amp;gt; Amazon SageMaker ハンズオンレポート
+Amazon SageMakerとは? AWSのWebUIでぽちぽちクリックしていくとJupyterが起動する、そういうやつです。
+SageMakerのオフィシャルサイトはこちら。
+機械学習モデルとアルゴリズム | AWS での Amazon SageMaker
+Amazon SageMakerの起動方法 まずアクセスすべきはこちら。
+https://console.aws.amazon.com/sagemaker/home#/notebook-instances
+「Create notebook instance」ボタンをクリックするとこのような画面になるので項目を埋めていく。
+  ある程度の人数で使う場合には以下のような項目を取り決めておくと良さそう。
+ Notebook instance name  文字通りNotebookインスタンスの名前になるほか、Jupyter NotebookのURLの一部としても使われる 誰が作ったかとか何の目的なのかとか命名ルールを決めておくと良さそう  Notebook instance type  いくつか選べる Notebookインスタンスは純粋にNotebookであって、このインスタンスでjobが動くわけではないのでそんなに強力なインスタンスでなくてもよい なお実際にjobを実行するインスタンスでは p2/p3 などのGPUインスタンスも選べる  IAM role(後述)  Notebookインスタンスに与えるRole、この権限でjobなどのインスタンスを作ろうとする Roleを作成するか既存のRoleから選択するかなどが選べる チームやグループで使うのであればあらかじめRoleを作っておいてARNを入力してもらう方が管理上よいと思う  Custom IAM role ARN  前述の「IAM role」で既存のRoleを選ぶことにすると表示される 私はあらかじめ作っておいたRoleを入力してもらうことにした  VPC  とりあえず使うだけなら No VPC でよい ここで指定したVPCにSageMakerがアクセスできるようになるらしい(未検証) &amp;ldquo;Notebook instances will have internet access independent of your VPC setting.</description>
+    </item>
     
     <item>
       <title>簡易な技術ドキュメントをHugoで書くと便利だった</title>

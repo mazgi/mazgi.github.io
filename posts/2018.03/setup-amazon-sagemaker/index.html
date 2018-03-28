@@ -9,11 +9,11 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     
     
-    <title>mazgi.log :: Posts</title>
-    <meta property="og:title"         content="mazgi.log :: Posts" />
+    <title>mazgi.log :: Amazon SageMakerをそれなりの人数で使うときの設定</title>
+    <meta property="og:title"         content="mazgi.log :: Amazon SageMakerをそれなりの人数で使うときの設定" />
     <meta property="og:type"          content="article" />
     
-    <meta property="og:url"           content="https://mazgi.github.io/posts/" />
+    <meta property="og:url"           content="https://mazgi.github.io/posts/2018.03/setup-amazon-sagemaker/" />
     <meta property="og:description"   content="" />
     
     
@@ -51,19 +51,19 @@
         
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="https://twitter.com/share?url=https%3a%2f%2fmazgi.github.io%2fposts%2f&text=Posts" target="_blank">tw</a>
+            <a class="nav-link" href="https://twitter.com/share?url=https%3a%2f%2fmazgi.github.io%2fposts%2f2018.03%2fsetup-amazon-sagemaker%2f&text=Amazon%20SageMaker%e3%82%92%e3%81%9d%e3%82%8c%e3%81%aa%e3%82%8a%e3%81%ae%e4%ba%ba%e6%95%b0%e3%81%a7%e4%bd%bf%e3%81%86%e3%81%a8%e3%81%8d%e3%81%ae%e8%a8%ad%e5%ae%9a" target="_blank">tw</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fmazgi.github.io%2fposts%2f" target="_blank">fb</a>
+            <a class="nav-link" href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fmazgi.github.io%2fposts%2f2018.03%2fsetup-amazon-sagemaker%2f" target="_blank">fb</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="https://www.linkedin.com/shareArticle?url=https%3a%2f%2fmazgi.github.io%2fposts%2f&title=Posts" target="_blank">in</a>
+            <a class="nav-link" href="https://www.linkedin.com/shareArticle?url=https%3a%2f%2fmazgi.github.io%2fposts%2f2018.03%2fsetup-amazon-sagemaker%2f&title=Amazon%20SageMaker%e3%82%92%e3%81%9d%e3%82%8c%e3%81%aa%e3%82%8a%e3%81%ae%e4%ba%ba%e6%95%b0%e3%81%a7%e4%bd%bf%e3%81%86%e3%81%a8%e3%81%8d%e3%81%ae%e8%a8%ad%e5%ae%9a" target="_blank">in</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="https://plusone.google.com/_/+1/confirm?url=https%3a%2f%2fmazgi.github.io%2fposts%2f" target="_blank">g+</a>
+            <a class="nav-link" href="https://plusone.google.com/_/+1/confirm?url=https%3a%2f%2fmazgi.github.io%2fposts%2f2018.03%2fsetup-amazon-sagemaker%2f" target="_blank">g+</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="https://b.hatena.ne.jp/entry/https://mazgi.github.io/posts/" target="_blank">b!</a>
+            <a class="nav-link" href="https://b.hatena.ne.jp/entry/https://mazgi.github.io/posts/2018.03/setup-amazon-sagemaker/" target="_blank">b!</a>
           </li>
         </ul>
         
@@ -72,14 +72,11 @@
     <main role="main" class="container-fluid col-lg-10 offset-lg-1">
 
 <div class="row">
-  <div class="col-lg-9">
+  <article class="col-lg-12">
+    <div class="row">
+      <h1>Amazon SageMakerをそれなりの人数で使うときの設定</h1>
+    </div>
     
-    
-    <article>
-      <div class="row">
-        <h1><a href="/posts/2018.03/setup-amazon-sagemaker/">Amazon SageMakerをそれなりの人数で使うときの設定</a></h1>
-      </div>
-      
 
 <p>AWSのマネージドJupyterサービスである「Amazon SageMaker」を数十名規模で使う機会があったのでインフラ的に設定した内容などを書いておく。<br />
 <del>SageMakerで何をしたかなどはいずれちゃんとした情報が出ると思う。</del> 出ました！<br />
@@ -244,127 +241,7 @@ AWSのリソース上限はなかなか難しいのでAWS SAの方に相談す�
 <p>プロビジョニングしてルールを決めておけば使いたい人にサクッと使ってもらえて大変便利。<br />
 各種セキュリティ担保の方法や込み入った使い方については今後使ってもらいながら工夫していきたい。</p>
 
-    </article>
-    
-    <hr/>
-    
-    
-    <article>
-      <div class="row">
-        <h1><a href="/posts/2017.12/technical-docs-with-hugo/">簡易な技術ドキュメントをHugoで書くと便利だった</a></h1>
-      </div>
-      
-
-<p>サンプルコードのドキュメントを<a href="https://gohugo.io/">Hugo</a>で書いてサンプルコードと一緒に配ったら便利そうだったのでやってみた。</p>
-
-<h2 id="やりたいこと">やりたいこと</h2>
-
-<p>仕事で他社さんにサンプルコードとドキュメントをセットでお渡ししたいのだけど社ではGitHub Enterpriseを使っているのでリポジトリを直接見ていただくことが難しいケースがある。</p>
-
-<p>規模が大きいプロジェクトなら<a href="http://www.sphinx-doc.org/">Sphinx</a>使うと(やる気次第で)いくらでも綺麗なドキュメントが書けそうではあるけど、規模がそれほどじゃないうちはサクッとMarkdownで書いて、でもソースコードとドキュメントが整合性取れててほしいという気持ちになる。<br />
-(今は<a href="http://www.sphinx-doc.org/en/stable/markdown.html">SphinxもMarkdownで書ける</a>そうだ、最近知った)</p>
-
-<p>そもそも(私は)ドキュメント書きたくないので、できるだけスクリプトの提供やソースコードコメントで賄って文章量は最小限に抑えたいというモチベーションもあった。</p>
-
-<p>そこで以下のような作戦を考えた。</p>
-
-<h3 id="さくせん">さくせん</h3>
-
-<ul>
-<li>ドキュメントはHugoでプレビューしながらMarkdownで書く</li>
-<li>生成したHTMLは <code>/docs</code> ディレクトリに突っ込む</li>
-<li>社内向けにはGitHub PagesでmasterのHEADをホスティングする</li>
-<li>社外向けには最新リリースのアーカイブを提供する</li>
-</ul>
-
-<p>プレビューできるから書くの楽だし、tag打てるからソースコードとドキュメントの整合性も取りやすい。きっと便利！</p>
-
-<h2 id="できたもの">できたもの</h2>
-
-<ul>
-<li>リポジトリ: <a href="https://github.com/mazgi/example-document-with-hugo">https://github.com/mazgi/example-document-with-hugo</a></li>
-<li>GitHub Pages: <a href="https://mazgi.github.io/example-document-with-hugo/index.html">https://mazgi.github.io/example-document-with-hugo/index.html</a></li>
-</ul>
-
-<p>テーマはこちらを使わせていただいた。<br />
-サイドバーでエントリが一覧できて技術ドキュメントらしさがある。<br />
-<a href="https://github.com/vjeantet/hugo-theme-docdock">https://github.com/vjeantet/hugo-theme-docdock</a></p>
-
-<h2 id="工夫">工夫</h2>
-
-<p><a href="https://github.com/mazgi/example-document-with-hugo/blob/master/docs.source/config.toml">設定ファイルはこれ。</a></p>
-
-<ul>
-<li>以下で生成したHTML内のリンクが <code>/</code> からの相対PATHになるふいんき(ちゃんと調べていない)
-
-<ul>
-<li><code>baseURL = &quot;/&quot;</code></li>
-<li><code>relativeURLs = true</code></li>
-<li><code>uglyurls = true</code></li>
-</ul></li>
-<li>themeの指定</li>
-</ul>
-
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;display:block;color:#7c7c79"> 1</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;display:block;color:#7c7c79"> 2</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;display:block;color:#7c7c79"> 3</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;display:block;color:#7c7c79"> 4</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;display:block;color:#7c7c79"> 5</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;display:block;color:#7c7c79"> 6</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;display:block;color:#7c7c79"> 7</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;display:block;color:#7c7c79"> 8</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;display:block;color:#7c7c79"> 9</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;display:block;color:#7c7c79">10</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;display:block;color:#7c7c79">11</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="color:#a6e22e">baseURL</span> = <span style="color:#e6db74">&#34;/&#34;</span>
-<span style="color:#a6e22e">languageCode</span> = <span style="color:#e6db74">&#34;en-us&#34;</span>
-<span style="color:#a6e22e">DefaultContentLanguage</span> = <span style="color:#e6db74">&#34;en&#34;</span>
-<span style="color:#a6e22e">title</span> = <span style="color:#e6db74">&#34;Example Document with Hugo&#34;</span>
-<span style="color:#a6e22e">publishDir</span> = <span style="color:#e6db74">&#34;../docs&#34;</span>
-<span style="color:#a6e22e">relativeURLs</span> = <span style="color:#66d9ef">true</span>
-<span style="color:#a6e22e">uglyurls</span> = <span style="color:#66d9ef">true</span>
-<span style="color:#a6e22e">theme</span> = <span style="color:#e6db74">&#34;docdock&#34;</span>
-
-[<span style="color:#a6e22e">params</span>]
-<span style="color:#a6e22e">themeVariant</span> = <span style="color:#e6db74">&#34;gray&#34;</span></code></pre></td></tr></table>
-</div>
-</div>
-
-<p>また、この設定ファイルとドキュメントのソースコード(Markdown他)を <code>/docs.source</code> に置き、 <code>publishDir = &quot;../docs&quot;</code> と設定することでリポジトリのrootにあまりファイルを置かないようにしている。<br />
-これはこのリポジトリにサンプルコードも同居する想定であり、rootにファイルが増えて見通しがわるくなることを避けるため。</p>
-
-<p>HTMLを生成してcommitしてpushしてtagを打ったものがこちら。<br />
-<a href="https://github.com/mazgi/example-document-with-hugo/releases/tag/v0.0.1">https://github.com/mazgi/example-document-with-hugo/releases/tag/v0.0.1</a></p>
-
-<p>アーカイブをダウンロードして手元で開くとこんな感じで <code>index.html</code> が見える。<br />
-アーカイブファイルにも展開後のディレクトリにもバージョンナンバーが含まれわかりやすい。</p>
-
-
-<figure>
-    
-        <img src="/posts/2017.12/technical-docs-with-hugo/0001.png" />
-    
-    
-</figure>
-
-
-<p><code>index.html</code> もリンク先のドキュメントもブラウザで表示できる。便利。</p>
-
-
-<figure>
-    
-        <img src="/posts/2017.12/technical-docs-with-hugo/0002.png" />
-    
-    
-</figure>
-
-
-    </article>
-    
-    
-  </div>
-  <div class="col-lg-3">
-    <ul>
-      
-      <li><a href="/posts/2018.03/setup-amazon-sagemaker/">Amazon SageMakerをそれなりの人数で使うときの設定</a></li>
-      
-      <li><a href="/posts/2017.12/technical-docs-with-hugo/">簡易な技術ドキュメントをHugoで書くと便利だった</a></li>
-      
-    </ul>
-  </div>
+  </article>
 </div>
       <div class="row">
         <footer class="col-lg-12">

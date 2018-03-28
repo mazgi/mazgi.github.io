@@ -88,6 +88,180 @@
     
     <article>
       <div class="row">
+        <h1><a href="/posts/2018.03/setup-amazon-sagemaker/">Amazon SageMakerをそれなりの人数で使うときの設定</a></h1>
+      </div>
+      
+
+<p>AWSのマネージドJupyterサービスである「Amazon SageMaker」を数十名規模で使う機会があったのでインフラ的に設定した内容などを書いておく。<br />
+<del>SageMakerで何をしたかなどはいずれちゃんとした情報が出ると思う。</del> 出ました！<br />
+=&gt; <a href="https://engineer.dena.jp/2018/03/amazon-sagemaker.html">Amazon SageMaker ハンズオンレポート</a></p>
+
+<h1 id="amazon-sagemakerとは">Amazon SageMakerとは?</h1>
+
+<p>AWSのWebUIでぽちぽちクリックしていくとJupyterが起動する、そういうやつです。<br />
+SageMakerのオフィシャルサイトはこちら。<br />
+<a href="https://aws.amazon.com/jp/sagemaker/">機械学習モデルとアルゴリズム | AWS での Amazon SageMaker</a></p>
+
+<h1 id="amazon-sagemakerの起動方法">Amazon SageMakerの起動方法</h1>
+
+<p>まずアクセスすべきはこちら。<br />
+<a href="https://console.aws.amazon.com/sagemaker/home#/notebook-instances">https://console.aws.amazon.com/sagemaker/home#/notebook-instances</a></p>
+
+<p>「Create notebook instance」ボタンをクリックするとこのような画面になるので項目を埋めていく。<br />
+
+<figure>
+    
+        <img src="/posts/2018.03/setup-amazon-sagemaker/0001.png" />
+    
+    
+</figure>
+</p>
+
+<p>ある程度の人数で使う場合には以下のような項目を取り決めておくと良さそう。</p>
+
+<ul>
+<li>Notebook instance name
+
+<ul>
+<li>文字通りNotebookインスタンスの名前になるほか、Jupyter NotebookのURLの一部としても使われる</li>
+<li>誰が作ったかとか何の目的なのかとか命名ルールを決めておくと良さそう</li>
+</ul></li>
+<li>Notebook instance type
+
+<ul>
+<li>いくつか選べる</li>
+<li>Notebookインスタンスは純粋にNotebookであって、このインスタンスでjobが動くわけではないのでそんなに強力なインスタンスでなくてもよい</li>
+<li>なお実際にjobを実行するインスタンスでは p2/p3 などのGPUインスタンスも選べる</li>
+</ul></li>
+<li>IAM role(後述)
+
+<ul>
+<li>Notebookインスタンスに与えるRole、この権限でjobなどのインスタンスを作ろうとする</li>
+<li>Roleを作成するか既存のRoleから選択するかなどが選べる</li>
+<li>チームやグループで使うのであればあらかじめRoleを作っておいてARNを入力してもらう方が管理上よいと思う</li>
+</ul></li>
+<li>Custom IAM role ARN
+
+<ul>
+<li>前述の「IAM role」で既存のRoleを選ぶことにすると表示される</li>
+<li>私はあらかじめ作っておいたRoleを入力してもらうことにした</li>
+</ul></li>
+<li>VPC
+
+<ul>
+<li>とりあえず使うだけなら <code>No VPC</code> でよい</li>
+<li>ここで指定したVPCにSageMakerがアクセスできるようになるらしい(未検証)</li>
+<li>&ldquo;Notebook instances will have internet access independent of your VPC setting.&ldquo;とある通り、ここでVPCを指定したからといってSageMakerやNotebookを特定のVPCに閉じ込めることはできないので注意</li>
+</ul></li>
+</ul>
+
+<p>以上のような項目を埋めて、ページ下部の「Create notebook instance」ボタンをクリックするとNotebookインスタンスが準備されるので「InService」になるまで数分〜10数分程度待つ。<br />
+案外時間がかかるが裏側でプロビジョニングなどを行なっているのでしょう。</p>
+
+<p>「InService」になったNotebookインスタンスの詳細をみると右上に「Open」ボタンがあるのでクリックする。<br />
+
+<figure>
+    
+        <img src="/posts/2018.03/setup-amazon-sagemaker/0002.png" />
+    
+    
+</figure>
+</p>
+
+<p>そうすると別タブで見慣れたJupyter Notebookの画面が開くので好きなように使う。<br />
+
+<figure>
+    
+        <img src="/posts/2018.03/setup-amazon-sagemaker/0003.png" />
+    
+    
+</figure>
+</p>
+
+<p>こんなに楽だと自分でJupyter Notebook立てるモチベーションがなくなって良いですね。</p>
+
+<h1 id="iam-role-group作成">IAM Role/Group作成</h1>
+
+<p>以下を用意した</p>
+
+<ul>
+<li>IAM Role
+
+<ul>
+<li>前述の、Notebookインスタンスに与えるRole</li>
+<li>最小限 <code>AmazonSageMakerFullAccess</code> をアタッチしておけば良い</li>
+</ul></li>
+<li>IAM Group
+
+<ul>
+<li>今回は1つのAWSアカウントで数十名が同時にSageMakerを使うため、グループを作ってユーザーを紐づけることにした</li>
+<li>以下をアタッチした(もう少し絞り込めそうではある)</li>
+<li><code>AmazonSageMakerFullAccess</code></li>
+<li><code>AmazonEC2FullAccess</code></li>
+<li><code>IAMReadOnlyAccess</code></li>
+<li><code>IAMUserChangePassword</code> (これは運用上必要だっただけ)</li>
+</ul></li>
+<li>IAM User(s)
+
+<ul>
+<li>SageMakerを使う人全員分のユーザーを払い出し、前述のグループに紐付けた</li>
+<li>今回は初期パスワードを私の手元でコンソール出力し、各自初回ログイン時に変更してもらった</li>
+</ul></li>
+</ul>
+
+<p>以上の設定をTerraformで行う <code>.tf</code> ファイルの例は次の通り。<br />
+内容はほぼそのまま、個々のユーザー名は別途変数から読んでいる。</p>
+
+<script src="//gist.github.com/mazgi/aebcf7cac9ed5ca5f3f1d0f69557a820.js"></script>
+
+<h1 id="awsリソース上限緩和申請">AWSリソース上限緩和申請</h1>
+
+<p>AWS SAの方にご相談の上、SageMakerを利用する <code>IAM User数 * n</code> で事前にリソース上限の緩和申請を行なった。<br />
+デフォルト値はこちら。<br />
+<a href="https://docs.aws.amazon.com/ja_jp/general/latest/gr/aws_service_limits.html#limits_sagemaker">AWS サービス制限 - アマゾン ウェブ サービス#Amazon SageMaker の制限</a></p>
+
+<p>内容はざっと次の通り。<br />
+各ユーザーがNotebookインスタンスを1つ、学習と推論のjobを2つずつ実行することを想定した。</p>
+
+<ul>
+<li>SageMaker のホスト
+
+<ul>
+<li>インスタンス数: <code>IAM User数 * 3</code></li>
+<li>(使用するインスタンスタイプ): <code>IAM User数 * 3</code></li>
+<li>エンドポイントのインスタンス数: <code>IAM User数 * 3</code></li>
+<li><em>これは不要だったようだ</em></li>
+</ul></li>
+<li>SageMaker のトレーニング
+
+<ul>
+<li>インスタンス数: <code>IAM User数 * 3</code></li>
+<li>トレーニングジョブのインスタンス数: <code>IAM User数 * 3</code></li>
+<li>(使用するインスタンスタイプ): <code>IAM User数 * 3</code></li>
+</ul></li>
+<li>SageMaker ノートブック
+
+<ul>
+<li>(使用するインスタンスタイプ): <code>IAM User数 * 1.5</code></li>
+<li>実行中のノートブックインスタンスの数: <code>IAM User数 * 1.5</code></li>
+</ul></li>
+</ul>
+
+<p>一部CloudTrailの上限に引っかかり同時実行できなかったりもしたが、概ねこれでユーザー全員が目的の操作を行えた。<br />
+AWSのリソース上限はなかなか難しいのでAWS SAの方に相談するに限る🙏</p>
+
+<h1 id="感想">感想</h1>
+
+<p>プロビジョニングしてルールを決めておけば使いたい人にサクッと使ってもらえて大変便利。<br />
+各種セキュリティ担保の方法や込み入った使い方については今後使ってもらいながら工夫していきたい。</p>
+
+    </article>
+    
+    <hr/>
+    
+    
+    <article>
+      <div class="row">
         <h1><a href="/posts/2017.12/technical-docs-with-hugo/">簡易な技術ドキュメントをHugoで書くと便利だった</a></h1>
       </div>
       
@@ -195,6 +369,8 @@
   </div>
   <div class="col-lg-3">
     <ul>
+      
+      <li><a href="/posts/2018.03/setup-amazon-sagemaker/">Amazon SageMakerをそれなりの人数で使うときの設定</a></li>
       
       <li><a href="/posts/2017.12/technical-docs-with-hugo/">簡易な技術ドキュメントをHugoで書くと便利だった</a></li>
       
