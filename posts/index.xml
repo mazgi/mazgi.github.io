@@ -31,6 +31,26 @@ https://console.aws.amazon.com/sagemaker/home#/notebook-instances
     </item>
     
     <item>
+      <title>SSE-KMSで暗号化したS3バケットをs3fsでmountする</title>
+      <link>https://mazgi.github.io/posts/2018.03/s3fs-for-s3-with-sse-kms/</link>
+      <pubDate>Thu, 01 Mar 2018 04:32:56 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2018.03/s3fs-for-s3-with-sse-kms/</guid>
+      <description>タイトルの通り「AWS Key Management Service (AWS KMS) 」を使って暗号化したAmazon S3バケットをs3fsでUbuntu 16上でmountした。
+KMSについては以下のドキュメントが詳しいが要は暗号化の際に煩雑な鍵の管理をAWSにお願いできる仕組み。
+AWS KMS で管理されたキーによるサーバー側の暗号化 (SSE-KMS) を使用したデータの保護 - Amazon Simple Storage Service
+S3バケットの準備 S3バケットを作り、画像のように Default encryption を AWS-KMS に設定する。
+なおこのS3バケットは記事公開時点で削除済み。
+  s3fsの設定 Install GitHubからアーカイブをダウンロードして
+$ ./autogen.sh $ ./configure $ make $ sudo make install する。
+Release Release verson 1.83 · s3fs-fuse/s3fs-fuse
+mount 以下のようにAWSのcredentialを .secret というファイルに ACCESS_KEY:SECRET_KEY というフォーマットで書く。
+またKMSの鍵IDを環境変数に設定した。
+$ cat .secret ****ACCESS_KEY****:****SECRET_KEY**** $ export AWSSSEKMSID=&amp;#39;********&amp;#39; そしてmountする。
+endpoint, uid, gid , umask あたりをきちんと設定しないと読み書きできない、ハマった。</description>
+    </item>
+    
+    <item>
       <title>簡易な技術ドキュメントをHugoで書くと便利だった</title>
       <link>https://mazgi.github.io/posts/2017.12/technical-docs-with-hugo/</link>
       <pubDate>Fri, 08 Dec 2017 07:00:00 +0900</pubDate>
