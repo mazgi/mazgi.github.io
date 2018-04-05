@@ -51,6 +51,27 @@ endpoint, uid, gid , umask あたりをきちんと設定しないと読み書�
     </item>
     
     <item>
+      <title>S3&#43;CloudFrontをTerraformで設定してCircleCIで更新する</title>
+      <link>https://mazgi.github.io/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/</link>
+      <pubDate>Thu, 15 Feb 2018 05:24:40 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/</guid>
+      <description>「TerraformでS3+CloudFront+SSL/TLS証明書 w/ ACMを設定してHugoで作ったstaticなWebサイトをCircleCIで自動deployする」やつができた。
+できたもの 普通のいかにもHugoで作ったWebサイトができた。
+もう2018年なので手オペなどせずInfrastructure as Codeで構築かつCIでコンテンツdeployです。
+中身はまだない。
+きっと酒とメシについての何かが書かれるのでしょう。
+   これはそもそも先日開催したハッカソンでやろうとして途中までしか進められなかったので、その補習も兼ねてます。
+なお次回ハッカソンはGoです！
+DeNA Techathon: 著者と学ぶ「Goならわかるシステムプログラミング」黙々会 - connpass
+構成 図を描く気力がなかったのでテキストで。
+インフラ構築編 Terraformで以下を行なっている。
+ Route 53にドメインのゾーン情報を登録する コンテンツ更新用のIAMグループとIAMユーザーを払い出す コンテンツ格納用のS3バケットを作る ACMでSSL/TLS証明書を発行する CloudFront distributionを設定する(ACMの証明書使いたいので) CloudFront distributionをRoute 53に登録する  コンテンツ更新編 GitHubへのpushをトリガーにCircleCIで以下を行なっている。
+ HugoでstaticなWebコンテンツ生成する 生成したWebコンテンツをS3に同期する CloudFrontのキャッシュをクリアする  GitHub GitHubで以下を管理している。
+ sakemeshi.terraform  Terraformリポジトリ 中身はRoute 53にドメインのゾーンを登録してmoduleを呼び出しているくらい AWSのcredential等は sakemeshi.terraform-secret リポジトリに置いてsubmoduleとして参照している  terraform-aws-static-website  自分用Terraform module S3+CloudFrontでstaticなWebサイトを作るもろもろが詰まっている  (private) sakemeshi.terraform-secret  AWSのcredentialなどが入っている credential store導入とかはまた今度  (private) sakemeshi.</description>
+    </item>
+    
+    <item>
       <title>簡易な技術ドキュメントをHugoで書くと便利だった</title>
       <link>https://mazgi.github.io/posts/2017.12/technical-docs-with-hugo/</link>
       <pubDate>Fri, 08 Dec 2017 07:00:00 +0900</pubDate>
