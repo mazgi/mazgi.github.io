@@ -119,5 +119,20 @@ Amazon EC2 P3インスタンスにおけるPose Estimation速度向上検証 - T
 私はMLわからないマンなのですが、最初 cuDNN 7 + CuPy 1.0.3 で環境作ろうとしてバージョンが合わなくてどうしよ！と思ってたら「今日 cuDNN 7 対応の CuPy 2.0 リリースするよ！」と教えていただいたりとか、この業界本当に数時間単位で進歩しててすごい。</description>
     </item>
     
+    <item>
+      <title>Adobe CCのライセンスを別のPCに移す方法(ライセンス認証解除→再認証)</title>
+      <link>https://mazgi.github.io/posts/2017.02/deactivate-and-activate-adobecc/</link>
+      <pubDate>Sun, 12 Feb 2017 02:13:55 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2017.02/deactivate-and-activate-adobecc/</guid>
+      <description>Adobe CCが不要なPCの認証を解除して、使いたいPCで何かしらのアプリを起動すれば認証されて使えるようになる。
+PC買い替えなどのタイミングで必要になるが、そういうときは大体ライセンス認証解除の手順を忘れているのでメモ。
+手順 認証解除の手順を3行で。
+なお認証解除はWeb上での操作なので、使うPCはなんでもいい(はず)。
+ https://accounts.adobe.com/plans を開く 「プランを管理」をクリック 「ライセンス認証したデバイス」から不要な方のデバイスを削除  ここまでできれば、あとはAdobe CCを使いたいPCでPhotoshopやIllustratorなどのアプリを起動すれば認証され使えるようになる。
+    ちゃんとAdobeのヘルプに書いてあるのだが、公式ドキュメントなので「ライセンス認証とは？」やスタンドアローン版の説明も併記されていて文量が多いので簡単にまとめてみた。
+アドビ製品のライセンス認証とライセンス認証解除</description>
+    </item>
+    
   </channel>
 </rss>
