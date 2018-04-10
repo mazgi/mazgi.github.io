@@ -221,5 +221,22 @@ OS用の第3パーティションは空き領域を全て割り当てるため�
 - name: &amp;#34;Create BIOS boot partition&amp;#34; command: &amp;#34;parted --script --align optimal /dev/vda -- mkpart bios_boot fat32 1MiB 5MiB&amp;#34; - name: &amp;#34;Set BIOS boot partition&amp;#34; command: &amp;#34;parted --script --align optimal /dev/vda -- set 1 bios_grub on&amp;#34; - name: &amp;#34;Create filesystem for grub2&amp;#34; filesystem: fstype=vfat dev=/dev/vda1 - name: &amp;#34;Create swap partition&amp;#34; command: &amp;#34;parted --script --align optimal /dev/vda -- mkpart swap linux-swap 5MiB 4GiB&amp;#34; - name: &amp;#34;Create filesystem for swap&amp;#34; command: mkswap /dev/vda2 - name: &amp;#34;Create root partition&amp;#34; command: &amp;#34;parted --script --align optimal /dev/vda -- mkpart linux btrfs 4GiB -1&amp;#34; - name: &amp;#34;Create filesystem for /&amp;#34; filesystem: fstype=btrfs dev=/dev/vda3 対話式インタフェースがメインの gdisk や fdisk と違って parted ならAnsibleのcommandモジュールで扱いやすいですね！</description>
     </item>
     
+    <item>
+      <title>RackTablesで個人ネットワークを管理する</title>
+      <link>https://mazgi.github.io/posts/2016.07/racktables-for-home-network/</link>
+      <pubDate>Fri, 15 Jul 2016 07:00:00 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2016.07/racktables-for-home-network/</guid>
+      <description>個人で使っているさくらのクラウドアカウントでサーバーやスイッチが増えてしまいどれが何やら分からなくなってきたのでRackTablesで管理しようと思い(立ってからだいぶ時間が)たちました。
+  ようやく重い腰を上げてRackTablesを運用し始めたのでメモしておきます。
+RackTablesはWebでサーバーラックやIPアドレスを管理できるソフトウェアです。
+MOONGIFTの記事でその存在を知ってから運用しようと何度かセットアップしたのですが毎度あまり運用せずに放置してしまっていました。
+「今度こそちゃんと運用する！」と何度目かの決意とともにセットアップしてみます。
+セットアップ方法は長くなるので別途まとめようと思いますが、無事セットアップできると管理ユーザーでログインした後このような画面が表示されます。
+  試しに今回はRackTablesのサーバー自体が所属している 172.16.240.0/20 と個人サービス用のLAN側ネットワークである 172.16.224.0/20 の2つのセグメントを登録してみます。
+     リンクを辿っていくとこのようにセグメント内のIPアドレスが一覧表示され、何に割り当てているか管理することができます。
+  これからこのRackTables上の情報を正としてDNSレコードやサーバーを整理していこうと思います。</description>
+    </item>
+    
   </channel>
 </rss>
