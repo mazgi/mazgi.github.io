@@ -193,5 +193,33 @@ dots.さんで「NISSAN×DeNA　車は、モノ&amp;lt;プロダクト&amp;gt;�
 自動運転車にCAN(Car Area Network)接続のエスプレッソマシンを搭載したり、自動運転で不要になった従来のメーターの代わりにiPadを搭載したりととても興味深い事例の数々をご紹介いただきました。</description>
     </item>
     
+    <item>
+      <title>【SELECK掲載記念】AnsibleでPartitionを切る！</title>
+      <link>https://mazgi.github.io/posts/2016.07/interviewed-for-ansible/</link>
+      <pubDate>Fri, 15 Jul 2016 20:00:00 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2016.07/interviewed-for-ansible/</guid>
+      <description>追記 さくらのクラウドについて取材していただいた記事も公開されました！
+合わせてご覧ください！！
+さくらのクラウドで「尖ったインフラ環境」を構築。カスタマイズに強い、その実力とは | SELECK
+本編 先日「SELECK(セレック)」様にAnsibleの活用事例をインタビューいただきました。
+数百台のサーバー構成を「Ansible」で管理。大規模DSPシステムを支える技術とは | SELECK
+素晴らしい記事にしていただいたのでせっかくなら何かネタになりそうな実例をご紹介したいと考えた結果(?)、バッドノウハウが詰まったパーティションの切り方をご紹介したいと思います！
+Googleグループでも話題になっていますが、本記事を書いている時点ではAnsibleにpartitionを切るモジュールはないようです。
+しかしながら物理サーバーや場合によってはクラウドサーバーでもパーティションを切りたいケースは当然あります。
+HDD/SSDにパーティションを切る さすがに会社のプライベートリポジトリからPlaybookを持ってくるわけにもいかないので、今回は近いものとして私の個人的なPlaybookをご紹介します。
+mazgi/ansible-gentooinstallbattle
+なお、実際のギョウムでは優秀な若者が改善したPlaybookが使われていることを申し添えておきます。
+gdisk や fdisk ではなく parted を使うとAnsibleでも比較的簡単にパーティションを切ることができます。
+いつ何時数十台のサーバーで同時にパーティションを切る必要が生じるとも限りませんので覚えておいて損はないと思います！！
+ GPTパーティションテーブルを作る  - name: &amp;#34;Create partition table&amp;#34; command: &amp;#34;parted --script --align optimal /dev/vda -- mklabel gpt&amp;#34;  各パーティションを切る  ここでは、
+第1パーティションはGRUB2用にVFATで、
+第2パーティションはSWAP用に、
+第3パーティションはOS用に切ることにします。
+GRUB2用のパーティションはFAT32で4MiBもあれば十分です。フォーマットしなくても使える気がします。
+OS用の第3パーティションは空き領域を全て割り当てるため最後の引数に -1 を渡しています。
+- name: &amp;#34;Create BIOS boot partition&amp;#34; command: &amp;#34;parted --script --align optimal /dev/vda -- mkpart bios_boot fat32 1MiB 5MiB&amp;#34; - name: &amp;#34;Set BIOS boot partition&amp;#34; command: &amp;#34;parted --script --align optimal /dev/vda -- set 1 bios_grub on&amp;#34; - name: &amp;#34;Create filesystem for grub2&amp;#34; filesystem: fstype=vfat dev=/dev/vda1 - name: &amp;#34;Create swap partition&amp;#34; command: &amp;#34;parted --script --align optimal /dev/vda -- mkpart swap linux-swap 5MiB 4GiB&amp;#34; - name: &amp;#34;Create filesystem for swap&amp;#34; command: mkswap /dev/vda2 - name: &amp;#34;Create root partition&amp;#34; command: &amp;#34;parted --script --align optimal /dev/vda -- mkpart linux btrfs 4GiB -1&amp;#34; - name: &amp;#34;Create filesystem for /&amp;#34; filesystem: fstype=btrfs dev=/dev/vda3 対話式インタフェースがメインの gdisk や fdisk と違って parted ならAnsibleのcommandモジュールで扱いやすいですね！</description>
+    </item>
+    
   </channel>
 </rss>
