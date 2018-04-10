@@ -91,5 +91,33 @@ https://github.com/vjeantet/hugo-theme-docdock
  以下で生成したHTML内のリンクが / からの相対PATHになるふいんき(ちゃんと調べていない)  baseURL = &amp;quot;/&amp;quot; relativeURLs = true uglyurls = true  themeの指定  1234567891011 baseURL = &amp;#34;/&amp;#34; languageCode = &amp;#34;en-us&amp;#34; DefaultContentLanguage = &amp;#34;en&amp;#34; title = &amp;#34;Example Document with Hugo&amp;#34; publishDir = &amp;#34;../docs&amp;#34; relativeURLs = true uglyurls = true theme = &amp;#34;docdock&amp;#34; [params] themeVariant = &amp;#34;gray&amp;#34;   また、この設定ファイルとドキュメントのソースコード(Markdown他)を /docs.</description>
     </item>
     
+    <item>
+      <title>EC2 P3で使えるChainerMN入りのDockerイメージを作った</title>
+      <link>https://mazgi.github.io/posts/2017.12/dockerimage-for-chainermn-on-v100/</link>
+      <pubDate>Thu, 07 Dec 2017 07:16:07 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2017.12/dockerimage-for-chainermn-on-v100/</guid>
+      <description>sonots先生によるこの記事をやってみたという話です。
+docker (nvidia-docker) を使ってマルチノードで ChainerMN を実行する方法(仮) - Qiita
+概要 Dockerfileはここにあります。
+mazgi/docker-cuda-cv: based on: https://gitlab.com/nvidia/cuda
+ベースはNVIDIAさんのオフィシャルイメージです。
+https://hub.docker.com/r/nvidia/cuda/
+実行結果 ChainerMNのexampleを試した結果はこちら。
+今のところシングルNodeシングルGPUとシングルNodeマルチGPUしか試してないです。
+ 手順はこちらの通りなんですが時間が取れていない&amp;hellip;
+docker (nvidia-docker) を使ってマルチノードで ChainerMN を実行する方法(仮) - Qiita
+P3じゃなくても動くはずですが、ホスト側にGPUとnvidia-dockerは必要です。
+今回は社の環境で試したのでsonots便利先生環境の恩恵を受けてます🙏
+DeNA TechCon 2017 と Developers Summit 2017 でDeNAの機械学習基盤と分析基盤の講演をしました - sonots:blog
+イチから構築する場合はこういう記事が参考になりそう。
+p3インスタンス(V100)上でCUDA+CUDNN+Tensorflowを動かすのが大変だったのできろく。 - 焼肉が食べたい
+経緯とか めでたく記事も出たので色々言えるようになったのですが、実はありがたいことにP3の先行検証というのをさせていただいてました。
+(なおイベント当日はカメラマンしてました)
+Amazon EC2 P3インスタンスにおけるPose Estimation速度向上検証 - Technology of DeNA
+この検証時点ではChainerMNではなくChainerで、環境もVM上に直接作ってたのですが、その後部内から「Dockerイメージになってたほうが便利」とフィードバックいただき先行者の記事を参考に手探りしてる状況です。
+私はMLわからないマンなのですが、最初 cuDNN 7 + CuPy 1.0.3 で環境作ろうとしてバージョンが合わなくてどうしよ！と思ってたら「今日 cuDNN 7 対応の CuPy 2.0 リリースするよ！」と教えていただいたりとか、この業界本当に数時間単位で進歩しててすごい。</description>
+    </item>
+    
   </channel>
 </rss>

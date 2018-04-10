@@ -1029,6 +1029,66 @@ workflowとしてbuildとdeployが分かれるのは綺麗だけども。。</p>
 
     </article>
     
+    <hr/>
+    
+    
+    <article>
+      <div class="row">
+        <h1><a href="/posts/2017.12/dockerimage-for-chainermn-on-v100/">EC2 P3で使えるChainerMN入りのDockerイメージを作った</a></h1>
+      </div>
+      
+
+<p>sonots先生によるこの記事をやってみたという話です。</p>
+
+<p><a href="https://qiita.com/sonots/items/ee247a2e36033646c914">docker (nvidia-docker) を使ってマルチノードで ChainerMN を実行する方法(仮) - Qiita</a></p>
+
+<h2 id="概要">概要</h2>
+
+<p>Dockerfileはここにあります。</p>
+
+<p><a href="https://github.com/mazgi/docker-cuda-cv">mazgi/docker-cuda-cv: based on: https://gitlab.com/nvidia/cuda</a></p>
+
+<p>ベースはNVIDIAさんのオフィシャルイメージです。</p>
+
+<p><a href="https://hub.docker.com/r/nvidia/cuda/">https://hub.docker.com/r/nvidia/cuda/</a></p>
+
+<h2 id="実行結果">実行結果</h2>
+
+<p>ChainerMNのexampleを試した結果はこちら。<br />
+今のところシングルNodeシングルGPUとシングルNodeマルチGPUしか試してないです。</p>
+
+<script src="//gist.github.com/mazgi/e095e4756f14ebb9db5c26cd70b23c63.js"></script>
+
+<p>手順はこちらの通りなんですが時間が取れていない&hellip;</p>
+
+<p><a href="https://qiita.com/sonots/items/ee247a2e36033646c914#%E3%83%9E%E3%83%AB%E3%83%81%E3%83%8E%E3%83%BC%E3%83%89">docker (nvidia-docker) を使ってマルチノードで ChainerMN を実行する方法(仮) - Qiita</a></p>
+
+<p>P3じゃなくても動くはずですが、ホスト側にGPUとnvidia-dockerは必要です。<br />
+今回は社の環境で試したのでsonots便利先生環境の恩恵を受けてます🙏</p>
+
+<p><a href="http://blog.livedoor.jp/sonots/archives/49502478.html">DeNA TechCon 2017 と Developers Summit 2017 でDeNAの機械学習基盤と分析基盤の講演をしました - sonots:blog</a></p>
+
+<p>イチから構築する場合はこういう記事が参考になりそう。</p>
+
+<p><a href="http://chie8842.hatenablog.com/entry/2017/11/27/221551">p3インスタンス(V100)上でCUDA+CUDNN+Tensorflowを動かすのが大変だったのできろく。 - 焼肉が食べたい</a></p>
+
+<h2 id="経緯とか">経緯とか</h2>
+
+<p>めでたく記事も出たので色々言えるようになったのですが、実はありがたいことにP3の先行検証というのをさせていただいてました。<br />
+(なおイベント当日はカメラマンしてました)</p>
+
+<p><a href="https://engineer.dena.jp/2017/12/amazon-ec2-p3pose-estimation.html">Amazon EC2 P3インスタンスにおけるPose Estimation速度向上検証 - Technology of DeNA</a></p>
+
+<p>この検証時点ではChainerMNではなくChainerで、環境もVM上に直接作ってたのですが、その後部内から「Dockerイメージになってたほうが便利」とフィードバックいただき先行者の記事を参考に手探りしてる状況です。<br />
+私はMLわからないマンなのですが、最初 cuDNN 7 + CuPy 1.0.3 で環境作ろうとしてバージョンが合わなくてどうしよ！と思ってたら「今日 cuDNN 7 対応の CuPy 2.0 リリースするよ！」と教えていただいたりとか、この業界本当に数時間単位で進歩しててすごい。</p>
+
+<p>こういう用途だとコンテナほんと便利なんですけど、でもDockerイメージの命名むずかしい。<br />
+<code>mazgi/cuda-cv:9.0-cudnn7-devel-ubuntu16.04</code> じゃなくて、<br />
+<code>mazgi/cuda-cv-9.0-cudnn7-devel-ubuntu16.04:latest</code> とかにしたほうがいいのかな(長い)。<br />
+そもそもの話としては実質Chainer &amp; ChainerMNイメージなのでそういう名前にすべきだし(さらに長くなる)。</p>
+
+    </article>
+    
     
   </div>
   <div class="col-lg-3">
@@ -1041,6 +1101,8 @@ workflowとしてbuildとdeployが分かれるのは綺麗だけども。。</p>
       <li><a href="/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/">S3&#43;CloudFrontをTerraformで設定してCircleCIで更新する</a></li>
       
       <li><a href="/posts/2017.12/technical-docs-with-hugo/">簡易な技術ドキュメントをHugoで書くと便利だった</a></li>
+      
+      <li><a href="/posts/2017.12/dockerimage-for-chainermn-on-v100/">EC2 P3で使えるChainerMN入りのDockerイメージを作った</a></li>
       
     </ul>
   </div>
