@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://mazgi.github.io/posts/2018.04/processing-with-s3-lambda-sqs/</loc>
+    <lastmod>2018-04-17T00:12:10+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://mazgi.github.io/posts/2018.03/setup-amazon-sagemaker/</loc>
     <lastmod>2018-03-06T00:06:04+09:00</lastmod>
   </url>
@@ -69,7 +74,7 @@
   
   <url>
     <loc>https://mazgi.github.io/posts/</loc>
-    <lastmod>2018-03-06T00:06:04+09:00</lastmod>
+    <lastmod>2018-04-17T00:12:10+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -90,7 +95,7 @@
   
   <url>
     <loc>https://mazgi.github.io/</loc>
-    <lastmod>2018-03-06T00:06:04+09:00</lastmod>
+    <lastmod>2018-04-17T00:12:10+09:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"

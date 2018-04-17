@@ -48,7 +48,7 @@
           
           
           <li class="nav-item">
-            <span class="nav-link disabled">Updated At: 2018.03.06</span>
+            <span class="nav-link disabled">Updated At: 2018.04.17</span>
           </li>
           
         </ul>
@@ -77,6 +77,207 @@
 
 <div class="row">
   <div class="col-lg-9">
+    
+    
+    <article>
+      <div class="row">
+        <h1><a href="/posts/2018.04/processing-with-s3-lambda-sqs/">S3 &#43; Lambda &#43; SQSでファイル処理する仕組みをTerraformで構築する</a></h1>
+      </div>
+      
+
+<p>画像や音声をS3にアップロードするとLambdaでいい感じに前処理をしてSQSに通知くれるような仕組みを想定して作ってみる。<br />
+名前は仮に「media-processor」とした。<br />
+(が、今回はファイル名やファイルタイプをSQSに送るダミー機能まで)</p>
+
+<p>Terraformを使ってできるだけ手オペなしでやってみた。</p>
+
+<h2 id="構成">構成</h2>
+
+<p>構成図描くとこんな感じ。<br />
+図は <a href="https://www.draw.io/">https://www.draw.io/</a> で描いた。</p>
+
+
+<figure>
+    
+        <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0001.png" />
+    
+    
+</figure>
+
+
+<p>ソースコードは <a href="https://github.com/mazgi/mazgi-sandbox-aws.provisioning/tree/v20180417.0">https://github.com/mazgi/mazgi-sandbox-aws.provisioning/tree/v20180417.0</a> にある。</p>
+
+<ul>
+<li><a href="https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/terraform.tf">terraform.tf</a>
+
+<ul>
+<li>今回使用するAWSアカウント全体のtfファイル</li>
+<li>Terraformの設定くらいしかしていない</li>
+</ul></li>
+<li><a href="https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor.tf">media-processor.tf</a>
+
+<ul>
+<li>今回メインのtfファイル</li>
+<li>S3, Lambda, SQSおよび必要なIAM Role等を作成する</li>
+</ul></li>
+<li><a href="https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor-lambda-preprocess-function/media-processor-lambda-preprocess-function.py">media-processor-lambda-preprocess-function/media-processor-lambda-preprocess-function.py</a>
+
+<ul>
+<li>Lambdaの中身</li>
+<li>AWSのサンプルをちょっといじっただけ</li>
+<li>ファイル名長すぎた</li>
+</ul></li>
+</ul>
+
+<p>その他の構成は「<a href="https://mazgi.github.io/posts/2018.02/s3+cloudfront-website-with-terraform-and-circleci/">S3+CloudFrontをTerraformで設定してCircleCIで更新する</a>」を踏襲している。</p>
+
+<p>Terraformをapplyすると以下ができる。</p>
+
+<p>
+<figure>
+    
+        <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0010.png" alt="S3 bucket" width="640" />
+    
+    
+    <figcaption>
+        <p>
+        S3 bucket
+        
+            
+        
+        </p> 
+    </figcaption>
+    
+</figure>
+
+
+<figure>
+    
+        <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0011.png" alt="Lambda function" width="640" />
+    
+    
+    <figcaption>
+        <p>
+        Lambda function
+        
+            
+        
+        </p> 
+    </figcaption>
+    
+</figure>
+
+
+<figure>
+    
+        <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0012.png" alt="SQS queue" width="640" />
+    
+    
+    <figcaption>
+        <p>
+        SQS queue
+        
+            
+        
+        </p> 
+    </figcaption>
+    
+</figure>
+</p>
+
+<h2 id="動作">動作</h2>
+
+<p>メディアファイルを用意する。</p>
+
+
+<figure>
+    
+        <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0020.png" />
+    
+    
+</figure>
+
+
+<p>S3 bucketにアップロードする。</p>
+
+
+<figure>
+    
+        <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0021.png" width="640" />
+    
+    
+</figure>
+
+
+<p>Lambda functionが動く。</p>
+
+
+<figure>
+    
+        <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0022.png" width="800" />
+    
+    
+</figure>
+
+
+<p>SQS queueに通知される。</p>
+
+
+<figure>
+    
+        <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0023.png" width="800" />
+    
+    
+</figure>
+
+
+<p>無事思った通りの動作になった。<br />
+なおS3バケットに入っているJPEG画像はこれ。かわいい。<br />
+「<a href="https://www.pakutaso.com/">ぱくたそ</a>」からお借りした。</p>
+
+
+<figure>
+    
+        <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0100.jpeg" />
+    
+    
+</figure>
+
+
+<h2 id="ポイント">ポイント</h2>
+
+<h3 id="s3-bucket">S3 bucket</h3>
+
+<p>S3 bucketに <code>aws_lambda_permission</code> でLambda実行を許可する必要がある。<br />
+<a href="https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor.tf#L10-L16">https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor.tf#L10-L16</a><br />
+その上で <code>aws_s3_bucket_notification</code> を設定してオブジェクト作成時に通知が飛ぶようにしている。<br />
+<a href="https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor.tf#L18-L28">https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor.tf#L18-L28</a></p>
+
+<h3 id="lambda-function">Lambda function</h3>
+
+<p>Lambda functionのソースコードをzipでgit管理したくなかったので <code>archive_file</code> でapply時にzipを作るようにしている。<br />
+<a href="https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor.tf#L33-L37">https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor.tf#L33-L37</a><br />
+zipファイルを参照しているのはこちら<br />
+<a href="https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor.tf#L40-L41">https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor.tf#L40-L41</a></p>
+
+<p>SQS queueのURLは環境変数としてexportしている。<br />
+<a href="https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor.tf#L49">https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor.tf#L49</a></p>
+
+
+<figure>
+    
+        <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0030.png" width="800" />
+    
+    
+</figure>
+
+
+<p>function内では普通に <code>os.environ['SQS_URL']</code> のように参照できる。<br />
+<a href="https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor-lambda-preprocess-function/media-processor-lambda-preprocess-function.py#L25">https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor-lambda-preprocess-function/media-processor-lambda-preprocess-function.py#L25</a></p>
+
+    </article>
+    
+    <hr/>
     
     
     <article>
@@ -1589,82 +1790,12 @@ OS用の第3パーティションは空き領域を全て割り当てるため�
 
     </article>
     
-    <hr/>
-    
-    
-    <article>
-      <div class="row">
-        <h1><a href="/posts/2016.07/racktables-for-home-network/">RackTablesで個人ネットワークを管理する</a></h1>
-      </div>
-      <p>個人で使っている<a href="http://cloud.sakura.ad.jp">さくらのクラウド</a>アカウントでサーバーやスイッチが増えてしまいどれが何やら分からなくなってきたので<a href="http://racktables.org/">RackTables</a>で管理しようと思い(立ってからだいぶ時間が)たちました。</p>
-
-
-<figure>
-    
-        <img src="/posts/2016.07/racktables-for-home-network/0001.png" />
-    
-    
-</figure>
-
-
-<p>ようやく重い腰を上げてRackTablesを運用し始めたのでメモしておきます。</p>
-
-<!-- more -->
-
-<p>RackTablesはWebでサーバーラックやIPアドレスを管理できるソフトウェアです。<br />
-<a href="http://www.moongift.jp/2010/11/2010110112/">MOONGIFT</a>の記事でその存在を知ってから運用しようと何度かセットアップしたのですが毎度あまり運用せずに放置してしまっていました。</p>
-
-<p>「今度こそちゃんと運用する！」と何度目かの決意とともにセットアップしてみます。</p>
-
-<p>セットアップ方法は長くなるので別途まとめようと思いますが、無事セットアップできると管理ユーザーでログインした後このような画面が表示されます。</p>
-
-
-<figure>
-    
-        <img src="/posts/2016.07/racktables-for-home-network/0002.png" />
-    
-    
-</figure>
-
-
-<p>試しに今回はRackTablesのサーバー自体が所属している <code>172.16.240.0/20</code> と個人サービス用のLAN側ネットワークである <code>172.16.224.0/20</code> の2つのセグメントを登録してみます。</p>
-
-<p>
-<figure>
-    
-        <img src="/posts/2016.07/racktables-for-home-network/0003.png" />
-    
-    
-</figure>
-
-
-<figure>
-    
-        <img src="/posts/2016.07/racktables-for-home-network/0004.png" />
-    
-    
-</figure>
-</p>
-
-<p>リンクを辿っていくとこのようにセグメント内のIPアドレスが一覧表示され、何に割り当てているか管理することができます。</p>
-
-
-<figure>
-    
-        <img src="/posts/2016.07/racktables-for-home-network/0005.png" />
-    
-    
-</figure>
-
-
-<p>これからこのRackTables上の情報を正としてDNSレコードやサーバーを整理していこうと思います。</p>
-
-    </article>
-    
     
   </div>
   <div class="col-lg-3">
     <ul>
+      
+      <li><a href="/posts/2018.04/processing-with-s3-lambda-sqs/">S3 &#43; Lambda &#43; SQSでファイル処理する仕組みをTerraformで構築する</a></li>
       
       <li><a href="/posts/2018.03/setup-amazon-sagemaker/">Amazon SageMakerをそれなりの人数で使うときの設定</a></li>
       

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    
+    
+    <title>mazgi.log :: S3 &#43; Lambda &#43; SQSでファイル処理する仕組みをTerraformで構築する</title>
+    <meta property="og:title"       content="mazgi.log :: S3 &#43; Lambda &#43; SQSでファイル処理する仕組みをTerraformで構築する" />
+    <meta property="og:type"        content="article" />
+    
+    <meta property="og:url"         content="https://mazgi.github.io/posts/2018.04/processing-with-s3-lambda-sqs/" />
+    <meta property="og:description" content="" />
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <meta name="twitter:card"       content="summary" />
+    
+    <meta name="twitter:site"       content="@mazgi" />
+    
+    
+  </head>
+  <body>
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <ul class="navbar-nav">
+        
+      </ul>
+    </header>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="https://mazgi.github.io/">mazgi.log</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_nav" aria-controls="navbar_nav" aria-expand="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar_nav">
+        
+        <ul class="navbar-nav mr-auto">
+          
+          
+          <li class="nav-item">
+            <span class="nav-link disabled">Updated At: 2018.04.17</span>
+          </li>
+          
+        </ul>
+        
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="https://twitter.com/share?url=https%3a%2f%2fmazgi.github.io%2fposts%2f2018.04%2fprocessing-with-s3-lambda-sqs%2f&text=S3%20%2b%20Lambda%20%2b%20SQS%e3%81%a7%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%87%a6%e7%90%86%e3%81%99%e3%82%8b%e4%bb%95%e7%b5%84%e3%81%bf%e3%82%92Terraform%e3%81%a7%e6%a7%8b%e7%af%89%e3%81%99%e3%82%8b" target="_blank">tw</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fmazgi.github.io%2fposts%2f2018.04%2fprocessing-with-s3-lambda-sqs%2f" target="_blank">fb</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.linkedin.com/shareArticle?url=https%3a%2f%2fmazgi.github.io%2fposts%2f2018.04%2fprocessing-with-s3-lambda-sqs%2f&title=S3%20%2b%20Lambda%20%2b%20SQS%e3%81%a7%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%87%a6%e7%90%86%e3%81%99%e3%82%8b%e4%bb%95%e7%b5%84%e3%81%bf%e3%82%92Terraform%e3%81%a7%e6%a7%8b%e7%af%89%e3%81%99%e3%82%8b" target="_blank">in</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://plusone.google.com/_/+1/confirm?url=https%3a%2f%2fmazgi.github.io%2fposts%2f2018.04%2fprocessing-with-s3-lambda-sqs%2f" target="_blank">g+</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://b.hatena.ne.jp/entry/https://mazgi.github.io/posts/2018.04/processing-with-s3-lambda-sqs/" target="_blank">b!</a>
+          </li>
+        </ul>
+        
+      </div>
+    </nav>
+    <main role="main" class="container-fluid col-lg-10 offset-lg-1">
+
+<div class="row">
+  <article class="col-lg-12">
+    <div class="row">
+      <h1>S3 &#43; Lambda &#43; SQSでファイル処理する仕組みをTerraformで構築する</h1>
+    </div>
+    
+
+<p>画像や音声をS3にアップロードするとLambdaでいい感じに前処理をしてSQSに通知くれるような仕組みを想定して作ってみる。<br />
+名前は仮に「media-processor」とした。<br />
+(が、今回はファイル名やファイルタイプをSQSに送るダミー機能まで)</p>
+
+<p>Terraformを使ってできるだけ手オペなしでやってみた。</p>
+
+<h2 id="構成">構成</h2>
+
+<p>構成図描くとこんな感じ。<br />
+図は <a href="https://www.draw.io/">https://www.draw.io/</a> で描いた。</p>
+
+
+<figure>
+    
+        <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0001.png" />
+    
+    
+</figure>
+
+
+<p>ソースコードは <a href="https://github.com/mazgi/mazgi-sandbox-aws.provisioning/tree/v20180417.0">https://github.com/mazgi/mazgi-sandbox-aws.provisioning/tree/v20180417.0</a> にある。</p>
+
+<ul>
+<li><a href="https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/terraform.tf">terraform.tf</a>
+
+<ul>
+<li>今回使用するAWSアカウント全体のtfファイル</li>
+<li>Terraformの設定くらいしかしていない</li>
+</ul></li>
+<li><a href="https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor.tf">media-processor.tf</a>
+
+<ul>
+<li>今回メインのtfファイル</li>
+<li>S3, Lambda, SQSおよび必要なIAM Role等を作成する</li>
+</ul></li>
+<li><a href="https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor-lambda-preprocess-function/media-processor-lambda-preprocess-function.py">media-processor-lambda-preprocess-function/media-processor-lambda-preprocess-function.py</a>
+
+<ul>
+<li>Lambdaの中身</li>
+<li>AWSのサンプルをちょっといじっただけ</li>
+<li>ファイル名長すぎた</li>
+</ul></li>
+</ul>
+
+<p>その他の構成は「<a href="https://mazgi.github.io/posts/2018.02/s3+cloudfront-website-with-terraform-and-circleci/">S3+CloudFrontをTerraformで設定してCircleCIで更新する</a>」を踏襲している。</p>
+
+<p>Terraformをapplyすると以下ができる。</p>
+
+<p>
+<figure>
+    
+        <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0010.png" alt="S3 bucket" width="640" />
+    
+    
+    <figcaption>
+        <p>
+        S3 bucket
+        
+            
+        
+        </p> 
+    </figcaption>
+    
+</figure>
+
+
+<figure>
+    
+        <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0011.png" alt="Lambda function" width="640" />
+    
+    
+    <figcaption>
+        <p>
+        Lambda function
+        
+            
+        
+        </p> 
+    </figcaption>
+    
+</figure>
+
+
+<figure>
+    
+        <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0012.png" alt="SQS queue" width="640" />
+    
+    
+    <figcaption>
+        <p>
+        SQS queue
+        
+            
+        
+        </p> 
+    </figcaption>
+    
+</figure>
+</p>
+
+<h2 id="動作">動作</h2>
+
+<p>メディアファイルを用意する。</p>
+
+
+<figure>
+    
+        <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0020.png" />
+    
+    
+</figure>
+
+
+<p>S3 bucketにアップロードする。</p>
+
+
+<figure>
+    
+        <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0021.png" width="640" />
+    
+    
+</figure>
+
+
+<p>Lambda functionが動く。</p>
+
+
+<figure>
+    
+        <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0022.png" width="800" />
+    
+    
+</figure>
+
+
+<p>SQS queueに通知される。</p>
+
+
+<figure>
+    
+        <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0023.png" width="800" />
+    
+    
+</figure>
+
+
+<p>無事思った通りの動作になった。<br />
+なおS3バケットに入っているJPEG画像はこれ。かわいい。<br />
+「<a href="https://www.pakutaso.com/">ぱくたそ</a>」からお借りした。</p>
+
+
+<figure>
+    
+        <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0100.jpeg" />
+    
+    
+</figure>
+
+
+<h2 id="ポイント">ポイント</h2>
+
+<h3 id="s3-bucket">S3 bucket</h3>
+
+<p>S3 bucketに <code>aws_lambda_permission</code> でLambda実行を許可する必要がある。<br />
+<a href="https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor.tf#L10-L16">https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor.tf#L10-L16</a><br />
+その上で <code>aws_s3_bucket_notification</code> を設定してオブジェクト作成時に通知が飛ぶようにしている。<br />
+<a href="https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor.tf#L18-L28">https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor.tf#L18-L28</a></p>
+
+<h3 id="lambda-function">Lambda function</h3>
+
+<p>Lambda functionのソースコードをzipでgit管理したくなかったので <code>archive_file</code> でapply時にzipを作るようにしている。<br />
+<a href="https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor.tf#L33-L37">https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor.tf#L33-L37</a><br />
+zipファイルを参照しているのはこちら<br />
+<a href="https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor.tf#L40-L41">https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor.tf#L40-L41</a></p>
+
+<p>SQS queueのURLは環境変数としてexportしている。<br />
+<a href="https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor.tf#L49">https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor.tf#L49</a></p>
+
+
+<figure>
+    
+        <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0030.png" width="800" />
+    
+    
+</figure>
+
+
+<p>function内では普通に <code>os.environ['SQS_URL']</code> のように参照できる。<br />
+<a href="https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor-lambda-preprocess-function/media-processor-lambda-preprocess-function.py#L25">https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor-lambda-preprocess-function/media-processor-lambda-preprocess-function.py#L25</a></p>
+
+  </article>
+</div>
+      <div class="row">
+        <footer class="col-lg-12">
+          <hr/>
+          <span>&copy; mazgi.log</span>
+          <span>&nbsp;&middot;&nbsp;</span>
+          <i class="fas fa-bolt"></i>
+          <span>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a></span>
+        </footer>
+      </div>
+    </div>
+    </main>
+    
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68170979-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-68170979-2');
+    </script>
+    
+      
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+  </body>
+</html>
+
