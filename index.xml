@@ -6,10 +6,25 @@
     <description>Recent content on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 17 Apr 2018 00:12:10 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 03 May 2018 06:39:45 +0900</lastBuildDate>
     
 	<atom:link href="https://mazgi.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>About</title>
+      <link>https://mazgi.github.io/about/</link>
+      <pubDate>Thu, 03 May 2018 06:39:45 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/about/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Hidenori MATSUKI&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;🍣 🍶&lt;/p&gt;
+
+&lt;p&gt;another website: &lt;a href=&#34;https://mazgi.com/&#34;&gt;mazgi.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>S3 &#43; Lambda &#43; SQSでファイル処理する仕組みをTerraformで構築する</title>
