@@ -4,57 +4,93 @@
   
   <url>
     <loc>https://mazgi.github.io/posts/2018.04/processing-with-s3-lambda-sqs/</loc>
-    <lastmod>2018-04-17T00:12:10+09:00</lastmod>
+    <lastmod>2018-05-03T12:08:33+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2018.03/setup-amazon-sagemaker/</loc>
-    <lastmod>2018-03-06T00:06:04+09:00</lastmod>
+    <lastmod>2018-05-03T12:08:33+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2018.03/s3fs-for-s3-with-sse-kms/</loc>
-    <lastmod>2018-03-01T04:32:56+09:00</lastmod>
+    <lastmod>2018-05-03T12:08:33+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/</loc>
-    <lastmod>2018-02-15T05:24:40+09:00</lastmod>
+    <lastmod>2018-05-03T12:08:33+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2017.12/technical-docs-with-hugo/</loc>
-    <lastmod>2017-12-08T07:00:00+09:00</lastmod>
+    <lastmod>2018-03-21T04:33:40+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2017.12/dockerimage-for-chainermn-on-v100/</loc>
-    <lastmod>2017-12-07T07:16:07+09:00</lastmod>
+    <lastmod>2018-04-10T20:20:17+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2017.02/deactivate-and-activate-adobecc/</loc>
-    <lastmod>2017-02-12T02:13:55+09:00</lastmod>
+    <lastmod>2018-04-10T20:40:03+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2016.09/held-hadoop-bootup-0/</loc>
-    <lastmod>2016-09-12T23:42:41+09:00</lastmod>
+    <lastmod>2018-04-10T21:04:41+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2016.08/went-to-23x/</loc>
-    <lastmod>2016-08-31T23:30:00+09:00</lastmod>
+    <lastmod>2018-04-10T21:27:34+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2016.07/interviewed-for-ansible/</loc>
-    <lastmod>2016-07-15T20:00:00+09:00</lastmod>
+    <lastmod>2018-04-10T22:02:45+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2016.07/racktables-for-home-network/</loc>
-    <lastmod>2016-07-15T07:00:00+09:00</lastmod>
+    <lastmod>2018-04-10T22:16:53+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/tags/amazon-cloudfront/</loc>
+    <lastmod>2018-05-03T12:08:33+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/tags/amazon-s3/</loc>
+    <lastmod>2018-05-03T12:08:33+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/tags/amazon-sagemaker/</loc>
+    <lastmod>2018-05-03T12:08:33+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/tags/amazon-sqs/</loc>
+    <lastmod>2018-05-03T12:08:33+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/tags/aws/</loc>
+    <lastmod>2018-05-03T12:08:33+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/tags/aws-lambda/</loc>
+    <lastmod>2018-05-03T12:08:33+09:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -73,13 +109,26 @@
   </url>
   
   <url>
+    <loc>https://mazgi.github.io/tags/circleci/</loc>
+    <lastmod>2018-05-03T12:08:33+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/categories/infrastructure-as-code/</loc>
+    <lastmod>2018-05-03T12:08:33+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://mazgi.github.io/posts/</loc>
-    <lastmod>2018-04-17T00:12:10+09:00</lastmod>
+    <lastmod>2018-05-03T12:08:33+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/</loc>
+    <lastmod>2018-05-03T12:08:33+09:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -94,8 +143,14 @@
   </url>
   
   <url>
+    <loc>https://mazgi.github.io/tags/terraform/</loc>
+    <lastmod>2018-05-03T12:08:33+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://mazgi.github.io/</loc>
-    <lastmod>2018-04-17T00:12:10+09:00</lastmod>
+    <lastmod>2018-05-03T12:08:33+09:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"

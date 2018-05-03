@@ -17,18 +17,7 @@
       <pubDate>Tue, 17 Apr 2018 00:12:10 +0900</pubDate>
       
       <guid>https://mazgi.github.io/posts/2018.04/processing-with-s3-lambda-sqs/</guid>
-      <description>画像や音声をS3にアップロードするとLambdaでいい感じに前処理をしてSQSに通知くれるような仕組みを想定して作ってみる。
-名前は仮に「media-processor」とした。
-(が、今回はファイル名やファイルタイプをSQSに送るダミー機能まで)
-Terraformを使ってできるだけ手オペなしでやってみた。
-構成 構成図描くとこんな感じ。
-図は https://www.draw.io/ で描いた。
-  ソースコードは https://github.com/mazgi/mazgi-sandbox-aws.provisioning/tree/v20180417.0 にある。
- terraform.tf  今回使用するAWSアカウント全体のtfファイル Terraformの設定くらいしかしていない  media-processor.tf  今回メインのtfファイル S3, Lambda, SQSおよび必要なIAM Role等を作成する  media-processor-lambda-preprocess-function/media-processor-lambda-preprocess-function.py  Lambdaの中身 AWSのサンプルをちょっといじっただけ ファイル名長すぎた   その他の構成は「S3+CloudFrontをTerraformで設定してCircleCIで更新する」を踏襲している。
-Terraformをapplyすると以下ができる。
-    S3 bucket      Lambda function      SQS queue   動作 メディアファイルを用意する。
-  S3 bucketにアップロードする。
-  Lambda functionが動く。</description>
+      <description>画像や音声をS3にアップロードするとLambdaでいい感じに前処理をしてSQSに通知くれるような仕組みを想定して作ってみる。 名前は仮に「me</description>
     </item>
     
     <item>
@@ -37,17 +26,7 @@ Terraformをapplyすると以下ができる。
       <pubDate>Tue, 06 Mar 2018 00:06:04 +0900</pubDate>
       
       <guid>https://mazgi.github.io/posts/2018.03/setup-amazon-sagemaker/</guid>
-      <description>AWSのマネージドJupyterサービスである「Amazon SageMaker」を数十名規模で使う機会があったのでインフラ的に設定した内容などを書いておく。
-SageMakerで何をしたかなどはいずれちゃんとした情報が出ると思う。 出ました！
-=&amp;gt; Amazon SageMaker ハンズオンレポート
-Amazon SageMakerとは? AWSのWebUIでぽちぽちクリックしていくとJupyterが起動する、そういうやつです。
-SageMakerのオフィシャルサイトはこちら。
-機械学習モデルとアルゴリズム | AWS での Amazon SageMaker
-Amazon SageMakerの起動方法 まずアクセスすべきはこちら。
-https://console.aws.amazon.com/sagemaker/home#/notebook-instances
-「Create notebook instance」ボタンをクリックするとこのような画面になるので項目を埋めていく。
-  ある程度の人数で使う場合には以下のような項目を取り決めておくと良さそう。
- Notebook instance name  文字通りNotebookインスタンスの名前になるほか、Jupyter NotebookのURLの一部としても使われる 誰が作ったかとか何の目的なのかとか命名ルールを決めておくと良さそう  Notebook instance type  いくつか選べる Notebookインスタンスは純粋にNotebookであって、このインスタンスでjobが動くわけではないのでそんなに強力なインスタンスでなくてもよい なお実際にjobを実行するインスタンスでは p2/p3 などのGPUインスタンスも選べる  IAM role(後述)  Notebookインスタンスに与えるRole、この権限でjobなどのインスタンスを作ろうとする Roleを作成するか既存のRoleから選択するかなどが選べる チームやグループで使うのであればあらかじめRoleを作っておいてARNを入力してもらう方が管理上よいと思う  Custom IAM role ARN  前述の「IAM role」で既存のRoleを選ぶことにすると表示される 私はあらかじめ作っておいたRoleを入力してもらうことにした  VPC  とりあえず使うだけなら No VPC でよい ここで指定したVPCにSageMakerがアクセスできるようになるらしい(未検証) &amp;ldquo;Notebook instances will have internet access independent of your VPC setting.</description>
+      <description>AWSのマネージドJupyterサービスである「Amazon SageMaker」を数十名規模で使う機会があったのでインフラ的に設定した内容な</description>
     </item>
     
     <item>
@@ -56,18 +35,7 @@ https://console.aws.amazon.com/sagemaker/home#/notebook-instances
       <pubDate>Thu, 01 Mar 2018 04:32:56 +0900</pubDate>
       
       <guid>https://mazgi.github.io/posts/2018.03/s3fs-for-s3-with-sse-kms/</guid>
-      <description>タイトルの通り「AWS Key Management Service (AWS KMS) 」を使って暗号化したAmazon S3バケットをs3fsでUbuntu 16上でmountした。
-KMSについては以下のドキュメントが詳しいが要は暗号化の際に煩雑な鍵の管理をAWSにお願いできる仕組み。
-AWS KMS で管理されたキーによるサーバー側の暗号化 (SSE-KMS) を使用したデータの保護 - Amazon Simple Storage Service
-S3バケットの準備 S3バケットを作り、画像のように Default encryption を AWS-KMS に設定する。
-なおこのS3バケットは記事公開時点で削除済み。
-  s3fsの設定 Install GitHubからアーカイブをダウンロードして
-$ ./autogen.sh $ ./configure $ make $ sudo make install する。
-Release Release verson 1.83 · s3fs-fuse/s3fs-fuse
-mount 以下のようにAWSのcredentialを .secret というファイルに ACCESS_KEY:SECRET_KEY というフォーマットで書く。
-またKMSの鍵IDを環境変数に設定した。
-$ cat .secret ****ACCESS_KEY****:****SECRET_KEY**** $ export AWSSSEKMSID=&amp;#39;********&amp;#39; そしてmountする。
-endpoint, uid, gid , umask あたりをきちんと設定しないと読み書きできない、ハマった。</description>
+      <description>タイトルの通り「AWS Key Management Service (AWS KMS) 」を使って暗号化したAmazon S3バケットをs3fsでUbuntu 16上でmountした。 KMSについては</description>
     </item>
     
     <item>
@@ -76,19 +44,7 @@ endpoint, uid, gid , umask あたりをきちんと設定しないと読み書�
       <pubDate>Thu, 15 Feb 2018 05:24:40 +0900</pubDate>
       
       <guid>https://mazgi.github.io/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/</guid>
-      <description>「TerraformでS3+CloudFront+SSL/TLS証明書 w/ ACMを設定してHugoで作ったstaticなWebサイトをCircleCIで自動deployする」やつができた。
-できたもの 普通のいかにもHugoで作ったWebサイトができた。
-もう2018年なので手オペなどせずInfrastructure as Codeで構築かつCIでコンテンツdeployです。
-中身はまだない。
-きっと酒とメシについての何かが書かれるのでしょう。
-   これはそもそも先日開催したハッカソンでやろうとして途中までしか進められなかったので、その補習も兼ねてます。
-なお次回ハッカソンはGoです！
-DeNA Techathon: 著者と学ぶ「Goならわかるシステムプログラミング」黙々会 - connpass
-構成 図を描く気力がなかったのでテキストで。
-インフラ構築編 Terraformで以下を行なっている。
- Route 53にドメインのゾーン情報を登録する コンテンツ更新用のIAMグループとIAMユーザーを払い出す コンテンツ格納用のS3バケットを作る ACMでSSL/TLS証明書を発行する CloudFront distributionを設定する(ACMの証明書使いたいので) CloudFront distributionをRoute 53に登録する  コンテンツ更新編 GitHubへのpushをトリガーにCircleCIで以下を行なっている。
- HugoでstaticなWebコンテンツ生成する 生成したWebコンテンツをS3に同期する CloudFrontのキャッシュをクリアする  GitHub GitHubで以下を管理している。
- sakemeshi.terraform  Terraformリポジトリ 中身はRoute 53にドメインのゾーンを登録してmoduleを呼び出しているくらい AWSのcredential等は sakemeshi.terraform-secret リポジトリに置いてsubmoduleとして参照している  terraform-aws-static-website  自分用Terraform module S3+CloudFrontでstaticなWebサイトを作るもろもろが詰まっている  (private) sakemeshi.terraform-secret  AWSのcredentialなどが入っている credential store導入とかはまた今度  (private) sakemeshi.</description>
+      <description>「TerraformでS3+CloudFront+SSL/TLS証明書 w/ ACMを設定してHugoで作ったstaticなWebサイトをCirc</description>
     </item>
     
     <item>
@@ -97,18 +53,7 @@ DeNA Techathon: 著者と学ぶ「Goならわかるシステムプログラミ�
       <pubDate>Fri, 08 Dec 2017 07:00:00 +0900</pubDate>
       
       <guid>https://mazgi.github.io/posts/2017.12/technical-docs-with-hugo/</guid>
-      <description>サンプルコードのドキュメントをHugoで書いてサンプルコードと一緒に配ったら便利そうだったのでやってみた。
-やりたいこと 仕事で他社さんにサンプルコードとドキュメントをセットでお渡ししたいのだけど社ではGitHub Enterpriseを使っているのでリポジトリを直接見ていただくことが難しいケースがある。
-規模が大きいプロジェクトならSphinx使うと(やる気次第で)いくらでも綺麗なドキュメントが書けそうではあるけど、規模がそれほどじゃないうちはサクッとMarkdownで書いて、でもソースコードとドキュメントが整合性取れててほしいという気持ちになる。
-(今はSphinxもMarkdownで書けるそうだ、最近知った)
-そもそも(私は)ドキュメント書きたくないので、できるだけスクリプトの提供やソースコードコメントで賄って文章量は最小限に抑えたいというモチベーションもあった。
-そこで以下のような作戦を考えた。
-さくせん  ドキュメントはHugoでプレビューしながらMarkdownで書く 生成したHTMLは /docs ディレクトリに突っ込む 社内向けにはGitHub PagesでmasterのHEADをホスティングする 社外向けには最新リリースのアーカイブを提供する  プレビューできるから書くの楽だし、tag打てるからソースコードとドキュメントの整合性も取りやすい。きっと便利！
-できたもの  リポジトリ: https://github.com/mazgi/example-document-with-hugo GitHub Pages: https://mazgi.github.io/example-document-with-hugo/index.html  テーマはこちらを使わせていただいた。
-サイドバーでエントリが一覧できて技術ドキュメントらしさがある。
-https://github.com/vjeantet/hugo-theme-docdock
-工夫 設定ファイルはこれ。
- 以下で生成したHTML内のリンクが / からの相対PATHになるふいんき(ちゃんと調べていない)  baseURL = &amp;quot;/&amp;quot; relativeURLs = true uglyurls = true  themeの指定  1234567891011 baseURL = &amp;#34;/&amp;#34; languageCode = &amp;#34;en-us&amp;#34; DefaultContentLanguage = &amp;#34;en&amp;#34; title = &amp;#34;Example Document with Hugo&amp;#34; publishDir = &amp;#34;../docs&amp;#34; relativeURLs = true uglyurls = true theme = &amp;#34;docdock&amp;#34; [params] themeVariant = &amp;#34;gray&amp;#34;   また、この設定ファイルとドキュメントのソースコード(Markdown他)を /docs.</description>
+      <description>サンプルコードのドキュメントをHugoで書いてサンプルコードと一緒に配ったら便利そうだったのでやってみた。 やりたいこと 仕事で他社さんにサンプ</description>
     </item>
     
     <item>
@@ -117,26 +62,7 @@ https://github.com/vjeantet/hugo-theme-docdock
       <pubDate>Thu, 07 Dec 2017 07:16:07 +0900</pubDate>
       
       <guid>https://mazgi.github.io/posts/2017.12/dockerimage-for-chainermn-on-v100/</guid>
-      <description>sonots先生によるこの記事をやってみたという話です。
-docker (nvidia-docker) を使ってマルチノードで ChainerMN を実行する方法(仮) - Qiita
-概要 Dockerfileはここにあります。
-mazgi/docker-cuda-cv: based on: https://gitlab.com/nvidia/cuda
-ベースはNVIDIAさんのオフィシャルイメージです。
-https://hub.docker.com/r/nvidia/cuda/
-実行結果 ChainerMNのexampleを試した結果はこちら。
-今のところシングルNodeシングルGPUとシングルNodeマルチGPUしか試してないです。
- 手順はこちらの通りなんですが時間が取れていない&amp;hellip;
-docker (nvidia-docker) を使ってマルチノードで ChainerMN を実行する方法(仮) - Qiita
-P3じゃなくても動くはずですが、ホスト側にGPUとnvidia-dockerは必要です。
-今回は社の環境で試したのでsonots便利先生環境の恩恵を受けてます🙏
-DeNA TechCon 2017 と Developers Summit 2017 でDeNAの機械学習基盤と分析基盤の講演をしました - sonots:blog
-イチから構築する場合はこういう記事が参考になりそう。
-p3インスタンス(V100)上でCUDA+CUDNN+Tensorflowを動かすのが大変だったのできろく。 - 焼肉が食べたい
-経緯とか めでたく記事も出たので色々言えるようになったのですが、実はありがたいことにP3の先行検証というのをさせていただいてました。
-(なおイベント当日はカメラマンしてました)
-Amazon EC2 P3インスタンスにおけるPose Estimation速度向上検証 - Technology of DeNA
-この検証時点ではChainerMNではなくChainerで、環境もVM上に直接作ってたのですが、その後部内から「Dockerイメージになってたほうが便利」とフィードバックいただき先行者の記事を参考に手探りしてる状況です。
-私はMLわからないマンなのですが、最初 cuDNN 7 + CuPy 1.0.3 で環境作ろうとしてバージョンが合わなくてどうしよ！と思ってたら「今日 cuDNN 7 対応の CuPy 2.0 リリースするよ！」と教えていただいたりとか、この業界本当に数時間単位で進歩しててすごい。</description>
+      <description>sonots先生によるこの記事をやってみたという話です。 docker (nvidia-docker) を使ってマルチノードで ChainerMN を実行する方法(仮) - Qiita 概要 Dockerfileはここに</description>
     </item>
     
     <item>
@@ -145,13 +71,7 @@ Amazon EC2 P3インスタンスにおけるPose Estimation速度向上検証 - T
       <pubDate>Sun, 12 Feb 2017 02:13:55 +0900</pubDate>
       
       <guid>https://mazgi.github.io/posts/2017.02/deactivate-and-activate-adobecc/</guid>
-      <description>Adobe CCが不要なPCの認証を解除して、使いたいPCで何かしらのアプリを起動すれば認証されて使えるようになる。
-PC買い替えなどのタイミングで必要になるが、そういうときは大体ライセンス認証解除の手順を忘れているのでメモ。
-手順 認証解除の手順を3行で。
-なお認証解除はWeb上での操作なので、使うPCはなんでもいい(はず)。
- https://accounts.adobe.com/plans を開く 「プランを管理」をクリック 「ライセンス認証したデバイス」から不要な方のデバイスを削除  ここまでできれば、あとはAdobe CCを使いたいPCでPhotoshopやIllustratorなどのアプリを起動すれば認証され使えるようになる。
-    ちゃんとAdobeのヘルプに書いてあるのだが、公式ドキュメントなので「ライセンス認証とは？」やスタンドアローン版の説明も併記されていて文量が多いので簡単にまとめてみた。
-アドビ製品のライセンス認証とライセンス認証解除</description>
+      <description>Adobe CCが不要なPCの認証を解除して、使いたいPCで何かしらのアプリを起動すれば認証されて使えるようになる。 PC買い替えなどのタイミングで必要</description>
     </item>
     
     <item>
@@ -160,30 +80,7 @@ PC買い替えなどのタイミングで必要になるが、そういうとき
       <pubDate>Mon, 12 Sep 2016 23:42:41 +0900</pubDate>
       
       <guid>https://mazgi.github.io/posts/2016.09/held-hadoop-bootup-0/</guid>
-      <description> @usaturnさんと一緒に「Hadoop黙々会」を始めました。 [](http://hadoop-bootup.connpass.com/event/39859/)
-私の思惑としては「エンジニアたる者、何歳になっても学び続けないとね。でも機会を作らないとなかなか集中して学べないので人を巻き込んでイベントにしてしまおう！」といったところです。 水曜に発案し金曜から募集を始めて土曜開催というスケジュールで「まずは1回やる」ことを重視したイベントだったので参加者は主催者2名のみでした。
-今回、第0回としてイベント自体もトライアルとして通しでやってみたいという気持ちもあったので、イベントページ・ハッシュタグ・Slackと、数名〜数十名規模になっても耐えうるインフラを用意して臨みました。
-※ただし会場は今後の課題として残ります。この記事を読んで「うちでやったら？」と言ってくださる方がいらっしゃったら感激します！
-せっかくなのでTogetterもまとめました。
-準備 今回は最初から「黙々会にしよう」という同意が取れていたこと、私も少しのイベント開催・運営経験がありましたし何よりも@usaturn大先生がPython mini Hack-a-thonのイベント運営のあれやこれやを伝授してくれたので特に混乱もなくスピード開催に漕ぎ付けることができました。
-当日 黙々会はとにかく油断するとダレるので、私としては次の3つを心がけました。
- 最初に自己紹介 最初にやること宣言 最後に成果発表  肝心のやることですが、私はさくらのナレッジの記事を参考に、「HDPハンズオンをやるとしたら」という仮定で手順やハマリどころを確認するというゴールを設定しました。
-今日は https://t.co/z3CrzIy6s6 を参考にハンズオンの準備する #hadoop_bootup
-&amp;mdash; Hidenori MATSUKI (@mazgi) September 10, 2016  作業時間内はSlackで自分宛てにログを残しながら文字どおり黙々と作業を進め、たまにSlackのチャネルや直接会話をしていました。
-黙々会だと運営側の人も作業に集中できるのが良いですね。
-終了30分前には自分で設定しておいたSlackのリマインダーから通知を受けまとめに入ります。
-  最後に各々まとめと達成状況をSlackのチャネルに書き込んで黙々会を終了しました。
-今回の達成状況はまずまずです。
-  「月に1〜2回やりましょう！」と話していますので、興味ある方はぜひお知らせください！
-黙々会なので「Hadoopのコミッタの方が講演してくれる」みたいなスペシャルなコンテンツもない代わりにどのレベルから何をやっても自由です。
-「Hadoopに興味あります」という方も、「仕事でHadoop使ってるんだけど、業務上やる機会のない部分をやりたい」という方も、FluentdやKafkaやEmbulkのようにHadoopと組み合わせて使われることの多いミドルウェアについて自習したり作業したい方も歓迎です。
-そして場所を募集しています！
-「うちでやれば」という方いらっしゃいましたらぜひ教えてください！
-学び Slackのリマインド機能便利。
-さくらのクラウドのVPCルーターとても便利。
-connpassのイベント画像はちゃんと考えないとこうなるので注意。
-油断するとハッシュタグをハイフンで区切るというミスを犯すのでそちらも注意。
-  </description>
+      <description>@usaturnさんと一緒に「Hadoop黙々会」を始めました。 [](http://hadoop-bootup.connpass.com/event/39859/) 私の思惑としては「エンジニアたる者、何歳になっても学び続けないとね。でも機</description>
     </item>
     
     <item>
@@ -192,25 +89,7 @@ connpassのイベント画像はちゃんと考えないとこうなるので注
       <pubDate>Wed, 31 Aug 2016 23:30:00 +0900</pubDate>
       
       <guid>https://mazgi.github.io/posts/2016.08/went-to-23x/</guid>
-      <description>追記 当日のツイートをTogetterにまとめさせていただきました！
-dots.さんで「NISSAN×DeNA　車は、モノ&amp;lt;プロダクト&amp;gt;なのか、コト&amp;lt;サービス&amp;gt;なのか。当事者たちから見える風景を語る。」というイベントが開催されたので「えっ？日産の方とDeNAの方がDeep Learningや機械学習について語るの！？」と分かりやすく興味喚起されて伺ってきました！
-【満席につき、さらに50名増席します！】NISSAN×DeNA　車は、モノ&amp;lt;プロダクト&amp;gt;なのか、コト&amp;lt;サービス&amp;gt;なのか。当事者たちから見える風景を語る。｜IT勉強会ならTECH PLAY［テックプレイ］
-ハッシュタグ#23xで当日のツイートが一覧できます。
-(言語を日本語にした方が見やすいかもしれません) 到着すると広くてオシャレなことで有名なdots.さんの会場に所狭しと椅子が並べられていました。
-  この写真は開演前ですが、開演後は後ろにある雛壇まで満席でした！
-  いわゆるIT系の勉強会よりもややビジネスマンっぽい方が多かった印象です。
-受付をしていただくと「ドーナツどうぞ」と。
-協賛のNuCodeさんが「コーヒー&amp;amp;ドーナツスポンサー」として差し入れて下さったそうです。
-  ※なお私は写真撮影時点で完食済みです。
-  「Atom in Bit out 。車がコトになる仕組み。」   プログラム1つ目は日産自動車 上田さんのお話です。
-自己紹介で個人として開発・運用されているサービスの紹介をしてくださって、私の中の「自動車会社の人」というイメージが良い意味でがらがらと崩れていきました。
-パネルディスカッションでも個人で登録されているiOSデベロッパープログラムの更新が〜と話しておられまして、もう少し(車の)ハードウェアや制御寄りのお話から始まるのかと勝手に思っていたのですが、先入観を完全に打ち砕かれお話にぐいぐいと引き込まれていきました。
-  かなり忙しいお立場だと思うのですが、個人でもサービスを作ったりアプリを公開されたりしているそうで、個人サービス絶賛放置中の私には耳が痛かったです。
-自己紹介の後は私を含め多くの参加者の方が期待していたであろう「自動運転」について話してくださったのですが、自動運転の実装方法や技術的なお話というよりも、コンセプトや体験についてのお話が主で、ここにきて「モノより思い出」というキーワードが腑に落ちました。
-この記事だけ読んでくださっている方には伝わりづらいかもしれませんが、お話の中でも心に残った部分を書き留めておきます。
- &amp;ldquo;hands-off&amp;rdquo; はすぐ来る &amp;ldquo;eyes-off&amp;rdquo; は実はしばらく来ない、&amp;rdquo;eyes-off&amp;rdquo; の前には &amp;ldquo;mind-off&amp;rdquo; が必要 &amp;ldquo;mind-off&amp;rdquo; は &amp;ldquo;mind-free&amp;rdquo; &amp;ldquo;Re-define car&amp;rdquo;  日産 上田さんのお話。(失礼ながら)思ってた以上にエンジニアリングのお話でめちゃくちゃ面白い！そしてプレゼン資料が素敵 #23x
-&amp;mdash; Hidenori MATSUKI (@mazgi) August 31, 2016  その他、後述しますがリーフの走行軌跡をビジュアライズした様子を紹介してくださったのですがとても幻想的でした。
-自動運転車にCAN(Car Area Network)接続のエスプレッソマシンを搭載したり、自動運転で不要になった従来のメーターの代わりにiPadを搭載したりととても興味深い事例の数々をご紹介いただきました。</description>
+      <description>追記 当日のツイートをTogetterにまとめさせていただきました！ dots.さんで「NISSAN×DeNA 車は、モノ&amp;lt;プロダクト&amp;gt</description>
     </item>
     
     <item>
@@ -219,26 +98,7 @@ dots.さんで「NISSAN×DeNA　車は、モノ&amp;lt;プロダクト&amp;gt;�
       <pubDate>Fri, 15 Jul 2016 20:00:00 +0900</pubDate>
       
       <guid>https://mazgi.github.io/posts/2016.07/interviewed-for-ansible/</guid>
-      <description>追記 さくらのクラウドについて取材していただいた記事も公開されました！
-合わせてご覧ください！！
-さくらのクラウドで「尖ったインフラ環境」を構築。カスタマイズに強い、その実力とは | SELECK
-本編 先日「SELECK(セレック)」様にAnsibleの活用事例をインタビューいただきました。
-数百台のサーバー構成を「Ansible」で管理。大規模DSPシステムを支える技術とは | SELECK
-素晴らしい記事にしていただいたのでせっかくなら何かネタになりそうな実例をご紹介したいと考えた結果(?)、バッドノウハウが詰まったパーティションの切り方をご紹介したいと思います！
-Googleグループでも話題になっていますが、本記事を書いている時点ではAnsibleにpartitionを切るモジュールはないようです。
-しかしながら物理サーバーや場合によってはクラウドサーバーでもパーティションを切りたいケースは当然あります。
-HDD/SSDにパーティションを切る さすがに会社のプライベートリポジトリからPlaybookを持ってくるわけにもいかないので、今回は近いものとして私の個人的なPlaybookをご紹介します。
-mazgi/ansible-gentooinstallbattle
-なお、実際のギョウムでは優秀な若者が改善したPlaybookが使われていることを申し添えておきます。
-gdisk や fdisk ではなく parted を使うとAnsibleでも比較的簡単にパーティションを切ることができます。
-いつ何時数十台のサーバーで同時にパーティションを切る必要が生じるとも限りませんので覚えておいて損はないと思います！！
- GPTパーティションテーブルを作る  - name: &amp;#34;Create partition table&amp;#34; command: &amp;#34;parted --script --align optimal /dev/vda -- mklabel gpt&amp;#34;  各パーティションを切る  ここでは、
-第1パーティションはGRUB2用にVFATで、
-第2パーティションはSWAP用に、
-第3パーティションはOS用に切ることにします。
-GRUB2用のパーティションはFAT32で4MiBもあれば十分です。フォーマットしなくても使える気がします。
-OS用の第3パーティションは空き領域を全て割り当てるため最後の引数に -1 を渡しています。
-- name: &amp;#34;Create BIOS boot partition&amp;#34; command: &amp;#34;parted --script --align optimal /dev/vda -- mkpart bios_boot fat32 1MiB 5MiB&amp;#34; - name: &amp;#34;Set BIOS boot partition&amp;#34; command: &amp;#34;parted --script --align optimal /dev/vda -- set 1 bios_grub on&amp;#34; - name: &amp;#34;Create filesystem for grub2&amp;#34; filesystem: fstype=vfat dev=/dev/vda1 - name: &amp;#34;Create swap partition&amp;#34; command: &amp;#34;parted --script --align optimal /dev/vda -- mkpart swap linux-swap 5MiB 4GiB&amp;#34; - name: &amp;#34;Create filesystem for swap&amp;#34; command: mkswap /dev/vda2 - name: &amp;#34;Create root partition&amp;#34; command: &amp;#34;parted --script --align optimal /dev/vda -- mkpart linux btrfs 4GiB -1&amp;#34; - name: &amp;#34;Create filesystem for /&amp;#34; filesystem: fstype=btrfs dev=/dev/vda3 対話式インタフェースがメインの gdisk や fdisk と違って parted ならAnsibleのcommandモジュールで扱いやすいですね！</description>
+      <description>追記 さくらのクラウドについて取材していただいた記事も公開されました！ 合わせてご覧ください！！ さくらのクラウドで「尖ったインフラ環境」を構築。</description>
     </item>
     
     <item>
@@ -247,15 +107,7 @@ OS用の第3パーティションは空き領域を全て割り当てるため�
       <pubDate>Fri, 15 Jul 2016 07:00:00 +0900</pubDate>
       
       <guid>https://mazgi.github.io/posts/2016.07/racktables-for-home-network/</guid>
-      <description>個人で使っているさくらのクラウドアカウントでサーバーやスイッチが増えてしまいどれが何やら分からなくなってきたのでRackTablesで管理しようと思い(立ってからだいぶ時間が)たちました。
-  ようやく重い腰を上げてRackTablesを運用し始めたのでメモしておきます。
-RackTablesはWebでサーバーラックやIPアドレスを管理できるソフトウェアです。
-MOONGIFTの記事でその存在を知ってから運用しようと何度かセットアップしたのですが毎度あまり運用せずに放置してしまっていました。
-「今度こそちゃんと運用する！」と何度目かの決意とともにセットアップしてみます。
-セットアップ方法は長くなるので別途まとめようと思いますが、無事セットアップできると管理ユーザーでログインした後このような画面が表示されます。
-  試しに今回はRackTablesのサーバー自体が所属している 172.16.240.0/20 と個人サービス用のLAN側ネットワークである 172.16.224.0/20 の2つのセグメントを登録してみます。
-     リンクを辿っていくとこのようにセグメント内のIPアドレスが一覧表示され、何に割り当てているか管理することができます。
-  これからこのRackTables上の情報を正としてDNSレコードやサーバーを整理していこうと思います。</description>
+      <description>個人で使っているさくらのクラウドアカウントでサーバーやスイッチが増えてしまいどれが何やら分からなくなってきたのでRackTablesで管理し</description>
     </item>
     
   </channel>

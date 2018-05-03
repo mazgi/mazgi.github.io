@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/common/site.css">
     
     
     <title>mazgi.log</title>
@@ -29,13 +30,29 @@
     
     <meta name="twitter:card"       content="summary" />
     
-    <meta name="twitter:site"       content="@mazgi" />
-    
     
   </head>
   <body>
     <header class="navbar navbar-expand-lg navbar-dark bg-dark">
+      
+      <span class="navbar-text mr-1">I am on</span>
+      
       <ul class="navbar-nav">
+        
+        <li class="nav-item">
+          <a class="nav-link" target="github_mazgi" href="https://github.com/mazgi">GitHub<i class="ml-1 fab fa-github"></i></a>
+        </li>
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" target="twitter_mazgi" href="https://twitter.com/@mazgi">Twitter<i class="ml-1 fab fa-twitter"></i></a>
+        </li>
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" target="instagram_mazgi" href="https://www.instagram.com/mazgi">Instagram<i class="ml-1 fab fa-instagram"></i></a>
+        </li>
+        
         
       </ul>
     </header>
@@ -65,23 +82,26 @@
           
         </ul>
         
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="https://twitter.com/share?url=https%3a%2f%2fmazgi.github.io%2f&text=mazgi.log" target="_blank">tw</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fmazgi.github.io%2f" target="_blank">fb</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://www.linkedin.com/shareArticle?url=https%3a%2f%2fmazgi.github.io%2f&title=mazgi.log" target="_blank">in</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://plusone.google.com/_/+1/confirm?url=https%3a%2f%2fmazgi.github.io%2f" target="_blank">g+</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://b.hatena.ne.jp/entry/https://mazgi.github.io/" target="_blank">b!</a>
-          </li>
-        </ul>
+        <div class="navbar-nav ml-auto">
+          <span class="navbar-text mr-1">share this page via</span>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="https://twitter.com/share?url=https%3a%2f%2fmazgi.github.io%2f&text=mazgi.log" target="_blank"><i class="fab fa-twitter"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fmazgi.github.io%2f" target="_blank"><i class="fab fa-facebook"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.linkedin.com/shareArticle?url=https%3a%2f%2fmazgi.github.io%2f&title=mazgi.log" target="_blank"><i class="fab fa-linkedin"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://plusone.google.com/_/+1/confirm?url=https%3a%2f%2fmazgi.github.io%2f" target="_blank"><i class="fab fa-google-plus"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://b.hatena.ne.jp/entry/https://mazgi.github.io/" target="_blank">b!</a>
+            </li>
+          </ul>
+        </div>
         
       </div>
     </nav>
@@ -91,103 +111,62 @@
   <div class="col-lg-9">
     
     
+    
     <article>
       <div class="row">
-        <h1><a href="/posts/2016.07/racktables-for-home-network/">RackTablesで個人ネットワークを管理する</a></h1>
+        <h3><a href="/posts/2016.07/racktables-for-home-network/">RackTablesで個人ネットワークを管理する</a></h3>
       </div>
-      <p>個人で使っている<a href="http://cloud.sakura.ad.jp">さくらのクラウド</a>アカウントでサーバーやスイッチが増えてしまいどれが何やら分からなくなってきたので<a href="http://racktables.org/">RackTables</a>で管理しようと思い(立ってからだいぶ時間が)たちました。</p>
-
-
-<figure>
-    
-        <img src="/posts/2016.07/racktables-for-home-network/0001.png" />
-    
-    
-</figure>
-
-
-<p>ようやく重い腰を上げてRackTablesを運用し始めたのでメモしておきます。</p>
-
-<!-- more -->
-
-<p>RackTablesはWebでサーバーラックやIPアドレスを管理できるソフトウェアです。<br />
-<a href="http://www.moongift.jp/2010/11/2010110112/">MOONGIFT</a>の記事でその存在を知ってから運用しようと何度かセットアップしたのですが毎度あまり運用せずに放置してしまっていました。</p>
-
-<p>「今度こそちゃんと運用する！」と何度目かの決意とともにセットアップしてみます。</p>
-
-<p>セットアップ方法は長くなるので別途まとめようと思いますが、無事セットアップできると管理ユーザーでログインした後このような画面が表示されます。</p>
-
-
-<figure>
-    
-        <img src="/posts/2016.07/racktables-for-home-network/0002.png" />
-    
-    
-</figure>
-
-
-<p>試しに今回はRackTablesのサーバー自体が所属している <code>172.16.240.0/20</code> と個人サービス用のLAN側ネットワークである <code>172.16.224.0/20</code> の2つのセグメントを登録してみます。</p>
-
-<p>
-<figure>
-    
-        <img src="/posts/2016.07/racktables-for-home-network/0003.png" />
-    
-    
-</figure>
-
-
-<figure>
-    
-        <img src="/posts/2016.07/racktables-for-home-network/0004.png" />
-    
-    
-</figure>
-</p>
-
-<p>リンクを辿っていくとこのようにセグメント内のIPアドレスが一覧表示され、何に割り当てているか管理することができます。</p>
-
-
-<figure>
-    
-        <img src="/posts/2016.07/racktables-for-home-network/0005.png" />
-    
-    
-</figure>
-
-
-<p>これからこのRackTables上の情報を正としてDNSレコードやサーバーを整理していこうと思います。</p>
-
+      
+      個人で使っているさくらのクラウドアカウントでサーバーやスイッチが増えてしまいどれが何やら分からなくなってきたのでRackTablesで管理し
     </article>
+    <hr/>
     
     
+    
+
+<nav aria-label="page navidation">
+  <ul class="pagination pagination-sm">
+    <li class="page-item">
+      <a class="page-link" href="/">&lt</a>
+    </li>
+    
+    <li class="page-item">
+      <a class="page-link" href="/">1</a>
+    </li>
+    
+    <li class="page-item active">
+      <a class="page-link" href="/page/2/">2<span class="sr-only"></span></a>
+    </li>
+    
+    <li class="page-item disabled">
+      <a class="page-link" href="/">&gt</a>
+    </li>
+  </ul>
+</nav>
+
+
   </div>
   <div class="col-lg-3">
+    <div class="sidebar">
+  
+  
+  <h4><a href="/categories/">Categories</a></h4>
+  
+  <div>
     <ul>
       
-      <li><a href="/posts/2018.04/processing-with-s3-lambda-sqs/">S3 &#43; Lambda &#43; SQSでファイル処理する仕組みをTerraformで構築する</a></li>
-      
-      <li><a href="/posts/2018.03/setup-amazon-sagemaker/">Amazon SageMakerをそれなりの人数で使うときの設定</a></li>
-      
-      <li><a href="/posts/2018.03/s3fs-for-s3-with-sse-kms/">SSE-KMSで暗号化したS3バケットをs3fsでmountする</a></li>
-      
-      <li><a href="/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/">S3&#43;CloudFrontをTerraformで設定してCircleCIで更新する</a></li>
-      
-      <li><a href="/posts/2017.12/technical-docs-with-hugo/">簡易な技術ドキュメントをHugoで書くと便利だった</a></li>
-      
-      <li><a href="/posts/2017.12/dockerimage-for-chainermn-on-v100/">EC2 P3で使えるChainerMN入りのDockerイメージを作った</a></li>
-      
-      <li><a href="/posts/2017.02/deactivate-and-activate-adobecc/">Adobe CCのライセンスを別のPCに移す方法(ライセンス認証解除→再認証)</a></li>
-      
-      <li><a href="/posts/2016.09/held-hadoop-bootup-0/">Hadoop黙々会を始めました</a></li>
-      
-      <li><a href="/posts/2016.08/went-to-23x/">NISSAN×DeNA @ dots. #23x に行ってきました</a></li>
-      
-      <li><a href="/posts/2016.07/interviewed-for-ansible/">【SELECK掲載記念】AnsibleでPartitionを切る！</a></li>
-      
-      <li><a href="/posts/2016.07/racktables-for-home-network/">RackTablesで個人ネットワークを管理する</a></li>
+      <li>
+        <a href="/categories/infrastructure-as-code">
+          Infrastructure as code
+          <span class="badge badge-pill badge-light">3</span>
+        </a>
+      </li>
       
     </ul>
+  </div>
+  
+</div>
+
   </div>
 </div>
       <div class="row">

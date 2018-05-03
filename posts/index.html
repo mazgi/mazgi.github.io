@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/common/site.css">
     
     
     <title>mazgi.log :: Posts</title>
@@ -28,13 +29,29 @@
     
     <meta name="twitter:card"       content="summary" />
     
-    <meta name="twitter:site"       content="@mazgi" />
-    
     
   </head>
   <body>
     <header class="navbar navbar-expand-lg navbar-dark bg-dark">
+      
+      <span class="navbar-text mr-1">I am on</span>
+      
       <ul class="navbar-nav">
+        
+        <li class="nav-item">
+          <a class="nav-link" target="github_mazgi" href="https://github.com/mazgi">GitHub<i class="ml-1 fab fa-github"></i></a>
+        </li>
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" target="twitter_mazgi" href="https://twitter.com/@mazgi">Twitter<i class="ml-1 fab fa-twitter"></i></a>
+        </li>
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" target="instagram_mazgi" href="https://www.instagram.com/mazgi">Instagram<i class="ml-1 fab fa-instagram"></i></a>
+        </li>
+        
         
       </ul>
     </header>
@@ -49,28 +66,31 @@
           
           
           <li class="nav-item">
-            <span class="nav-link disabled">Updated At: 2018.04.17</span>
+            <span class="nav-link disabled">Updated At: 2018.05.03</span>
           </li>
           
         </ul>
         
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="https://twitter.com/share?url=https%3a%2f%2fmazgi.github.io%2fposts%2f&text=Posts" target="_blank">tw</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fmazgi.github.io%2fposts%2f" target="_blank">fb</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://www.linkedin.com/shareArticle?url=https%3a%2f%2fmazgi.github.io%2fposts%2f&title=Posts" target="_blank">in</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://plusone.google.com/_/+1/confirm?url=https%3a%2f%2fmazgi.github.io%2fposts%2f" target="_blank">g+</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://b.hatena.ne.jp/entry/https://mazgi.github.io/posts/" target="_blank">b!</a>
-          </li>
-        </ul>
+        <div class="navbar-nav ml-auto">
+          <span class="navbar-text mr-1">share this page via</span>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="https://twitter.com/share?url=https%3a%2f%2fmazgi.github.io%2fposts%2f&text=Posts" target="_blank"><i class="fab fa-twitter"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fmazgi.github.io%2fposts%2f" target="_blank"><i class="fab fa-facebook"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.linkedin.com/shareArticle?url=https%3a%2f%2fmazgi.github.io%2fposts%2f&title=Posts" target="_blank"><i class="fab fa-linkedin"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://plusone.google.com/_/+1/confirm?url=https%3a%2f%2fmazgi.github.io%2fposts%2f" target="_blank"><i class="fab fa-google-plus"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://b.hatena.ne.jp/entry/https://mazgi.github.io/posts/" target="_blank">b!</a>
+            </li>
+          </ul>
+        </div>
         
       </div>
     </nav>
@@ -80,1745 +100,203 @@
   <div class="col-lg-9">
     
     
+    
     <article>
       <div class="row">
-        <h1><a href="/posts/2018.04/processing-with-s3-lambda-sqs/">S3 &#43; Lambda &#43; SQSでファイル処理する仕組みをTerraformで構築する</a></h1>
+        <h3><a href="/posts/2018.04/processing-with-s3-lambda-sqs/">S3 &#43; Lambda &#43; SQSでファイル処理する仕組みをTerraformで構築する</a></h3>
       </div>
       
-
-<p>画像や音声をS3にアップロードするとLambdaでいい感じに前処理をしてSQSに通知くれるような仕組みを想定して作ってみる。<br />
-名前は仮に「media-processor」とした。<br />
-(が、今回はファイル名やファイルタイプをSQSに送るダミー機能まで)</p>
-
-<p>Terraformを使ってできるだけ手オペなしでやってみた。</p>
-
-<h2 id="構成">構成</h2>
-
-<p>構成図描くとこんな感じ。<br />
-図は <a href="https://www.draw.io/">https://www.draw.io/</a> で描いた。</p>
-
-
-<figure>
-    
-        <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0001.png" />
-    
-    
-</figure>
-
-
-<p>ソースコードは <a href="https://github.com/mazgi/mazgi-sandbox-aws.provisioning/tree/v20180417.0">https://github.com/mazgi/mazgi-sandbox-aws.provisioning/tree/v20180417.0</a> にある。</p>
-
-<ul>
-<li><a href="https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/terraform.tf">terraform.tf</a>
-
-<ul>
-<li>今回使用するAWSアカウント全体のtfファイル</li>
-<li>Terraformの設定くらいしかしていない</li>
-</ul></li>
-<li><a href="https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor.tf">media-processor.tf</a>
-
-<ul>
-<li>今回メインのtfファイル</li>
-<li>S3, Lambda, SQSおよび必要なIAM Role等を作成する</li>
-</ul></li>
-<li><a href="https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor-lambda-preprocess-function/media-processor-lambda-preprocess-function.py">media-processor-lambda-preprocess-function/media-processor-lambda-preprocess-function.py</a>
-
-<ul>
-<li>Lambdaの中身</li>
-<li>AWSのサンプルをちょっといじっただけ</li>
-<li>ファイル名長すぎた</li>
-</ul></li>
-</ul>
-
-<p>その他の構成は「<a href="https://mazgi.github.io/posts/2018.02/s3+cloudfront-website-with-terraform-and-circleci/">S3+CloudFrontをTerraformで設定してCircleCIで更新する</a>」を踏襲している。</p>
-
-<p>Terraformをapplyすると以下ができる。</p>
-
-<p>
-<figure>
-    
-        <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0010.png" alt="S3 bucket" width="640" />
-    
-    
-    <figcaption>
-        <p>
-        S3 bucket
+      <div class="row">
         
-            
+        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/aws">aws</a>
         
-        </p> 
-    </figcaption>
-    
-</figure>
-
-
-<figure>
-    
-        <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0011.png" alt="Lambda function" width="640" />
-    
-    
-    <figcaption>
-        <p>
-        Lambda function
+        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/aws-lambda">aws lambda</a>
         
-            
+        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/amazon-s3">amazon s3</a>
         
-        </p> 
-    </figcaption>
-    
-</figure>
-
-
-<figure>
-    
-        <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0012.png" alt="SQS queue" width="640" />
-    
-    
-    <figcaption>
-        <p>
-        SQS queue
+        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/amazon-sqs">amazon sqs</a>
         
-            
+      </div>
+      
+      画像や音声をS3にアップロードするとLambdaでいい感じに前処理をしてSQSに通知くれるような仕組みを想定して作ってみる。 名前は仮に「me
+    </article>
+    <hr/>
+    
+    
+    
+    <article>
+      <div class="row">
+        <h3><a href="/posts/2018.03/setup-amazon-sagemaker/">Amazon SageMakerをそれなりの人数で使うときの設定</a></h3>
+      </div>
+      
+      <div class="row">
         
-        </p> 
-    </figcaption>
-    
-</figure>
-</p>
-
-<h2 id="動作">動作</h2>
-
-<p>メディアファイルを用意する。</p>
-
-
-<figure>
-    
-        <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0020.png" />
-    
-    
-</figure>
-
-
-<p>S3 bucketにアップロードする。</p>
-
-
-<figure>
-    
-        <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0021.png" width="640" />
-    
-    
-</figure>
-
-
-<p>Lambda functionが動く。</p>
-
-
-<figure>
-    
-        <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0022.png" width="800" />
-    
-    
-</figure>
-
-
-<p>SQS queueに通知される。</p>
-
-
-<figure>
-    
-        <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0023.png" width="800" />
-    
-    
-</figure>
-
-
-<p>無事思った通りの動作になった。<br />
-なおS3バケットにアップロードしたJPEG画像はこれ。優しい。  
-「<a href="https://www.pakutaso.com/">ぱくたそ</a>」からお借りした。</p>
-
-
-<figure>
-    
-        <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0100.jpeg" />
-    
-    
-</figure>
-
-
-<h2 id="ポイント">ポイント</h2>
-
-<h3 id="s3-bucket">S3 bucket</h3>
-
-<p>S3 bucketに <code>aws_lambda_permission</code> でLambda実行を許可する必要がある。<br />
-<a href="https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor.tf#L10-L16">https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor.tf#L10-L16</a><br />
-その上で <code>aws_s3_bucket_notification</code> を設定してオブジェクト作成時に通知が飛ぶようにしている。<br />
-<a href="https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor.tf#L18-L28">https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor.tf#L18-L28</a></p>
-
-<h3 id="lambda-function">Lambda function</h3>
-
-<p>Lambda functionのソースコードをzipでgit管理したくなかったので <code>archive_file</code> でapply時にzipを作るようにしている。<br />
-<a href="https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor.tf#L33-L37">https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor.tf#L33-L37</a><br />
-zipファイルを参照しているのはこちら<br />
-<a href="https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor.tf#L40-L41">https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor.tf#L40-L41</a></p>
-
-<p>SQS queueのURLは環境変数としてexportしている。<br />
-<a href="https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor.tf#L49">https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor.tf#L49</a></p>
-
-
-<figure>
-    
-        <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0030.png" width="800" />
-    
-    
-</figure>
-
-
-<p>function内では普通に <code>os.environ['SQS_URL']</code> のように参照できる。<br />
-<a href="https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor-lambda-preprocess-function/media-processor-lambda-preprocess-function.py#L25">https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor-lambda-preprocess-function/media-processor-lambda-preprocess-function.py#L25</a></p>
-
+        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/aws">aws</a>
+        
+        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/amazon-sagemaker">amazon sagemaker</a>
+        
+      </div>
+      
+      AWSのマネージドJupyterサービスである「Amazon SageMaker」を数十名規模で使う機会があったのでインフラ的に設定した内容な
     </article>
-    
     <hr/>
+    
     
     
     <article>
       <div class="row">
-        <h1><a href="/posts/2018.03/setup-amazon-sagemaker/">Amazon SageMakerをそれなりの人数で使うときの設定</a></h1>
+        <h3><a href="/posts/2018.03/s3fs-for-s3-with-sse-kms/">SSE-KMSで暗号化したS3バケットをs3fsでmountする</a></h3>
       </div>
       
-
-<p>AWSのマネージドJupyterサービスである「Amazon SageMaker」を数十名規模で使う機会があったのでインフラ的に設定した内容などを書いておく。<br />
-<del>SageMakerで何をしたかなどはいずれちゃんとした情報が出ると思う。</del> 出ました！<br />
-=&gt; <a href="https://engineer.dena.jp/2018/03/amazon-sagemaker.html">Amazon SageMaker ハンズオンレポート</a></p>
-
-<h1 id="amazon-sagemakerとは">Amazon SageMakerとは?</h1>
-
-<p>AWSのWebUIでぽちぽちクリックしていくとJupyterが起動する、そういうやつです。<br />
-SageMakerのオフィシャルサイトはこちら。<br />
-<a href="https://aws.amazon.com/jp/sagemaker/">機械学習モデルとアルゴリズム | AWS での Amazon SageMaker</a></p>
-
-<h1 id="amazon-sagemakerの起動方法">Amazon SageMakerの起動方法</h1>
-
-<p>まずアクセスすべきはこちら。<br />
-<a href="https://console.aws.amazon.com/sagemaker/home#/notebook-instances">https://console.aws.amazon.com/sagemaker/home#/notebook-instances</a></p>
-
-<p>「Create notebook instance」ボタンをクリックするとこのような画面になるので項目を埋めていく。<br />
-
-<figure>
-    
-        <img src="/posts/2018.03/setup-amazon-sagemaker/0001.png" />
-    
-    
-</figure>
-</p>
-
-<p>ある程度の人数で使う場合には以下のような項目を取り決めておくと良さそう。</p>
-
-<ul>
-<li>Notebook instance name
-
-<ul>
-<li>文字通りNotebookインスタンスの名前になるほか、Jupyter NotebookのURLの一部としても使われる</li>
-<li>誰が作ったかとか何の目的なのかとか命名ルールを決めておくと良さそう</li>
-</ul></li>
-<li>Notebook instance type
-
-<ul>
-<li>いくつか選べる</li>
-<li>Notebookインスタンスは純粋にNotebookであって、このインスタンスでjobが動くわけではないのでそんなに強力なインスタンスでなくてもよい</li>
-<li>なお実際にjobを実行するインスタンスでは p2/p3 などのGPUインスタンスも選べる</li>
-</ul></li>
-<li>IAM role(後述)
-
-<ul>
-<li>Notebookインスタンスに与えるRole、この権限でjobなどのインスタンスを作ろうとする</li>
-<li>Roleを作成するか既存のRoleから選択するかなどが選べる</li>
-<li>チームやグループで使うのであればあらかじめRoleを作っておいてARNを入力してもらう方が管理上よいと思う</li>
-</ul></li>
-<li>Custom IAM role ARN
-
-<ul>
-<li>前述の「IAM role」で既存のRoleを選ぶことにすると表示される</li>
-<li>私はあらかじめ作っておいたRoleを入力してもらうことにした</li>
-</ul></li>
-<li>VPC
-
-<ul>
-<li>とりあえず使うだけなら <code>No VPC</code> でよい</li>
-<li>ここで指定したVPCにSageMakerがアクセスできるようになるらしい(未検証)</li>
-<li>&ldquo;Notebook instances will have internet access independent of your VPC setting.&ldquo;とある通り、ここでVPCを指定したからといってSageMakerやNotebookを特定のVPCに閉じ込めることはできないので注意</li>
-</ul></li>
-</ul>
-
-<p>以上のような項目を埋めて、ページ下部の「Create notebook instance」ボタンをクリックするとNotebookインスタンスが準備されるので「InService」になるまで数分〜10数分程度待つ。<br />
-案外時間がかかるが裏側でプロビジョニングなどを行なっているのでしょう。</p>
-
-<p>「InService」になったNotebookインスタンスの詳細をみると右上に「Open」ボタンがあるのでクリックする。<br />
-
-<figure>
-    
-        <img src="/posts/2018.03/setup-amazon-sagemaker/0002.png" />
-    
-    
-</figure>
-</p>
-
-<p>そうすると別タブで見慣れたJupyter Notebookの画面が開くので好きなように使う。<br />
-
-<figure>
-    
-        <img src="/posts/2018.03/setup-amazon-sagemaker/0003.png" />
-    
-    
-</figure>
-</p>
-
-<p>こんなに楽だと自分でJupyter Notebook立てるモチベーションがなくなって良いですね。</p>
-
-<h1 id="iam-role-group作成">IAM Role/Group作成</h1>
-
-<p>以下を用意した</p>
-
-<ul>
-<li>IAM Role
-
-<ul>
-<li>前述の、Notebookインスタンスに与えるRole</li>
-<li>最小限 <code>AmazonSageMakerFullAccess</code> をアタッチしておけば良い</li>
-</ul></li>
-<li>IAM Group
-
-<ul>
-<li>今回は1つのAWSアカウントで数十名が同時にSageMakerを使うため、グループを作ってユーザーを紐づけることにした</li>
-<li>以下をアタッチした(もう少し絞り込めそうではある)</li>
-<li><code>AmazonSageMakerFullAccess</code></li>
-<li><code>AmazonEC2FullAccess</code></li>
-<li><code>IAMReadOnlyAccess</code></li>
-<li><code>IAMUserChangePassword</code> (これは運用上必要だっただけ)</li>
-</ul></li>
-<li>IAM User(s)
-
-<ul>
-<li>SageMakerを使う人全員分のユーザーを払い出し、前述のグループに紐付けた</li>
-<li>今回は初期パスワードを私の手元でコンソール出力し、各自初回ログイン時に変更してもらった</li>
-</ul></li>
-</ul>
-
-<p>以上の設定をTerraformで行う <code>.tf</code> ファイルの例は次の通り。<br />
-内容はほぼそのまま、個々のユーザー名は別途変数から読んでいる。</p>
-
-<script src="//gist.github.com/mazgi/aebcf7cac9ed5ca5f3f1d0f69557a820.js"></script>
-
-<h1 id="awsリソース上限緩和申請">AWSリソース上限緩和申請</h1>
-
-<p>AWS SAの方にご相談の上、SageMakerを利用する <code>IAM User数 * n</code> で事前にリソース上限の緩和申請を行なった。<br />
-デフォルト値はこちら。<br />
-<a href="https://docs.aws.amazon.com/ja_jp/general/latest/gr/aws_service_limits.html#limits_sagemaker">AWS サービス制限 - アマゾン ウェブ サービス#Amazon SageMaker の制限</a></p>
-
-<p>内容はざっと次の通り。<br />
-各ユーザーがNotebookインスタンスを1つ、学習と推論のjobを2つずつ実行することを想定した。</p>
-
-<ul>
-<li>SageMaker のホスト
-
-<ul>
-<li>インスタンス数: <code>IAM User数 * 3</code></li>
-<li>(使用するインスタンスタイプ): <code>IAM User数 * 3</code></li>
-<li>エンドポイントのインスタンス数: <code>IAM User数 * 3</code></li>
-<li><em>これは不要だったようだ</em></li>
-</ul></li>
-<li>SageMaker のトレーニング
-
-<ul>
-<li>インスタンス数: <code>IAM User数 * 3</code></li>
-<li>トレーニングジョブのインスタンス数: <code>IAM User数 * 3</code></li>
-<li>(使用するインスタンスタイプ): <code>IAM User数 * 3</code></li>
-</ul></li>
-<li>SageMaker ノートブック
-
-<ul>
-<li>(使用するインスタンスタイプ): <code>IAM User数 * 1.5</code></li>
-<li>実行中のノートブックインスタンスの数: <code>IAM User数 * 1.5</code></li>
-</ul></li>
-</ul>
-
-<p>一部CloudTrailの上限に引っかかり同時実行できなかったりもしたが、概ねこれでユーザー全員が目的の操作を行えた。<br />
-AWSのリソース上限はなかなか難しいのでAWS SAの方に相談するに限る🙏</p>
-
-<h1 id="感想">感想</h1>
-
-<p>プロビジョニングしてルールを決めておけば使いたい人にサクッと使ってもらえて大変便利。<br />
-各種セキュリティ担保の方法や込み入った使い方については今後使ってもらいながら工夫していきたい。</p>
-
+      <div class="row">
+        
+        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/aws">aws</a>
+        
+        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/amazon-s3">amazon s3</a>
+        
+      </div>
+      
+      タイトルの通り「AWS Key Management Service (AWS KMS) 」を使って暗号化したAmazon S3バケットをs3fsでUbuntu 16上でmountした。 KMSについては
     </article>
-    
     <hr/>
+    
     
     
     <article>
       <div class="row">
-        <h1><a href="/posts/2018.03/s3fs-for-s3-with-sse-kms/">SSE-KMSで暗号化したS3バケットをs3fsでmountする</a></h1>
+        <h3><a href="/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/">S3&#43;CloudFrontをTerraformで設定してCircleCIで更新する</a></h3>
       </div>
       
-
-<p>タイトルの通り「AWS Key Management Service (AWS KMS) 」を使って暗号化したAmazon S3バケットをs3fsでUbuntu 16上でmountした。<br />
-KMSについては以下のドキュメントが詳しいが要は暗号化の際に煩雑な鍵の管理をAWSにお願いできる仕組み。</p>
-
-<p><a href="https://docs.aws.amazon.com/ja_jp/AmazonS3/latest/dev/UsingKMSEncryption.html">AWS KMS で管理されたキーによるサーバー側の暗号化 (SSE-KMS) を使用したデータの保護 - Amazon Simple Storage Service</a></p>
-
-<h1 id="s3バケットの準備">S3バケットの準備</h1>
-
-<p>S3バケットを作り、画像のように <code>Default encryption</code> を <code>AWS-KMS</code> に設定する。<br />
-なおこのS3バケットは記事公開時点で削除済み。</p>
-
-
-<figure>
-    
-        <img src="/posts/2018.03/s3fs-for-s3-with-sse-kms/0001.png" />
-    
-    
-</figure>
-
-
-<h1 id="s3fsの設定">s3fsの設定</h1>
-
-<h2 id="install">Install</h2>
-
-<p>GitHubからアーカイブをダウンロードして</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./autogen.sh
-$ ./configure
-$ make
-$ sudo make install</code></pre></div>
-
-<p>する。</p>
-
-<p><a href="https://github.com/s3fs-fuse/s3fs-fuse/releases/tag/v1.83">Release Release verson 1.83 · s3fs-fuse/s3fs-fuse</a></p>
-
-<h2 id="mount">mount</h2>
-
-<p>以下のようにAWSのcredentialを <code>.secret</code> というファイルに <code>ACCESS_KEY:SECRET_KEY</code> というフォーマットで書く。<br />
-またKMSの鍵IDを環境変数に設定した。</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cat .secret
-****ACCESS_KEY****:****SECRET_KEY****
-$ export AWSSSEKMSID<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;********&#39;</span></code></pre></div>
-
-<p>そしてmountする。<br />
-<code>endpoint</code>, <code>uid</code>, <code>gid</code> , <code>umask</code> あたりをきちんと設定しないと読み書きできない、ハマった。<br />
-なお鍵IDは環境変数使わなくても <code>use_sse=kmsid:&quot;${AWSSSEKMSID}&quot;</code> でいける模様。</p>
-
-<p>また <code>-d</code> はdebug、 <code>-f</code> はフォアグラウンド実行。</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ s3fs mazgi-s3-sse-kms-test-01-bucket-01 bucket -o passwd_file<span style="color:#f92672">=</span>.secret,use_sse<span style="color:#f92672">=</span>kmsid,endpoint<span style="color:#f92672">=</span>ap-northeast-1,allow_other,uid<span style="color:#f92672">=</span><span style="color:#ae81ff">1234</span>,gid<span style="color:#f92672">=</span><span style="color:#ae81ff">1234</span>,umask<span style="color:#f92672">=</span><span style="color:#ae81ff">227</span> -d -f
-<span style="color:#f92672">[</span>CRT<span style="color:#f92672">]</span> s3fs.cpp:set_s3fs_log_level<span style="color:#f92672">(</span><span style="color:#ae81ff">271</span><span style="color:#f92672">)</span>: change debug level from <span style="color:#f92672">[</span>CRT<span style="color:#f92672">]</span> to <span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span> 
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>     s3fs.cpp:set_mountpoint_attribute<span style="color:#f92672">(</span><span style="color:#ae81ff">4206</span><span style="color:#f92672">)</span>: PROC<span style="color:#f92672">(</span>uid<span style="color:#f92672">=</span><span style="color:#ae81ff">4600</span>, gid<span style="color:#f92672">=</span><span style="color:#ae81ff">4600</span><span style="color:#f92672">)</span> - MountPoint<span style="color:#f92672">(</span>uid<span style="color:#f92672">=</span><span style="color:#ae81ff">4600</span>, gid<span style="color:#f92672">=</span><span style="color:#ae81ff">4600</span>, mode<span style="color:#f92672">=</span><span style="color:#ae81ff">40775</span><span style="color:#f92672">)</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span> s3fs.cpp:s3fs_init<span style="color:#f92672">(</span><span style="color:#ae81ff">3371</span><span style="color:#f92672">)</span>: init v1.83<span style="color:#f92672">(</span>commit:unknown<span style="color:#f92672">)</span> with OpenSSL
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span> s3fs.cpp:s3fs_check_service<span style="color:#f92672">(</span><span style="color:#ae81ff">3747</span><span style="color:#f92672">)</span>: check services.
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:CheckBucket<span style="color:#f92672">(</span><span style="color:#ae81ff">3068</span><span style="color:#f92672">)</span>: check a bucket.
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4253</span><span style="color:#f92672">)</span>: URL is https://s3.amazonaws.com/mazgi-s3-sse-kms-test-01-bucket-01/
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4285</span><span style="color:#f92672">)</span>: URL changed is https://mazgi-s3-sse-kms-test-01-bucket-01.s3.amazonaws.com/
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:insertV4Headers<span style="color:#f92672">(</span><span style="color:#ae81ff">2400</span><span style="color:#f92672">)</span>: computing signature <span style="color:#f92672">[</span>GET<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>/<span style="color:#f92672">]</span> <span style="color:#f92672">[]</span> <span style="color:#f92672">[]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:url_to_host<span style="color:#f92672">(</span><span style="color:#ae81ff">101</span><span style="color:#f92672">)</span>: url is https://s3.amazonaws.com
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:RequestPerform<span style="color:#f92672">(</span><span style="color:#ae81ff">2051</span><span style="color:#f92672">)</span>: HTTP response code <span style="color:#ae81ff">200</span></code></pre></div>
-
-<h2 id="ファイル操作">ファイル操作</h2>
-
-<p><code>ls</code> してみる。</p>
-
-<p>なおS3バケットに入っているJPEG画像はこれ。かわいい。<br />
-「<a href="https://www.pakutaso.com/">ぱくたそ</a>」からお借りした。</p>
-
-<p>
-<figure>
-    
-        <img src="/posts/2018.03/s3fs-for-s3-with-sse-kms/0002.jpeg" />
-    
-    
-</figure>
-</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ls -l bucket
-total <span style="color:#ae81ff">179</span>
--r-xr-x--- <span style="color:#ae81ff">1</span> user group <span style="color:#ae81ff">96870</span> Feb  <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">07</span>:10 cat.jpg*
--r-xr-x--- <span style="color:#ae81ff">1</span> user group <span style="color:#ae81ff">84999</span> Feb  <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">07</span>:13 cat_plain.jpg*</code></pre></div>
-
-<p>その時のコンソールログ。</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span> s3fs.cpp:s3fs_getattr<span style="color:#f92672">(</span><span style="color:#ae81ff">841</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span> s3fs.cpp:s3fs_opendir<span style="color:#f92672">(</span><span style="color:#ae81ff">2281</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/<span style="color:#f92672">][</span>flags<span style="color:#f92672">=</span><span style="color:#ae81ff">100352</span><span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span> s3fs.cpp:s3fs_readdir<span style="color:#f92672">(</span><span style="color:#ae81ff">2432</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>   s3fs.cpp:list_bucket<span style="color:#f92672">(</span><span style="color:#ae81ff">2477</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:ListBucketRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">3103</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=</span>/<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4253</span><span style="color:#f92672">)</span>: URL is https://s3.amazonaws.com/mazgi-s3-sse-kms-test-01-bucket-01?delimiter<span style="color:#f92672">=</span>/&amp;max-keys<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>&amp;prefix<span style="color:#f92672">=</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4285</span><span style="color:#f92672">)</span>: URL changed is https://mazgi-s3-sse-kms-test-01-bucket-01.s3.amazonaws.com?delimiter<span style="color:#f92672">=</span>/&amp;max-keys<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>&amp;prefix<span style="color:#f92672">=</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:insertV4Headers<span style="color:#f92672">(</span><span style="color:#ae81ff">2400</span><span style="color:#f92672">)</span>: computing signature <span style="color:#f92672">[</span>GET<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>/<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>delimiter<span style="color:#f92672">=</span>/&amp;max-keys<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>&amp;prefix<span style="color:#f92672">=]</span> <span style="color:#f92672">[]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:url_to_host<span style="color:#f92672">(</span><span style="color:#ae81ff">101</span><span style="color:#f92672">)</span>: url is https://s3.amazonaws.com
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:RequestPerform<span style="color:#f92672">(</span><span style="color:#ae81ff">2051</span><span style="color:#f92672">)</span>: HTTP response code <span style="color:#ae81ff">200</span>
-<span style="color:#f92672">[</span>WAN<span style="color:#f92672">]</span> s3fs.cpp:append_objects_from_xml_ex<span style="color:#f92672">(</span><span style="color:#ae81ff">2575</span><span style="color:#f92672">)</span>: contents_xp-&gt;nodesetval is empty.
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>   s3fs.cpp:readdir_multi_head<span style="color:#f92672">(</span><span style="color:#ae81ff">2346</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/<span style="color:#f92672">][</span>list<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:PreHeadRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">2657</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=</span>/cat.jpg<span style="color:#f92672">][</span>bpath<span style="color:#f92672">=</span>cat.jpg<span style="color:#f92672">][</span>save<span style="color:#f92672">=</span>/cat.jpg<span style="color:#f92672">][</span>sseckeypos<span style="color:#f92672">=</span>-1<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4253</span><span style="color:#f92672">)</span>: URL is https://s3.amazonaws.com/mazgi-s3-sse-kms-test-01-bucket-01/cat.jpg
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4285</span><span style="color:#f92672">)</span>: URL changed is https://mazgi-s3-sse-kms-test-01-bucket-01.s3.amazonaws.com/cat.jpg
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:insertV4Headers<span style="color:#f92672">(</span><span style="color:#ae81ff">2400</span><span style="color:#f92672">)</span>: computing signature <span style="color:#f92672">[</span>HEAD<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>/cat.jpg<span style="color:#f92672">]</span> <span style="color:#f92672">[]</span> <span style="color:#f92672">[]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:url_to_host<span style="color:#f92672">(</span><span style="color:#ae81ff">101</span><span style="color:#f92672">)</span>: url is https://s3.amazonaws.com
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:PreHeadRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">2657</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=</span>/cat_plain.jpg<span style="color:#f92672">][</span>bpath<span style="color:#f92672">=</span>cat_plain.jpg<span style="color:#f92672">][</span>save<span style="color:#f92672">=</span>/cat_plain.jpg<span style="color:#f92672">][</span>sseckeypos<span style="color:#f92672">=</span>-1<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4253</span><span style="color:#f92672">)</span>: URL is https://s3.amazonaws.com/mazgi-s3-sse-kms-test-01-bucket-01/cat_plain.jpg
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4285</span><span style="color:#f92672">)</span>: URL changed is https://mazgi-s3-sse-kms-test-01-bucket-01.s3.amazonaws.com/cat_plain.jpg
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:insertV4Headers<span style="color:#f92672">(</span><span style="color:#ae81ff">2400</span><span style="color:#f92672">)</span>: computing signature <span style="color:#f92672">[</span>HEAD<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>/cat_plain.jpg<span style="color:#f92672">]</span> <span style="color:#f92672">[]</span> <span style="color:#f92672">[]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:url_to_host<span style="color:#f92672">(</span><span style="color:#ae81ff">101</span><span style="color:#f92672">)</span>: url is https://s3.amazonaws.com
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:Request<span style="color:#f92672">(</span><span style="color:#ae81ff">3999</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>count<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span><span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:RequestPerform<span style="color:#f92672">(</span><span style="color:#ae81ff">2051</span><span style="color:#f92672">)</span>: HTTP response code <span style="color:#ae81ff">200</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:RequestPerform<span style="color:#f92672">(</span><span style="color:#ae81ff">2051</span><span style="color:#f92672">)</span>: HTTP response code <span style="color:#ae81ff">200</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       cache.cpp:AddStat<span style="color:#f92672">(</span><span style="color:#ae81ff">356</span><span style="color:#f92672">)</span>: add stat cache entry<span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/cat_plain.jpg<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       cache.cpp:AddStat<span style="color:#f92672">(</span><span style="color:#ae81ff">356</span><span style="color:#f92672">)</span>: add stat cache entry<span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/cat.jpg<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span> s3fs.cpp:s3fs_getattr<span style="color:#f92672">(</span><span style="color:#ae81ff">841</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/cat.jpg<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span> s3fs.cpp:s3fs_getattr<span style="color:#f92672">(</span><span style="color:#ae81ff">841</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/cat_plain.jpg<span style="color:#f92672">]</span></code></pre></div>
-
-<p>アップロード前のチェックサムがこれ。</p>
-
-<p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ shasum -a <span style="color:#ae81ff">1</span> cat.jpg
-fb9f3c47ad3d91ced2e62c82f0ae753330351b32  cat.jpg</code></pre></div></p>
-
-<p>mountしたS3バケットから読み取りテスト兼ねてチェックサムを取得してみる。<br />
-一致しているので正しく読み取れていることがわかる。</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sha1sum bucket/cat.jpg
-fb9f3c47ad3d91ced2e62c82f0ae753330351b32  bucket/cat.jpg</code></pre></div>
-
-<p>ファイル読み取り時のコンソールログ。</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span> s3fs.cpp:s3fs_getattr<span style="color:#f92672">(</span><span style="color:#ae81ff">841</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/cat.jpg<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span> s3fs.cpp:s3fs_open<span style="color:#f92672">(</span><span style="color:#ae81ff">2063</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/cat.jpg<span style="color:#f92672">][</span>flags<span style="color:#f92672">=</span><span style="color:#ae81ff">32768</span><span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       cache.cpp:DelStat<span style="color:#f92672">(</span><span style="color:#ae81ff">565</span><span style="color:#f92672">)</span>: delete stat cache entry<span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/cat.jpg<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:HeadRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">2708</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=</span>/cat.jpg<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:PreHeadRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">2657</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=</span>/cat.jpg<span style="color:#f92672">][</span>bpath<span style="color:#f92672">=][</span>save<span style="color:#f92672">=][</span>sseckeypos<span style="color:#f92672">=</span>-1<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4253</span><span style="color:#f92672">)</span>: URL is https://s3.amazonaws.com/mazgi-s3-sse-kms-test-01-bucket-01/cat.jpg
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4285</span><span style="color:#f92672">)</span>: URL changed is https://mazgi-s3-sse-kms-test-01-bucket-01.s3.amazonaws.com/cat.jpg
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:insertV4Headers<span style="color:#f92672">(</span><span style="color:#ae81ff">2400</span><span style="color:#f92672">)</span>: computing signature <span style="color:#f92672">[</span>HEAD<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>/cat.jpg<span style="color:#f92672">]</span> <span style="color:#f92672">[]</span> <span style="color:#f92672">[]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:url_to_host<span style="color:#f92672">(</span><span style="color:#ae81ff">101</span><span style="color:#f92672">)</span>: url is https://s3.amazonaws.com
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:RequestPerform<span style="color:#f92672">(</span><span style="color:#ae81ff">2051</span><span style="color:#f92672">)</span>: HTTP response code <span style="color:#ae81ff">200</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       cache.cpp:AddStat<span style="color:#f92672">(</span><span style="color:#ae81ff">356</span><span style="color:#f92672">)</span>: add stat cache entry<span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/cat.jpg<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       fdcache.cpp:SetMtime<span style="color:#f92672">(</span><span style="color:#ae81ff">1019</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/cat.jpg<span style="color:#f92672">][</span>fd<span style="color:#f92672">=</span><span style="color:#ae81ff">7</span><span style="color:#f92672">][</span>time<span style="color:#f92672">=</span><span style="color:#ae81ff">1517436613</span><span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:GetObjectRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">3043</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=</span>/cat.jpg<span style="color:#f92672">][</span>start<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span><span style="color:#f92672">][</span>size<span style="color:#f92672">=</span><span style="color:#ae81ff">96870</span><span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:PreGetObjectRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">2983</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=</span>/cat.jpg<span style="color:#f92672">][</span>start<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span><span style="color:#f92672">][</span>size<span style="color:#f92672">=</span><span style="color:#ae81ff">96870</span><span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4253</span><span style="color:#f92672">)</span>: URL is https://s3.amazonaws.com/mazgi-s3-sse-kms-test-01-bucket-01/cat.jpg
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4285</span><span style="color:#f92672">)</span>: URL changed is https://mazgi-s3-sse-kms-test-01-bucket-01.s3.amazonaws.com/cat.jpg
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:insertV4Headers<span style="color:#f92672">(</span><span style="color:#ae81ff">2400</span><span style="color:#f92672">)</span>: computing signature <span style="color:#f92672">[</span>GET<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>/cat.jpg<span style="color:#f92672">]</span> <span style="color:#f92672">[]</span> <span style="color:#f92672">[]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:url_to_host<span style="color:#f92672">(</span><span style="color:#ae81ff">101</span><span style="color:#f92672">)</span>: url is https://s3.amazonaws.com
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:GetObjectRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">3058</span><span style="color:#f92672">)</span>: downloading... <span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/cat.jpg<span style="color:#f92672">][</span>fd<span style="color:#f92672">=</span><span style="color:#ae81ff">7</span><span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:RequestPerform<span style="color:#f92672">(</span><span style="color:#ae81ff">2051</span><span style="color:#f92672">)</span>: HTTP response code <span style="color:#ae81ff">206</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span> s3fs.cpp:s3fs_getattr<span style="color:#f92672">(</span><span style="color:#ae81ff">841</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/cat.jpg<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span> s3fs.cpp:s3fs_flush<span style="color:#f92672">(</span><span style="color:#ae81ff">2185</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/cat.jpg<span style="color:#f92672">][</span>fd<span style="color:#f92672">=</span><span style="color:#ae81ff">7</span><span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       fdcache.cpp:RowFlush<span style="color:#f92672">(</span><span style="color:#ae81ff">1434</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=][</span>path<span style="color:#f92672">=</span>/cat.jpg<span style="color:#f92672">][</span>fd<span style="color:#f92672">=</span><span style="color:#ae81ff">7</span><span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span> s3fs.cpp:s3fs_release<span style="color:#f92672">(</span><span style="color:#ae81ff">2238</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/cat.jpg<span style="color:#f92672">][</span>fd<span style="color:#f92672">=</span><span style="color:#ae81ff">7</span><span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       fdcache.cpp:GetFdEntity<span style="color:#f92672">(</span><span style="color:#ae81ff">1995</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/cat.jpg<span style="color:#f92672">][</span>fd<span style="color:#f92672">=</span><span style="color:#ae81ff">7</span><span style="color:#f92672">]</span></code></pre></div>
-
-<p>今度はS3バケットにファイルを書き込んでみる。<br />
-適当にファイルを作りチェックサムを取得。</p>
-
-<p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ head -1 /dev/urandom|od -x &gt; rand.txt
-$ sha1sum rand.txt
-bb02ee0d5fc5b459ca1978fcc0e53649d144554c  rand.txt</code></pre></div></p>
-
-<p>マウントポイントにコピーする。<br />
-コピー後のチェックサムが一致しているので正しくコピーできたことがわかる。</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cp rand.txt bucket/
-$ sha1sum bucket/rand.txt
-bb02ee0d5fc5b459ca1978fcc0e53649d144554c  bucket/rand.txt</code></pre></div>
-
-<p>書き込み時のコンソールログ。</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span> s3fs.cpp:s3fs_getattr<span style="color:#f92672">(</span><span style="color:#ae81ff">841</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span> s3fs.cpp:s3fs_getattr<span style="color:#f92672">(</span><span style="color:#ae81ff">841</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:HeadRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">2708</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:PreHeadRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">2657</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">][</span>bpath<span style="color:#f92672">=][</span>save<span style="color:#f92672">=][</span>sseckeypos<span style="color:#f92672">=</span>-1<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4253</span><span style="color:#f92672">)</span>: URL is https://s3.amazonaws.com/mazgi-s3-sse-kms-test-01-bucket-01/rand.txt
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4285</span><span style="color:#f92672">)</span>: URL changed is https://mazgi-s3-sse-kms-test-01-bucket-01.s3.amazonaws.com/rand.txt
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:insertV4Headers<span style="color:#f92672">(</span><span style="color:#ae81ff">2400</span><span style="color:#f92672">)</span>: computing signature <span style="color:#f92672">[</span>HEAD<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>/rand.txt<span style="color:#f92672">]</span> <span style="color:#f92672">[]</span> <span style="color:#f92672">[]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:url_to_host<span style="color:#f92672">(</span><span style="color:#ae81ff">101</span><span style="color:#f92672">)</span>: url is https://s3.amazonaws.com
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:RequestPerform<span style="color:#f92672">(</span><span style="color:#ae81ff">2073</span><span style="color:#f92672">)</span>: HTTP response code <span style="color:#ae81ff">404</span> was returned, returning ENOENT
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:HeadRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">2708</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=</span>/rand.txt/<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:PreHeadRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">2657</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=</span>/rand.txt/<span style="color:#f92672">][</span>bpath<span style="color:#f92672">=][</span>save<span style="color:#f92672">=][</span>sseckeypos<span style="color:#f92672">=</span>-1<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4253</span><span style="color:#f92672">)</span>: URL is https://s3.amazonaws.com/mazgi-s3-sse-kms-test-01-bucket-01/rand.txt/
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4285</span><span style="color:#f92672">)</span>: URL changed is https://mazgi-s3-sse-kms-test-01-bucket-01.s3.amazonaws.com/rand.txt/
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:insertV4Headers<span style="color:#f92672">(</span><span style="color:#ae81ff">2400</span><span style="color:#f92672">)</span>: computing signature <span style="color:#f92672">[</span>HEAD<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>/rand.txt/<span style="color:#f92672">]</span> <span style="color:#f92672">[]</span> <span style="color:#f92672">[]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:url_to_host<span style="color:#f92672">(</span><span style="color:#ae81ff">101</span><span style="color:#f92672">)</span>: url is https://s3.amazonaws.com
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:RequestPerform<span style="color:#f92672">(</span><span style="color:#ae81ff">2073</span><span style="color:#f92672">)</span>: HTTP response code <span style="color:#ae81ff">404</span> was returned, returning ENOENT
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:HeadRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">2708</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=</span>/rand.txt_$folder$<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:PreHeadRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">2657</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=</span>/rand.txt_$folder$<span style="color:#f92672">][</span>bpath<span style="color:#f92672">=][</span>save<span style="color:#f92672">=][</span>sseckeypos<span style="color:#f92672">=</span>-1<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4253</span><span style="color:#f92672">)</span>: URL is https://s3.amazonaws.com/mazgi-s3-sse-kms-test-01-bucket-01/rand.txt_%24folder%24
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4285</span><span style="color:#f92672">)</span>: URL changed is https://mazgi-s3-sse-kms-test-01-bucket-01.s3.amazonaws.com/rand.txt_%24folder%24
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:insertV4Headers<span style="color:#f92672">(</span><span style="color:#ae81ff">2400</span><span style="color:#f92672">)</span>: computing signature <span style="color:#f92672">[</span>HEAD<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>/rand.txt_$folder$<span style="color:#f92672">]</span> <span style="color:#f92672">[]</span> <span style="color:#f92672">[]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:url_to_host<span style="color:#f92672">(</span><span style="color:#ae81ff">101</span><span style="color:#f92672">)</span>: url is https://s3.amazonaws.com
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:RequestPerform<span style="color:#f92672">(</span><span style="color:#ae81ff">2073</span><span style="color:#f92672">)</span>: HTTP response code <span style="color:#ae81ff">404</span> was returned, returning ENOENT
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>   s3fs.cpp:list_bucket<span style="color:#f92672">(</span><span style="color:#ae81ff">2477</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:ListBucketRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">3103</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4253</span><span style="color:#f92672">)</span>: URL is https://s3.amazonaws.com/mazgi-s3-sse-kms-test-01-bucket-01?delimiter<span style="color:#f92672">=</span>/&amp;max-keys<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>&amp;prefix<span style="color:#f92672">=</span>rand.txt/
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4285</span><span style="color:#f92672">)</span>: URL changed is https://mazgi-s3-sse-kms-test-01-bucket-01.s3.amazonaws.com?delimiter<span style="color:#f92672">=</span>/&amp;max-keys<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>&amp;prefix<span style="color:#f92672">=</span>rand.txt/
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:insertV4Headers<span style="color:#f92672">(</span><span style="color:#ae81ff">2400</span><span style="color:#f92672">)</span>: computing signature <span style="color:#f92672">[</span>GET<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>/<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>delimiter<span style="color:#f92672">=</span>/&amp;max-keys<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>&amp;prefix<span style="color:#f92672">=</span>rand.txt/<span style="color:#f92672">]</span> <span style="color:#f92672">[]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:url_to_host<span style="color:#f92672">(</span><span style="color:#ae81ff">101</span><span style="color:#f92672">)</span>: url is https://s3.amazonaws.com
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:RequestPerform<span style="color:#f92672">(</span><span style="color:#ae81ff">2051</span><span style="color:#f92672">)</span>: HTTP response code <span style="color:#ae81ff">200</span>
-<span style="color:#f92672">[</span>WAN<span style="color:#f92672">]</span> s3fs.cpp:append_objects_from_xml_ex<span style="color:#f92672">(</span><span style="color:#ae81ff">2575</span><span style="color:#f92672">)</span>: contents_xp-&gt;nodesetval is empty.
-<span style="color:#f92672">[</span>WAN<span style="color:#f92672">]</span> s3fs.cpp:append_objects_from_xml_ex<span style="color:#f92672">(</span><span style="color:#ae81ff">2575</span><span style="color:#f92672">)</span>: contents_xp-&gt;nodesetval is empty.
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span> s3fs.cpp:s3fs_getattr<span style="color:#f92672">(</span><span style="color:#ae81ff">841</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:HeadRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">2708</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:PreHeadRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">2657</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">][</span>bpath<span style="color:#f92672">=][</span>save<span style="color:#f92672">=][</span>sseckeypos<span style="color:#f92672">=</span>-1<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4253</span><span style="color:#f92672">)</span>: URL is https://s3.amazonaws.com/mazgi-s3-sse-kms-test-01-bucket-01/rand.txt
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4285</span><span style="color:#f92672">)</span>: URL changed is https://mazgi-s3-sse-kms-test-01-bucket-01.s3.amazonaws.com/rand.txt
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:insertV4Headers<span style="color:#f92672">(</span><span style="color:#ae81ff">2400</span><span style="color:#f92672">)</span>: computing signature <span style="color:#f92672">[</span>HEAD<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>/rand.txt<span style="color:#f92672">]</span> <span style="color:#f92672">[]</span> <span style="color:#f92672">[]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:url_to_host<span style="color:#f92672">(</span><span style="color:#ae81ff">101</span><span style="color:#f92672">)</span>: url is https://s3.amazonaws.com
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:RequestPerform<span style="color:#f92672">(</span><span style="color:#ae81ff">2073</span><span style="color:#f92672">)</span>: HTTP response code <span style="color:#ae81ff">404</span> was returned, returning ENOENT
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:HeadRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">2708</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=</span>/rand.txt/<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:PreHeadRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">2657</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=</span>/rand.txt/<span style="color:#f92672">][</span>bpath<span style="color:#f92672">=][</span>save<span style="color:#f92672">=][</span>sseckeypos<span style="color:#f92672">=</span>-1<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4253</span><span style="color:#f92672">)</span>: URL is https://s3.amazonaws.com/mazgi-s3-sse-kms-test-01-bucket-01/rand.txt/
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4285</span><span style="color:#f92672">)</span>: URL changed is https://mazgi-s3-sse-kms-test-01-bucket-01.s3.amazonaws.com/rand.txt/
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:insertV4Headers<span style="color:#f92672">(</span><span style="color:#ae81ff">2400</span><span style="color:#f92672">)</span>: computing signature <span style="color:#f92672">[</span>HEAD<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>/rand.txt/<span style="color:#f92672">]</span> <span style="color:#f92672">[]</span> <span style="color:#f92672">[]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:url_to_host<span style="color:#f92672">(</span><span style="color:#ae81ff">101</span><span style="color:#f92672">)</span>: url is https://s3.amazonaws.com
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:RequestPerform<span style="color:#f92672">(</span><span style="color:#ae81ff">2073</span><span style="color:#f92672">)</span>: HTTP response code <span style="color:#ae81ff">404</span> was returned, returning ENOENT
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:HeadRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">2708</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=</span>/rand.txt_$folder$<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:PreHeadRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">2657</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=</span>/rand.txt_$folder$<span style="color:#f92672">][</span>bpath<span style="color:#f92672">=][</span>save<span style="color:#f92672">=][</span>sseckeypos<span style="color:#f92672">=</span>-1<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4253</span><span style="color:#f92672">)</span>: URL is https://s3.amazonaws.com/mazgi-s3-sse-kms-test-01-bucket-01/rand.txt_%24folder%24
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4285</span><span style="color:#f92672">)</span>: URL changed is https://mazgi-s3-sse-kms-test-01-bucket-01.s3.amazonaws.com/rand.txt_%24folder%24
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:insertV4Headers<span style="color:#f92672">(</span><span style="color:#ae81ff">2400</span><span style="color:#f92672">)</span>: computing signature <span style="color:#f92672">[</span>HEAD<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>/rand.txt_$folder$<span style="color:#f92672">]</span> <span style="color:#f92672">[]</span> <span style="color:#f92672">[]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:url_to_host<span style="color:#f92672">(</span><span style="color:#ae81ff">101</span><span style="color:#f92672">)</span>: url is https://s3.amazonaws.com
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:RequestPerform<span style="color:#f92672">(</span><span style="color:#ae81ff">2073</span><span style="color:#f92672">)</span>: HTTP response code <span style="color:#ae81ff">404</span> was returned, returning ENOENT
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>   s3fs.cpp:list_bucket<span style="color:#f92672">(</span><span style="color:#ae81ff">2477</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:ListBucketRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">3103</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4253</span><span style="color:#f92672">)</span>: URL is https://s3.amazonaws.com/mazgi-s3-sse-kms-test-01-bucket-01?delimiter<span style="color:#f92672">=</span>/&amp;max-keys<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>&amp;prefix<span style="color:#f92672">=</span>rand.txt/
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4285</span><span style="color:#f92672">)</span>: URL changed is https://mazgi-s3-sse-kms-test-01-bucket-01.s3.amazonaws.com?delimiter<span style="color:#f92672">=</span>/&amp;max-keys<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>&amp;prefix<span style="color:#f92672">=</span>rand.txt/
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:insertV4Headers<span style="color:#f92672">(</span><span style="color:#ae81ff">2400</span><span style="color:#f92672">)</span>: computing signature <span style="color:#f92672">[</span>GET<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>/<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>delimiter<span style="color:#f92672">=</span>/&amp;max-keys<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>&amp;prefix<span style="color:#f92672">=</span>rand.txt/<span style="color:#f92672">]</span> <span style="color:#f92672">[]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:url_to_host<span style="color:#f92672">(</span><span style="color:#ae81ff">101</span><span style="color:#f92672">)</span>: url is https://s3.amazonaws.com
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:RequestPerform<span style="color:#f92672">(</span><span style="color:#ae81ff">2051</span><span style="color:#f92672">)</span>: HTTP response code <span style="color:#ae81ff">200</span>
-<span style="color:#f92672">[</span>WAN<span style="color:#f92672">]</span> s3fs.cpp:append_objects_from_xml_ex<span style="color:#f92672">(</span><span style="color:#ae81ff">2575</span><span style="color:#f92672">)</span>: contents_xp-&gt;nodesetval is empty.
-<span style="color:#f92672">[</span>WAN<span style="color:#f92672">]</span> s3fs.cpp:append_objects_from_xml_ex<span style="color:#f92672">(</span><span style="color:#ae81ff">2575</span><span style="color:#f92672">)</span>: contents_xp-&gt;nodesetval is empty.
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span> s3fs.cpp:s3fs_create<span style="color:#f92672">(</span><span style="color:#ae81ff">999</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">][</span>mode<span style="color:#f92672">=</span><span style="color:#ae81ff">100664</span><span style="color:#f92672">][</span>flags<span style="color:#f92672">=</span><span style="color:#ae81ff">32961</span><span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:HeadRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">2708</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:PreHeadRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">2657</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">][</span>bpath<span style="color:#f92672">=][</span>save<span style="color:#f92672">=][</span>sseckeypos<span style="color:#f92672">=</span>-1<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4253</span><span style="color:#f92672">)</span>: URL is https://s3.amazonaws.com/mazgi-s3-sse-kms-test-01-bucket-01/rand.txt
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4285</span><span style="color:#f92672">)</span>: URL changed is https://mazgi-s3-sse-kms-test-01-bucket-01.s3.amazonaws.com/rand.txt
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:insertV4Headers<span style="color:#f92672">(</span><span style="color:#ae81ff">2400</span><span style="color:#f92672">)</span>: computing signature <span style="color:#f92672">[</span>HEAD<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>/rand.txt<span style="color:#f92672">]</span> <span style="color:#f92672">[]</span> <span style="color:#f92672">[]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:url_to_host<span style="color:#f92672">(</span><span style="color:#ae81ff">101</span><span style="color:#f92672">)</span>: url is https://s3.amazonaws.com
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:RequestPerform<span style="color:#f92672">(</span><span style="color:#ae81ff">2073</span><span style="color:#f92672">)</span>: HTTP response code <span style="color:#ae81ff">404</span> was returned, returning ENOENT
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:HeadRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">2708</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=</span>/rand.txt/<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:PreHeadRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">2657</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=</span>/rand.txt/<span style="color:#f92672">][</span>bpath<span style="color:#f92672">=][</span>save<span style="color:#f92672">=][</span>sseckeypos<span style="color:#f92672">=</span>-1<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4253</span><span style="color:#f92672">)</span>: URL is https://s3.amazonaws.com/mazgi-s3-sse-kms-test-01-bucket-01/rand.txt/
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4285</span><span style="color:#f92672">)</span>: URL changed is https://mazgi-s3-sse-kms-test-01-bucket-01.s3.amazonaws.com/rand.txt/
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:insertV4Headers<span style="color:#f92672">(</span><span style="color:#ae81ff">2400</span><span style="color:#f92672">)</span>: computing signature <span style="color:#f92672">[</span>HEAD<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>/rand.txt/<span style="color:#f92672">]</span> <span style="color:#f92672">[]</span> <span style="color:#f92672">[]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:url_to_host<span style="color:#f92672">(</span><span style="color:#ae81ff">101</span><span style="color:#f92672">)</span>: url is https://s3.amazonaws.com
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:RequestPerform<span style="color:#f92672">(</span><span style="color:#ae81ff">2073</span><span style="color:#f92672">)</span>: HTTP response code <span style="color:#ae81ff">404</span> was returned, returning ENOENT
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:HeadRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">2708</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=</span>/rand.txt_$folder$<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:PreHeadRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">2657</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=</span>/rand.txt_$folder$<span style="color:#f92672">][</span>bpath<span style="color:#f92672">=][</span>save<span style="color:#f92672">=][</span>sseckeypos<span style="color:#f92672">=</span>-1<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4253</span><span style="color:#f92672">)</span>: URL is https://s3.amazonaws.com/mazgi-s3-sse-kms-test-01-bucket-01/rand.txt_%24folder%24
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4285</span><span style="color:#f92672">)</span>: URL changed is https://mazgi-s3-sse-kms-test-01-bucket-01.s3.amazonaws.com/rand.txt_%24folder%24
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:insertV4Headers<span style="color:#f92672">(</span><span style="color:#ae81ff">2400</span><span style="color:#f92672">)</span>: computing signature <span style="color:#f92672">[</span>HEAD<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>/rand.txt_$folder$<span style="color:#f92672">]</span> <span style="color:#f92672">[]</span> <span style="color:#f92672">[]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:url_to_host<span style="color:#f92672">(</span><span style="color:#ae81ff">101</span><span style="color:#f92672">)</span>: url is https://s3.amazonaws.com
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:RequestPerform<span style="color:#f92672">(</span><span style="color:#ae81ff">2073</span><span style="color:#f92672">)</span>: HTTP response code <span style="color:#ae81ff">404</span> was returned, returning ENOENT
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>   s3fs.cpp:list_bucket<span style="color:#f92672">(</span><span style="color:#ae81ff">2477</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:ListBucketRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">3103</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4253</span><span style="color:#f92672">)</span>: URL is https://s3.amazonaws.com/mazgi-s3-sse-kms-test-01-bucket-01?delimiter<span style="color:#f92672">=</span>/&amp;max-keys<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>&amp;prefix<span style="color:#f92672">=</span>rand.txt/
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4285</span><span style="color:#f92672">)</span>: URL changed is https://mazgi-s3-sse-kms-test-01-bucket-01.s3.amazonaws.com?delimiter<span style="color:#f92672">=</span>/&amp;max-keys<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>&amp;prefix<span style="color:#f92672">=</span>rand.txt/
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:insertV4Headers<span style="color:#f92672">(</span><span style="color:#ae81ff">2400</span><span style="color:#f92672">)</span>: computing signature <span style="color:#f92672">[</span>GET<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>/<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>delimiter<span style="color:#f92672">=</span>/&amp;max-keys<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>&amp;prefix<span style="color:#f92672">=</span>rand.txt/<span style="color:#f92672">]</span> <span style="color:#f92672">[]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:url_to_host<span style="color:#f92672">(</span><span style="color:#ae81ff">101</span><span style="color:#f92672">)</span>: url is https://s3.amazonaws.com
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:RequestPerform<span style="color:#f92672">(</span><span style="color:#ae81ff">2051</span><span style="color:#f92672">)</span>: HTTP response code <span style="color:#ae81ff">200</span>
-<span style="color:#f92672">[</span>WAN<span style="color:#f92672">]</span> s3fs.cpp:append_objects_from_xml_ex<span style="color:#f92672">(</span><span style="color:#ae81ff">2575</span><span style="color:#f92672">)</span>: contents_xp-&gt;nodesetval is empty.
-<span style="color:#f92672">[</span>WAN<span style="color:#f92672">]</span> s3fs.cpp:append_objects_from_xml_ex<span style="color:#f92672">(</span><span style="color:#ae81ff">2575</span><span style="color:#f92672">)</span>: contents_xp-&gt;nodesetval is empty.
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>     s3fs.cpp:create_file_object<span style="color:#f92672">(</span><span style="color:#ae81ff">960</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">][</span>mode<span style="color:#f92672">=</span><span style="color:#ae81ff">100664</span><span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:PutRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">2872</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:PutRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">2889</span><span style="color:#f92672">)</span>: create zero byte file object.
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4253</span><span style="color:#f92672">)</span>: URL is https://s3.amazonaws.com/mazgi-s3-sse-kms-test-01-bucket-01/rand.txt
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4285</span><span style="color:#f92672">)</span>: URL changed is https://mazgi-s3-sse-kms-test-01-bucket-01.s3.amazonaws.com/rand.txt
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:insertV4Headers<span style="color:#f92672">(</span><span style="color:#ae81ff">2400</span><span style="color:#f92672">)</span>: computing signature <span style="color:#f92672">[</span>PUT<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>/rand.txt<span style="color:#f92672">]</span> <span style="color:#f92672">[]</span> <span style="color:#f92672">[]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:url_to_host<span style="color:#f92672">(</span><span style="color:#ae81ff">101</span><span style="color:#f92672">)</span>: url is https://s3.amazonaws.com
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:PutRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">2969</span><span style="color:#f92672">)</span>: uploading... <span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">][</span>fd<span style="color:#f92672">=</span>-1<span style="color:#f92672">][</span>size<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:RequestPerform<span style="color:#f92672">(</span><span style="color:#ae81ff">2051</span><span style="color:#f92672">)</span>: HTTP response code <span style="color:#ae81ff">200</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       cache.cpp:DelStat<span style="color:#f92672">(</span><span style="color:#ae81ff">565</span><span style="color:#f92672">)</span>: delete stat cache entry<span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:HeadRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">2708</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:PreHeadRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">2657</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">][</span>bpath<span style="color:#f92672">=][</span>save<span style="color:#f92672">=][</span>sseckeypos<span style="color:#f92672">=</span>-1<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4253</span><span style="color:#f92672">)</span>: URL is https://s3.amazonaws.com/mazgi-s3-sse-kms-test-01-bucket-01/rand.txt
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4285</span><span style="color:#f92672">)</span>: URL changed is https://mazgi-s3-sse-kms-test-01-bucket-01.s3.amazonaws.com/rand.txt
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:insertV4Headers<span style="color:#f92672">(</span><span style="color:#ae81ff">2400</span><span style="color:#f92672">)</span>: computing signature <span style="color:#f92672">[</span>HEAD<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>/rand.txt<span style="color:#f92672">]</span> <span style="color:#f92672">[]</span> <span style="color:#f92672">[]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:url_to_host<span style="color:#f92672">(</span><span style="color:#ae81ff">101</span><span style="color:#f92672">)</span>: url is https://s3.amazonaws.com
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:RequestPerform<span style="color:#f92672">(</span><span style="color:#ae81ff">2051</span><span style="color:#f92672">)</span>: HTTP response code <span style="color:#ae81ff">200</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       cache.cpp:AddStat<span style="color:#f92672">(</span><span style="color:#ae81ff">356</span><span style="color:#f92672">)</span>: add stat cache entry<span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span> s3fs.cpp:s3fs_getattr<span style="color:#f92672">(</span><span style="color:#ae81ff">841</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span> s3fs.cpp:s3fs_flush<span style="color:#f92672">(</span><span style="color:#ae81ff">2185</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">][</span>fd<span style="color:#f92672">=</span><span style="color:#ae81ff">7</span><span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       fdcache.cpp:RowFlush<span style="color:#f92672">(</span><span style="color:#ae81ff">1434</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=][</span>path<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">][</span>fd<span style="color:#f92672">=</span><span style="color:#ae81ff">7</span><span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:PutRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">2872</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4253</span><span style="color:#f92672">)</span>: URL is https://s3.amazonaws.com/mazgi-s3-sse-kms-test-01-bucket-01/rand.txt
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4285</span><span style="color:#f92672">)</span>: URL changed is https://mazgi-s3-sse-kms-test-01-bucket-01.s3.amazonaws.com/rand.txt
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:insertV4Headers<span style="color:#f92672">(</span><span style="color:#ae81ff">2400</span><span style="color:#f92672">)</span>: computing signature <span style="color:#f92672">[</span>PUT<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>/rand.txt<span style="color:#f92672">]</span> <span style="color:#f92672">[]</span> <span style="color:#f92672">[</span>2a5b392dff6867a115948ff04fbec762a6f007cffebf40544c62308ec9eab099<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:url_to_host<span style="color:#f92672">(</span><span style="color:#ae81ff">101</span><span style="color:#f92672">)</span>: url is https://s3.amazonaws.com
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:PutRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">2969</span><span style="color:#f92672">)</span>: uploading... <span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">][</span>fd<span style="color:#f92672">=</span><span style="color:#ae81ff">7</span><span style="color:#f92672">][</span>size<span style="color:#f92672">=</span><span style="color:#ae81ff">996</span><span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:RequestPerform<span style="color:#f92672">(</span><span style="color:#ae81ff">2051</span><span style="color:#f92672">)</span>: HTTP response code <span style="color:#ae81ff">200</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span> s3fs.cpp:s3fs_release<span style="color:#f92672">(</span><span style="color:#ae81ff">2238</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">][</span>fd<span style="color:#f92672">=</span><span style="color:#ae81ff">7</span><span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       cache.cpp:DelStat<span style="color:#f92672">(</span><span style="color:#ae81ff">565</span><span style="color:#f92672">)</span>: delete stat cache entry<span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       fdcache.cpp:GetFdEntity<span style="color:#f92672">(</span><span style="color:#ae81ff">1995</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">][</span>fd<span style="color:#f92672">=</span><span style="color:#ae81ff">7</span><span style="color:#f92672">]</span></code></pre></div>
-
-<p>こちらはチェックサム取得時のコンソールログ。</p>
-
-<p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span> s3fs.cpp:s3fs_getattr<span style="color:#f92672">(</span><span style="color:#ae81ff">841</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:HeadRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">2708</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:PreHeadRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">2657</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">][</span>bpath<span style="color:#f92672">=][</span>save<span style="color:#f92672">=][</span>sseckeypos<span style="color:#f92672">=</span>-1<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4253</span><span style="color:#f92672">)</span>: URL is https://s3.amazonaws.com/mazgi-s3-sse-kms-test-01-bucket-01/rand.txt
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4285</span><span style="color:#f92672">)</span>: URL changed is https://mazgi-s3-sse-kms-test-01-bucket-01.s3.amazonaws.com/rand.txt
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:insertV4Headers<span style="color:#f92672">(</span><span style="color:#ae81ff">2400</span><span style="color:#f92672">)</span>: computing signature <span style="color:#f92672">[</span>HEAD<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>/rand.txt<span style="color:#f92672">]</span> <span style="color:#f92672">[]</span> <span style="color:#f92672">[]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:url_to_host<span style="color:#f92672">(</span><span style="color:#ae81ff">101</span><span style="color:#f92672">)</span>: url is https://s3.amazonaws.com
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:RequestPerform<span style="color:#f92672">(</span><span style="color:#ae81ff">2051</span><span style="color:#f92672">)</span>: HTTP response code <span style="color:#ae81ff">200</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       cache.cpp:AddStat<span style="color:#f92672">(</span><span style="color:#ae81ff">356</span><span style="color:#f92672">)</span>: add stat cache entry<span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span> s3fs.cpp:s3fs_open<span style="color:#f92672">(</span><span style="color:#ae81ff">2063</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">][</span>flags<span style="color:#f92672">=</span><span style="color:#ae81ff">32768</span><span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       cache.cpp:DelStat<span style="color:#f92672">(</span><span style="color:#ae81ff">565</span><span style="color:#f92672">)</span>: delete stat cache entry<span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:HeadRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">2708</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:PreHeadRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">2657</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">][</span>bpath<span style="color:#f92672">=][</span>save<span style="color:#f92672">=][</span>sseckeypos<span style="color:#f92672">=</span>-1<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4253</span><span style="color:#f92672">)</span>: URL is https://s3.amazonaws.com/mazgi-s3-sse-kms-test-01-bucket-01/rand.txt
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4285</span><span style="color:#f92672">)</span>: URL changed is https://mazgi-s3-sse-kms-test-01-bucket-01.s3.amazonaws.com/rand.txt
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:insertV4Headers<span style="color:#f92672">(</span><span style="color:#ae81ff">2400</span><span style="color:#f92672">)</span>: computing signature <span style="color:#f92672">[</span>HEAD<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>/rand.txt<span style="color:#f92672">]</span> <span style="color:#f92672">[]</span> <span style="color:#f92672">[]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:url_to_host<span style="color:#f92672">(</span><span style="color:#ae81ff">101</span><span style="color:#f92672">)</span>: url is https://s3.amazonaws.com
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:RequestPerform<span style="color:#f92672">(</span><span style="color:#ae81ff">2051</span><span style="color:#f92672">)</span>: HTTP response code <span style="color:#ae81ff">200</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       cache.cpp:AddStat<span style="color:#f92672">(</span><span style="color:#ae81ff">356</span><span style="color:#f92672">)</span>: add stat cache entry<span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       fdcache.cpp:SetMtime<span style="color:#f92672">(</span><span style="color:#ae81ff">1019</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">][</span>fd<span style="color:#f92672">=</span><span style="color:#ae81ff">7</span><span style="color:#f92672">][</span>time<span style="color:#f92672">=</span><span style="color:#ae81ff">1517862525</span><span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:GetObjectRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">3043</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">][</span>start<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span><span style="color:#f92672">][</span>size<span style="color:#f92672">=</span><span style="color:#ae81ff">996</span><span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:PreGetObjectRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">2983</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">][</span>start<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span><span style="color:#f92672">][</span>size<span style="color:#f92672">=</span><span style="color:#ae81ff">996</span><span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4253</span><span style="color:#f92672">)</span>: URL is https://s3.amazonaws.com/mazgi-s3-sse-kms-test-01-bucket-01/rand.txt
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:prepare_url<span style="color:#f92672">(</span><span style="color:#ae81ff">4285</span><span style="color:#f92672">)</span>: URL changed is https://mazgi-s3-sse-kms-test-01-bucket-01.s3.amazonaws.com/rand.txt
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:insertV4Headers<span style="color:#f92672">(</span><span style="color:#ae81ff">2400</span><span style="color:#f92672">)</span>: computing signature <span style="color:#f92672">[</span>GET<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>/rand.txt<span style="color:#f92672">]</span> <span style="color:#f92672">[]</span> <span style="color:#f92672">[]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:url_to_host<span style="color:#f92672">(</span><span style="color:#ae81ff">101</span><span style="color:#f92672">)</span>: url is https://s3.amazonaws.com
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:GetObjectRequest<span style="color:#f92672">(</span><span style="color:#ae81ff">3058</span><span style="color:#f92672">)</span>: downloading... <span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">][</span>fd<span style="color:#f92672">=</span><span style="color:#ae81ff">7</span><span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       curl.cpp:RequestPerform<span style="color:#f92672">(</span><span style="color:#ae81ff">2051</span><span style="color:#f92672">)</span>: HTTP response code <span style="color:#ae81ff">206</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span> s3fs.cpp:s3fs_getattr<span style="color:#f92672">(</span><span style="color:#ae81ff">841</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span> s3fs.cpp:s3fs_flush<span style="color:#f92672">(</span><span style="color:#ae81ff">2185</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">][</span>fd<span style="color:#f92672">=</span><span style="color:#ae81ff">7</span><span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       fdcache.cpp:RowFlush<span style="color:#f92672">(</span><span style="color:#ae81ff">1434</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>tpath<span style="color:#f92672">=][</span>path<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">][</span>fd<span style="color:#f92672">=</span><span style="color:#ae81ff">7</span><span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span> s3fs.cpp:s3fs_release<span style="color:#f92672">(</span><span style="color:#ae81ff">2238</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">][</span>fd<span style="color:#f92672">=</span><span style="color:#ae81ff">7</span><span style="color:#f92672">]</span>
-<span style="color:#f92672">[</span>INF<span style="color:#f92672">]</span>       fdcache.cpp:GetFdEntity<span style="color:#f92672">(</span><span style="color:#ae81ff">1995</span><span style="color:#f92672">)</span>: <span style="color:#f92672">[</span>path<span style="color:#f92672">=</span>/rand.txt<span style="color:#f92672">][</span>fd<span style="color:#f92672">=</span><span style="color:#ae81ff">7</span><span style="color:#f92672">]</span></code></pre></div></p>
-
-<p>以上、ちょっとハマったができてみるとあっさり暗号化したS3バケットが扱えた。</p>
-
-<p>で、「これをprovisioningするの時間がないなー」とか思ってたら斜め後ろのベテランエンジニアがサクッとitamaeのrecipeにしてくれた。感謝。</p>
-
+      <div class="row">
+        
+        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/aws">aws</a>
+        
+        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/amazon-s3">amazon s3</a>
+        
+        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/amazon-cloudfront">amazon cloudfront</a>
+        
+        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/terraform">terraform</a>
+        
+        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/circleci">circleci</a>
+        
+      </div>
+      
+      「TerraformでS3+CloudFront+SSL/TLS証明書 w/ ACMを設定してHugoで作ったstaticなWebサイトをCirc
     </article>
-    
     <hr/>
+    
     
     
     <article>
       <div class="row">
-        <h1><a href="/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/">S3&#43;CloudFrontをTerraformで設定してCircleCIで更新する</a></h1>
+        <h3><a href="/posts/2017.12/technical-docs-with-hugo/">簡易な技術ドキュメントをHugoで書くと便利だった</a></h3>
       </div>
       
-
-<p>「TerraformでS3+CloudFront+SSL/TLS証明書 w/ ACMを設定してHugoで作ったstaticなWebサイトをCircleCIで自動deployする」やつができた。</p>
-
-<h1 id="できたもの">できたもの</h1>
-
-<p>普通のいかにも<a href="https://gohugo.io/">Hugo</a>で作ったWebサイトができた。<br />
-もう2018年なので手オペなどせずInfrastructure as Codeで構築かつCIでコンテンツdeployです。<br />
-中身はまだない。<br />
-きっと酒とメシについての何かが書かれるのでしょう。</p>
-
-
-<figure>
-    <a href="https://sakemeshi.love/">
-        <img src="/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/0001.png" />
-    </a>
-    
-</figure>
-
-
-<p>これはそもそも<a href="https://denatechstudio.connpass.com/event/72710/">先日開催したハッカソン</a>でやろうとして途中までしか進められなかったので、その補習も兼ねてます。<br />
-なお次回ハッカソンはGoです！</p>
-
-<p><a href="https://denatechstudio.connpass.com/event/75706/">DeNA Techathon: 著者と学ぶ「Goならわかるシステムプログラミング」黙々会 - connpass</a></p>
-
-<h2 id="構成">構成</h2>
-
-<p>図を描く気力がなかったのでテキストで。</p>
-
-<h3 id="インフラ構築編">インフラ構築編</h3>
-
-<p><a href="https://www.terraform.io/">Terraform</a>で以下を行なっている。</p>
-
-<ol>
-<li>Route 53にドメインのゾーン情報を登録する</li>
-<li>コンテンツ更新用のIAMグループとIAMユーザーを払い出す</li>
-<li>コンテンツ格納用のS3バケットを作る</li>
-<li>ACMでSSL/TLS証明書を発行する</li>
-<li>CloudFront distributionを設定する(ACMの証明書使いたいので)</li>
-<li>CloudFront distributionをRoute 53に登録する</li>
-</ol>
-
-<h3 id="コンテンツ更新編">コンテンツ更新編</h3>
-
-<p>GitHubへのpushをトリガーに<a href="https://circleci.com/">CircleCI</a>で以下を行なっている。</p>
-
-<ol>
-<li>HugoでstaticなWebコンテンツ生成する</li>
-<li>生成したWebコンテンツをS3に同期する</li>
-<li>CloudFrontのキャッシュをクリアする</li>
-</ol>
-
-<h3 id="github">GitHub</h3>
-
-<p><a href="https://github.com/">GitHub</a>で以下を管理している。</p>
-
-<ul>
-<li><a href="https://github.com/mazgi/sakemeshi.terraform">sakemeshi.terraform</a>
-
-<ul>
-<li>Terraformリポジトリ</li>
-<li>中身はRoute 53にドメインのゾーンを登録してmoduleを呼び出しているくらい</li>
-<li>AWSのcredential等は <code>sakemeshi.terraform-secret</code> リポジトリに置いてsubmoduleとして参照している</li>
-</ul></li>
-<li><a href="https://github.com/mazgi/terraform-aws-static-website">terraform-aws-static-website</a>
-
-<ul>
-<li>自分用Terraform module</li>
-<li>S3+CloudFrontでstaticなWebサイトを作るもろもろが詰まっている</li>
-</ul></li>
-<li>(private) sakemeshi.terraform-secret
-
-<ul>
-<li>AWSのcredentialなどが入っている</li>
-<li>credential store導入とかはまた今度</li>
-</ul></li>
-<li>(private) sakemeshi.content
-
-<ul>
-<li>HugoによるWebサイトの中身</li>
-<li>このリポジトリのmasterにpushするとCircleCIが動いてS3にdeployされる</li>
-</ul></li>
-</ul>
-
-<h1 id="つくりかた">つくりかた</h1>
-
-<p>コンセプトとしてはWebUIを手でぽちぽちしたくないのでTerraformでInfra as Codeします！</p>
-
-<h2 id="aws-webコンソールぽちぽち">AWS Webコンソールぽちぽち</h2>
-
-<p>最初からコンセプトに反するようだが2018年時点では手でポチポチすることもまだ必要なのです。(あるいはCLI)<br />
-作るものは2つ。</p>
-
-<h3 id="terraform-実行用-iam-user">Terraform 実行用 IAM User</h3>
-
-<p><code>terraform-admin</code> という名前で <code>AdministratorAccess</code> をattacheしたIAMユーザーを作る。<br />
-credentialも払い出して、今回の場合は <code>sakemeshi.terraform-secret</code> リポジトリにpushしておく。</p>
-
-
-<figure>
-    
-        <img src="/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/0002.png" />
-    
-    
-</figure>
-
-
-<h3 id="tfstate-格納用-s3-bucket">tfstate 格納用 S3 Bucket</h3>
-
-<p>Terraformは設定したクラウド環境の状態を <code>tfstate</code> というファイルで管理するのでそれを格納するS3バケットを作る。</p>
-
-<p>バケット名は <code>${AWSアカウント名}-terraform</code> としてバージョニングを有効にする。<br />
-先ほど作ったIAMユーザー <code>terraform-admin</code> からアクセスできれば良い。</p>
-
-
-<figure>
-    
-        <img src="/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/0003.png" />
-    
-    
-</figure>
-
-
-<p>詳しくは以下参照。</p>
-
-<p><a href="https://www.terraform.io/docs/backends/types/s3.html">Backend Type: s3 - Terraform by HashiCorp</a></p>
-
-<h2 id="infra-as-terraform">Infra as Terraform</h2>
-
-<h3 id="インフラをコードで書く">インフラをコードで書く</h3>
-
-<p>Terraformで構築するもろもろは専用のGitHubリポジトリを作って <code>terraform.tf</code> に書く。<br />
-先述の通りここで公開している。</p>
-
-<p><a href="https://github.com/mazgi/sakemeshi.terraform">mazgi/sakemeshi.terraform</a></p>
-
-<p>主な内容は以下の通り。</p>
-
-<ul>
-<li><code>prepare.sh</code>
-
-<ul>
-<li>terraformバイナリのダウンロードと展開</li>
-<li>必要な環境変数のexport</li>
-<li>なお命名は職場の文化に由来する</li>
-</ul></li>
-<li><code>terraform.tf</code>
-
-<ul>
-<li>Terraformで行いたいもろもろ</li>
-<li>ただしほとんどはmoduleに追い出しているので、実際の内容はRoute 53のゾーン設定とmoduleの読み出し程度</li>
-</ul></li>
-<li><code>terraform.tfvars</code>
-
-<ul>
-<li>後述のprivateなcredentialリポジトリ内へのsymlink</li>
-<li>AWSのACCESS_KEYやSECRET_KEYなどが書かれている</li>
-</ul></li>
-</ul>
-
-<p><code>terraform.tf</code> で参照しているmoduleは公開しているが後述のエラーやリージョンが固定などの残課題がある。</p>
-
-<p><a href="https://registry.terraform.io/modules/mazgi/static-website/aws/0.0.2">Terraform Module Registry | mazgi/static-website/aws</a></p>
-
-<p>先述の通りTerraformを実行するIAMユーザーのcredential等は別のprivateリポジトリを作って配置している。<br />
-公開できないが中身はこの程度。</p>
-
-
-<figure>
-    
-        <img src="/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/0004.png" />
-    
-    
-</figure>
-
-
-<h3 id="terraform-実行">Terraform 実行</h3>
-
-<p>ようやくTerraformを実行できる環境が整ったので実行！<br />
-なお <code>prepare.sh</code> は環境変数をexportするので必ず <code>source</code> する。</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ source prepare.sh
-$ bin/terraform apply</code></pre></div>
-
-<p>実行すると初回はもろもろのリソースが作られ、1件のエラーが発生する。<br />
-2回目以降はこのように1件のエラーが発生する。。<br />
-後述する。</p>
-
-
-<figure>
-    
-        <img src="/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/0005.png" />
-    
-    
-</figure>
-
-
-<p>細かいことを書くと今回のドメイン自体はRoute 53で管理していないため、別途ネームサーバーをRoute 53に向けておく等の手順が必要です。</p>
-
-<h2 id="circleciで自動build-deploy">CircleCIで自動build &amp;&amp; deploy</h2>
-
-<p>Terraformで空のWebサイトができたので中身を作っていく。</p>
-
-<p>GitHubリポジトリを用意しておもむろに <code>hugo new site .</code> する。<br />
-適当なテーマをsubmoduleとして追加する。<br />
-<a href="https://gohugo.io/getting-started/quick-start/">Quick Start</a>通り。</p>
-
-<p>Hugoは今後がんばることにして今回はCircleCI 2.0をがんばる。<br />
-結論を書くと<a href="https://gist.github.com/mazgi/6c0dd922f89eee80fe5da6317d7e7aed">こういう <code>.circleci/config.yml</code> </a>を書いた。<br />
-ハマった。</p>
-
-<p>そのほかは本当に <code>hugo new site .</code> したまま。</p>
-
-
-<figure>
-    
-        <img src="/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/0006.png" />
-    
-    
-</figure>
-
-
-<p>何はともあれこれでCircleCIでのWebサイトのビルドとS3への同期が行えるようになった！めでたい！</p>
-
-
-<figure>
-    
-        <img src="/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/0007.png" />
-    
-    
-</figure>
-
-
-<h1 id="おわりに">おわりに</h1>
-
-<p>ということで(ほぼ)手でぽちぽちせずにInfrastructure as CodeでstaticなWebサイトが作れたし更新の仕組みもできた！やったね！</p>
-
-<h2 id="ポイント">ポイント</h2>
-
-<p>以下あまり書けてないので機会があったら書く。</p>
-
-<h3 id="terraform">Terraform</h3>
-
-<ul>
-<li>最近のTerraformは <code>terraform init</code> が必要
-
-<ul>
-<li>その作業ディレクトリでの初回実行やmoduleのバージョン上げた際など</li>
-</ul></li>
-<li>最近のTerraformは <code>terraform apply</code> したあと本当に実行するか聞いてくる
-
-<ul>
-<li>そのため <code>terraform apply[ENTER]</code> してコーヒーを買いにいくと何十分後に戻っても <code>Do you want to perform these actions?</code> というメッセージが出迎えてくれる(もちろんあなたのクラウド環境には何も変化はない)</li>
-<li><code>terraform apply -auto-approve</code> というわるいオプションがある</li>
-</ul></li>
-<li>tfstate格納用S3バケット(S3 backend)を使うためには環境変数or <code>~/.aws</code> 内にcredentialが必要
-
-<ul>
-<li>私は <code>prepare.sh</code> の中でexportしている(ので必ず <code>source</code> する)</li>
-</ul></li>
-<li>ACMの検証が従来のメールだけではなくDNSでもできるようになっていてTerraformでも対応していた
-
-<ul>
-<li><a href="https://github.com/terraform-providers/terraform-provider-aws/pull/2813">New Resources: aws_acm_certificate and aws_acm_certificate_validation by flosell · Pull Request #2813 · terraform-providers/terraform-provider-aws</a></li>
-<li>これのおかげで <code>terraform apply</code> だけで証明書発行してIssuedになるところまで実現できた</li>
-<li>ただし<a href="https://github.com/mazgi/terraform-aws-static-website/blob/v0.0.2/main.tf#L9"> <code>AWS provider 1.9</code> 以上が必要</a></li>
-</ul></li>
-</ul>
-
-<h3 id="circleci-2-0">CircleCI 2.0</h3>
-
-<ul>
-<li>Docker便利だけども
-
-<ul>
-<li>使うDockerイメージにもよるが当然 <code>curl</code> も <code>git</code> も入ってなかったりする</li>
-<li>自分用Dockerイメージ作りたくなる</li>
-<li>開発環境がDocker Hubに公開できるDockerイメージで完結している場合は便利そう</li>
-</ul></li>
-<li><code>checkout</code> に <code>git clone --recursive</code> 相当の機能がない(?)
-
-<ul>
-<li>そのため<a href="https://github.com/mazgi/sakemeshi.content/blob/master/.circleci/config.yml#L20-L21"><code>checkout</code> の次の行で <code>git submodule update</code> を書いた</a></li>
-</ul></li>
-</ul>
-
-<h2 id="特に-ハマりどころ">(特に)ハマりどころ</h2>
-
-<h3 id="terraform-apply-時の-aws-acm-certificate-validation-エラー">terraform apply 時の aws_acm_certificate_validation エラー</h3>
-
-<p><code>terraform apply</code> する際に毎回このエラーが発生する。</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Error: Error applying plan:
-
-<span style="color:#ae81ff">1</span> error<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span> occurred:
-
-* module.static-website.aws_acm_certificate_validation.website: <span style="color:#ae81ff">1</span> error<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span> occurred:
-
-* aws_acm_certificate_validation.website: Certificate needs <span style="color:#f92672">[</span>VALIDATON_RECORD.YOURDOMAIN VALIDATON_RECORD.YOURDOMAIN<span style="color:#f92672">]</span> to be set but only <span style="color:#f92672">[</span>VALIDATON_RECORD.YOURDOMAIN<span style="color:#f92672">]</span> was passed to validation_record_fqdns</code></pre></div>
-
-<p>これ <code>YOURDOMAIN</code> と <code>*.YOURDOMAIN</code> でバリデーションレコードが同じで、Route 53上は1レコードしかないものをTerraformの<a href="https://github.com/terraform-providers/terraform-provider-aws/blob/v1.9.0/aws/resource_aws_acm_certificate_validation.go">AWS provider</a>が2レコード返ってくることを期待しているように見えるんだけどどうしたものか。</p>
-
-<h3 id="circleci-2-0-で-attach-workspace-するために-ca-certificates-パッケージが必要">CircleCI 2.0 で attach_workspace するために ca-certificates パッケージが必要</h3>
-
-<p>前フェイズで永続化したワークスペースを後フェイズで <code>attach_workspace</code> して取り出すために <code>ca-certificates</code> パッケージ必要なのはハマった。<br />
-こちらの記事に助けられた。</p>
-
-<p><a href="https://qiita.com/gcoka/items/8a9cd59fec324a1fca19">CircleCIでx509という証明書エラーに遭遇したときの対処 - Qiita</a></p>
-
-<p>それはそうと再掲するが <code>.circleci/config.yml</code> がこんな長さになった。つらい。<br />
-workflowとしてbuildとdeployが分かれるのは綺麗だけども。。</p>
-
-<script src="//gist.github.com/mazgi/6c0dd922f89eee80fe5da6317d7e7aed.js"></script>
-
-<p>ともかくこういうサイトをいくつか作りたいニーズがあったのでやっていきます。</p>
-
+      サンプルコードのドキュメントをHugoで書いてサンプルコードと一緒に配ったら便利そうだったのでやってみた。 やりたいこと 仕事で他社さんにサンプ
     </article>
-    
     <hr/>
+    
     
     
     <article>
       <div class="row">
-        <h1><a href="/posts/2017.12/technical-docs-with-hugo/">簡易な技術ドキュメントをHugoで書くと便利だった</a></h1>
+        <h3><a href="/posts/2017.12/dockerimage-for-chainermn-on-v100/">EC2 P3で使えるChainerMN入りのDockerイメージを作った</a></h3>
       </div>
       
-
-<p>サンプルコードのドキュメントを<a href="https://gohugo.io/">Hugo</a>で書いてサンプルコードと一緒に配ったら便利そうだったのでやってみた。</p>
-
-<h2 id="やりたいこと">やりたいこと</h2>
-
-<p>仕事で他社さんにサンプルコードとドキュメントをセットでお渡ししたいのだけど社ではGitHub Enterpriseを使っているのでリポジトリを直接見ていただくことが難しいケースがある。</p>
-
-<p>規模が大きいプロジェクトなら<a href="http://www.sphinx-doc.org/">Sphinx</a>使うと(やる気次第で)いくらでも綺麗なドキュメントが書けそうではあるけど、規模がそれほどじゃないうちはサクッとMarkdownで書いて、でもソースコードとドキュメントが整合性取れててほしいという気持ちになる。<br />
-(今は<a href="http://www.sphinx-doc.org/en/stable/markdown.html">SphinxもMarkdownで書ける</a>そうだ、最近知った)</p>
-
-<p>そもそも(私は)ドキュメント書きたくないので、できるだけスクリプトの提供やソースコードコメントで賄って文章量は最小限に抑えたいというモチベーションもあった。</p>
-
-<p>そこで以下のような作戦を考えた。</p>
-
-<h3 id="さくせん">さくせん</h3>
-
-<ul>
-<li>ドキュメントはHugoでプレビューしながらMarkdownで書く</li>
-<li>生成したHTMLは <code>/docs</code> ディレクトリに突っ込む</li>
-<li>社内向けにはGitHub PagesでmasterのHEADをホスティングする</li>
-<li>社外向けには最新リリースのアーカイブを提供する</li>
-</ul>
-
-<p>プレビューできるから書くの楽だし、tag打てるからソースコードとドキュメントの整合性も取りやすい。きっと便利！</p>
-
-<h2 id="できたもの">できたもの</h2>
-
-<ul>
-<li>リポジトリ: <a href="https://github.com/mazgi/example-document-with-hugo">https://github.com/mazgi/example-document-with-hugo</a></li>
-<li>GitHub Pages: <a href="https://mazgi.github.io/example-document-with-hugo/index.html">https://mazgi.github.io/example-document-with-hugo/index.html</a></li>
-</ul>
-
-<p>テーマはこちらを使わせていただいた。<br />
-サイドバーでエントリが一覧できて技術ドキュメントらしさがある。<br />
-<a href="https://github.com/vjeantet/hugo-theme-docdock">https://github.com/vjeantet/hugo-theme-docdock</a></p>
-
-<h2 id="工夫">工夫</h2>
-
-<p><a href="https://github.com/mazgi/example-document-with-hugo/blob/master/docs.source/config.toml">設定ファイルはこれ。</a></p>
-
-<ul>
-<li>以下で生成したHTML内のリンクが <code>/</code> からの相対PATHになるふいんき(ちゃんと調べていない)
-
-<ul>
-<li><code>baseURL = &quot;/&quot;</code></li>
-<li><code>relativeURLs = true</code></li>
-<li><code>uglyurls = true</code></li>
-</ul></li>
-<li>themeの指定</li>
-</ul>
-
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;display:block;color:#7c7c79"> 1</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;display:block;color:#7c7c79"> 2</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;display:block;color:#7c7c79"> 3</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;display:block;color:#7c7c79"> 4</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;display:block;color:#7c7c79"> 5</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;display:block;color:#7c7c79"> 6</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;display:block;color:#7c7c79"> 7</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;display:block;color:#7c7c79"> 8</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;display:block;color:#7c7c79"> 9</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;display:block;color:#7c7c79">10</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;display:block;color:#7c7c79">11</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="color:#a6e22e">baseURL</span> = <span style="color:#e6db74">&#34;/&#34;</span>
-<span style="color:#a6e22e">languageCode</span> = <span style="color:#e6db74">&#34;en-us&#34;</span>
-<span style="color:#a6e22e">DefaultContentLanguage</span> = <span style="color:#e6db74">&#34;en&#34;</span>
-<span style="color:#a6e22e">title</span> = <span style="color:#e6db74">&#34;Example Document with Hugo&#34;</span>
-<span style="color:#a6e22e">publishDir</span> = <span style="color:#e6db74">&#34;../docs&#34;</span>
-<span style="color:#a6e22e">relativeURLs</span> = <span style="color:#66d9ef">true</span>
-<span style="color:#a6e22e">uglyurls</span> = <span style="color:#66d9ef">true</span>
-<span style="color:#a6e22e">theme</span> = <span style="color:#e6db74">&#34;docdock&#34;</span>
-
-[<span style="color:#a6e22e">params</span>]
-<span style="color:#a6e22e">themeVariant</span> = <span style="color:#e6db74">&#34;gray&#34;</span></code></pre></td></tr></table>
-</div>
-</div>
-
-<p>また、この設定ファイルとドキュメントのソースコード(Markdown他)を <code>/docs.source</code> に置き、 <code>publishDir = &quot;../docs&quot;</code> と設定することでリポジトリのrootにあまりファイルを置かないようにしている。<br />
-これはこのリポジトリにサンプルコードも同居する想定であり、rootにファイルが増えて見通しがわるくなることを避けるため。</p>
-
-<p>HTMLを生成してcommitしてpushしてtagを打ったものがこちら。<br />
-<a href="https://github.com/mazgi/example-document-with-hugo/releases/tag/v0.0.1">https://github.com/mazgi/example-document-with-hugo/releases/tag/v0.0.1</a></p>
-
-<p>アーカイブをダウンロードして手元で開くとこんな感じで <code>index.html</code> が見える。<br />
-アーカイブファイルにも展開後のディレクトリにもバージョンナンバーが含まれわかりやすい。</p>
-
-
-<figure>
-    
-        <img src="/posts/2017.12/technical-docs-with-hugo/0001.png" />
-    
-    
-</figure>
-
-
-<p><code>index.html</code> もリンク先のドキュメントもブラウザで表示できる。便利。</p>
-
-
-<figure>
-    
-        <img src="/posts/2017.12/technical-docs-with-hugo/0002.png" />
-    
-    
-</figure>
-
-
+      sonots先生によるこの記事をやってみたという話です。 docker (nvidia-docker) を使ってマルチノードで ChainerMN を実行する方法(仮) - Qiita 概要 Dockerfileはここに
     </article>
-    
     <hr/>
+    
     
     
     <article>
       <div class="row">
-        <h1><a href="/posts/2017.12/dockerimage-for-chainermn-on-v100/">EC2 P3で使えるChainerMN入りのDockerイメージを作った</a></h1>
+        <h3><a href="/posts/2017.02/deactivate-and-activate-adobecc/">Adobe CCのライセンスを別のPCに移す方法(ライセンス認証解除→再認証)</a></h3>
       </div>
       
-
-<p>sonots先生によるこの記事をやってみたという話です。</p>
-
-<p><a href="https://qiita.com/sonots/items/ee247a2e36033646c914">docker (nvidia-docker) を使ってマルチノードで ChainerMN を実行する方法(仮) - Qiita</a></p>
-
-<h2 id="概要">概要</h2>
-
-<p>Dockerfileはここにあります。</p>
-
-<p><a href="https://github.com/mazgi/docker-cuda-cv">mazgi/docker-cuda-cv: based on: https://gitlab.com/nvidia/cuda</a></p>
-
-<p>ベースはNVIDIAさんのオフィシャルイメージです。</p>
-
-<p><a href="https://hub.docker.com/r/nvidia/cuda/">https://hub.docker.com/r/nvidia/cuda/</a></p>
-
-<h2 id="実行結果">実行結果</h2>
-
-<p>ChainerMNのexampleを試した結果はこちら。<br />
-今のところシングルNodeシングルGPUとシングルNodeマルチGPUしか試してないです。</p>
-
-<script src="//gist.github.com/mazgi/e095e4756f14ebb9db5c26cd70b23c63.js"></script>
-
-<p>手順はこちらの通りなんですが時間が取れていない&hellip;</p>
-
-<p><a href="https://qiita.com/sonots/items/ee247a2e36033646c914#%E3%83%9E%E3%83%AB%E3%83%81%E3%83%8E%E3%83%BC%E3%83%89">docker (nvidia-docker) を使ってマルチノードで ChainerMN を実行する方法(仮) - Qiita</a></p>
-
-<p>P3じゃなくても動くはずですが、ホスト側にGPUとnvidia-dockerは必要です。<br />
-今回は社の環境で試したのでsonots便利先生環境の恩恵を受けてます🙏</p>
-
-<p><a href="http://blog.livedoor.jp/sonots/archives/49502478.html">DeNA TechCon 2017 と Developers Summit 2017 でDeNAの機械学習基盤と分析基盤の講演をしました - sonots:blog</a></p>
-
-<p>イチから構築する場合はこういう記事が参考になりそう。</p>
-
-<p><a href="http://chie8842.hatenablog.com/entry/2017/11/27/221551">p3インスタンス(V100)上でCUDA+CUDNN+Tensorflowを動かすのが大変だったのできろく。 - 焼肉が食べたい</a></p>
-
-<h2 id="経緯とか">経緯とか</h2>
-
-<p>めでたく記事も出たので色々言えるようになったのですが、実はありがたいことにP3の先行検証というのをさせていただいてました。<br />
-(なおイベント当日はカメラマンしてました)</p>
-
-<p><a href="https://engineer.dena.jp/2017/12/amazon-ec2-p3pose-estimation.html">Amazon EC2 P3インスタンスにおけるPose Estimation速度向上検証 - Technology of DeNA</a></p>
-
-<p>この検証時点ではChainerMNではなくChainerで、環境もVM上に直接作ってたのですが、その後部内から「Dockerイメージになってたほうが便利」とフィードバックいただき先行者の記事を参考に手探りしてる状況です。<br />
-私はMLわからないマンなのですが、最初 cuDNN 7 + CuPy 1.0.3 で環境作ろうとしてバージョンが合わなくてどうしよ！と思ってたら「今日 cuDNN 7 対応の CuPy 2.0 リリースするよ！」と教えていただいたりとか、この業界本当に数時間単位で進歩しててすごい。</p>
-
-<p>こういう用途だとコンテナほんと便利なんですけど、でもDockerイメージの命名むずかしい。<br />
-<code>mazgi/cuda-cv:9.0-cudnn7-devel-ubuntu16.04</code> じゃなくて、<br />
-<code>mazgi/cuda-cv-9.0-cudnn7-devel-ubuntu16.04:latest</code> とかにしたほうがいいのかな(長い)。<br />
-そもそもの話としては実質Chainer &amp; ChainerMNイメージなのでそういう名前にすべきだし(さらに長くなる)。</p>
-
+      Adobe CCが不要なPCの認証を解除して、使いたいPCで何かしらのアプリを起動すれば認証されて使えるようになる。 PC買い替えなどのタイミングで必要
     </article>
-    
     <hr/>
+    
     
     
     <article>
       <div class="row">
-        <h1><a href="/posts/2017.02/deactivate-and-activate-adobecc/">Adobe CCのライセンスを別のPCに移す方法(ライセンス認証解除→再認証)</a></h1>
+        <h3><a href="/posts/2016.09/held-hadoop-bootup-0/">Hadoop黙々会を始めました</a></h3>
       </div>
       
-
-<p>Adobe CCが不要なPCの認証を解除して、使いたいPCで何かしらのアプリを起動すれば認証されて使えるようになる。<br />
-PC買い替えなどのタイミングで必要になるが、そういうときは大体ライセンス認証解除の手順を忘れているのでメモ。</p>
-
-<h2 id="手順">手順</h2>
-
-<p>認証解除の手順を3行で。<br />
-なお認証解除はWeb上での操作なので、使うPCはなんでもいい(はず)。</p>
-
-<ol>
-<li><a href="https://accounts.adobe.com/plans">https://accounts.adobe.com/plans</a> を開く</li>
-<li>「プランを管理」をクリック</li>
-<li>「ライセンス認証したデバイス」から不要な方のデバイスを削除</li>
-</ol>
-
-<p>ここまでできれば、あとはAdobe CCを使いたいPCでPhotoshopやIllustratorなどのアプリを起動すれば認証され使えるようになる。</p>
-
-
-<figure>
-    
-        <img src="/posts/2017.02/deactivate-and-activate-adobecc/0001.png" />
-    
-    
-</figure>
-
-
-
-<figure>
-    
-        <img src="/posts/2017.02/deactivate-and-activate-adobecc/0002.png" />
-    
-    
-</figure>
-
-
-<p>ちゃんとAdobeのヘルプに書いてあるのだが、公式ドキュメントなので「ライセンス認証とは？」やスタンドアローン版の説明も併記されていて文量が多いので簡単にまとめてみた。</p>
-
-<p><a href="https://helpx.adobe.com/jp/x-productkb/policy-pricing/activate-deactivate-products.html">アドビ製品のライセンス認証とライセンス認証解除</a></p>
-
+      @usaturnさんと一緒に「Hadoop黙々会」を始めました。 [](http://hadoop-bootup.connpass.com/event/39859/) 私の思惑としては「エンジニアたる者、何歳になっても学び続けないとね。でも機
     </article>
-    
     <hr/>
+    
     
     
     <article>
       <div class="row">
-        <h1><a href="/posts/2016.09/held-hadoop-bootup-0/">Hadoop黙々会を始めました</a></h1>
+        <h3><a href="/posts/2016.08/went-to-23x/">NISSAN×DeNA @ dots. #23x に行ってきました</a></h3>
       </div>
       
-
-<p><a href="https://twitter.com/usaturn">@usaturn</a>さんと一緒に「Hadoop黙々会」を始めました。
-[](<a href="http://hadoop-bootup.connpass.com/event/39859/">http://hadoop-bootup.connpass.com/event/39859/</a>)</p>
-
-<p>私の思惑としては「エンジニアたる者、何歳になっても学び続けないとね。でも機会を作らないとなかなか集中して学べないので人を巻き込んでイベントにしてしまおう！」といったところです。
-<!-- more -->
-水曜に発案し金曜から募集を始めて土曜開催というスケジュールで「まずは1回やる」ことを重視したイベントだったので参加者は主催者2名のみでした。</p>
-
-<p>今回、第0回としてイベント自体もトライアルとして通しでやってみたいという気持ちもあったので、<a href="http://hadoop-bootup.connpass.com/event/39859/">イベントページ</a>・<a href="https://twitter.com/hashtag/hadoop_bootup">ハッシュタグ</a>・<a href="https://hadoop-bootup.slack.com/home">Slack</a>と、数名〜数十名規模になっても耐えうるインフラを用意して臨みました。<br />
-※ただし会場は今後の課題として残ります。この記事を読んで「うちでやったら？」と言ってくださる方がいらっしゃったら感激します！</p>
-
-<p>せっかくなので<a href="http://togetter.com/li/1023547">Togetter</a>もまとめました。</p>
-
-<h2 id="準備">準備</h2>
-
-<p>今回は最初から「黙々会にしよう」という同意が取れていたこと、私も少しのイベント開催・運営経験がありましたし何よりも<a href="https://twitter.com/usaturn">@usaturn</a>大先生が<a href="http://pyhack.connpass.com">Python mini Hack-a-thon</a>のイベント運営のあれやこれやを伝授してくれたので特に混乱もなくスピード開催に漕ぎ付けることができました。</p>
-
-<h2 id="当日">当日</h2>
-
-<p>黙々会はとにかく油断するとダレるので、私としては次の3つを心がけました。</p>
-
-<ul>
-<li>最初に自己紹介</li>
-<li>最初にやること宣言</li>
-<li>最後に成果発表</li>
-</ul>
-
-<p>肝心のやることですが、私は<a href="http://knowledge.sakura.ad.jp/tech/3633/">さくらのナレッジの記事</a>を参考に、「<a href="https://jp.hortonworks.com/products/data-center/hdp/">HDP</a>ハンズオンをやるとしたら」という仮定で手順やハマリどころを確認するというゴールを設定しました。</p>
-
-<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">今日は <a href="https://t.co/z3CrzIy6s6">https://t.co/z3CrzIy6s6</a> を参考にハンズオンの準備する <a href="https://twitter.com/hashtag/hadoop_bootup?src=hash&amp;ref_src=twsrc%5Etfw">#hadoop_bootup</a></p>&mdash; Hidenori MATSUKI (@mazgi) <a href="https://twitter.com/mazgi/status/774468099806375940?ref_src=twsrc%5Etfw">September 10, 2016</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-
-<p>作業時間内はSlackで自分宛てにログを残しながら文字どおり黙々と作業を進め、たまにSlackのチャネルや直接会話をしていました。<br />
-黙々会だと運営側の人も作業に集中できるのが良いですね。</p>
-
-<p>終了30分前には自分で設定しておいたSlackのリマインダーから通知を受けまとめに入ります。</p>
-
-
-<figure>
-    
-        <img src="/posts/2016.09/held-hadoop-bootup-0/0001.png" />
-    
-    
-</figure>
-
-
-<p>最後に各々まとめと達成状況をSlackのチャネルに書き込んで黙々会を終了しました。<br />
-今回の達成状況はまずまずです。</p>
-
-
-<figure>
-    
-        <img src="/posts/2016.09/held-hadoop-bootup-0/0002.png" />
-    
-    
-</figure>
-
-
-<p>「月に1〜2回やりましょう！」と話していますので、興味ある方はぜひ<a href="https://twitter.com/mazgi">お知らせください！</a><br />
-黙々会なので「Hadoopのコミッタの方が講演してくれる」みたいなスペシャルなコンテンツもない代わりにどのレベルから何をやっても自由です。<br />
-「Hadoopに興味あります」という方も、「仕事でHadoop使ってるんだけど、業務上やる機会のない部分をやりたい」という方も、FluentdやKafkaやEmbulkのようにHadoopと組み合わせて使われることの多いミドルウェアについて自習したり作業したい方も歓迎です。</p>
-
-<p>そして場所を募集しています！<br />
-「うちでやれば」という方いらっしゃいましたらぜひ教えてください！</p>
-
-<h2 id="学び">学び</h2>
-
-<p>Slackのリマインド機能便利。<br />
-さくらのクラウドのVPCルーターとても便利。<br />
-connpassのイベント画像はちゃんと考えないとこうなるので注意。<br />
-油断するとハッシュタグをハイフンで区切るというミスを犯すのでそちらも注意。</p>
-
-
-<figure>
-    
-        <img src="/posts/2016.09/held-hadoop-bootup-0/0003.png" />
-    
-    
-</figure>
-
-
+      追記 当日のツイートをTogetterにまとめさせていただきました！ dots.さんで「NISSAN×DeNA 車は、モノ&lt;プロダクト&gt
     </article>
-    
     <hr/>
+    
     
     
     <article>
       <div class="row">
-        <h1><a href="/posts/2016.08/went-to-23x/">NISSAN×DeNA @ dots. #23x に行ってきました</a></h1>
+        <h3><a href="/posts/2016.07/interviewed-for-ansible/">【SELECK掲載記念】AnsibleでPartitionを切る！</a></h3>
       </div>
       
-
-<h3 id="追記">追記</h3>
-
-<p>当日のツイートを<a href="http://togetter.com/li/1018957">Togetter</a>にまとめさせていただきました！</p>
-
-<hr />
-
-<p><a href="https://eventdots.jp">dots.</a>さんで「NISSAN×DeNA　車は、モノ&lt;プロダクト&gt;なのか、コト&lt;サービス&gt;なのか。当事者たちから見える風景を語る。」というイベントが開催されたので「えっ？日産の方とDeNAの方がDeep Learningや機械学習について語るの！？」と分かりやすく興味喚起されて伺ってきました！</p>
-
-<p><a href="https://eventdots.jp/event/596516">【満席につき、さらに50名増席します！】NISSAN×DeNA　車は、モノ&lt;プロダクト&gt;なのか、コト&lt;サービス&gt;なのか。当事者たちから見える風景を語る。｜IT勉強会ならTECH PLAY［テックプレイ］</a></p>
-
-<p>ハッシュタグ<a href="https://twitter.com/search?q=%2323x">#23x</a>で当日のツイートが一覧できます。<br />
-(言語を日本語にした方が見やすいかもしれません)
-<!-- more -->
-到着すると広くてオシャレなことで有名な<a href="https://eventdots.jp">dots.</a>さんの会場に所狭しと椅子が並べられていました。</p>
-
-
-<figure>
-    
-        <img src="/posts/2016.08/went-to-23x/0001.jpeg" />
-    
-    
-</figure>
-
-
-<p>この写真は開演前ですが、開演後は後ろにある雛壇まで満席でした！</p>
-
-
-<figure>
-    
-        <img src="/posts/2016.08/went-to-23x/0002.jpeg" />
-    
-    
-</figure>
-
-
-<p>いわゆるIT系の勉強会よりもややビジネスマンっぽい方が多かった印象です。</p>
-
-<p>受付をしていただくと「ドーナツどうぞ」と。<br />
-協賛の<a href="http://www.nucode.net">NuCode</a>さんが「コーヒー&amp;ドーナツスポンサー」として差し入れて下さったそうです。</p>
-
-
-<figure>
-    
-        <img src="/posts/2016.08/went-to-23x/0003.jpeg" />
-    
-    
-</figure>
-
-
-<p>※なお私は写真撮影時点で完食済みです。</p>
-
-
-<figure>
-    
-        <img src="/posts/2016.08/went-to-23x/0004.jpeg" />
-    
-    
-</figure>
-
-
-<h3 id="atom-in-bit-out-車がコトになる仕組み">「Atom in Bit out 。車がコトになる仕組み。」</h3>
-
-
-<figure>
-    
-        <img src="/posts/2016.08/went-to-23x/0005.jpeg" />
-    
-    
-</figure>
-
-
-<p>プログラム1つ目は日産自動車 上田さんのお話です。</p>
-
-<p>自己紹介で個人として開発・運用されているサービスの紹介をしてくださって、私の中の「自動車会社の人」というイメージが良い意味でがらがらと崩れていきました。<br />
-パネルディスカッションでも個人で登録されているiOSデベロッパープログラムの更新が〜と話しておられまして、もう少し(車の)ハードウェアや制御寄りのお話から始まるのかと勝手に思っていたのですが、先入観を完全に打ち砕かれお話にぐいぐいと引き込まれていきました。</p>
-
-
-<figure>
-    
-        <img src="/posts/2016.08/went-to-23x/0006.jpeg" />
-    
-    
-</figure>
-
-
-<p>かなり忙しいお立場だと思うのですが、個人でもサービスを作ったりアプリを公開されたりしているそうで、個人サービス絶賛放置中の私には耳が痛かったです。</p>
-
-<p>自己紹介の後は私を含め多くの参加者の方が期待していたであろう「自動運転」について話してくださったのですが、自動運転の実装方法や技術的なお話というよりも、コンセプトや体験についてのお話が主で、ここにきて「モノより思い出」というキーワードが腑に落ちました。</p>
-
-<p>この記事だけ読んでくださっている方には伝わりづらいかもしれませんが、お話の中でも心に残った部分を書き留めておきます。</p>
-
-<ul>
-<li>&ldquo;hands-off&rdquo; はすぐ来る</li>
-<li>&ldquo;eyes-off&rdquo; は実はしばらく来ない、&rdquo;eyes-off&rdquo; の前には &ldquo;mind-off&rdquo; が必要</li>
-<li>&ldquo;mind-off&rdquo; は &ldquo;mind-free&rdquo;</li>
-<li>&ldquo;Re-define car&rdquo;</li>
-</ul>
-
-<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">日産 上田さんのお話。(失礼ながら)思ってた以上にエンジニアリングのお話でめちゃくちゃ面白い！そしてプレゼン資料が素敵 <a href="https://twitter.com/hashtag/23x?src=hash&amp;ref_src=twsrc%5Etfw">#23x</a></p>&mdash; Hidenori MATSUKI (@mazgi) <a href="https://twitter.com/mazgi/status/770939120554094592?ref_src=twsrc%5Etfw">August 31, 2016</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-
-<p>その他、後述しますが<a href="http://ev.nissan.co.jp/LEAF/">リーフ</a>の走行軌跡をビジュアライズした様子を紹介してくださったのですがとても幻想的でした。<br />
-自動運転車にCAN(Car Area Network)接続のエスプレッソマシンを搭載したり、自動運転で不要になった従来のメーターの代わりにiPadを搭載したりととても興味深い事例の数々をご紹介いただきました。<br />
-(動画を載せたかったのですが見つけられませんでした)</p>
-
-<h3 id="denaが考える自動運転技術を利用したサービス">「DeNAが考える自動運転技術を利用したサービス」</h3>
-
-
-<figure>
-    
-        <img src="/posts/2016.08/went-to-23x/0007.jpeg" />
-    
-    
-</figure>
-
-
-<p>プログラム2つ目はDeNA 木村さんのお話です。</p>
-
-<p>自己紹介ではPerlのコミュニティで活躍されていたお話などをしてくださいました。</p>
-
-<p>「<a href="http://dena-automotive.com">DeNA AUTOMOTIVE</a>」やDeNAの自動運転関連事業について紹介をしてくださり、コンセプトや構想というよりはとても現実的なすでに始まっているサービスや本当に数年内に実現しそうな&rdquo;事業&rdquo;のお話を実証実験の紹介を交えて話してくださいました。</p>
-
-<p>プレゼン資料そのものはレギュレーションにより撮影していないので関連しそうなニュース記事やプレスリリースをご紹介します。</p>
-
-<ul>
-<li>ロボット・シャトル
-
-<ul>
-<li><a href="http://news.mynavi.jp/news/2016/08/01/192/">イオンモール幕張新都心で無人運転バス「ロボット・シャトル」が運行開始 | マイナビニュース</a></li>
-</ul></li>
-<li>ロボネコヤマト
-
-<ul>
-<li><a href="http://www.gizmodo.jp/2016/07/sdena_x.html">DeNA x クロネコヤマト、自動運転を活用した次世代物流サービス「ロボネコヤマト」やります | ギズモード・ジャパン</a></li>
-</ul></li>
-<li>ロボットタクシー
-
-<ul>
-<li><a href="https://robottaxi.com/2016/02/fujisawa/">https://robottaxi.com/2016/02/fujisawa/</a></li>
-</ul></li>
-</ul>
-
-
-<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
-  <iframe src="//www.youtube.com/embed/pGEomEOPVKc?"
-  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
-</div>
-
-<p>普段東京都内にいると感じづらいことですが、日本全国としてみると過疎化や運転手さんの不足・高齢化など交通という分野で解決すべき問題はとても多いですね。</p>
-
-
-<figure>
-    
-        <img src="/posts/2016.08/went-to-23x/0008.jpeg" />
-    
-    
-</figure>
-
-
-<p>DeNAは「モビリティサービスプロバイダ」という立ち位置で自動運転関連事業を進めておられるそうで、なるほど資料にまとめて説明していただくと、自動運転技術そのものの他にも自動運転が事業で活きるためには必要なモノがたくさんあることが分かります。</p>
-
-<p>2つのセッションを通じて参加前に漠然と想像していた内容と良い意味で真逆のお話しを聴くことができました。</p>
-
-<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">日産の方とDeNAの方のお話が良い意味で想定と真逆だった。 <a href="https://twitter.com/hashtag/23x?src=hash&amp;ref_src=twsrc%5Etfw">#23x</a></p>&mdash; Hidenori MATSUKI (@mazgi) <a href="https://twitter.com/mazgi/status/770947838071058432?ref_src=twsrc%5Etfw">August 31, 2016</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-
-<h3 id="パネルディスカッション-懇親会">パネルディスカッション&amp;懇親会</h3>
-
-<p>パネルディスカッションはモデレートしてくださるNuCode 中井さんの自己紹介から始まりました。</p>
-
-
-<figure>
-    
-        <img src="/posts/2016.08/went-to-23x/0009.jpeg" />
-    
-    
-</figure>
-
-
-<p>中井さん、なんと前述のリーフの走行軌跡をめちゃくちゃカッコよくビジュアライズするアプリケーションの開発も担当されたそうで、「MySQLのmemoryエンジン使いました」等、自己紹介に交えて実装者ならではのお話をしてくださいました。</p>
-
-
-<figure>
-    
-        <img src="/posts/2016.08/went-to-23x/0010.jpeg" />
-    
-    
-</figure>
-
-
-<p>メインセッションで登壇された上田さんと木村さんが再度パネリストとして登壇され、広範囲に踏み込んだディスカッションがスタートしました。</p>
-
-
-<figure>
-    
-        <img src="/posts/2016.08/went-to-23x/0011.jpeg" />
-    
-    
-</figure>
-
-
-<p>広範囲に踏み込みながらも雰囲気はとてもカジュアルで、参加者の方がうまいこと突っ込むとディスカッションで取り上げられる一面もありました。</p>
-
-<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">CANコーヒーとか誰も言わないな。 <a href="https://twitter.com/hashtag/23x?src=hash&amp;ref_src=twsrc%5Etfw">#23x</a></p>&mdash; kioto (@takaneh) <a href="https://twitter.com/takaneh/status/770952704134746112?ref_src=twsrc%5Etfw">August 31, 2016</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-
-<p>「CANコーヒー」は巧すぎて悔しいですね！</p>
-
-
-<figure>
-    
-        <img src="/posts/2016.08/went-to-23x/0012.jpeg" />
-    
-    
-</figure>
-
-
-<p>その他「202x年のモビリティサービスはどうなるか？」「CANはもっとオープンな方がいいのでは？」などなど本当に多岐にわたるディスカッションが繰り広げられ、夢が広がると同時に業界を牽引されている方が何を考え何に取り組んでおられるかを垣間見ることができました。</p>
-
-
-<figure>
-    
-        <img src="/posts/2016.08/went-to-23x/0013.jpeg" />
-    
-    
-</figure>
-
-
-<p>パネルディスカッションのあとは懇親会が行われ多くの方で賑わっていました。</p>
-
-
-<figure>
-    
-        <img src="/posts/2016.08/went-to-23x/0014.jpeg" />
-    
-    
-</figure>
-
-
-<p>私もDeep Learningの勉強会で知り合った方と再会したりと有意義な時間を過ごさせていただいたとともに刺激と焦りを感じました。</p>
-
-<h3 id="最後に">最後に</h3>
-
-<p>登壇者の皆さま、運営してくださった皆さま、本当にありがとうございました。<br />
-写真やテキストはレギュレーションを守った上でプライバシーに配慮し掲載したつもりですが万が一お気付きの点がありましたら<a href="https://twitter.com/mazgi">@mazgi</a>までお知らせください。</p>
-
-<p>(すっかりフォトレポート風になってしまったので時間が取れたら追記します！)</p>
-
+      追記 さくらのクラウドについて取材していただいた記事も公開されました！ 合わせてご覧ください！！ さくらのクラウドで「尖ったインフラ環境」を構築。
     </article>
-    
     <hr/>
     
     
-    <article>
-      <div class="row">
-        <h1><a href="/posts/2016.07/interviewed-for-ansible/">【SELECK掲載記念】AnsibleでPartitionを切る！</a></h1>
-      </div>
-      
-
-<h3 id="追記">追記</h3>
-
-<p><a href="http://cloud.sakura.ad.jp">さくらのクラウド</a>について取材していただいた記事も公開されました！<br />
-合わせてご覧ください！！</p>
-
-<p><a href="https://seleck.cc/article/459">さくらのクラウドで「尖ったインフラ環境」を構築。カスタマイズに強い、その実力とは | SELECK</a></p>
-
-<hr />
-
-<h2 id="本編">本編</h2>
-
-<p>先日「<a href="https://seleck.cc">SELECK(セレック)</a>」様に<a href="https://www.ansible.com">Ansible</a>の活用事例をインタビューいただきました。</p>
-
-<p><a href="https://seleck.cc/article/437">数百台のサーバー構成を「Ansible」で管理。大規模DSPシステムを支える技術とは | SELECK</a></p>
-
-<p>素晴らしい記事にしていただいたのでせっかくなら何か<s>ネタになりそうな</s>実例をご紹介したいと考えた結果(?)、<s>バッドノウハウが詰まった</s>パーティションの切り方をご紹介したいと思います！</p>
-
-<!-- more -->
-
-<p><a href="https://groups.google.com/forum/#!msg/ansible-project/AlmNfHshvAw/pPirMfYKG1AJ">Googleグループでも話題になって</a>いますが、本記事を書いている時点ではAnsibleにpartitionを切るモジュールはないようです。<br />
-しかしながら物理サーバーや場合によってはクラウドサーバーでもパーティションを切りたいケースは当然あります。</p>
-
-<h2 id="hdd-ssdにパーティションを切る">HDD/SSDにパーティションを切る</h2>
-
-<p>さすがに会社のプライベートリポジトリからPlaybookを持ってくるわけにもいかないので、今回は近いものとして私の個人的なPlaybookをご紹介します。</p>
-
-<p><a href="https://github.com/mazgi/ansible-gentooinstallbattle">mazgi/ansible-gentooinstallbattle</a></p>
-
-<p>なお、実際のギョウムでは優秀な若者が改善したPlaybookが使われていることを申し添えておきます。</p>
-
-<p><code>gdisk</code> や <code>fdisk</code> ではなく <code>parted</code> を使うとAnsibleでも比較的簡単にパーティションを切ることができます。<br />
-いつ何時数十台のサーバーで同時にパーティションを切る必要が生じるとも限りませんので覚えておいて損はないと思います！！</p>
-
-<ul>
-<li>GPTパーティションテーブルを作る</li>
-</ul>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- name: <span style="color:#e6db74">&#34;Create partition table&#34;</span>
-  command: <span style="color:#e6db74">&#34;parted --script --align optimal /dev/vda -- mklabel gpt&#34;</span></code></pre></div>
-
-<ul>
-<li>各パーティションを切る</li>
-</ul>
-
-<p>ここでは、<br />
-第1パーティションはGRUB2用にVFATで、<br />
-第2パーティションはSWAP用に、<br />
-第3パーティションはOS用に切ることにします。</p>
-
-<p>GRUB2用のパーティションはFAT32で4MiBもあれば十分です。フォーマットしなくても使える気がします。<br />
-OS用の第3パーティションは空き領域を全て割り当てるため最後の引数に <code>-1</code> を渡しています。</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- name: <span style="color:#e6db74">&#34;Create BIOS boot partition&#34;</span>
-  command: <span style="color:#e6db74">&#34;parted --script --align optimal /dev/vda -- mkpart bios_boot fat32 1MiB 5MiB&#34;</span>
-
-- name: <span style="color:#e6db74">&#34;Set BIOS boot partition&#34;</span>
-  command: <span style="color:#e6db74">&#34;parted --script --align optimal /dev/vda -- set 1 bios_grub on&#34;</span>
-
-- name: <span style="color:#e6db74">&#34;Create filesystem for grub2&#34;</span>
-  filesystem: fstype=vfat dev=/dev/vda1
-
-- name: <span style="color:#e6db74">&#34;Create swap partition&#34;</span>
-  command: <span style="color:#e6db74">&#34;parted --script --align optimal /dev/vda -- mkpart swap linux-swap 5MiB 4GiB&#34;</span>
-
-- name: <span style="color:#e6db74">&#34;Create filesystem for swap&#34;</span>
-  command: mkswap /dev/vda2
-
-- name: <span style="color:#e6db74">&#34;Create root partition&#34;</span>
-  command: <span style="color:#e6db74">&#34;parted --script --align optimal /dev/vda -- mkpart linux btrfs 4GiB -1&#34;</span>
-
-- name: <span style="color:#e6db74">&#34;Create filesystem for /&#34;</span>
-  filesystem: fstype=btrfs dev=/dev/vda3</code></pre></div>
-
-<p>対話式インタフェースがメインの <code>gdisk</code> や <code>fdisk</code> と違って <code>parted</code> ならAnsibleのcommandモジュールで扱いやすいですね！<br />
-あとはパーティションサイズの指定をもう少し楽にできると尚良しです。</p>
-
-<p>なお、この方法では「冪等性？なにそれおいしいの？」になってしまいます。<br />
-<a href="http://docs.ansible.com/ansible/filesystem_module.html">filesystemモジュール</a>はあるので、&rdquo;partition module&rdquo;みたいなのが提供されるとうれしいですね！<br />
-どなたか作ってください！！</p>
-
-<h2 id="さいごに">さいごに</h2>
-
-<p>SELECKではAnsibleを含めた色々なツールやサービスの事例を知ることができておすすめです！！(宣伝)</p>
-
-<p><a href="https://seleck.cc/article/437">数百台のサーバー構成を「Ansible」で管理。大規模DSPシステムを支える技術とは | SELECK</a></p>
-
-    </article>
     
+
+<nav aria-label="page navidation">
+  <ul class="pagination pagination-sm">
+    <li class="page-item disabled">
+      <a class="page-link" href="/posts/">&lt</a>
+    </li>
     
+    <li class="page-item active">
+      <a class="page-link" href="/posts/">1<span class="sr-only"></span></a>
+    </li>
+    
+    <li class="page-item">
+      <a class="page-link" href="/posts/page/2/">2</a>
+    </li>
+    
+    <li class="page-item">
+      <a class="page-link" href="/posts/page/2/">&gt</a>
+    </li>
+  </ul>
+</nav>
+
+
   </div>
   <div class="col-lg-3">
+    <div class="sidebar">
+  
+  
+  <h4><a href="/categories/">Categories</a></h4>
+  
+  <div>
     <ul>
       
-      <li><a href="/posts/2018.04/processing-with-s3-lambda-sqs/">S3 &#43; Lambda &#43; SQSでファイル処理する仕組みをTerraformで構築する</a></li>
-      
-      <li><a href="/posts/2018.03/setup-amazon-sagemaker/">Amazon SageMakerをそれなりの人数で使うときの設定</a></li>
-      
-      <li><a href="/posts/2018.03/s3fs-for-s3-with-sse-kms/">SSE-KMSで暗号化したS3バケットをs3fsでmountする</a></li>
-      
-      <li><a href="/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/">S3&#43;CloudFrontをTerraformで設定してCircleCIで更新する</a></li>
-      
-      <li><a href="/posts/2017.12/technical-docs-with-hugo/">簡易な技術ドキュメントをHugoで書くと便利だった</a></li>
-      
-      <li><a href="/posts/2017.12/dockerimage-for-chainermn-on-v100/">EC2 P3で使えるChainerMN入りのDockerイメージを作った</a></li>
-      
-      <li><a href="/posts/2017.02/deactivate-and-activate-adobecc/">Adobe CCのライセンスを別のPCに移す方法(ライセンス認証解除→再認証)</a></li>
-      
-      <li><a href="/posts/2016.09/held-hadoop-bootup-0/">Hadoop黙々会を始めました</a></li>
-      
-      <li><a href="/posts/2016.08/went-to-23x/">NISSAN×DeNA @ dots. #23x に行ってきました</a></li>
-      
-      <li><a href="/posts/2016.07/interviewed-for-ansible/">【SELECK掲載記念】AnsibleでPartitionを切る！</a></li>
-      
-      <li><a href="/posts/2016.07/racktables-for-home-network/">RackTablesで個人ネットワークを管理する</a></li>
+      <li>
+        <a href="/categories/infrastructure-as-code">
+          Infrastructure as code
+          <span class="badge badge-pill badge-light">3</span>
+        </a>
+      </li>
       
     </ul>
+  </div>
+  
+</div>
+
   </div>
 </div>
       <div class="row">
