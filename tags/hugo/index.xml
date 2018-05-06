@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on mazgi.log</title>
+    <link>https://mazgi.github.io/tags/hugo/</link>
+    <description>Recent content in Hugo on mazgi.log</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 06 May 2018 21:04:37 +0900</lastBuildDate>
+    
+	<atom:link href="https://mazgi.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>このWebサイトのデザインをちょっとまともにした</title>
+      <link>https://mazgi.github.io/posts/2018.05/update-hugo-theme/</link>
+      <pubDate>Sun, 06 May 2018 21:04:37 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2018.05/update-hugo-theme/</guid>
+      <description>このWebサイト( https://mazgi.github.io/ )は専用のHugoテーマで公開しているのだけど色々基本的なところが足りていなかったので直した。 一覧ページ(list.ht</description>
+    </item>
+    
+    <item>
+      <title>S3&#43;CloudFrontをTerraformで設定してCircleCIで更新する</title>
+      <link>https://mazgi.github.io/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/</link>
+      <pubDate>Thu, 15 Feb 2018 05:24:40 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/</guid>
+      <description>「TerraformでS3+CloudFront+SSL/TLS証明書 w/ ACMを設定してHugoで作ったstaticなWebサイトをCirc</description>
+    </item>
+    
+    <item>
+      <title>簡易な技術ドキュメントをHugoで書くと便利だった</title>
+      <link>https://mazgi.github.io/posts/2017.12/technical-docs-with-hugo/</link>
+      <pubDate>Fri, 08 Dec 2017 07:00:00 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2017.12/technical-docs-with-hugo/</guid>
+      <description>サンプルコードのドキュメントをHugoで書いてサンプルコードと一緒に配ったら便利そうだったのでやってみた。 やりたいこと 仕事で他社さんにサンプ</description>
+    </item>
+    
+  </channel>
+</rss>

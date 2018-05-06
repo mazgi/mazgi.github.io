@@ -66,7 +66,7 @@
           
           
           <li class="nav-item">
-            <span class="nav-link disabled">Updated At: 2018.05.03</span>
+            <span class="nav-link disabled">Updated At: 2018.05.06</span>
           </li>
           
         </ul>
@@ -283,7 +283,7 @@ credentialも払い出して、今回の場合は <code>sakemeshi.terraform-secr
 <p>ようやくTerraformを実行できる環境が整ったので実行！<br />
 なお <code>prepare.sh</code> は環境変数をexportするので必ず <code>source</code> する。</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ source prepare.sh
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ <span style="color:#007020">source</span> prepare.sh
 $ bin/terraform apply</code></pre></div>
 
 <p>実行すると初回はもろもろのリソースが作られ、1件のエラーが発生する。<br />
@@ -394,13 +394,13 @@ $ bin/terraform apply</code></pre></div>
 
 <p><code>terraform apply</code> する際に毎回このエラーが発生する。</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Error: Error applying plan:
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Error: Error applying plan:
 
-<span style="color:#ae81ff">1</span> error<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span> occurred:
+<span style="color:#40a070">1</span> error<span style="color:#666">(</span>s<span style="color:#666">)</span> occurred:
 
-* module.static-website.aws_acm_certificate_validation.website: <span style="color:#ae81ff">1</span> error<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span> occurred:
+* module.static-website.aws_acm_certificate_validation.website: <span style="color:#40a070">1</span> error<span style="color:#666">(</span>s<span style="color:#666">)</span> occurred:
 
-* aws_acm_certificate_validation.website: Certificate needs <span style="color:#f92672">[</span>VALIDATON_RECORD.YOURDOMAIN VALIDATON_RECORD.YOURDOMAIN<span style="color:#f92672">]</span> to be set but only <span style="color:#f92672">[</span>VALIDATON_RECORD.YOURDOMAIN<span style="color:#f92672">]</span> was passed to validation_record_fqdns</code></pre></div>
+* aws_acm_certificate_validation.website: Certificate needs <span style="color:#666">[</span>VALIDATON_RECORD.YOURDOMAIN VALIDATON_RECORD.YOURDOMAIN<span style="color:#666">]</span> to be <span style="color:#007020">set</span> but only <span style="color:#666">[</span>VALIDATON_RECORD.YOURDOMAIN<span style="color:#666">]</span> was passed to validation_record_fqdns</code></pre></div>
 
 <p>これ <code>YOURDOMAIN</code> と <code>*.YOURDOMAIN</code> でバリデーションレコードが同じで、Route 53上は1レコードしかないものをTerraformの<a href="https://github.com/terraform-providers/terraform-provider-aws/blob/v1.9.0/aws/resource_aws_acm_certificate_validation.go">AWS provider</a>が2レコード返ってくることを期待しているように見えるんだけどどうしたものか。</p>
 
@@ -444,6 +444,8 @@ workflowとしてbuildとdeployが分かれるのは綺麗だけども。。</p>
     
     <a class="badge badge-pill badge-secondary" href="/tags/amazon-cloudfront">amazon cloudfront</a>
     
+    <a class="badge badge-pill badge-secondary" href="/tags/hugo">hugo</a>
+    
     <a class="badge badge-pill badge-secondary" href="/tags/terraform">terraform</a>
     
     <a class="badge badge-pill badge-secondary" href="/tags/circleci">circleci</a>
@@ -458,8 +460,22 @@ workflowとしてbuildとdeployが分かれるのは綺麗だけども。。</p>
     <ul>
       
       <li>
+        <a href="/categories/continuous-integration-and-delivery">
+          Continuous integration and delivery
+          <span class="badge badge-pill badge-light">1</span>
+        </a>
+      </li>
+      
+      <li>
         <a href="/categories/infrastructure-as-code">
           Infrastructure as code
+          <span class="badge badge-pill badge-light">3</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories/static-website">
+          Static website
           <span class="badge badge-pill badge-light">3</span>
         </a>
       </li>

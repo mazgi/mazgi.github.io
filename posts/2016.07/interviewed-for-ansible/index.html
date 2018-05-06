@@ -141,8 +141,8 @@
 <li>GPTパーティションテーブルを作る</li>
 </ul>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- name: <span style="color:#e6db74">&#34;Create partition table&#34;</span>
-  command: <span style="color:#e6db74">&#34;parted --script --align optimal /dev/vda -- mklabel gpt&#34;</span></code></pre></div>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">-<span style="color:#bbb"> </span>name:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;Create partition table&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span>command:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;parted --script --align optimal /dev/vda -- mklabel gpt&#34;</span></code></pre></div>
 
 <ul>
 <li>各パーティションを切る</li>
@@ -156,26 +156,26 @@
 <p>GRUB2用のパーティションはFAT32で4MiBもあれば十分です。フォーマットしなくても使える気がします。<br />
 OS用の第3パーティションは空き領域を全て割り当てるため最後の引数に <code>-1</code> を渡しています。</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- name: <span style="color:#e6db74">&#34;Create BIOS boot partition&#34;</span>
-  command: <span style="color:#e6db74">&#34;parted --script --align optimal /dev/vda -- mkpart bios_boot fat32 1MiB 5MiB&#34;</span>
-
-- name: <span style="color:#e6db74">&#34;Set BIOS boot partition&#34;</span>
-  command: <span style="color:#e6db74">&#34;parted --script --align optimal /dev/vda -- set 1 bios_grub on&#34;</span>
-
-- name: <span style="color:#e6db74">&#34;Create filesystem for grub2&#34;</span>
-  filesystem: fstype=vfat dev=/dev/vda1
-
-- name: <span style="color:#e6db74">&#34;Create swap partition&#34;</span>
-  command: <span style="color:#e6db74">&#34;parted --script --align optimal /dev/vda -- mkpart swap linux-swap 5MiB 4GiB&#34;</span>
-
-- name: <span style="color:#e6db74">&#34;Create filesystem for swap&#34;</span>
-  command: mkswap /dev/vda2
-
-- name: <span style="color:#e6db74">&#34;Create root partition&#34;</span>
-  command: <span style="color:#e6db74">&#34;parted --script --align optimal /dev/vda -- mkpart linux btrfs 4GiB -1&#34;</span>
-
-- name: <span style="color:#e6db74">&#34;Create filesystem for /&#34;</span>
-  filesystem: fstype=btrfs dev=/dev/vda3</code></pre></div>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">-<span style="color:#bbb"> </span>name:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;Create BIOS boot partition&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span>command:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;parted --script --align optimal /dev/vda -- mkpart bios_boot fat32 1MiB 5MiB&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span>-<span style="color:#bbb"> </span>name:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;Set BIOS boot partition&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span>command:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;parted --script --align optimal /dev/vda -- set 1 bios_grub on&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span>-<span style="color:#bbb"> </span>name:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;Create filesystem for grub2&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span>filesystem:<span style="color:#bbb"> </span>fstype=vfat<span style="color:#bbb"> </span>dev=/dev/vda1<span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span>-<span style="color:#bbb"> </span>name:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;Create swap partition&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span>command:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;parted --script --align optimal /dev/vda -- mkpart swap linux-swap 5MiB 4GiB&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span>-<span style="color:#bbb"> </span>name:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;Create filesystem for swap&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span>command:<span style="color:#bbb"> </span>mkswap<span style="color:#bbb"> </span>/dev/vda2<span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span>-<span style="color:#bbb"> </span>name:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;Create root partition&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span>command:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;parted --script --align optimal /dev/vda -- mkpart linux btrfs 4GiB -1&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span>-<span style="color:#bbb"> </span>name:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;Create filesystem for /&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span>filesystem:<span style="color:#bbb"> </span>fstype=btrfs<span style="color:#bbb"> </span>dev=/dev/vda3</code></pre></div>
 
 <p>対話式インタフェースがメインの <code>gdisk</code> や <code>fdisk</code> と違って <code>parted</code> ならAnsibleのcommandモジュールで扱いやすいですね！<br />
 あとはパーティションサイズの指定をもう少し楽にできると尚良しです。</p>
@@ -216,8 +216,22 @@ OS用の第3パーティションは空き領域を全て割り当てるため�
     <ul>
       
       <li>
+        <a href="/categories/continuous-integration-and-delivery">
+          Continuous integration and delivery
+          <span class="badge badge-pill badge-light">1</span>
+        </a>
+      </li>
+      
+      <li>
         <a href="/categories/infrastructure-as-code">
           Infrastructure as code
+          <span class="badge badge-pill badge-light">3</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories/static-website">
+          Static website
           <span class="badge badge-pill badge-light">3</span>
         </a>
       </li>
