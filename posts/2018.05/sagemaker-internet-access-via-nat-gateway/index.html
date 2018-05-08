@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="https://mazgi.github.io/common/favicon.ico">
+    
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/common/site.css">
+    
+    
+    <title>mazgi.log :: Amazon SageMaker実運用: NAT GatewayでNotebookの接続元IPアドレスを固定する</title>
+    <meta property="og:title"       content="mazgi.log :: Amazon SageMaker実運用: NAT GatewayでNotebookの接続元IPアドレスを固定する" />
+    <meta property="og:type"        content="article" />
+    
+    <meta property="og:url"         content="https://mazgi.github.io/posts/2018.05/sagemaker-internet-access-via-nat-gateway/" />
+    <meta property="og:description" content="" />
+    
+    
+    
+    <meta property="og:image"       content="https://mazgi.github.io/posts/2018.05/sagemaker-internet-access-via-nat-gateway/og.png" />
+    <meta property="twitter:image"  content="https://mazgi.github.io/posts/2018.05/sagemaker-internet-access-via-nat-gateway/og.png" />
+    <meta property="twitter:image:src"  content="https://mazgi.github.io/posts/2018.05/sagemaker-internet-access-via-nat-gateway/og.png" />
+    
+    
+    
+    
+    
+    
+    
+    
+    <meta name="twitter:card"       content="summary" />
+    
+    
+  </head>
+  <body>
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark">
+      
+      <span class="navbar-text mr-1">I am on</span>
+      
+      <ul class="navbar-nav">
+        
+        <li class="nav-item">
+          <a class="nav-link" target="github_mazgi" href="https://github.com/mazgi">GitHub<i class="ml-1 fab fa-github"></i></a>
+        </li>
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" target="twitter_mazgi" href="https://twitter.com/@mazgi">Twitter<i class="ml-1 fab fa-twitter"></i></a>
+        </li>
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" target="instagram_mazgi" href="https://www.instagram.com/mazgi">Instagram<i class="ml-1 fab fa-instagram"></i></a>
+        </li>
+        
+        
+      </ul>
+    </header>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="https://mazgi.github.io/">mazgi.log</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_nav" aria-controls="navbar_nav" aria-expand="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar_nav">
+        
+        <ul class="navbar-nav mr-auto">
+          
+          
+          <li class="nav-item">
+            <span class="nav-link disabled">Created At: 2018.05.09</span>
+          </li>
+          <li class="nav-item">
+            <span class="nav-link disabled">Updated At: 2018.05.09</span>
+          </li>
+          
+        </ul>
+        
+        <div class="navbar-nav ml-auto">
+          <span class="navbar-text mr-1">share this page via</span>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="https://twitter.com/share?url=https%3a%2f%2fmazgi.github.io%2fposts%2f2018.05%2fsagemaker-internet-access-via-nat-gateway%2f&text=Amazon%20SageMaker%e5%ae%9f%e9%81%8b%e7%94%a8%3a%20NAT%20Gateway%e3%81%a7Notebook%e3%81%ae%e6%8e%a5%e7%b6%9a%e5%85%83IP%e3%82%a2%e3%83%89%e3%83%ac%e3%82%b9%e3%82%92%e5%9b%ba%e5%ae%9a%e3%81%99%e3%82%8b" target="_blank"><i class="fab fa-twitter"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fmazgi.github.io%2fposts%2f2018.05%2fsagemaker-internet-access-via-nat-gateway%2f" target="_blank"><i class="fab fa-facebook"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.linkedin.com/shareArticle?url=https%3a%2f%2fmazgi.github.io%2fposts%2f2018.05%2fsagemaker-internet-access-via-nat-gateway%2f&title=Amazon%20SageMaker%e5%ae%9f%e9%81%8b%e7%94%a8%3a%20NAT%20Gateway%e3%81%a7Notebook%e3%81%ae%e6%8e%a5%e7%b6%9a%e5%85%83IP%e3%82%a2%e3%83%89%e3%83%ac%e3%82%b9%e3%82%92%e5%9b%ba%e5%ae%9a%e3%81%99%e3%82%8b" target="_blank"><i class="fab fa-linkedin"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://plusone.google.com/_/+1/confirm?url=https%3a%2f%2fmazgi.github.io%2fposts%2f2018.05%2fsagemaker-internet-access-via-nat-gateway%2f" target="_blank"><i class="fab fa-google-plus"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://b.hatena.ne.jp/entry/https://mazgi.github.io/posts/2018.05/sagemaker-internet-access-via-nat-gateway/" target="_blank">b!</a>
+            </li>
+          </ul>
+        </div>
+        
+      </div>
+    </nav>
+    <main role="main" class="container-fluid col-lg-10 offset-lg-1">
+
+<div class="row">
+  <div class="col-lg-9">
+    <article>
+      <div class="row">
+        <h1>Amazon SageMaker実運用: NAT GatewayでNotebookの接続元IPアドレスを固定する</h1>
+      </div>
+      
+
+<p><a href="https://aws.amazon.com/jp/sagemaker/">Amazon SageMaker</a>を使っていてNotebookインスタンスから以下を行いたくなったので構成を考えてみた。</p>
+
+<ul>
+<li>Notebookインスタンスから外部システムにアクセスしたい
+
+<ul>
+<li>対象のシステムはアクセス制限を行なっており接続元IPアドレスを固定したい</li>
+</ul></li>
+<li>NotebookインスタンスマネージドNFSサービスである<a href="https://aws.amazon.com/jp/efs/">Amazon EFS</a>をマウントしたい
+
+<ul>
+<li>VPC内のインスタンスからはマウントできるよう設定済み</li>
+</ul></li>
+</ul>
+
+<h2 id="解答">解答</h2>
+
+<p><a href="https://aws.amazon.com/blogs/machine-learning/">AWS Machine Learning Blog</a>に正解が書いてあった。</p>
+
+<ul>
+<li><a href="https://aws.amazon.com/blogs/machine-learning/customize-your-amazon-sagemaker-notebook-instances-with-lifecycle-configurations-and-the-option-to-disable-internet-access/">Customize your Amazon SageMaker notebook instances with lifecycle configurations and the option to disable internet access</a></li>
+<li><a href="https://aws.amazon.com/blogs/machine-learning/mount-an-efs-file-system-to-an-amazon-sagemaker-notebook-with-lifecycle-configurations/">Mount an EFS file system to an Amazon SageMaker notebook (with lifecycle configurations)</a></li>
+</ul>
+
+<h2 id="構成">構成</h2>
+
+<p>上記を踏まえて以下のような構成を考えた。<br />
+
+<figure>
+    
+        <img src="/posts/2018.05/sagemaker-internet-access-via-nat-gateway/0000.png" width="800" />
+    
+    
+</figure>
+</p>
+
+<h3 id="notebookインスタンス">Notebookインスタンス</h3>
+
+<p>前提として人間がNotebookを使用する方法は当然ながらWeb UIを使う。</p>
+
+<h4 id="notebookインスタンスからのvpc内-外部アクセス">NotebookインスタンスからのVPC内/外部アクセス</h4>
+
+<p>後述するようにNotebook作成時にVPCとPrivate Subnetを紐づける。<br />
+すると指定したPrivate Subnet内にNICが作成され、NotebookインスタンスからVPC内にアクセスできるようになる。<br />
+NAT Gatewayを配置しているので、NAT GatewayにattachしたEIPアドレスを接続元として外部にアクセスできるようになる。<br />
+ちなみにPublic SubnetからNAT Gatewayへのrouteは動作しない(?)ので、Private Subnetを紐づける必要がある。</p>
+
+<p>おそらくNotebookインスタンス自体は専用の不可視VPC内で起動されている。<br />
+(<code>No VPC</code> 設定でNotebookインスタンスを起動してもNICが2つ存在する,VPCを紐づけるとNICがもう1つ増える)</p>
+
+<p>なお接続対象の外部システムについてこの記事では触れないが、以下のような外部システムを想定している。</p>
+
+<ul>
+<li>接続元IPアドレスによるアクセス制限を行なっている</li>
+<li>HTTPSとSSH両方で接続したい</li>
+</ul>
+
+<h4 id="notebookインスタンスからのefsボリュームマウント">NotebookインスタンスからのEFSボリュームマウント</h4>
+
+<p>Private SubnetにNICが作成されているのでEFSボリュームにも問題なくアクセスできる。<br />
+Web UIからTerminal(こちらもWeb UI)を開いて <code>sudo mount ~</code> 等実行することもできる。<br />
+しかし <code>Lifecycle configuration</code> なる便利機能が追加されており、スクリプトを指定するとある程度自動化できる。</p>
+
+<h3 id="その他gpuインスタンス他">その他GPUインスタンス他</h3>
+
+<p>既存のいわゆるAIプロジェクトで使うことを想定しているためGPUインスタンス等がある。<br />
+以下に少し情報がある。</p>
+
+<ul>
+<li><a href="https://speakerdeck.com/sonots/dena-aisisutemubu-niokerukuraudowohuo-yong-sitaji-jie-xue-xi-ji-pan-falsegou-zhu?slide=27">https://speakerdeck.com/sonots/dena-aisisutemubu-niokerukuraudowohuo-yong-sitaji-jie-xue-xi-ji-pan-falsegou-zhu?slide=27</a></li>
+<li><a href="https://speakerdeck.com/mazgi/dena-ai-cloud-infrastructure-2018-summary?slide=13">https://speakerdeck.com/mazgi/dena-ai-cloud-infrastructure-2018-summary?slide=13</a></li>
+</ul>
+
+<h4 id="elbとwebインスタンス">ELBとWebインスタンス</h4>
+
+<p>機械学習Jobの結果をWebから閲覧したいことがあるのでシンプルなWebサーバーを立てる。<br />
+ELBをPublic Subnetに、Webサーバー用のEC2インスタンスを同じAZのPrivate Subnet上に立てて追加してしまうのがAI R&amp;Dエンジニアにとって楽そう。</p>
+
+<h4 id="ssh接続について">SSH接続について</h4>
+
+<p>最初にSSHログインする踏み台ホストのIPアドレスは固定したいのでインスタンスにEIPを振る。<br />
+可用性を考えるとAZごとに配置すると安全。<br />
+万が一AZがダウンした場合は手動でログインし直すことにする。<br />
+ファイルはEFSに置いておけばそれほど困らない想定。</p>
+
+<h2 id="notebookインスタンス作成方法">Notebookインスタンス作成方法</h2>
+
+<p>以前より細かく設定できるようになっている。ありがたい。<br />
+
+<figure>
+    
+        <img src="/posts/2018.05/sagemaker-internet-access-via-nat-gateway/0001.png" width="800" />
+    
+    
+</figure>
+</p>
+
+<p><a href="/posts/2018.03/setup-amazon-sagemaker/">2018.03に書いた記事</a>からの差分は以下。</p>
+
+<ul>
+<li>VPC
+
+<ul>
+<li>今回はVPCを選択する</li>
+</ul></li>
+<li>Subnet(s)
+
+<ul>
+<li>現時点ではSubnetが1つ指定できる</li>
+<li>表示されたSubnetからPrivate Subnetを選ぶ</li>
+</ul></li>
+<li>Security group(s)
+
+<ul>
+<li>必要なSecurity Groupを選ぶ</li>
+<li>こちらは複数選択できる</li>
+</ul></li>
+<li>Direct internet access
+
+<ul>
+<li>NATでインターネットアクセスするので <code>Disable</code> を選ぶ</li>
+</ul></li>
+<li>Lifecycle configuration
+
+<ul>
+<li>Notebookインスタンスの作成/起動時にスクリプトを実行できるようになっていた、便利</li>
+<li>(たぶん)次の記事で書く</li>
+</ul></li>
+</ul>
+
+<p>ということでSageMakerの進歩のおかげで希望に近い構成が作れそうな予感がしてきた。<br />
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">おれは<br>kaggle masterに<br>sedとかmountとか<br>叩かせたくないんや！</p>&mdash; Hidenori MATSUKI (@mazgi) <a href="https://twitter.com/mazgi/status/993505452838170625?ref_src=twsrc%5Etfw">May 7, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</p>
+
+    </article>
+  </div>
+  <div class="col-lg-3">
+    <div class="sidebar">
+  
+  <h4><a href="/about/">About</a></h4>
+  <p><strong>Hidenori MATSUKI</strong></p>
+
+<p>🍣 🍶</p>
+
+<p>another website: <a href="https://mazgi.com/">mazgi.com</a></p>
+
+<p></p>
+  
+  <hr />
+  <h4><a href="/categories/">Categories</a></h4>
+  
+  <div>
+    <ul>
+      
+      <li>
+        <a href="/categories/software-architecture">software architecture</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+  <hr />
+  <h4><a href="/tags/">Tags</a></h4>
+  
+  <div>
+    
+    <a class="badge badge-pill badge-secondary" href="/tags/aws">aws</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/tags/amazon-sagemaker">amazon sagemaker</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/tags/amazon-vpc">amazon vpc</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/tags/amazon-vpc-nat-gateway">amazon vpc nat gateway</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/tags/aws-elb">aws elb</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/tags/amazon-efs">amazon efs</a>
+    
+  </div>
+  
+</div>
+
+  </div>
+</div>
+      <div class="row">
+        <footer class="col-lg-12">
+          <hr/>
+          <span>&copy; mazgi.log</span>
+          <span>&nbsp;&middot;&nbsp;</span>
+          <i class="fas fa-bolt"></i>
+          <span>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a></span>
+        </footer>
+      </div>
+    </div>
+    </main>
+    
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68170979-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-68170979-2');
+    </script>
+    
+      
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+  </body>
+</html>
+

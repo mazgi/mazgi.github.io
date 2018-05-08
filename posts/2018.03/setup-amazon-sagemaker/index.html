@@ -66,7 +66,10 @@
           
           
           <li class="nav-item">
-            <span class="nav-link disabled">Updated At: 2018.05.03</span>
+            <span class="nav-link disabled">Created At: 2018.03.06</span>
+          </li>
+          <li class="nav-item">
+            <span class="nav-link disabled">Updated At: 2018.05.09</span>
           </li>
           
         </ul>
@@ -163,7 +166,13 @@ SageMakerのオフィシャルサイトはこちら。<br />
 <ul>
 <li>とりあえず使うだけなら <code>No VPC</code> でよい</li>
 <li>ここで指定したVPCにSageMakerがアクセスできるようになるらしい(未検証)</li>
-<li>&ldquo;Notebook instances will have internet access independent of your VPC setting.&ldquo;とある通り、ここでVPCを指定したからといってSageMakerやNotebookを特定のVPCに閉じ込めることはできないので注意</li>
+<li><del>&ldquo;Notebook instances will have internet access independent of your VPC setting.&ldquo;とある通り、ここでVPCを指定したからといってSageMakerやNotebookを特定のVPCに閉じ込めることはできないので注意</del><br />
+この記事公開後まもなくPrivate Subnet内に閉じることができるようになった, 参考:
+
+<ul>
+<li><a href="https://aws.amazon.com/blogs/machine-learning/customize-your-amazon-sagemaker-notebook-instances-with-lifecycle-configurations-and-the-option-to-disable-internet-access/">Customize your Amazon SageMaker notebook instances with lifecycle configurations and the option to disable internet access</a></li>
+<li><a href="/posts/2018.05/sagemaker-internet-access-via-nat-gateway/">新しい記事を書いた</a></li>
+</ul></li>
 </ul></li>
 </ul>
 
@@ -280,9 +289,21 @@ AWSのリソース上限はなかなか難しいのでAWS SAの方に相談す�
 <p>another website: <a href="https://mazgi.com/">mazgi.com</a></p>
 
 <p></p>
+  
   <hr />
+  <h4><a href="/categories/">Categories</a></h4>
   
+  <div>
+    <ul>
+      
+      <li>
+        <a href="/categories/infrastructure-as-code">infrastructure as code</a>
+      </li>
+      
+    </ul>
+  </div>
   
+  <hr />
   <h4><a href="/tags/">Tags</a></h4>
   
   <div>
@@ -291,37 +312,6 @@ AWSのリソース上限はなかなか難しいのでAWS SAの方に相談す�
     
     <a class="badge badge-pill badge-secondary" href="/tags/amazon-sagemaker">amazon sagemaker</a>
     
-  </div>
-  
-  <hr />
-  
-  <h4><a href="/categories/">Categories</a></h4>
-  
-  <div>
-    <ul>
-      
-      <li>
-        <a href="/categories/continuous-integration-and-delivery">
-          Continuous integration and delivery
-          <span class="badge badge-pill badge-light">1</span>
-        </a>
-      </li>
-      
-      <li>
-        <a href="/categories/infrastructure-as-code">
-          Infrastructure as code
-          <span class="badge badge-pill badge-light">3</span>
-        </a>
-      </li>
-      
-      <li>
-        <a href="/categories/static-website">
-          Static website
-          <span class="badge badge-pill badge-light">3</span>
-        </a>
-      </li>
-      
-    </ul>
   </div>
   
 </div>
