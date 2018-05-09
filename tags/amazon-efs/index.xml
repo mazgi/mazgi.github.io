@@ -6,10 +6,19 @@
     <description>Recent content in Amazon Efs on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 09 May 2018 01:46:59 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 10 May 2018 02:03:25 +0900</lastBuildDate>
     
 	<atom:link href="https://mazgi.github.io/tags/amazon-efs/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Amazon SageMaker実運用: &#34;Lifecycle Configuration&#34;でEFSを自動マウント</title>
+      <link>https://mazgi.github.io/posts/2018.05/sagemaker-efs-auto-mount-with-lifecycles-configuration/</link>
+      <pubDate>Thu, 10 May 2018 02:03:25 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2018.05/sagemaker-efs-auto-mount-with-lifecycles-configuration/</guid>
+      <description>前回の記事に続いてマネージドJupyterサービスAmazon SageMakerのNotebookインスタンスにEFSのボリュームを自動マウ</description>
+    </item>
     
     <item>
       <title>Amazon SageMaker実運用: NAT GatewayでNotebookの接続元IPアドレスを固定する</title>
