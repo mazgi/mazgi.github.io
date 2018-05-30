@@ -6,10 +6,19 @@
     <description>Recent content in Tags on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 15 Feb 2018 05:24:40 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 22 May 2018 16:48:42 +0900</lastBuildDate>
     
 	<atom:link href="https://mazgi.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>#Tdtech</title>
+      <link>https://mazgi.github.io/tags/#tdtech/</link>
+      <pubDate>Tue, 22 May 2018 16:48:42 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/#tdtech/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Amazon Cloudfront</title>
@@ -129,6 +138,24 @@
     </item>
     
     <item>
+      <title>Dena</title>
+      <link>https://mazgi.github.io/tags/dena/</link>
+      <pubDate>Tue, 22 May 2018 16:48:42 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/dena/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Etl</title>
+      <link>https://mazgi.github.io/tags/etl/</link>
+      <pubDate>Tue, 22 May 2018 16:48:42 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/etl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Github</title>
       <link>https://mazgi.github.io/tags/github/</link>
       <pubDate>Sun, 06 May 2018 21:04:37 +0900</pubDate>
@@ -143,6 +170,24 @@
       <pubDate>Sun, 06 May 2018 21:04:37 +0900</pubDate>
       
       <guid>https://mazgi.github.io/tags/github-pages/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Google Bigquery</title>
+      <link>https://mazgi.github.io/tags/google-bigquery/</link>
+      <pubDate>Tue, 22 May 2018 16:48:42 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/google-bigquery/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hadoop</title>
+      <link>https://mazgi.github.io/tags/hadoop/</link>
+      <pubDate>Tue, 22 May 2018 16:48:42 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/hadoop/</guid>
       <description></description>
     </item>
     

@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://mazgi.github.io/posts/2018.05/td-tech-talk-2018/</loc>
-    <lastmod>2018-05-22T17:02:47+09:00</lastmod>
+    <lastmod>2018-05-30T22:56:01+09:00</lastmod>
   </url>
   
   <url>
@@ -80,6 +80,12 @@
   <url>
     <loc>https://mazgi.github.io/posts/2016.07/racktables-for-home-network/</loc>
     <lastmod>2018-04-10T22:16:53+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/tags/#tdtech/</loc>
+    <lastmod>2018-05-30T22:56:01+09:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -182,6 +188,24 @@
   </url>
   
   <url>
+    <loc>https://mazgi.github.io/tags/dena/</loc>
+    <lastmod>2018-05-30T22:56:01+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/tags/etl/</loc>
+    <lastmod>2018-05-30T22:56:01+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/categories/event/</loc>
+    <lastmod>2018-05-30T22:56:01+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://mazgi.github.io/tags/github/</loc>
     <lastmod>2018-05-06T23:13:17+09:00</lastmod>
     <priority>0</priority>
@@ -190,6 +214,18 @@
   <url>
     <loc>https://mazgi.github.io/tags/github-pages/</loc>
     <lastmod>2018-05-06T23:13:17+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/tags/google-bigquery/</loc>
+    <lastmod>2018-05-30T22:56:01+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/tags/hadoop/</loc>
+    <lastmod>2018-05-30T22:56:01+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -213,7 +249,7 @@
   
   <url>
     <loc>https://mazgi.github.io/posts/</loc>
-    <lastmod>2018-05-22T17:02:47+09:00</lastmod>
+    <lastmod>2018-05-30T22:56:01+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -231,7 +267,7 @@
   
   <url>
     <loc>https://mazgi.github.io/tags/</loc>
-    <lastmod>2018-05-09T02:53:03+09:00</lastmod>
+    <lastmod>2018-05-30T22:56:01+09:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -259,7 +295,7 @@
   
   <url>
     <loc>https://mazgi.github.io/</loc>
-    <lastmod>2018-05-22T17:02:47+09:00</lastmod>
+    <lastmod>2018-05-30T22:56:01+09:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
