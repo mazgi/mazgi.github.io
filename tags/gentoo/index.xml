@@ -20,5 +20,14 @@
       <description>追記 私が何か勘違いしてたようですが glibc-2.21-r2 (~amd64マスクされてない)でpatchが取り込まれてますね。。 # emerge -fOq glibc &amp;gt;&amp;gt;&amp;gt; Fetching (1 of 1) sys-libs/glibc-2.21-r2::gentoo # tar tf /usr/portage/distfiles/glibc-2.21-patches-7.tar.bz2 | grep &amp;#39;CVE-2015-7547&amp;#39; patches/00_all_0028-CVE-2015-7547-getaddrinfo-stack-based-buffer-overflo.patch</description>
     </item>
     
+    <item>
+      <title>ssmjp で Gentoo の話をしてきました</title>
+      <link>https://mazgi.github.io/posts/2015.10/gentoo-talk-on-ssmjp/</link>
+      <pubDate>Mon, 05 Oct 2015 15:44:24 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2015.10/gentoo-talk-on-ssmjp/</guid>
+      <description>先週の話ですがssmjp 2015/09の回におじゃましてきました。 「一緒にプロダクション環境でのGentoo勉強会」やりましょう！という話を</description>
+    </item>
+    
   </channel>
 </rss>

@@ -11,11 +11,11 @@
     <link rel="stylesheet" href="/common/site.css">
     
     
-    <title>mazgi.log :: Gentoo</title>
-    <meta property="og:title"       content="mazgi.log :: Gentoo" />
+    <title>mazgi.log :: ssmjp で Gentoo の話をしてきました</title>
+    <meta property="og:title"       content="mazgi.log :: ssmjp で Gentoo の話をしてきました" />
     <meta property="og:type"        content="article" />
     
-    <meta property="og:url"         content="https://mazgi.github.io/tags/gentoo/" />
+    <meta property="og:url"         content="https://mazgi.github.io/posts/2015.10/gentoo-talk-on-ssmjp/" />
     <meta property="og:description" content="" />
     
     
@@ -65,25 +65,32 @@
         <ul class="navbar-nav mr-auto">
           
           
+          <li class="nav-item">
+            <span class="nav-link disabled">Created At: 2015.10.05</span>
+          </li>
+          <li class="nav-item">
+            <span class="nav-link disabled">Updated At: 2018.06.16</span>
+          </li>
+          
         </ul>
         
         <div class="navbar-nav ml-auto">
           <span class="navbar-text mr-1">share this page via</span>
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="https://twitter.com/share?url=https%3a%2f%2fmazgi.github.io%2ftags%2fgentoo%2f&text=Gentoo" target="_blank"><i class="fab fa-twitter"></i></a>
+              <a class="nav-link" href="https://twitter.com/share?url=https%3a%2f%2fmazgi.github.io%2fposts%2f2015.10%2fgentoo-talk-on-ssmjp%2f&text=ssmjp%20%e3%81%a7%20Gentoo%20%e3%81%ae%e8%a9%b1%e3%82%92%e3%81%97%e3%81%a6%e3%81%8d%e3%81%be%e3%81%97%e3%81%9f" target="_blank"><i class="fab fa-twitter"></i></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fmazgi.github.io%2ftags%2fgentoo%2f" target="_blank"><i class="fab fa-facebook"></i></a></a>
+              <a class="nav-link" href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fmazgi.github.io%2fposts%2f2015.10%2fgentoo-talk-on-ssmjp%2f" target="_blank"><i class="fab fa-facebook"></i></a></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="https://www.linkedin.com/shareArticle?url=https%3a%2f%2fmazgi.github.io%2ftags%2fgentoo%2f&title=Gentoo" target="_blank"><i class="fab fa-linkedin"></i></a></a>
+              <a class="nav-link" href="https://www.linkedin.com/shareArticle?url=https%3a%2f%2fmazgi.github.io%2fposts%2f2015.10%2fgentoo-talk-on-ssmjp%2f&title=ssmjp%20%e3%81%a7%20Gentoo%20%e3%81%ae%e8%a9%b1%e3%82%92%e3%81%97%e3%81%a6%e3%81%8d%e3%81%be%e3%81%97%e3%81%9f" target="_blank"><i class="fab fa-linkedin"></i></a></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="https://plusone.google.com/_/+1/confirm?url=https%3a%2f%2fmazgi.github.io%2ftags%2fgentoo%2f" target="_blank"><i class="fab fa-google-plus"></i></a></a>
+              <a class="nav-link" href="https://plusone.google.com/_/+1/confirm?url=https%3a%2f%2fmazgi.github.io%2fposts%2f2015.10%2fgentoo-talk-on-ssmjp%2f" target="_blank"><i class="fab fa-google-plus"></i></a></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="https://b.hatena.ne.jp/entry/https://mazgi.github.io/tags/gentoo/" target="_blank">b!</a>
+              <a class="nav-link" href="https://b.hatena.ne.jp/entry/https://mazgi.github.io/posts/2015.10/gentoo-talk-on-ssmjp/" target="_blank">b!</a>
             </li>
           </ul>
         </div>
@@ -94,45 +101,34 @@
 
 <div class="row">
   <div class="col-lg-9">
-    
-    
-    
     <article>
       <div class="row">
-        <h3><a href="/posts/2016.02/cve-2015-7547-on-gentoo/">Gentoo で普通の CVE-2015-7547 対策</a></h3>
+        <h1>ssmjp で Gentoo の話をしてきました</h1>
       </div>
       
-      <div class="row">
-        
-        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/gentoo">gentoo</a>
-        
-      </div>
-      
-      追記 私が何か勘違いしてたようですが glibc-2.21-r2 (~amd64マスクされてない)でpatchが取り込まれてますね。。 # emerge -fOq glibc &gt;&gt;&gt; Fetching (1 of 1) sys-libs/glibc-2.21-r2::gentoo # tar tf /usr/portage/distfiles/glibc-2.21-patches-7.tar.bz2 | grep &#39;CVE-2015-7547&#39; patches/00_all_0028-CVE-2015-7547-getaddrinfo-stack-based-buffer-overflo.patch
-    </article>
-    <hr/>
-    
-    
-    
-    <article>
-      <div class="row">
-        <h3><a href="/posts/2015.10/gentoo-talk-on-ssmjp/">ssmjp で Gentoo の話をしてきました</a></h3>
-      </div>
-      
-      <div class="row">
-        
-        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/gentoo">gentoo</a>
-        
-      </div>
-      
-      先週の話ですがssmjp 2015/09の回におじゃましてきました。 「一緒にプロダクション環境でのGentoo勉強会」やりましょう！という話を
-    </article>
-    <hr/>
-    
-    
-    
+
+<p>先週の話ですが<a href="http://ssmjp.connpass.com/event/20255/">ssmjp 2015/09の回</a>におじゃましてきました。</p>
+
+<p>「一緒にプロダクション環境でのGentoo勉強会」やりましょう！という話を現実にしてくださった<a href="https://twitter.com/usaturn">@usaturn</a>さん、そして初参加&amp;&amp;初登壇&amp;&amp;Gentooネタという暴挙(?)を広い懐で受け入れてくださった #ssmjp の皆様、本当にありがとうございました！</p>
+
+<h2 id="内容とか">内容とか</h2>
+
+<p>以前会社のblogに書いた「自社サービスをGentoo Linuxのパッケージ形式であるebuildでパッケージングしてdeployする」という話をベースになぜそのような選択に至ったかなどをお話させていただきました。</p>
+
+<p><a href="http://techlog.mvrck.co.jp/entry/services-with-gentoo/">とある自社サービスのパッケージングの話</a></p>
+
+<p>当日のスライドはこちらにアップロードしております。</p>
+
+<p><iframe src="//www.slideshare.net/slideshow/embed_code/key/4MABg3bXhuOaOp" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/mazgi/production-services-with-gentoo-linux-on-sakura-cloud-53402835" title="Production Services with Gentoo Linux on SAKURA Cloud" target="_blank">Production Services with Gentoo Linux on SAKURA Cloud</a> </strong> from <strong><a href="https://www.slideshare.net/mazgi" target="_blank">Hidenori Matsuki</a></strong> </div></p>
+
+<p>オフィシャルblogでのGentooカミングアウトに留まらず発表の場までいただきありがとうございました！<br />
+おかげさまで無事フラグを回収できました。</p>
+
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">これはもう会社のオフィシャルblogでGentoo使ってますってカミングアウトするしかないな（死亡フラグ）</p>&mdash; Hidenori MATSUKI (@mazgi) <a href="https://twitter.com/mazgi/status/634679984582356992?ref_src=twsrc%5Etfw">August 21, 2015</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
+    </article>
   </div>
   <div class="col-lg-3">
     <div class="sidebar">
@@ -151,6 +147,12 @@
   
   <hr />
   <h4><a href="/tags/">Tags</a></h4>
+  
+  <div>
+    
+    <a class="badge badge-pill badge-secondary" href="/tags/gentoo">gentoo</a>
+    
+  </div>
   
 </div>
 
