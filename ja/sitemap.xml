@@ -83,6 +83,11 @@
   </url>
   
   <url>
+    <loc>https://mazgi.github.io/posts/2016.02/tls-certificates-validation-via-s_client/</loc>
+    <lastmod>2018-06-16T21:12:37+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://mazgi.github.io/tags/amazon-cloudfront/</loc>
     <lastmod>2018-05-09T02:53:03+09:00</lastmod>
     <priority>0</priority>

@@ -161,5 +161,14 @@
       <description>個人で使っているさくらのクラウドアカウントでサーバーやスイッチが増えてしまいどれが何やら分からなくなってきたのでRackTablesで管理し</description>
     </item>
     
+    <item>
+      <title>複数のサーバーに対してSSL証明書の期限を確認する</title>
+      <link>https://mazgi.github.io/posts/2016.02/tls-certificates-validation-via-s_client/</link>
+      <pubDate>Mon, 29 Feb 2016 22:21:00 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2016.02/tls-certificates-validation-via-s_client/</guid>
+      <description>会社のサーバーが一斉にSSL証明書更新のシーズンを迎えたのでOpenSSLの各種コマンドで確認の手間を減らしてみる。 まず、 openssl s_client コマンドで /dev/null を</description>
+    </item>
+    
   </channel>
 </rss>
