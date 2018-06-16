@@ -88,6 +88,11 @@
   </url>
   
   <url>
+    <loc>https://mazgi.github.io/posts/2016.02/cve-2015-7547-on-gentoo/</loc>
+    <lastmod>2018-06-16T21:23:29+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://mazgi.github.io/tags/amazon-cloudfront/</loc>
     <lastmod>2018-05-09T02:53:03+09:00</lastmod>
     <priority>0</priority>
@@ -205,6 +210,12 @@
   </url>
   
   <url>
+    <loc>https://mazgi.github.io/tags/gentoo/</loc>
+    <lastmod>2018-06-16T21:23:29+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://mazgi.github.io/tags/github/</loc>
     <lastmod>2018-05-06T23:13:17+09:00</lastmod>
     <priority>0</priority>
@@ -249,6 +260,12 @@
   <url>
     <loc>https://mazgi.github.io/posts/</loc>
     <lastmod>2018-05-30T23:05:15+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/categories/security/</loc>
+    <lastmod>2018-06-16T21:23:29+09:00</lastmod>
     <priority>0</priority>
   </url>
   
