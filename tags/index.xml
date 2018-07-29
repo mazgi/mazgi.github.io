@@ -6,10 +6,19 @@
     <description>Recent content in Tags on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 15 Feb 2018 05:24:40 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 28 Jul 2018 16:01:14 +0900</lastBuildDate>
     
 	<atom:link href="https://mazgi.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Airdrop</title>
+      <link>https://mazgi.github.io/tags/airdrop/</link>
+      <pubDate>Sat, 28 Jul 2018 16:01:14 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/airdrop/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Amazon Cloudfront</title>
@@ -138,6 +147,15 @@
     </item>
     
     <item>
+      <title>Do Not Disturb</title>
+      <link>https://mazgi.github.io/tags/do-not-disturb/</link>
+      <pubDate>Sat, 28 Jul 2018 16:01:14 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/do-not-disturb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Etl</title>
       <link>https://mazgi.github.io/tags/etl/</link>
       <pubDate>Tue, 22 May 2018 16:48:42 +0900</pubDate>
@@ -206,6 +224,24 @@
       <pubDate>Sun, 06 May 2018 21:04:37 +0900</pubDate>
       
       <guid>https://mazgi.github.io/tags/hugo-theme/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ios</title>
+      <link>https://mazgi.github.io/tags/ios/</link>
+      <pubDate>Sat, 28 Jul 2018 16:01:14 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/ios/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Macos</title>
+      <link>https://mazgi.github.io/tags/macos/</link>
+      <pubDate>Sat, 28 Jul 2018 16:01:14 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/macos/</guid>
       <description></description>
     </item>
     

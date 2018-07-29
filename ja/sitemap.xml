@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://mazgi.github.io/posts/2018.07/airdrop-sleeps-when-do-not-disturb-is-turned-on/</loc>
+    <lastmod>2018-07-29T17:31:40+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://mazgi.github.io/posts/2018.05/td-tech-talk-2018/</loc>
     <lastmod>2018-05-30T23:05:15+09:00</lastmod>
   </url>
@@ -95,6 +100,12 @@
   <url>
     <loc>https://mazgi.github.io/posts/2015.10/gentoo-talk-on-ssmjp/</loc>
     <lastmod>2018-06-16T21:34:28+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/tags/airdrop/</loc>
+    <lastmod>2018-07-29T17:31:40+09:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -203,6 +214,12 @@
   </url>
   
   <url>
+    <loc>https://mazgi.github.io/tags/do-not-disturb/</loc>
+    <lastmod>2018-07-29T17:31:40+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://mazgi.github.io/tags/etl/</loc>
     <lastmod>2018-05-30T23:05:15+09:00</lastmod>
     <priority>0</priority>
@@ -263,8 +280,20 @@
   </url>
   
   <url>
+    <loc>https://mazgi.github.io/tags/ios/</loc>
+    <lastmod>2018-07-29T17:31:40+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/tags/macos/</loc>
+    <lastmod>2018-07-29T17:31:40+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://mazgi.github.io/posts/</loc>
-    <lastmod>2018-05-30T23:05:15+09:00</lastmod>
+    <lastmod>2018-07-29T17:31:40+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -288,7 +317,7 @@
   
   <url>
     <loc>https://mazgi.github.io/tags/</loc>
-    <lastmod>2018-05-09T02:53:03+09:00</lastmod>
+    <lastmod>2018-07-29T17:31:40+09:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -315,6 +344,12 @@
   </url>
   
   <url>
+    <loc>https://mazgi.github.io/categories/tips/</loc>
+    <lastmod>2018-07-29T17:31:40+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://mazgi.github.io/tags/web-design/</loc>
     <lastmod>2018-05-06T23:13:17+09:00</lastmod>
     <priority>0</priority>
@@ -322,7 +357,7 @@
   
   <url>
     <loc>https://mazgi.github.io/</loc>
-    <lastmod>2018-05-30T23:05:15+09:00</lastmod>
+    <lastmod>2018-07-29T17:31:40+09:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
