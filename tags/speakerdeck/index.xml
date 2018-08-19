@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Speakerdeck on mazgi.log</title>
+    <link>https://mazgi.github.io/tags/speakerdeck/</link>
+    <description>Recent content in Speakerdeck on mazgi.log</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 19 Aug 2018 16:44:43 +0900</lastBuildDate>
+    
+	<atom:link href="https://mazgi.github.io/tags/speakerdeck/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hugo 0.42 からSpeaker Deck貼付はshortcodeではなくembed codeを使う</title>
+      <link>https://mazgi.github.io/posts/2018.08/hugo-removed-speakerdeck-shortcode/</link>
+      <pubDate>Sun, 19 Aug 2018 16:44:43 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2018.08/hugo-removed-speakerdeck-shortcode/</guid>
+      <description>tldr: Hugo 0.42 以降でSpeaker Deckのスライドを貼り付けるときはSpeaker Deckのembed codeを使いましょう。 ある日hugo ser</description>
+    </item>
+    
+  </channel>
+</rss>
