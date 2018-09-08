@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://mazgi.github.io/posts/2018.09/push-docker-image-to-ecr-and-gcr-with-packer/</loc>
+    <lastmod>2018-09-09T05:46:16+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://mazgi.github.io/posts/2018.08/hugo-removed-speakerdeck-shortcode/</loc>
     <lastmod>2018-08-19T17:26:05+09:00</lastmod>
   </url>
@@ -225,6 +230,12 @@
   </url>
   
   <url>
+    <loc>https://mazgi.github.io/tags/docker/</loc>
+    <lastmod>2018-09-09T05:46:16+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://mazgi.github.io/tags/etl/</loc>
     <lastmod>2018-08-19T16:34:59+09:00</lastmod>
     <priority>0</priority>
@@ -297,8 +308,20 @@
   </url>
   
   <url>
+    <loc>https://mazgi.github.io/tags/packer/</loc>
+    <lastmod>2018-09-09T05:46:16+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://mazgi.github.io/posts/</loc>
-    <lastmod>2018-08-19T17:26:05+09:00</lastmod>
+    <lastmod>2018-09-09T05:46:16+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/categories/provisioning/</loc>
+    <lastmod>2018-09-09T05:46:16+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -368,7 +391,7 @@
   
   <url>
     <loc>https://mazgi.github.io/</loc>
-    <lastmod>2018-08-19T17:26:05+09:00</lastmod>
+    <lastmod>2018-09-09T05:46:16+09:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"

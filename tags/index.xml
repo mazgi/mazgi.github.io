@@ -156,6 +156,15 @@
     </item>
     
     <item>
+      <title>Docker</title>
+      <link>https://mazgi.github.io/tags/docker/</link>
+      <pubDate>Sun, 09 Sep 2018 05:15:46 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Etl</title>
       <link>https://mazgi.github.io/tags/etl/</link>
       <pubDate>Tue, 22 May 2018 16:48:42 +0900</pubDate>
@@ -242,6 +251,15 @@
       <pubDate>Sat, 28 Jul 2018 16:01:14 +0900</pubDate>
       
       <guid>https://mazgi.github.io/tags/macos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Packer</title>
+      <link>https://mazgi.github.io/tags/packer/</link>
+      <pubDate>Sun, 09 Sep 2018 05:15:46 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/packer/</guid>
       <description></description>
     </item>
     

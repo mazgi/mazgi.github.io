@@ -175,14 +175,14 @@ $ <span style="color:#007020">export</span> <span style="color:#bb60d5">AWSSSEKM
 <p>なおS3バケットに入っているJPEG画像はこれ。かわいい。<br />
 「<a href="https://www.pakutaso.com/">ぱくたそ</a>」からお借りした。</p>
 
-<p>
+
 <figure>
     
         <img src="/posts/2018.03/s3fs-for-s3-with-sse-kms/0002.jpeg" />
     
     
 </figure>
-</p>
+
 
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ls -l bucket
 total <span style="color:#40a070">179</span>
@@ -223,8 +223,8 @@ total <span style="color:#40a070">179</span>
 
 <p>アップロード前のチェックサムがこれ。</p>
 
-<p><div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ shasum -a <span style="color:#40a070">1</span> cat.jpg
-fb9f3c47ad3d91ced2e62c82f0ae753330351b32  cat.jpg</code></pre></div></p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ shasum -a <span style="color:#40a070">1</span> cat.jpg
+fb9f3c47ad3d91ced2e62c82f0ae753330351b32  cat.jpg</code></pre></div>
 
 <p>mountしたS3バケットから読み取りテスト兼ねてチェックサムを取得してみる。<br />
 一致しているので正しく読み取れていることがわかる。</p>
@@ -263,9 +263,9 @@ fb9f3c47ad3d91ced2e62c82f0ae753330351b32  bucket/cat.jpg</code></pre></div>
 <p>今度はS3バケットにファイルを書き込んでみる。<br />
 適当にファイルを作りチェックサムを取得。</p>
 
-<p><div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ head -1 /dev/urandom|od -x &gt; rand.txt
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ head -1 /dev/urandom|od -x &gt; rand.txt
 $ sha1sum rand.txt
-bb02ee0d5fc5b459ca1978fcc0e53649d144554c  rand.txt</code></pre></div></p>
+bb02ee0d5fc5b459ca1978fcc0e53649d144554c  rand.txt</code></pre></div>
 
 <p>マウントポイントにコピーする。<br />
 コピー後のチェックサムが一致しているので正しくコピーできたことがわかる。</p>
@@ -404,7 +404,7 @@ bb02ee0d5fc5b459ca1978fcc0e53649d144554c  bucket/rand.txt</code></pre></div>
 
 <p>こちらはチェックサム取得時のコンソールログ。</p>
 
-<p><div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#666">[</span>INF<span style="color:#666">]</span> s3fs.cpp:s3fs_getattr<span style="color:#666">(</span><span style="color:#40a070">841</span><span style="color:#666">)</span>: <span style="color:#666">[</span><span style="color:#bb60d5">path</span><span style="color:#666">=</span>/rand.txt<span style="color:#666">]</span>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#666">[</span>INF<span style="color:#666">]</span> s3fs.cpp:s3fs_getattr<span style="color:#666">(</span><span style="color:#40a070">841</span><span style="color:#666">)</span>: <span style="color:#666">[</span><span style="color:#bb60d5">path</span><span style="color:#666">=</span>/rand.txt<span style="color:#666">]</span>
 <span style="color:#666">[</span>INF<span style="color:#666">]</span>       curl.cpp:HeadRequest<span style="color:#666">(</span><span style="color:#40a070">2708</span><span style="color:#666">)</span>: <span style="color:#666">[</span><span style="color:#bb60d5">tpath</span><span style="color:#666">=</span>/rand.txt<span style="color:#666">]</span>
 <span style="color:#666">[</span>INF<span style="color:#666">]</span>       curl.cpp:PreHeadRequest<span style="color:#666">(</span><span style="color:#40a070">2657</span><span style="color:#666">)</span>: <span style="color:#666">[</span><span style="color:#bb60d5">tpath</span><span style="color:#666">=</span>/rand.txt<span style="color:#666">][</span><span style="color:#bb60d5">bpath</span><span style="color:#666">=][</span><span style="color:#bb60d5">save</span><span style="color:#666">=][</span><span style="color:#bb60d5">sseckeypos</span><span style="color:#666">=</span>-1<span style="color:#666">]</span>
 <span style="color:#666">[</span>INF<span style="color:#666">]</span>       curl.cpp:prepare_url<span style="color:#666">(</span><span style="color:#40a070">4253</span><span style="color:#666">)</span>: URL is https://s3.amazonaws.com/mazgi-s3-sse-kms-test-01-bucket-01/rand.txt
@@ -436,7 +436,7 @@ bb02ee0d5fc5b459ca1978fcc0e53649d144554c  bucket/rand.txt</code></pre></div>
 <span style="color:#666">[</span>INF<span style="color:#666">]</span> s3fs.cpp:s3fs_flush<span style="color:#666">(</span><span style="color:#40a070">2185</span><span style="color:#666">)</span>: <span style="color:#666">[</span><span style="color:#bb60d5">path</span><span style="color:#666">=</span>/rand.txt<span style="color:#666">][</span><span style="color:#bb60d5">fd</span><span style="color:#666">=</span><span style="color:#40a070">7</span><span style="color:#666">]</span>
 <span style="color:#666">[</span>INF<span style="color:#666">]</span>       fdcache.cpp:RowFlush<span style="color:#666">(</span><span style="color:#40a070">1434</span><span style="color:#666">)</span>: <span style="color:#666">[</span><span style="color:#bb60d5">tpath</span><span style="color:#666">=][</span><span style="color:#bb60d5">path</span><span style="color:#666">=</span>/rand.txt<span style="color:#666">][</span><span style="color:#bb60d5">fd</span><span style="color:#666">=</span><span style="color:#40a070">7</span><span style="color:#666">]</span>
 <span style="color:#666">[</span>INF<span style="color:#666">]</span> s3fs.cpp:s3fs_release<span style="color:#666">(</span><span style="color:#40a070">2238</span><span style="color:#666">)</span>: <span style="color:#666">[</span><span style="color:#bb60d5">path</span><span style="color:#666">=</span>/rand.txt<span style="color:#666">][</span><span style="color:#bb60d5">fd</span><span style="color:#666">=</span><span style="color:#40a070">7</span><span style="color:#666">]</span>
-<span style="color:#666">[</span>INF<span style="color:#666">]</span>       fdcache.cpp:GetFdEntity<span style="color:#666">(</span><span style="color:#40a070">1995</span><span style="color:#666">)</span>: <span style="color:#666">[</span><span style="color:#bb60d5">path</span><span style="color:#666">=</span>/rand.txt<span style="color:#666">][</span><span style="color:#bb60d5">fd</span><span style="color:#666">=</span><span style="color:#40a070">7</span><span style="color:#666">]</span></code></pre></div></p>
+<span style="color:#666">[</span>INF<span style="color:#666">]</span>       fdcache.cpp:GetFdEntity<span style="color:#666">(</span><span style="color:#40a070">1995</span><span style="color:#666">)</span>: <span style="color:#666">[</span><span style="color:#bb60d5">path</span><span style="color:#666">=</span>/rand.txt<span style="color:#666">][</span><span style="color:#bb60d5">fd</span><span style="color:#666">=</span><span style="color:#40a070">7</span><span style="color:#666">]</span></code></pre></div>
 
 <p>以上、ちょっとハマったができてみるとあっさり暗号化したS3バケットが扱えた。</p>
 

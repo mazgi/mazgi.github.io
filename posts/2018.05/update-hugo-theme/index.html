@@ -229,22 +229,22 @@ instagram = <span style="color:#4070a0">&#34;SIROyoutuber&#34;</span></code></pr
 <p>Hugo上でタグ、カテゴリなどは <code>Taxonomy</code> といって実は区別されていないらしい。<br />
 ともかくタグの一覧が表示できれば十分なので <code>/layouts/_default/terms.html</code> を以下のような内容で作った。<br />
 <a href="https://gohugo.io/templates/taxonomy-templates/">ドキュメントはこちら</a></p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go-html-template" data-lang="go-html-template">{{ partial &#34;header.html&#34; . }}
-&lt;div class=&#34;row&#34;&gt;
-  &lt;div class=&#34;col-lg-9&#34;&gt;
-    {{ $plural := .Data.Plural }}
-    {{ range $key, $value := .Data.Terms }}
-    &lt;a class=&#34;m-1 btn btn-lg btn-secondary badge-pill&#34; href=&#34;{{ &#34;/&#34; | relLangURL}}{{ $plural }}/{{ $key | urlize }}&#34;&gt;
-      {{ $key }}
-      &lt;span class=&#34;badge badge-light&#34;&gt;{{ len $value }}&lt;/span&gt;
-    &lt;/a&gt;
-    {{ end }}
-  &lt;/div&gt;
-  &lt;div class=&#34;col-lg-3&#34;&gt;
-    {{ partial &#34;sidebar.html&#34; . }}
-  &lt;/div&gt;
-&lt;/div&gt;
-{{ partial &#34;footer.html&#34; . }}</code></pre></div>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go-html-template" data-lang="go-html-template"><span style="color:#007020">{{</span><span style="color:#bbb"> </span>partial<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;header.html&#34;</span><span style="color:#bbb"> </span><span style="color:#4070a0">.</span><span style="color:#bbb"> </span><span style="color:#007020">}}</span>
+&lt;<span style="color:#062873;font-weight:bold">div</span> <span style="color:#4070a0">class</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;row&#34;</span>&gt;
+  &lt;<span style="color:#062873;font-weight:bold">div</span> <span style="color:#4070a0">class</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;col-lg-9&#34;</span>&gt;
+    <span style="color:#007020">{{</span><span style="color:#bbb"> </span>$plural<span style="color:#bbb"> </span><span style="color:#666">:=</span><span style="color:#bbb"> </span><span style="color:#4070a0">.Data.Plural</span><span style="color:#bbb"> </span><span style="color:#007020">}}</span>
+    <span style="color:#007020">{{</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">range</span><span style="color:#bbb"> </span>$key<span style="">,</span><span style="color:#bbb"> </span>$value<span style="color:#bbb"> </span><span style="color:#666">:=</span><span style="color:#bbb"> </span><span style="color:#4070a0">.Data.Terms</span><span style="color:#bbb"> </span><span style="color:#007020">}}</span>
+    &lt;<span style="color:#062873;font-weight:bold">a</span> <span style="color:#4070a0">class</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;m-1 btn btn-lg btn-secondary badge-pill&#34;</span> <span style="color:#4070a0">href</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;</span><span style="color:#007020">{{</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#34;/&#34;</span><span style="color:#bbb"> </span><span style="color:#666">|</span><span style="color:#bbb"> </span>relLangURL<span style="color:#007020">}}{{</span><span style="color:#bbb"> </span>$plural<span style="color:#bbb"> </span><span style="color:#007020">}}</span><span style="color:#4070a0">/</span><span style="color:#007020">{{</span><span style="color:#bbb"> </span>$key<span style="color:#bbb"> </span><span style="color:#666">|</span><span style="color:#bbb"> </span>urlize<span style="color:#bbb"> </span><span style="color:#007020">}}</span><span style="color:#4070a0">&#34;</span>&gt;
+      <span style="color:#007020">{{</span><span style="color:#bbb"> </span>$key<span style="color:#bbb"> </span><span style="color:#007020">}}</span>
+      &lt;<span style="color:#062873;font-weight:bold">span</span> <span style="color:#4070a0">class</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;badge badge-light&#34;</span>&gt;<span style="color:#007020">{{</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">len</span><span style="color:#bbb"> </span>$value<span style="color:#bbb"> </span><span style="color:#007020">}}</span>&lt;/<span style="color:#062873;font-weight:bold">span</span>&gt;
+    &lt;/<span style="color:#062873;font-weight:bold">a</span>&gt;
+    <span style="color:#007020">{{</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">end</span><span style="color:#bbb"> </span><span style="color:#007020">}}</span>
+  &lt;/<span style="color:#062873;font-weight:bold">div</span>&gt;
+  &lt;<span style="color:#062873;font-weight:bold">div</span> <span style="color:#4070a0">class</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;col-lg-3&#34;</span>&gt;
+    <span style="color:#007020">{{</span><span style="color:#bbb"> </span>partial<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;sidebar.html&#34;</span><span style="color:#bbb"> </span><span style="color:#4070a0">.</span><span style="color:#bbb"> </span><span style="color:#007020">}}</span>
+  &lt;/<span style="color:#062873;font-weight:bold">div</span>&gt;
+&lt;/<span style="color:#062873;font-weight:bold">div</span>&gt;
+<span style="color:#007020">{{</span><span style="color:#bbb"> </span>partial<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;footer.html&#34;</span><span style="color:#bbb"> </span><span style="color:#4070a0">.</span><span style="color:#bbb"> </span><span style="color:#007020">}}</span></code></pre></div>
 <p>そして <code>config.toml</code> に <code>Taxonomy</code> について以下のように書き、</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">[taxonomies]
 category = <span style="color:#4070a0">&#34;categories&#34;</span>
