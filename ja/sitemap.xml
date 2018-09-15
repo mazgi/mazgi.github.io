@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://mazgi.github.io/posts/2018.09/push-docker-image-to-ecr-and-gcr-with-packer/</loc>
-    <lastmod>2018-09-09T05:46:16+09:00</lastmod>
+    <lastmod>2018-09-15T23:16:32+09:00</lastmod>
   </url>
   
   <url>
@@ -231,7 +231,7 @@
   
   <url>
     <loc>https://mazgi.github.io/tags/docker/</loc>
-    <lastmod>2018-09-09T05:46:16+09:00</lastmod>
+    <lastmod>2018-09-15T23:16:32+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -309,19 +309,19 @@
   
   <url>
     <loc>https://mazgi.github.io/tags/packer/</loc>
-    <lastmod>2018-09-09T05:46:16+09:00</lastmod>
+    <lastmod>2018-09-15T23:16:32+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/</loc>
-    <lastmod>2018-09-09T05:46:16+09:00</lastmod>
+    <lastmod>2018-09-15T23:16:32+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/categories/provisioning/</loc>
-    <lastmod>2018-09-09T05:46:16+09:00</lastmod>
+    <lastmod>2018-09-15T23:16:32+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -391,7 +391,7 @@
   
   <url>
     <loc>https://mazgi.github.io/</loc>
-    <lastmod>2018-09-09T05:46:16+09:00</lastmod>
+    <lastmod>2018-09-15T23:16:32+09:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"

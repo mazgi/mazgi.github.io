@@ -69,7 +69,7 @@
             <span class="nav-link disabled">Created At: 2018.09.09</span>
           </li>
           <li class="nav-item">
-            <span class="nav-link disabled">Updated At: 2018.09.09</span>
+            <span class="nav-link disabled">Updated At: 2018.09.15</span>
           </li>
           
         </ul>
@@ -109,7 +109,7 @@
 ECR/GCRに置くついでに <code>packer build</code> だけでECRとGCRに同じイメージが置かれてほしいと思ってやってみた。</p>
 
 <p><code>packer.json</code> はこちら。<br />
-<a href="https://github.com/mazgi/docker-ml">https://github.com/mazgi/docker-ml</a></p>
+<a href="https://github.com/mazgi/docker.ml">https://github.com/mazgi/docker.ml</a></p>
 
 <p>ECRはPackerが対応しているので<code>post-processors</code> のなかでtagを打ってpushするだけで済む。便利。</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#4070a0">&#34;post-processors&#34;</span><span style="">:</span> [
