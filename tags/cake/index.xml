@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Dena on mazgi.log</title>
-    <link>https://mazgi.github.io/tags/dena/</link>
-    <description>Recent content in Dena on mazgi.log</description>
+    <title>Cake on mazgi.log</title>
+    <link>https://mazgi.github.io/tags/cake/</link>
+    <description>Recent content in Cake on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 16 Sep 2018 02:14:25 +0900</lastBuildDate>
     
-	<atom:link href="https://mazgi.github.io/tags/dena/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://mazgi.github.io/tags/cake/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,15 +18,6 @@
       
       <guid>https://mazgi.github.io/posts/2018.09/hashicorp-japan-meatup-on-dena/</guid>
       <description>先日HashiCorp Japanさん主催で「DevOpsを支える今話題のHashiCorpツール群について」と題したMeet-upを開催させ</description>
-    </item>
-    
-    <item>
-      <title>「TD Tech Talk 2018」で分析基盤の話をさせていただきました</title>
-      <link>https://mazgi.github.io/posts/2018.05/td-tech-talk-2018/</link>
-      <pubDate>Tue, 22 May 2018 16:48:42 +0900</pubDate>
-      
-      <guid>https://mazgi.github.io/posts/2018.05/td-tech-talk-2018/</guid>
-      <description>「PLAZMA Data Platform Day: TD Tech Talk 2018」というイベントにお招きいただいたので「2020年代に向けたDeNAの分析基盤 」というお話しをさせていただ</description>
     </item>
     
   </channel>

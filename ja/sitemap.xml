@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://mazgi.github.io/posts/2018.09/hashicorp-japan-meatup-on-dena/</loc>
+    <lastmod>2018-09-16T14:48:49+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://mazgi.github.io/posts/2018.09/push-docker-image-to-ecr-and-gcr-with-packer/</loc>
     <lastmod>2018-09-15T23:16:32+09:00</lastmod>
   </url>
@@ -114,7 +119,7 @@
   
   <url>
     <loc>https://mazgi.github.io/posts/2015.02/morisnite-02-with-whole-prosciutto/</loc>
-    <lastmod>2018-09-15T23:59:45+09:00</lastmod>
+    <lastmod>2018-09-16T09:15:20+09:00</lastmod>
   </url>
   
   <url>
@@ -184,6 +189,12 @@
   </url>
   
   <url>
+    <loc>https://mazgi.github.io/tags/beer/</loc>
+    <lastmod>2018-09-16T14:48:49+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://mazgi.github.io/tags/bootstrap/</loc>
     <lastmod>2018-05-06T23:13:17+09:00</lastmod>
     <priority>0</priority>
@@ -192,6 +203,12 @@
   <url>
     <loc>https://mazgi.github.io/tags/bootstrap-4/</loc>
     <lastmod>2018-05-06T23:13:17+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/tags/cake/</loc>
+    <lastmod>2018-09-16T14:48:49+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -224,7 +241,7 @@
   
   <url>
     <loc>https://mazgi.github.io/tags/dena/</loc>
-    <lastmod>2018-08-19T16:34:59+09:00</lastmod>
+    <lastmod>2018-09-16T14:48:49+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -248,7 +265,7 @@
   
   <url>
     <loc>https://mazgi.github.io/categories/event/</loc>
-    <lastmod>2018-08-19T16:34:59+09:00</lastmod>
+    <lastmod>2018-09-16T14:48:49+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -279,6 +296,12 @@
   <url>
     <loc>https://mazgi.github.io/tags/hadoop/</loc>
     <lastmod>2018-08-19T16:34:59+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/tags/hashicorp/</loc>
+    <lastmod>2018-09-16T14:48:49+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -320,7 +343,13 @@
   
   <url>
     <loc>https://mazgi.github.io/posts/</loc>
-    <lastmod>2018-09-15T23:16:32+09:00</lastmod>
+    <lastmod>2018-09-16T14:48:49+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/tags/prosciutto/</loc>
+    <lastmod>2018-09-16T14:48:49+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -396,7 +425,7 @@
   
   <url>
     <loc>https://mazgi.github.io/</loc>
-    <lastmod>2018-09-15T23:16:32+09:00</lastmod>
+    <lastmod>2018-09-16T14:48:49+09:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"

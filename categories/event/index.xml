@@ -6,10 +6,19 @@
     <description>Recent content in Event on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 22 May 2018 16:48:42 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 16 Sep 2018 02:14:25 +0900</lastBuildDate>
     
 	<atom:link href="https://mazgi.github.io/categories/event/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>HashiCorp JapanさんとMeetupを開催&amp;登壇しました</title>
+      <link>https://mazgi.github.io/posts/2018.09/hashicorp-japan-meatup-on-dena/</link>
+      <pubDate>Sun, 16 Sep 2018 02:14:25 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2018.09/hashicorp-japan-meatup-on-dena/</guid>
+      <description>先日HashiCorp Japanさん主催で「DevOpsを支える今話題のHashiCorpツール群について」と題したMeet-upを開催させ</description>
+    </item>
     
     <item>
       <title>「TD Tech Talk 2018」で分析基盤の話をさせていただきました</title>
@@ -18,6 +27,15 @@
       
       <guid>https://mazgi.github.io/posts/2018.05/td-tech-talk-2018/</guid>
       <description>「PLAZMA Data Platform Day: TD Tech Talk 2018」というイベントにお招きいただいたので「2020年代に向けたDeNAの分析基盤 」というお話しをさせていただ</description>
+    </item>
+    
+    <item>
+      <title>#morisnite 2で生ハム原木担いでラーメンが美味しかった話</title>
+      <link>https://mazgi.github.io/posts/2015.02/morisnite-02-with-whole-prosciutto/</link>
+      <pubDate>Tue, 17 Feb 2015 09:55:37 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2015.02/morisnite-02-with-whole-prosciutto/</guid>
+      <description>モリスナイト2で無事に生ハムをdeployすることができた。 骨は@mirakuiさんが美味しいラーメンにしてくださった。 morisnite #morisnite vol.2をご参</description>
     </item>
     
   </channel>
