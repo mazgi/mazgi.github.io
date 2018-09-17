@@ -6,10 +6,19 @@
     <description>Recent content in Tips on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 28 Jul 2018 16:01:14 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 17 Sep 2018 23:32:42 +0900</lastBuildDate>
     
 	<atom:link href="https://mazgi.github.io/categories/tips/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>AWS/GCPのWeb ConsoleをNativefierで専用アプリにする</title>
+      <link>https://mazgi.github.io/posts/2018.09/create-app-for-cloud-webui-with-nativefier/</link>
+      <pubDate>Mon, 17 Sep 2018 23:32:42 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2018.09/create-app-for-cloud-webui-with-nativefier/</guid>
+      <description>sandbox用のAWSアカウントとGCPプロジェクトを作ったついでにそれぞれのWeb管理画面をNativefierで専用アプリにした。 GC</description>
+    </item>
     
     <item>
       <title>AirDropは&#34;Do Not Disturb&#34;をOnにするとOffになる</title>

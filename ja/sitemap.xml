@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://mazgi.github.io/posts/2018.09/create-app-for-cloud-webui-with-nativefier/</loc>
+    <lastmod>2018-09-18T00:16:10+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://mazgi.github.io/posts/2018.09/hashicorp-japan-meatup-on-dena/</loc>
     <lastmod>2018-09-16T14:48:49+09:00</lastmod>
   </url>
@@ -336,6 +341,12 @@
   </url>
   
   <url>
+    <loc>https://mazgi.github.io/tags/nativefier/</loc>
+    <lastmod>2018-09-18T00:16:10+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://mazgi.github.io/tags/packer/</loc>
     <lastmod>2018-09-15T23:16:32+09:00</lastmod>
     <priority>0</priority>
@@ -343,7 +354,7 @@
   
   <url>
     <loc>https://mazgi.github.io/posts/</loc>
-    <lastmod>2018-09-16T14:48:49+09:00</lastmod>
+    <lastmod>2018-09-18T00:16:10+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -413,7 +424,7 @@
   
   <url>
     <loc>https://mazgi.github.io/categories/tips/</loc>
-    <lastmod>2018-07-29T17:31:40+09:00</lastmod>
+    <lastmod>2018-09-18T00:16:10+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -425,7 +436,7 @@
   
   <url>
     <loc>https://mazgi.github.io/</loc>
-    <lastmod>2018-09-16T14:48:49+09:00</lastmod>
+    <lastmod>2018-09-18T00:16:10+09:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
