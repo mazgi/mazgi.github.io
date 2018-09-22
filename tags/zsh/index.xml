@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Zsh on mazgi.log</title>
+    <link>https://mazgi.github.io/tags/zsh/</link>
+    <description>Recent content in Zsh on mazgi.log</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 28 Jul 2018 13:57:40 +0900</lastBuildDate>
+    
+	<atom:link href="https://mazgi.github.io/tags/zsh/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>tmuxとzshのススメ</title>
+      <link>https://mazgi.github.io/posts/2018.07/useful-tmux-with-zsh/</link>
+      <pubDate>Sat, 28 Jul 2018 13:57:40 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2018.07/useful-tmux-with-zsh/</guid>
+      <description>tl;dr Terminal.app や SSH のようなCUIで作業するときはtmux使うと便利 tmux 使うときはシェルを zsh にすると便利 サーバーサイド開発をやってる人には今更な話ですけど</description>
+    </item>
+    
+  </channel>
+</rss>

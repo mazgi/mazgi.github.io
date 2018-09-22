@@ -57,6 +57,15 @@
     </item>
     
     <item>
+      <title>tmuxとzshのススメ</title>
+      <link>https://mazgi.github.io/posts/2018.07/useful-tmux-with-zsh/</link>
+      <pubDate>Sat, 28 Jul 2018 13:57:40 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2018.07/useful-tmux-with-zsh/</guid>
+      <description>tl;dr Terminal.app や SSH のようなCUIで作業するときはtmux使うと便利 tmux 使うときはシェルを zsh にすると便利 サーバーサイド開発をやってる人には今更な話ですけど</description>
+    </item>
+    
+    <item>
       <title>「TD Tech Talk 2018」で分析基盤の話をさせていただきました</title>
       <link>https://mazgi.github.io/posts/2018.05/td-tech-talk-2018/</link>
       <pubDate>Tue, 22 May 2018 16:48:42 +0900</pubDate>
