@@ -95,22 +95,31 @@
 <div class="row">
   <div class="col-lg-9">
     
+
+    
     
     
     <article>
       <div class="row">
         <h3><a href="/posts/2018.09/push-docker-image-to-ecr-and-gcr-with-packer/">Packerを使ってECRとGCRに同じDockerイメージをPushする</a></h3>
       </div>
-      
       <div class="row">
+        <span class="ml-1">Created At: 2018.09.09</span>
+        <span class="ml-1">Updated At: 2018.09.15</span>
+        
+      </div>
+      <div class="row">
+        自分用のML環境としてDockerイメージを作っていたのだが、 FROM: nvidia/cuda:9.2-cudnn7-devel-ubuntu18.04 なのでDockerHubでpublicにするのも憚られ、ECR/GCRに置
+      </div>
+      <div class="row">
+        
         
         <a class="ml-1 badge badge-pill badge-secondary" href="/tags/docker">docker</a>
         
         <a class="ml-1 badge badge-pill badge-secondary" href="/tags/packer">packer</a>
         
+        
       </div>
-      
-      自分用のML環境としてDockerイメージを作っていたのだが、 FROM: nvidia/cuda:9.2-cudnn7-devel-ubuntu18.04 なのでDockerHubでpublicにするのも憚られ、ECR/GCRに置
     </article>
     <hr/>
     
@@ -119,6 +128,7 @@
 
 
   </div>
+
   <div class="col-lg-3">
     <div class="sidebar">
   
@@ -172,6 +182,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+      });
+    </script>
   </body>
 </html>
 

@@ -95,20 +95,29 @@
 <div class="row">
   <div class="col-lg-9">
     
+
+    
     
     
     <article>
       <div class="row">
         <h3><a href="/posts/2016.02/cve-2015-7547-on-gentoo/">Gentoo で普通の CVE-2015-7547 対策</a></h3>
       </div>
-      
       <div class="row">
+        <span class="ml-1">Created At: 2016.02.18</span>
+        <span class="ml-1">Updated At: 2018.06.16</span>
+        
+      </div>
+      <div class="row">
+        追記 私が何か勘違いしてたようですが glibc-2.21-r2 (~amd64マスクされてない)でpatchが取り込まれてますね。。 # emerge -fOq glibc &gt;&gt;&gt; Fetching (1 of 1) sys-libs/glibc-2.21-r2::gentoo # tar tf /usr/portage/distfiles/glibc-2.21-patches-7.tar.bz2 | grep &#39;CVE-2015-7547&#39; patches/00_all_0028-CVE-2015-7547-getaddrinfo-stack-based-buffer-overflo.patch
+      </div>
+      <div class="row">
+        
         
         <a class="ml-1 badge badge-pill badge-secondary" href="/tags/gentoo">gentoo</a>
         
+        
       </div>
-      
-      追記 私が何か勘違いしてたようですが glibc-2.21-r2 (~amd64マスクされてない)でpatchが取り込まれてますね。。 # emerge -fOq glibc &gt;&gt;&gt; Fetching (1 of 1) sys-libs/glibc-2.21-r2::gentoo # tar tf /usr/portage/distfiles/glibc-2.21-patches-7.tar.bz2 | grep &#39;CVE-2015-7547&#39; patches/00_all_0028-CVE-2015-7547-getaddrinfo-stack-based-buffer-overflo.patch
     </article>
     <hr/>
     
@@ -117,6 +126,7 @@
 
 
   </div>
+
   <div class="col-lg-3">
     <div class="sidebar">
   
@@ -170,6 +180,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+      });
+    </script>
   </body>
 </html>
 
