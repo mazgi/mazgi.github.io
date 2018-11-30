@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" href="https://mazgi.github.io/common/favicon.ico">
+    <link rel="shortcut icon" href="/common/favicon.ico">
     
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     
@@ -117,12 +117,8 @@
 中身はまだない。<br />
 きっと酒とメシについての何かが書かれるのでしょう。</p>
 
-
-<figure>
-    <a href="https://sakemeshi.love/">
-        <img src="/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/0001.png" />
-    </a>
-    
+<figure><a href="https://sakemeshi.love/">
+    <img src="/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/0001.png"/> </a>
 </figure>
 
 
@@ -204,12 +200,8 @@
 <p><code>terraform-admin</code> という名前で <code>AdministratorAccess</code> をattacheしたIAMユーザーを作る。<br />
 credentialも払い出して、今回の場合は <code>sakemeshi.terraform-secret</code> リポジトリにpushしておく。</p>
 
-
 <figure>
-    
-        <img src="/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/0002.png" />
-    
-    
+    <img src="/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/0002.png"/> 
 </figure>
 
 
@@ -220,12 +212,8 @@ credentialも払い出して、今回の場合は <code>sakemeshi.terraform-secr
 <p>バケット名は <code>${AWSアカウント名}-terraform</code> としてバージョニングを有効にする。<br />
 先ほど作ったIAMユーザー <code>terraform-admin</code> からアクセスできれば良い。</p>
 
-
 <figure>
-    
-        <img src="/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/0003.png" />
-    
-    
+    <img src="/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/0003.png"/> 
 </figure>
 
 
@@ -273,12 +261,8 @@ credentialも払い出して、今回の場合は <code>sakemeshi.terraform-secr
 <p>先述の通りTerraformを実行するIAMユーザーのcredential等は別のprivateリポジトリを作って配置している。<br />
 公開できないが中身はこの程度。</p>
 
-
 <figure>
-    
-        <img src="/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/0004.png" />
-    
-    
+    <img src="/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/0004.png"/> 
 </figure>
 
 
@@ -294,12 +278,8 @@ $ bin/terraform apply</code></pre></div>
 2回目以降はこのように1件のエラーが発生する。。<br />
 後述する。</p>
 
-
 <figure>
-    
-        <img src="/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/0005.png" />
-    
-    
+    <img src="/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/0005.png"/> 
 </figure>
 
 
@@ -319,23 +299,15 @@ $ bin/terraform apply</code></pre></div>
 
 <p>そのほかは本当に <code>hugo new site .</code> したまま。</p>
 
-
 <figure>
-    
-        <img src="/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/0006.png" />
-    
-    
+    <img src="/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/0006.png"/> 
 </figure>
 
 
 <p>何はともあれこれでCircleCIでのWebサイトのビルドとS3への同期が行えるようになった！めでたい！</p>
 
-
 <figure>
-    
-        <img src="/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/0007.png" />
-    
-    
+    <img src="/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/0007.png"/> 
 </figure>
 
 
@@ -433,8 +405,6 @@ workflowとしてbuildとdeployが分かれるのは綺麗だけども。。</p>
 <p>🍣 🍶</p>
 
 <p>another website: <a href="https://mazgi.com/">mazgi.com</a></p>
-
-<p></p>
   
   <hr />
   <h4>TableOfContents</h4>
@@ -485,11 +455,11 @@ workflowとしてbuildとdeployが分かれるのは綺麗だけども。。</p>
     <ul>
       
       <li>
-        <a href="/categories/static-website">static website</a>
+        <a href="/categories/static-website/">static website</a>
       </li>
       
       <li>
-        <a href="/categories/continuous-integration-and-delivery">continuous integration and delivery</a>
+        <a href="/categories/continuous-integration-and-delivery/">continuous integration and delivery</a>
       </li>
       
     </ul>
@@ -500,17 +470,17 @@ workflowとしてbuildとdeployが分かれるのは綺麗だけども。。</p>
   
   <div>
     
-    <a class="badge badge-pill badge-secondary" href="/tags/aws">aws</a>
+    <a class="badge badge-pill badge-secondary" href="/tags/aws/">aws</a>
     
-    <a class="badge badge-pill badge-secondary" href="/tags/amazon-s3">amazon s3</a>
+    <a class="badge badge-pill badge-secondary" href="/tags/amazon-s3/">amazon s3</a>
     
-    <a class="badge badge-pill badge-secondary" href="/tags/amazon-cloudfront">amazon cloudfront</a>
+    <a class="badge badge-pill badge-secondary" href="/tags/amazon-cloudfront/">amazon cloudfront</a>
     
-    <a class="badge badge-pill badge-secondary" href="/tags/hugo">hugo</a>
+    <a class="badge badge-pill badge-secondary" href="/tags/hugo/">hugo</a>
     
-    <a class="badge badge-pill badge-secondary" href="/tags/terraform">terraform</a>
+    <a class="badge badge-pill badge-secondary" href="/tags/terraform/">terraform</a>
     
-    <a class="badge badge-pill badge-secondary" href="/tags/circleci">circleci</a>
+    <a class="badge badge-pill badge-secondary" href="/tags/circleci/">circleci</a>
     
   </div>
   

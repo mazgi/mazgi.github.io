@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" href="https://mazgi.github.io/common/favicon.ico">
+    <link rel="shortcut icon" href="/common/favicon.ico">
     
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     
@@ -119,12 +119,8 @@
 <p>構成図描くとこんな感じ。<br />
 図は <a href="https://www.draw.io/">https://www.draw.io/</a> で描いた。</p>
 
-
 <figure>
-    
-        <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0001.png" />
-    
-    
+    <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0001.png"/> 
 </figure>
 
 
@@ -156,55 +152,25 @@
 
 <p>Terraformをapplyすると以下ができる。</p>
 
-<p>
-<figure>
-    
-        <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0010.png" alt="S3 bucket" width="640" />
-    
-    
-    <figcaption>
-        <p>
-        S3 bucket
-        
-            
-        
-        </p> 
-    </figcaption>
-    
+<p><figure>
+    <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0010.png"
+         alt="S3 bucket" width="640"/> <figcaption>
+            <p>S3 bucket</p>
+        </figcaption>
 </figure>
 
-
 <figure>
-    
-        <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0011.png" alt="Lambda function" width="640" />
-    
-    
-    <figcaption>
-        <p>
-        Lambda function
-        
-            
-        
-        </p> 
-    </figcaption>
-    
+    <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0011.png"
+         alt="Lambda function" width="640"/> <figcaption>
+            <p>Lambda function</p>
+        </figcaption>
 </figure>
 
-
 <figure>
-    
-        <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0012.png" alt="SQS queue" width="640" />
-    
-    
-    <figcaption>
-        <p>
-        SQS queue
-        
-            
-        
-        </p> 
-    </figcaption>
-    
+    <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0012.png"
+         alt="SQS queue" width="640"/> <figcaption>
+            <p>SQS queue</p>
+        </figcaption>
 </figure>
 </p>
 
@@ -212,45 +178,29 @@
 
 <p>メディアファイルを用意する。</p>
 
-
 <figure>
-    
-        <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0020.png" />
-    
-    
+    <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0020.png"/> 
 </figure>
 
 
 <p>S3 bucketにアップロードする。</p>
 
-
 <figure>
-    
-        <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0021.png" width="640" />
-    
-    
+    <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0021.png" width="640"/> 
 </figure>
 
 
 <p>Lambda functionが動く。</p>
 
-
 <figure>
-    
-        <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0022.png" width="800" />
-    
-    
+    <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0022.png" width="800"/> 
 </figure>
 
 
 <p>SQS queueに通知される。</p>
 
-
 <figure>
-    
-        <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0023.png" width="800" />
-    
-    
+    <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0023.png" width="800"/> 
 </figure>
 
 
@@ -258,12 +208,8 @@
 なおS3バケットにアップロードしたJPEG画像はこれ。優しい。  
 「<a href="https://www.pakutaso.com/">ぱくたそ</a>」からお借りした。</p>
 
-
 <figure>
-    
-        <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0100.jpeg" />
-    
-    
+    <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0100.jpeg"/> 
 </figure>
 
 
@@ -286,12 +232,8 @@ zipファイルを参照しているのはこちら<br />
 <p>SQS queueのURLは環境変数としてexportしている。<br />
 <a href="https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor.tf#L49">https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor.tf#L49</a></p>
 
-
 <figure>
-    
-        <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0030.png" width="800" />
-    
-    
+    <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0030.png" width="800"/> 
 </figure>
 
 
@@ -309,8 +251,6 @@ zipファイルを参照しているのはこちら<br />
 <p>🍣 🍶</p>
 
 <p>another website: <a href="https://mazgi.com/">mazgi.com</a></p>
-
-<p></p>
   
   <hr />
   <h4>TableOfContents</h4>
@@ -335,7 +275,7 @@ zipファイルを参照しているのはこちら<br />
     <ul>
       
       <li>
-        <a href="/categories/infrastructure-as-code">infrastructure as code</a>
+        <a href="/categories/infrastructure-as-code/">infrastructure as code</a>
       </li>
       
     </ul>
@@ -346,13 +286,13 @@ zipファイルを参照しているのはこちら<br />
   
   <div>
     
-    <a class="badge badge-pill badge-secondary" href="/tags/aws">aws</a>
+    <a class="badge badge-pill badge-secondary" href="/tags/aws/">aws</a>
     
-    <a class="badge badge-pill badge-secondary" href="/tags/aws-lambda">aws lambda</a>
+    <a class="badge badge-pill badge-secondary" href="/tags/aws-lambda/">aws lambda</a>
     
-    <a class="badge badge-pill badge-secondary" href="/tags/amazon-s3">amazon s3</a>
+    <a class="badge badge-pill badge-secondary" href="/tags/amazon-s3/">amazon s3</a>
     
-    <a class="badge badge-pill badge-secondary" href="/tags/amazon-sqs">amazon sqs</a>
+    <a class="badge badge-pill badge-secondary" href="/tags/amazon-sqs/">amazon sqs</a>
     
   </div>
   

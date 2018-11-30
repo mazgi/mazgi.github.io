@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" href="https://mazgi.github.io/common/favicon.ico">
+    <link rel="shortcut icon" href="/common/favicon.ico">
     
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     
@@ -111,12 +111,8 @@
         <h1>AWS/GCPのWeb ConsoleをNativefierで専用アプリにする</h1>
       </div>
       <p>sandbox用のAWSアカウントとGCPプロジェクトを作ったついでにそれぞれのWeb管理画面を<a href="https://github.com/jiahaog/nativefier">Nativefier</a>で専用アプリにした。
-
 <figure>
-    
-        <img src="/posts/2018.09/create-app-for-cloud-webui-with-nativefier/0001.png" width="800" />
-    
-    
+    <img src="/posts/2018.09/create-app-for-cloud-webui-with-nativefier/0001.png" width="800"/> 
 </figure>
 </p>
 
@@ -131,12 +127,8 @@ AWSアカウントもswitch roleを使えば複数のAWSアカウント間を行
 </ul>
 
 <p>しかし専用アプリにしてしまえばこのように異なるAWSアカウントを同時に使うことも可能、便利。
-
 <figure>
-    
-        <img src="/posts/2018.09/create-app-for-cloud-webui-with-nativefier/0002.png" width="800" />
-    
-    
+    <img src="/posts/2018.09/create-app-for-cloud-webui-with-nativefier/0002.png" width="800"/> 
 </figure>
 </p>
 
@@ -147,12 +139,8 @@ AWSアカウントもswitch roleを使えば複数のAWSアカウント間を行
 /Users/hidenori.matsuki/Library/Application Support/aws-console-mazgi-step-aws-nativefier-8a6ce6/
 /Users/hidenori.matsuki/Library/Application Support/gcp-console-mazgi-sandbox-nativefier-6d960f/</code></pre></div>
 <p>もう1つ嬉しい点としてはMacの場合Chromeでプロファイルを複数作っても <code>⌘+TAB</code> でWindowを切り替えることはできないが、Nativefierで作ったアプリならこのように切り替えできる。
-
 <figure>
-    
-        <img src="/posts/2018.09/create-app-for-cloud-webui-with-nativefier/0003.png" width="800" />
-    
-    
+    <img src="/posts/2018.09/create-app-for-cloud-webui-with-nativefier/0003.png" width="800"/> 
 </figure>
 </p>
 
@@ -168,12 +156,8 @@ Dockerfileとimageはそれぞれ以下に公開している。</p>
 気をつけるポイントとしてはDocker(for Mac)はLinux VMで実行されているので <code>--platform osx</code> のようにプラットフォームを指定しないとLinux版のアプリが作られてしまう。</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">$ docker run -v $PWD:/pwd -it mazgi/nativefier nativefier --platform osx --counter --bounce --name &#34;AWS Console(mazgi-sb-billing-aws)&#34; console.aws.amazon.com</code></pre></div>
 <p>このように実行したディレクトリ内に各アプリができあがる。
-
 <figure>
-    
-        <img src="/posts/2018.09/create-app-for-cloud-webui-with-nativefier/0004.png" width="800" />
-    
-    
+    <img src="/posts/2018.09/create-app-for-cloud-webui-with-nativefier/0004.png" width="800"/> 
 </figure>
 </p>
 
@@ -188,8 +172,6 @@ Dockerfileとimageはそれぞれ以下に公開している。</p>
 <p>🍣 🍶</p>
 
 <p>another website: <a href="https://mazgi.com/">mazgi.com</a></p>
-
-<p></p>
   
   <hr />
   <h4>TableOfContents</h4>
@@ -201,7 +183,7 @@ Dockerfileとimageはそれぞれ以下に公開している。</p>
     <ul>
       
       <li>
-        <a href="/categories/tips">tips</a>
+        <a href="/categories/tips/">tips</a>
       </li>
       
     </ul>
@@ -212,7 +194,7 @@ Dockerfileとimageはそれぞれ以下に公開している。</p>
   
   <div>
     
-    <a class="badge badge-pill badge-secondary" href="/tags/nativefier">nativefier</a>
+    <a class="badge badge-pill badge-secondary" href="/tags/nativefier/">nativefier</a>
     
   </div>
   
