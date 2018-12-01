@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>mazgi.log</title>
-    <link>https://mazgi.github.io/en/</link>
-    <description>Recent content on mazgi.log</description>
+    <title>Posts on mazgi.log</title>
+    <link>https://mazgi.github.io/en/posts/</link>
+    <description>Recent content in Posts on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 30 Nov 2018 23:48:26 +0000</lastBuildDate>
     
-	<atom:link href="https://mazgi.github.io/en/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://mazgi.github.io/en/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>

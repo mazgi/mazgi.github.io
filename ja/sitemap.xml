@@ -3,6 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://mazgi.github.io/posts/2018.12/this-blogs-theme-appeared-in-the-hugo-themes/</loc>
+    <lastmod>2018-12-01T09:17:11+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/posts/2018.12/this-blogs-theme-appeared-in-the-hugo-themes/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/posts/2018.12/this-blogs-theme-appeared-in-the-hugo-themes/"
+                />
+  </url>
+  
+  <url>
     <loc>https://mazgi.github.io/posts/2018.09/create-app-for-cloud-webui-with-nativefier/</loc>
     <lastmod>2018-09-18T00:16:10+09:00</lastmod>
   </url>
@@ -317,14 +332,34 @@
   
   <url>
     <loc>https://mazgi.github.io/tags/hugo/</loc>
-    <lastmod>2018-08-19T17:26:05+09:00</lastmod>
+    <lastmod>2018-12-01T09:17:11+09:00</lastmod>
     <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/tags/hugo/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/tags/hugo/"
+                />
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/hugo-theme/</loc>
-    <lastmod>2018-05-06T23:13:17+09:00</lastmod>
+    <lastmod>2018-12-01T09:17:11+09:00</lastmod>
     <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/tags/hugo-theme/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/tags/hugo-theme/"
+                />
   </url>
   
   <url>
@@ -359,8 +394,18 @@
   
   <url>
     <loc>https://mazgi.github.io/posts/</loc>
-    <lastmod>2018-09-18T00:16:10+09:00</lastmod>
+    <lastmod>2018-12-01T09:17:11+09:00</lastmod>
     <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/posts/"
+                />
   </url>
   
   <url>
@@ -453,7 +498,7 @@
   
   <url>
     <loc>https://mazgi.github.io/</loc>
-    <lastmod>2018-09-18T00:16:10+09:00</lastmod>
+    <lastmod>2018-12-01T09:17:11+09:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
