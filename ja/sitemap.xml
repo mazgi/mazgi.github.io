@@ -8,6 +8,11 @@
   </url>
   
   <url>
+    <loc>https://mazgi.github.io/posts/2019.03/went-to-google-cloud-kubernetes-day/</loc>
+    <lastmod>2019-04-10T05:44:34+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://mazgi.github.io/posts/2018.12/this-blogs-theme-appeared-in-the-hugo-themes/</loc>
     <lastmod>2018-12-01T09:17:11+09:00</lastmod>
     <xhtml:link
@@ -301,7 +306,7 @@
   
   <url>
     <loc>https://mazgi.github.io/categories/event/</loc>
-    <lastmod>2019-03-26T20:53:02+09:00</lastmod>
+    <lastmod>2019-04-10T05:44:34+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -326,6 +331,12 @@
   <url>
     <loc>https://mazgi.github.io/tags/github-pages/</loc>
     <lastmod>2018-05-06T23:13:17+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/tags/google/</loc>
+    <lastmod>2019-04-10T05:44:34+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -388,6 +399,12 @@
   <url>
     <loc>https://mazgi.github.io/tags/ios/</loc>
     <lastmod>2018-07-29T17:31:40+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/tags/kubernetes/</loc>
+    <lastmod>2019-04-10T05:44:34+09:00</lastmod>
     <priority>0</priority>
   </url>
   
