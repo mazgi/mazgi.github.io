@@ -6,10 +6,23 @@
     <description>Recent content on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 30 Nov 2018 23:48:23 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 09 Apr 2019 19:26:15 +0000</lastBuildDate>
     
 	<atom:link href="https://mazgi.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>docker-composeでWebアプリ開発する環境をまとめた(Rails, Flask)</title>
+      <link>https://mazgi.github.io/posts/2019.04/published-dev-environments-for-webapps-with-docker-compose/</link>
+      <pubDate>Tue, 09 Apr 2019 19:26:15 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2019.04/published-dev-environments-for-webapps-with-docker-compose/</guid>
+      <description>&lt;p&gt;最近、Macなどのローカルには極力rbenvなどをインストールせずにできる限りDockerコンテナ上に開発環境を作ろうとしています。&lt;br /&gt;
+開発中は&lt;a href=&#34;https://docs.docker.com/compose/&#34;&gt;docker-compose&lt;/a&gt;を使っているのですが、いろいろなリポジトリに似たような &lt;code&gt;docker-compose.yml&lt;/code&gt; が増えてきたのでテンプレート代わりにまとめました。&lt;br /&gt;
+リポジトリはこちら。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/mazgi-showcase/docker-compose.webapp-dev-envs/tree/2019.04.0&#34;&gt;GitHub repository&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>このブログのテーマがHugo Themesに載りました！</title>

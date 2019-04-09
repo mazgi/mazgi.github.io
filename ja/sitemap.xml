@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://mazgi.github.io/posts/2019.04/published-dev-environments-for-webapps-with-docker-compose/</loc>
+    <lastmod>2019-04-10T04:46:20+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://mazgi.github.io/posts/2018.12/this-blogs-theme-appeared-in-the-hugo-themes/</loc>
     <lastmod>2018-12-01T09:17:11+09:00</lastmod>
     <xhtml:link
@@ -278,7 +283,13 @@
   
   <url>
     <loc>https://mazgi.github.io/tags/docker/</loc>
-    <lastmod>2018-09-15T23:16:32+09:00</lastmod>
+    <lastmod>2019-04-10T04:46:20+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/tags/docker-compose/</loc>
+    <lastmod>2019-04-10T04:46:20+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -291,6 +302,12 @@
   <url>
     <loc>https://mazgi.github.io/categories/event/</loc>
     <lastmod>2019-03-26T20:53:02+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/tags/flask/</loc>
+    <lastmod>2019-04-10T04:46:20+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -394,7 +411,7 @@
   
   <url>
     <loc>https://mazgi.github.io/posts/</loc>
-    <lastmod>2018-12-01T09:17:11+09:00</lastmod>
+    <lastmod>2019-04-10T04:46:20+09:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -417,6 +434,12 @@
   <url>
     <loc>https://mazgi.github.io/categories/provisioning/</loc>
     <lastmod>2018-09-15T23:16:32+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/tags/ruby-on-rails/</loc>
+    <lastmod>2019-04-10T04:46:20+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -498,7 +521,7 @@
   
   <url>
     <loc>https://mazgi.github.io/</loc>
-    <lastmod>2018-12-01T09:17:11+09:00</lastmod>
+    <lastmod>2019-04-10T04:46:20+09:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"

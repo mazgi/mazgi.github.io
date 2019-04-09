@@ -176,9 +176,18 @@
     <item>
       <title>Docker</title>
       <link>https://mazgi.github.io/tags/docker/</link>
-      <pubDate>Sun, 09 Sep 2018 05:15:46 +0900</pubDate>
+      <pubDate>Tue, 09 Apr 2019 19:26:15 +0000</pubDate>
       
       <guid>https://mazgi.github.io/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker Compose</title>
+      <link>https://mazgi.github.io/tags/docker-compose/</link>
+      <pubDate>Tue, 09 Apr 2019 19:26:15 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/docker-compose/</guid>
       <description></description>
     </item>
     
@@ -188,6 +197,15 @@
       <pubDate>Tue, 22 May 2018 16:48:42 +0900</pubDate>
       
       <guid>https://mazgi.github.io/tags/etl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Flask</title>
+      <link>https://mazgi.github.io/tags/flask/</link>
+      <pubDate>Tue, 09 Apr 2019 19:26:15 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/flask/</guid>
       <description></description>
     </item>
     
@@ -305,6 +323,15 @@
       <pubDate>Sun, 16 Sep 2018 02:14:25 +0900</pubDate>
       
       <guid>https://mazgi.github.io/tags/prosciutto/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ruby on Rails</title>
+      <link>https://mazgi.github.io/tags/ruby-on-rails/</link>
+      <pubDate>Tue, 09 Apr 2019 19:26:15 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/ruby-on-rails/</guid>
       <description></description>
     </item>
     

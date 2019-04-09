@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Docker on mazgi.log</title>
-    <link>https://mazgi.github.io/tags/docker/</link>
-    <description>Recent content in Docker on mazgi.log</description>
+    <title>Ruby on Rails on mazgi.log</title>
+    <link>https://mazgi.github.io/tags/ruby-on-rails/</link>
+    <description>Recent content in Ruby on Rails on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 09 Apr 2019 19:26:15 +0000</lastBuildDate>
     
-	<atom:link href="https://mazgi.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://mazgi.github.io/tags/ruby-on-rails/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -22,15 +22,6 @@
 リポジトリはこちら。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/mazgi-showcase/docker-compose.webapp-dev-envs/tree/2019.04.0&#34;&gt;GitHub repository&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Packerを使ってECRとGCRに同じDockerイメージをPushする</title>
-      <link>https://mazgi.github.io/posts/2018.09/push-docker-image-to-ecr-and-gcr-with-packer/</link>
-      <pubDate>Sun, 09 Sep 2018 05:15:46 +0900</pubDate>
-      
-      <guid>https://mazgi.github.io/posts/2018.09/push-docker-image-to-ecr-and-gcr-with-packer/</guid>
-      <description>自分用のML環境としてDockerイメージを作っていたのだが、 FROM: nvidia/cuda:9.2-cudnn7-devel-ubuntu18.04 なのでDockerHubでpublicにするのも憚られ、ECR/GCRに置</description>
     </item>
     
   </channel>
