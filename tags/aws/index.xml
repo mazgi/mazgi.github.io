@@ -6,10 +6,19 @@
     <description>Recent content in Aws on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 10 May 2018 02:03:25 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 25 Apr 2019 03:37:18 +0000</lastBuildDate>
     
 	<atom:link href="https://mazgi.github.io/tags/aws/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>GitHub&#43;CircleCI&#43;S3でNoOpsなBlogを構築した</title>
+      <link>https://mazgi.github.io/posts/2019.04/built-noops-blog-with-github-circleci-s3/</link>
+      <pubDate>Thu, 25 Apr 2019 03:37:18 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2019.04/built-noops-blog-with-github-circleci-s3/</guid>
+      <description>本業の傍ら会社の技術Blogリニューアルに携わっており、概要をAdvent Calendarで「DeNA Engineers&amp;rsquo; Blogをリニューアルしている話」と</description>
+    </item>
     
     <item>
       <title>Amazon SageMaker実運用: &#34;Lifecycle Configuration&#34;でEFSを自動マウント</title>

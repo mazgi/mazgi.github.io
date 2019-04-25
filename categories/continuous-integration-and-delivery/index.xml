@@ -6,10 +6,19 @@
     <description>Recent content in Continuous Integration and Delivery on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 15 Feb 2018 05:24:40 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 25 Apr 2019 03:37:18 +0000</lastBuildDate>
     
 	<atom:link href="https://mazgi.github.io/categories/continuous-integration-and-delivery/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>GitHub&#43;CircleCI&#43;S3でNoOpsなBlogを構築した</title>
+      <link>https://mazgi.github.io/posts/2019.04/built-noops-blog-with-github-circleci-s3/</link>
+      <pubDate>Thu, 25 Apr 2019 03:37:18 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2019.04/built-noops-blog-with-github-circleci-s3/</guid>
+      <description>本業の傍ら会社の技術Blogリニューアルに携わっており、概要をAdvent Calendarで「DeNA Engineers&amp;rsquo; Blogをリニューアルしている話」と</description>
+    </item>
     
     <item>
       <title>S3 &#43; CloudFrontをTerraformで設定してCircleCIで更新する</title>

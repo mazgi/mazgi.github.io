@@ -6,10 +6,19 @@
     <description>Recent content in Amazon S3 on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 17 Apr 2018 00:12:10 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 25 Apr 2019 03:37:18 +0000</lastBuildDate>
     
 	<atom:link href="https://mazgi.github.io/tags/amazon-s3/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>GitHub&#43;CircleCI&#43;S3でNoOpsなBlogを構築した</title>
+      <link>https://mazgi.github.io/posts/2019.04/built-noops-blog-with-github-circleci-s3/</link>
+      <pubDate>Thu, 25 Apr 2019 03:37:18 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2019.04/built-noops-blog-with-github-circleci-s3/</guid>
+      <description>本業の傍ら会社の技術Blogリニューアルに携わっており、概要をAdvent Calendarで「DeNA Engineers&amp;rsquo; Blogをリニューアルしている話」と</description>
+    </item>
     
     <item>
       <title>S3 &#43; Lambda &#43; SQSでファイル処理する仕組みをTerraformで構築する</title>

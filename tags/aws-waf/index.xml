@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Amazon Cloudfront on mazgi.log</title>
-    <link>https://mazgi.github.io/tags/amazon-cloudfront/</link>
-    <description>Recent content in Amazon Cloudfront on mazgi.log</description>
+    <title>Aws Waf on mazgi.log</title>
+    <link>https://mazgi.github.io/tags/aws-waf/</link>
+    <description>Recent content in Aws Waf on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 25 Apr 2019 03:37:18 +0000</lastBuildDate>
     
-	<atom:link href="https://mazgi.github.io/tags/amazon-cloudfront/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://mazgi.github.io/tags/aws-waf/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,15 +18,6 @@
       
       <guid>https://mazgi.github.io/posts/2019.04/built-noops-blog-with-github-circleci-s3/</guid>
       <description>本業の傍ら会社の技術Blogリニューアルに携わっており、概要をAdvent Calendarで「DeNA Engineers&amp;rsquo; Blogをリニューアルしている話」と</description>
-    </item>
-    
-    <item>
-      <title>S3 &#43; CloudFrontをTerraformで設定してCircleCIで更新する</title>
-      <link>https://mazgi.github.io/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/</link>
-      <pubDate>Thu, 15 Feb 2018 05:24:40 +0900</pubDate>
-      
-      <guid>https://mazgi.github.io/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/</guid>
-      <description>「TerraformでS3+CloudFront+SSL/TLS証明書 w/ ACMを設定してHugoで作ったstaticなWebサイトをCirc</description>
     </item>
     
   </channel>

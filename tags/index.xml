@@ -23,7 +23,7 @@
     <item>
       <title>Amazon Cloudfront</title>
       <link>https://mazgi.github.io/tags/amazon-cloudfront/</link>
-      <pubDate>Thu, 15 Feb 2018 05:24:40 +0900</pubDate>
+      <pubDate>Thu, 25 Apr 2019 03:37:18 +0000</pubDate>
       
       <guid>https://mazgi.github.io/tags/amazon-cloudfront/</guid>
       <description></description>
@@ -41,7 +41,7 @@
     <item>
       <title>Amazon S3</title>
       <link>https://mazgi.github.io/tags/amazon-s3/</link>
-      <pubDate>Tue, 17 Apr 2018 00:12:10 +0900</pubDate>
+      <pubDate>Thu, 25 Apr 2019 03:37:18 +0000</pubDate>
       
       <guid>https://mazgi.github.io/tags/amazon-s3/</guid>
       <description></description>
@@ -86,9 +86,18 @@
     <item>
       <title>Aws</title>
       <link>https://mazgi.github.io/tags/aws/</link>
-      <pubDate>Thu, 10 May 2018 02:03:25 +0900</pubDate>
+      <pubDate>Thu, 25 Apr 2019 03:37:18 +0000</pubDate>
       
       <guid>https://mazgi.github.io/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Aws Certificate Manager</title>
+      <link>https://mazgi.github.io/tags/aws-certificate-manager/</link>
+      <pubDate>Thu, 25 Apr 2019 03:37:18 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/aws-certificate-manager/</guid>
       <description></description>
     </item>
     
@@ -107,6 +116,15 @@
       <pubDate>Tue, 17 Apr 2018 00:12:10 +0900</pubDate>
       
       <guid>https://mazgi.github.io/tags/aws-lambda/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Aws Waf</title>
+      <link>https://mazgi.github.io/tags/aws-waf/</link>
+      <pubDate>Thu, 25 Apr 2019 03:37:18 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/aws-waf/</guid>
       <description></description>
     </item>
     
@@ -149,7 +167,7 @@
     <item>
       <title>Circleci</title>
       <link>https://mazgi.github.io/tags/circleci/</link>
-      <pubDate>Thu, 15 Feb 2018 05:24:40 +0900</pubDate>
+      <pubDate>Thu, 25 Apr 2019 03:37:18 +0000</pubDate>
       
       <guid>https://mazgi.github.io/tags/circleci/</guid>
       <description></description>
@@ -158,7 +176,7 @@
     <item>
       <title>Dena</title>
       <link>https://mazgi.github.io/tags/dena/</link>
-      <pubDate>Sun, 16 Sep 2018 02:14:25 +0900</pubDate>
+      <pubDate>Thu, 25 Apr 2019 03:37:18 +0000</pubDate>
       
       <guid>https://mazgi.github.io/tags/dena/</guid>
       <description></description>
@@ -221,7 +239,7 @@
     <item>
       <title>Github</title>
       <link>https://mazgi.github.io/tags/github/</link>
-      <pubDate>Sun, 06 May 2018 21:04:37 +0900</pubDate>
+      <pubDate>Thu, 25 Apr 2019 03:37:18 +0000</pubDate>
       
       <guid>https://mazgi.github.io/tags/github/</guid>
       <description></description>
@@ -275,7 +293,7 @@
     <item>
       <title>Hugo</title>
       <link>https://mazgi.github.io/tags/hugo/</link>
-      <pubDate>Fri, 30 Nov 2018 23:48:23 +0000</pubDate>
+      <pubDate>Thu, 25 Apr 2019 03:37:18 +0000</pubDate>
       
       <guid>https://mazgi.github.io/tags/hugo/</guid>
       <description></description>
