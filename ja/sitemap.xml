@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://mazgi.github.io/posts/2019.04/my-role-in-dena-was-simplified/</loc>
+    <lastmod>2019-04-28T02:33:57+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://mazgi.github.io/posts/2019.04/built-noops-blog-with-github-circleci-s3/</loc>
     <lastmod>2019-04-26T06:42:00+09:00</lastmod>
   </url>
@@ -211,6 +216,12 @@
   </url>
   
   <url>
+    <loc>https://mazgi.github.io/tags/analytics-infrastructure/</loc>
+    <lastmod>2019-04-28T02:33:57+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://mazgi.github.io/tags/aws/</loc>
     <lastmod>2019-04-26T06:42:00+09:00</lastmod>
     <priority>0</priority>
@@ -293,7 +304,7 @@
   
   <url>
     <loc>https://mazgi.github.io/tags/dena/</loc>
-    <lastmod>2019-04-26T06:42:00+09:00</lastmod>
+    <lastmod>2019-04-28T02:33:57+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -432,6 +443,12 @@
   </url>
   
   <url>
+    <loc>https://mazgi.github.io/tags/ml-engineering/</loc>
+    <lastmod>2019-04-28T02:33:57+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://mazgi.github.io/tags/nativefier/</loc>
     <lastmod>2018-09-18T00:16:10+09:00</lastmod>
     <priority>0</priority>
@@ -451,7 +468,7 @@
   
   <url>
     <loc>https://mazgi.github.io/posts/</loc>
-    <lastmod>2019-04-26T06:42:00+09:00</lastmod>
+    <lastmod>2019-04-28T02:33:57+09:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -561,7 +578,7 @@
   
   <url>
     <loc>https://mazgi.github.io/</loc>
-    <lastmod>2019-04-26T06:42:00+09:00</lastmod>
+    <lastmod>2019-04-28T02:33:57+09:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
