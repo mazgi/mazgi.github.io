@@ -14,7 +14,7 @@
   
   <url>
     <loc>https://mazgi.github.io/posts/2019.04/built-noops-blog-with-github-circleci-s3/</loc>
-    <lastmod>2019-04-26T06:42:00+09:00</lastmod>
+    <lastmod>2019-04-29T18:57:31+09:00</lastmod>
   </url>
   
   <url>
@@ -180,7 +180,7 @@
   
   <url>
     <loc>https://mazgi.github.io/tags/amazon-cloudfront/</loc>
-    <lastmod>2019-04-26T06:42:00+09:00</lastmod>
+    <lastmod>2019-04-29T18:57:31+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -192,7 +192,7 @@
   
   <url>
     <loc>https://mazgi.github.io/tags/amazon-s3/</loc>
-    <lastmod>2019-04-26T06:42:00+09:00</lastmod>
+    <lastmod>2019-04-29T18:57:31+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -228,13 +228,13 @@
   
   <url>
     <loc>https://mazgi.github.io/tags/aws/</loc>
-    <lastmod>2019-04-26T06:42:00+09:00</lastmod>
+    <lastmod>2019-04-29T18:57:31+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/aws-certificate-manager/</loc>
-    <lastmod>2019-04-26T06:42:00+09:00</lastmod>
+    <lastmod>2019-04-29T18:57:31+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -252,7 +252,7 @@
   
   <url>
     <loc>https://mazgi.github.io/tags/aws-waf/</loc>
-    <lastmod>2019-04-26T06:42:00+09:00</lastmod>
+    <lastmod>2019-04-29T18:57:31+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -297,13 +297,13 @@
   
   <url>
     <loc>https://mazgi.github.io/tags/circleci/</loc>
-    <lastmod>2019-04-26T06:42:00+09:00</lastmod>
+    <lastmod>2019-04-29T18:57:31+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/categories/continuous-integration-and-delivery/</loc>
-    <lastmod>2019-04-26T06:42:00+09:00</lastmod>
+    <lastmod>2019-04-29T18:57:31+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -363,7 +363,7 @@
   
   <url>
     <loc>https://mazgi.github.io/tags/github/</loc>
-    <lastmod>2019-04-26T06:42:00+09:00</lastmod>
+    <lastmod>2019-04-29T18:57:31+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -399,7 +399,7 @@
   
   <url>
     <loc>https://mazgi.github.io/tags/hugo/</loc>
-    <lastmod>2019-04-26T06:42:00+09:00</lastmod>
+    <lastmod>2019-04-29T18:57:31+09:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -473,7 +473,7 @@
   
   <url>
     <loc>https://mazgi.github.io/categories/noops/</loc>
-    <lastmod>2019-04-26T06:42:00+09:00</lastmod>
+    <lastmod>2019-04-29T18:57:31+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -543,7 +543,7 @@
   
   <url>
     <loc>https://mazgi.github.io/categories/static-website/</loc>
-    <lastmod>2019-04-26T06:42:00+09:00</lastmod>
+    <lastmod>2019-04-29T18:57:31+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -571,7 +571,7 @@
   
   <url>
     <loc>https://mazgi.github.io/tags/terraform/</loc>
-    <lastmod>2018-05-09T02:53:03+09:00</lastmod>
+    <lastmod>2019-04-29T18:57:31+09:00</lastmod>
     <priority>0</priority>
   </url>
   
