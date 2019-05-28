@@ -95,7 +95,7 @@
     <item>
       <title>Aws</title>
       <link>https://mazgi.github.io/tags/aws/</link>
-      <pubDate>Thu, 25 Apr 2019 03:37:18 +0000</pubDate>
+      <pubDate>Mon, 27 May 2019 22:04:33 +0000</pubDate>
       
       <guid>https://mazgi.github.io/tags/aws/</guid>
       <description></description>
@@ -203,7 +203,7 @@
     <item>
       <title>Docker</title>
       <link>https://mazgi.github.io/tags/docker/</link>
-      <pubDate>Wed, 15 May 2019 17:13:58 +0000</pubDate>
+      <pubDate>Mon, 27 May 2019 22:04:33 +0000</pubDate>
       
       <guid>https://mazgi.github.io/tags/docker/</guid>
       <description></description>
@@ -212,7 +212,7 @@
     <item>
       <title>Docker Compose</title>
       <link>https://mazgi.github.io/tags/docker-compose/</link>
-      <pubDate>Tue, 09 Apr 2019 19:26:15 +0000</pubDate>
+      <pubDate>Mon, 27 May 2019 22:04:33 +0000</pubDate>
       
       <guid>https://mazgi.github.io/tags/docker-compose/</guid>
       <description></description>
@@ -428,7 +428,7 @@
     <item>
       <title>Terraform</title>
       <link>https://mazgi.github.io/tags/terraform/</link>
-      <pubDate>Thu, 25 Apr 2019 03:37:18 +0000</pubDate>
+      <pubDate>Mon, 27 May 2019 22:04:33 +0000</pubDate>
       
       <guid>https://mazgi.github.io/tags/terraform/</guid>
       <description></description>
@@ -449,6 +449,15 @@
       <pubDate>Sun, 06 May 2018 21:04:37 +0900</pubDate>
       
       <guid>https://mazgi.github.io/tags/web-design/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Xaas</title>
+      <link>https://mazgi.github.io/tags/xaas/</link>
+      <pubDate>Mon, 27 May 2019 22:04:33 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/xaas/</guid>
       <description></description>
     </item>
     
