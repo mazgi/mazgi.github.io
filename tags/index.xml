@@ -95,7 +95,7 @@
     <item>
       <title>Aws</title>
       <link>https://mazgi.github.io/tags/aws/</link>
-      <pubDate>Mon, 27 May 2019 22:04:33 +0000</pubDate>
+      <pubDate>Tue, 11 Jun 2019 14:27:24 +0000</pubDate>
       
       <guid>https://mazgi.github.io/tags/aws/</guid>
       <description></description>
@@ -246,6 +246,15 @@
     </item>
     
     <item>
+      <title>Gcp</title>
+      <link>https://mazgi.github.io/tags/gcp/</link>
+      <pubDate>Tue, 11 Jun 2019 14:27:24 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/gcp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Gentoo</title>
       <link>https://mazgi.github.io/tags/gentoo/</link>
       <pubDate>Thu, 18 Feb 2016 14:36:02 +0900</pubDate>
@@ -356,7 +365,7 @@
     <item>
       <title>Ml Engineering</title>
       <link>https://mazgi.github.io/tags/ml-engineering/</link>
-      <pubDate>Sat, 27 Apr 2019 01:03:05 +0000</pubDate>
+      <pubDate>Tue, 11 Jun 2019 14:27:24 +0000</pubDate>
       
       <guid>https://mazgi.github.io/tags/ml-engineering/</guid>
       <description></description>
@@ -428,9 +437,18 @@
     <item>
       <title>Terraform</title>
       <link>https://mazgi.github.io/tags/terraform/</link>
-      <pubDate>Mon, 27 May 2019 22:04:33 +0000</pubDate>
+      <pubDate>Tue, 11 Jun 2019 14:27:24 +0000</pubDate>
       
       <guid>https://mazgi.github.io/tags/terraform/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Terraform Module</title>
+      <link>https://mazgi.github.io/tags/terraform-module/</link>
+      <pubDate>Tue, 11 Jun 2019 14:27:24 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/terraform-module/</guid>
       <description></description>
     </item>
     
