@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ruby on Rails on mazgi.log</title>
+    <title>ruby-on-rails on mazgi.log</title>
     <link>https://mazgi.github.io/tags/ruby-on-rails/</link>
-    <description>Recent content in Ruby on Rails on mazgi.log</description>
+    <description>Recent content in ruby-on-rails on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 09 Apr 2019 19:26:15 +0000</lastBuildDate>

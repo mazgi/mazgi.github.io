@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Noops on mazgi.log</title>
+    <title>noops on mazgi.log</title>
     <link>https://mazgi.github.io/categories/noops/</link>
-    <description>Recent content in Noops on mazgi.log</description>
+    <description>Recent content in noops on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 25 Apr 2019 03:37:18 +0000</lastBuildDate>

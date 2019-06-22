@@ -1040,7 +1040,6 @@ WAF自体の設定は<a href="https://github.com/mazgi-showcase/2019.04.built-no
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#4070a0">&#39;use strict&#39;</span>;
@@ -1112,7 +1111,7 @@ exports.handler <span style="color:#666">=</span> (event, context, callback) =&g
 </span><span style="">
 </span><span style="">resource</span> <span style="color:#4070a0">&#34;aws_iam_role_policy_attachment&#34; &#34;website-lambda-assume-role-policy-attachment&#34;</span> {<span style="">
 </span><span style="">  role       =</span> <span style="color:#4070a0">&#34;${aws_iam_role.website-lambda-assume-role.name}&#34;</span>
-  <span style="">policy_arn =</span> <span style="color:#4070a0">&#34;arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole&#34;</span>
+  <span style="">policy_arn =</span> <span style="color:#4070a0">&#34;arniam:policy/service-role/AWSLambdaBasicExecutionRole&#34;</span>
 }</code></pre></td></tr></table>
 </div>
 </div>

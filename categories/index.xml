@@ -6,39 +6,13 @@
     <description>Recent content in Categories on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Tue, 11 Jun 2019 14:27:24 +0000</lastBuildDate>
     
 	<atom:link href="https://mazgi.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Continuous Integration and Delivery</title>
-      <link>https://mazgi.github.io/categories/continuous-integration-and-delivery/</link>
-      <pubDate>Thu, 25 Apr 2019 03:37:18 +0000</pubDate>
-      
-      <guid>https://mazgi.github.io/categories/continuous-integration-and-delivery/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Event</title>
-      <link>https://mazgi.github.io/categories/event/</link>
-      <pubDate>Mon, 27 May 2019 22:04:33 +0000</pubDate>
-      
-      <guid>https://mazgi.github.io/categories/event/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Incident</title>
-      <link>https://mazgi.github.io/categories/incident/</link>
-      <pubDate>Sat, 27 Apr 2019 20:28:29 +0000</pubDate>
-      
-      <guid>https://mazgi.github.io/categories/incident/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Infrastructure as Code</title>
+      <title>infrastructure as code</title>
       <link>https://mazgi.github.io/categories/infrastructure-as-code/</link>
       <pubDate>Tue, 11 Jun 2019 14:27:24 +0000</pubDate>
       
@@ -47,7 +21,34 @@
     </item>
     
     <item>
-      <title>Noops</title>
+      <title>event</title>
+      <link>https://mazgi.github.io/categories/event/</link>
+      <pubDate>Mon, 27 May 2019 22:04:33 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/categories/event/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>incident</title>
+      <link>https://mazgi.github.io/categories/incident/</link>
+      <pubDate>Sat, 27 Apr 2019 20:28:29 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/categories/incident/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>continuous integration and delivery</title>
+      <link>https://mazgi.github.io/categories/continuous-integration-and-delivery/</link>
+      <pubDate>Thu, 25 Apr 2019 03:37:18 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/categories/continuous-integration-and-delivery/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>noops</title>
       <link>https://mazgi.github.io/categories/noops/</link>
       <pubDate>Thu, 25 Apr 2019 03:37:18 +0000</pubDate>
       
@@ -56,34 +57,7 @@
     </item>
     
     <item>
-      <title>Provisioning</title>
-      <link>https://mazgi.github.io/categories/provisioning/</link>
-      <pubDate>Sun, 09 Sep 2018 05:15:46 +0900</pubDate>
-      
-      <guid>https://mazgi.github.io/categories/provisioning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Security</title>
-      <link>https://mazgi.github.io/categories/security/</link>
-      <pubDate>Thu, 18 Feb 2016 14:36:02 +0900</pubDate>
-      
-      <guid>https://mazgi.github.io/categories/security/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Software Architecture</title>
-      <link>https://mazgi.github.io/categories/software-architecture/</link>
-      <pubDate>Thu, 10 May 2018 02:03:25 +0900</pubDate>
-      
-      <guid>https://mazgi.github.io/categories/software-architecture/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Static Website</title>
+      <title>static website</title>
       <link>https://mazgi.github.io/categories/static-website/</link>
       <pubDate>Thu, 25 Apr 2019 03:37:18 +0000</pubDate>
       
@@ -92,11 +66,38 @@
     </item>
     
     <item>
-      <title>Tips</title>
+      <title>tips</title>
       <link>https://mazgi.github.io/categories/tips/</link>
       <pubDate>Mon, 17 Sep 2018 23:32:42 +0900</pubDate>
       
       <guid>https://mazgi.github.io/categories/tips/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>provisioning</title>
+      <link>https://mazgi.github.io/categories/provisioning/</link>
+      <pubDate>Sun, 09 Sep 2018 05:15:46 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/categories/provisioning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>software architecture</title>
+      <link>https://mazgi.github.io/categories/software-architecture/</link>
+      <pubDate>Thu, 10 May 2018 02:03:25 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/categories/software-architecture/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security</title>
+      <link>https://mazgi.github.io/categories/security/</link>
+      <pubDate>Thu, 18 Feb 2016 14:36:02 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/categories/security/</guid>
       <description></description>
     </item>
     
