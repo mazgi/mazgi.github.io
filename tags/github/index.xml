@@ -6,10 +6,19 @@
     <description>Recent content in github on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 25 Apr 2019 03:37:18 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 29 Jun 2019 04:00:09 +0000</lastBuildDate>
     
 	<atom:link href="https://mazgi.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Publish Docker Image to GitHub Package Registry</title>
+      <link>https://mazgi.github.io/posts/2019.06/publish-docker-image-to-github-package-registry/</link>
+      <pubDate>Sat, 29 Jun 2019 04:00:09 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2019.06/publish-docker-image-to-github-package-registry/</guid>
+      <description>5月に発表されたGitHub Package Registryのlimited public betaが通ったのでひとまずDockerイメージをpushしてみた。 How to Use D</description>
+    </item>
     
     <item>
       <title>GitHub&#43;CircleCI&#43;S3でNoOpsなBlogを構築した</title>

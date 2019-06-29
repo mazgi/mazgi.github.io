@@ -3,18 +3,8 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://mazgi.github.io/posts/2019.06/the-trend-of-aws-storages/</loc>
-    <lastmod>2019-06-28T08:53:25+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://mazgi.github.io/posts/2019.06/the-trend-of-gcp-storages/</loc>
-    <lastmod>2019-06-28T08:53:25+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://mazgi.github.io/posts/</loc>
-    <lastmod>2019-06-28T08:53:25+09:00</lastmod>
+    <lastmod>2019-06-29T14:19:44+09:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -29,8 +19,13 @@
   </url>
   
   <url>
+    <loc>https://mazgi.github.io/posts/2019.06/publish-docker-image-to-github-package-registry/</loc>
+    <lastmod>2019-06-29T14:19:44+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://mazgi.github.io/tags/</loc>
-    <lastmod>2019-06-28T08:53:25+09:00</lastmod>
+    <lastmod>2019-06-29T14:19:44+09:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -42,6 +37,44 @@
                 hreflang="ja"
                 href="https://mazgi.github.io/tags/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/tags/docker/</loc>
+    <lastmod>2019-06-29T14:19:44+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/tags/github/</loc>
+    <lastmod>2019-06-29T14:19:44+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/</loc>
+    <lastmod>2019-06-29T14:19:44+09:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/posts/2019.06/the-trend-of-aws-storages/</loc>
+    <lastmod>2019-06-28T08:53:25+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/posts/2019.06/the-trend-of-gcp-storages/</loc>
+    <lastmod>2019-06-28T08:53:25+09:00</lastmod>
   </url>
   
   <url>
@@ -66,22 +99,6 @@
     <loc>https://mazgi.github.io/tags/gcp/</loc>
     <lastmod>2019-06-28T08:53:25+09:00</lastmod>
     <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mazgi.github.io/</loc>
-    <lastmod>2019-06-28T08:53:25+09:00</lastmod>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/"
-                />
   </url>
   
   <url>
@@ -149,12 +166,6 @@
   <url>
     <loc>https://mazgi.github.io/posts/2019.05/brief-description-of-xaas-in-the-ai-era/</loc>
     <lastmod>2019-05-28T22:24:10+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://mazgi.github.io/tags/docker/</loc>
-    <lastmod>2019-05-28T22:24:10+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -257,12 +268,6 @@
   
   <url>
     <loc>https://mazgi.github.io/categories/continuous-integration-and-delivery/</loc>
-    <lastmod>2019-04-29T18:57:31+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mazgi.github.io/tags/github/</loc>
     <lastmod>2019-04-29T18:57:31+09:00</lastmod>
     <priority>0</priority>
   </url>
