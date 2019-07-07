@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="/common/favicon.ico">
+    
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/common/site.css">
+    
+    
+    <title>mazgi.log :: 1Password Cliの使い方</title>
+    <meta property="og:title"       content="mazgi.log :: 1Password Cliの使い方" />
+    <meta property="og:type"        content="article" />
+    
+    <meta property="og:url"         content="https://mazgi.github.io/posts/2019.07/how-to-use-1password-cli/" />
+    <meta property="og:description" content="" />
+    
+    
+    
+    <meta property="og:image"       content="https://mazgi.github.io/posts/2019.07/how-to-use-1password-cli/og.png" />
+    <meta property="twitter:image"  content="https://mazgi.github.io/posts/2019.07/how-to-use-1password-cli/og.png" />
+    <meta property="twitter:image:src"  content="https://mazgi.github.io/posts/2019.07/how-to-use-1password-cli/og.png" />
+    
+    
+    
+    
+    
+    
+    
+    
+    <meta name="twitter:card"       content="summary" />
+    
+    
+  </head>
+  <body>
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark">
+      
+      <span class="navbar-text mr-1">I am on</span>
+      
+      <ul class="navbar-nav">
+        
+        <li class="nav-item">
+          <a class="nav-link" target="github_mazgi" href="https://github.com/mazgi">GitHub<i class="ml-1 fab fa-github"></i></a>
+        </li>
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" target="twitter_mazgi" href="https://twitter.com/@mazgi">Twitter<i class="ml-1 fab fa-twitter"></i></a>
+        </li>
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" target="instagram_mazgi" href="https://www.instagram.com/mazgi">Instagram<i class="ml-1 fab fa-instagram"></i></a>
+        </li>
+        
+        
+      </ul>
+    </header>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="https://mazgi.github.io/">mazgi.log</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_nav" aria-controls="navbar_nav" aria-expand="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar_nav">
+        
+        <ul class="navbar-nav mr-auto">
+          
+          
+          
+          <li class="nav-item">
+            <span class="nav-link disabled">Created At: 2019.07.07</span>
+          </li>
+          <li class="nav-item">
+            <span class="nav-link disabled">Updated At: 2019.07.08</span>
+          </li>
+          
+        </ul>
+        
+        <div class="navbar-nav ml-auto">
+          <span class="navbar-text mr-1">share this page via</span>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="https://twitter.com/share?url=https%3a%2f%2fmazgi.github.io%2fposts%2f2019.07%2fhow-to-use-1password-cli%2f&text=1Password%20Cli%e3%81%ae%e4%bd%bf%e3%81%84%e6%96%b9" target="_blank"><i class="fab fa-twitter"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fmazgi.github.io%2fposts%2f2019.07%2fhow-to-use-1password-cli%2f" target="_blank"><i class="fab fa-facebook"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.linkedin.com/shareArticle?url=https%3a%2f%2fmazgi.github.io%2fposts%2f2019.07%2fhow-to-use-1password-cli%2f&title=1Password%20Cli%e3%81%ae%e4%bd%bf%e3%81%84%e6%96%b9" target="_blank"><i class="fab fa-linkedin"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://plusone.google.com/_/+1/confirm?url=https%3a%2f%2fmazgi.github.io%2fposts%2f2019.07%2fhow-to-use-1password-cli%2f" target="_blank"><i class="fab fa-google-plus"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://b.hatena.ne.jp/entry/https://mazgi.github.io/posts/2019.07/how-to-use-1password-cli/" target="_blank">b!</a>
+            </li>
+          </ul>
+        </div>
+        
+      </div>
+    </nav>
+    <main role="main" class="container-fluid col-lg-10 offset-lg-1">
+
+<div class="row">
+  <div class="col-lg-9">
+    <article>
+      <div class="row">
+        <h1>1Password Cliの使い方</h1>
+      </div>
+      
+
+<p><a href="https://support.1password.com/command-line/">1Password Cli</a>のサインイン方法を全く覚えられないのでメモ。</p>
+
+<h2 id="how-to-sign-in">How to Sign-in</h2>
+
+<p>1PasswordのCliである <code>op</code> コマンドを <code>--help</code> 付きで実行するとこういうメッセージが表示されます。</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">$ op signin --help
+usage: op signin &lt;signinaddress&gt; &lt;emailaddress&gt; &lt;secretkey&gt; [--output=raw]</code></pre></div>
+<p>「shellの履歴に <code>&lt;secretkey&gt;</code> が残るのはいやだなぁ」って思いますよね。</p>
+
+<p>実は&rdquo;<a href="https://support.1password.com/command-line-getting-started/#get-started-with-the-command-line-tool">1Password command-line tool: Getting started</a>&ldquo;をみるとemailまで入れればいいことがわかります。<br />
+実際に試すとこんな感じ。</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">$ op signin my your-email@example.com
+Enter the Secret Key for your-email@example.com at my.1password.com: ********
+Enter the password for your-email@example.com at my.1password.com: 
+export OP_SESSION_my=&#34;********&#34;
+# This command is meant to be used with your shell&#39;s eval function.
+# Run &#39;eval $(op signin my)&#39; to sign into your 1Password account.
+# If you wish to use the session token itself, pass the --output=raw flag value.</code></pre></div>
+<p><code>password</code> 以外の情報は1Password GUIの <code>Preferences &gt; Accounts</code> で確認できます(macOSの場合)。</p>
+
+<figure>
+    <img src="0011.png" width="800"/> 
+</figure>
+
+
+<p>以降は <code>op signin &lt;subdomain&gt;</code> をevalするだけで使えます。</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">$ eval $(op signin my)
+Enter the password for your-email@example.com at my.1password.com: </code></pre></div>
+<p><code>$OP_SESSION_my</code> がexportされていればよいということですね。</p>
+
+<blockquote>
+<p>Session tokens expire after 30 minutes of inactivity, after which you’ll need to sign in again.</p>
+</blockquote>
+
+<p>と書かれているので30分経つと再度sign-inが必要なようです。</p>
+
+<h2 id="how-to-get-my-secrets">How to Get my secrets</h2>
+
+<p>次にItemの取得方法です。</p>
+
+<p><strong>Passwordなどテキスト情報</strong></p>
+
+<p>仮にPasswordを生成してCliから取得してみます。<br />
+生成されたPasswordは <code>[WXjMEZyK7ABDEbid6J+wcwc</code> です。</p>
+
+<figure>
+    <img src="0021.png" width="800"/> 
+</figure>
+
+
+<p><code>op get item</code> するとこんな感じで色々含まれたJSONが返ってきます。</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">$ op get item dummy-password | jq .
+{
+  &#34;uuid&#34;: &#34;********&#34;,
+  &#34;templateUuid&#34;: &#34;005&#34;,
+  &#34;trashed&#34;: &#34;N&#34;,
+  &#34;createdAt&#34;: &#34;2019-07-07T17:47:16Z&#34;,
+  &#34;updatedAt&#34;: &#34;2019-07-07T17:47:16Z&#34;,
+  &#34;changerUuid&#34;: &#34;********&#34;,
+  &#34;itemVersion&#34;: 1,
+  &#34;vaultUuid&#34;: &#34;********&#34;,
+  &#34;details&#34;: {
+    &#34;password&#34;: &#34;[WXjMEZyK7ABDEbid6J+wcwc&#34;,
+    &#34;sections&#34;: [
+      {
+        &#34;name&#34;: &#34;linked items&#34;,
+        &#34;title&#34;: &#34;Related Items&#34;
+      }
+    ]
+  },
+  &#34;overview&#34;: {
+    &#34;ainfo&#34;: &#34;Jul 8, 2019 2:47:16&#34;,
+    &#34;pbe&#34;: 126.09859470409585,
+    &#34;pgrng&#34;: true,
+    &#34;ps&#34;: 100,
+    &#34;title&#34;: &#34;dummy-password&#34;
+  }
+}</code></pre></div>
+<p>のでこんな感じで取り出せます。</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">$ op get item dummy-password | jq --raw-output &#39;.details.password&#39;
+[WXjMEZyK7ABDEbid6J+wcwc</code></pre></div>
+<p><strong>ファイル</strong></p>
+
+<p>次にファイルです。</p>
+
+<p>こんな感じでダミーのPNGファイルを用意して1Passwordに登録します。</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">$ convert -size 400x400 xc:white dummy.png
+$ convert dummy.png -gravity Center -pointsize 96 -annotate 0 &#39;sample&#39; dummy.png
+$ file dummy.png
+dummy.png: PNG image data, 400 x 400, 8-bit grayscale, non-interlaced
+$ shasum dummy.png
+46d1200fb4decde6fb8cf0c83c794f0182c06025  dummy.png</code></pre></div>
+<figure>
+    <img src="0022.png" width="800"/> 
+</figure>
+
+
+<p><code>op get document</code> するとバイナリが返ってきます。</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">$ op get document dummy.png | od -cx | head
+0000000  211   P   N   G  \r  \n 032  \n  \0  \0  \0  \r   I   H   D   R
+             5089    474e    0a0d    0a1a    0000    0d00    4849    5244
+0000020   \0  \0 001 220  \0  \0 001 220  \b  \0  \0  \0  \0 245 324   i
+             0000    9001    0000    9001    0008    0000    a500    69d4
+0000040  020  \0  \0  \0 004   g   A   M   A  \0  \0 261 217  \v 374   a
+             0010    0000    6704    4d41    0041    b100    0b8f    61fc
+0000060  005  \0  \0  \0       c   H   R   M  \0  \0   z   &amp;  \0  \0 200
+             0005    0000    6320    5248    004d    7a00    0026    8000
+0000100  204  \0  \0 372  \0  \0  \0 200 350  \0  \0   u   0  \0  \0 140
+             0084    fa00    0000    8000    00e8    7500    0030    ea00</code></pre></div>
+<p>なので任意のPathに保存します。</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">$ export OUT=$(mktemp)
+$ op get document dummy.png &gt; $OUT
+$ file $OUT
+/var/folders/fy/x8tlg_js6fz8xk0gpxlwfm_r0000gn/T/tmp.nh8WNiUq: PNG image data, 400 x 400, 8-bit grayscale, non-interlaced</code></pre></div>
+<p>ちゃんとファイルを取り出せました。</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">$ shasum dummy.png $OUT
+46d1200fb4decde6fb8cf0c83c794f0182c06025  dummy.png
+46d1200fb4decde6fb8cf0c83c794f0182c06025  /var/folders/fy/x8tlg_js6fz8xk0gpxlwfm_r0000gn/T/tmp.nh8WNiUq</code></pre></div>
+    </article>
+  </div>
+  <div class="col-lg-3">
+    <div class="sidebar">
+  
+  <h4><a href="/about/">About</a></h4>
+  <p><strong>Hidenori MATSUKI</strong></p>
+
+<p>🍣 🍶</p>
+
+<p>another website: <a href="https://mazgi.com/">mazgi.com</a></p>
+  
+  <hr />
+  <h4>TableOfContents</h4>
+  <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#how-to-sign-in">How to Sign-in</a></li>
+<li><a href="#how-to-get-my-secrets">How to Get my secrets</a></li>
+</ul></li>
+</ul>
+</nav>
+  <hr />
+  <h4><a href="/categories/">Categories</a></h4>
+  
+  <hr />
+  <h4><a href="/tags/">Tags</a></h4>
+  
+  <div>
+    
+    <a class="badge badge-pill badge-secondary" href="/tags/1password/">1password</a>
+    
+  </div>
+  
+</div>
+
+  </div>
+</div>
+      <div class="row">
+        <footer class="col-lg-12">
+          <hr/>
+          <span>&copy; mazgi.log</span>
+          <span>&nbsp;&middot;&nbsp;</span>
+          <i class="fas fa-bolt"></i>
+          <span>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a></span>
+        </footer>
+      </div>
+    </div>
+    </main>
+    
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68170979-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-68170979-2');
+    </script>
+    
+      
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+      });
+    </script>
+  </body>
+</html>
+
