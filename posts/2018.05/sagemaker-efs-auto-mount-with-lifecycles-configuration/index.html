@@ -172,8 +172,8 @@ SageMakerのTerminalすら開かずに使えてほしい。<br />
 
 <ol>
 <li>マウントポイントとなるディレクトリを作成</li>
-<li>EFSボリュームをマウント</li>
-</ol>
+
+<li><p>EFSボリュームをマウント</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#007020">#!/bin/bash
 </span><span style="color:#007020"></span>
 <span style="color:#007020">set</span> -e
@@ -181,7 +181,9 @@ SageMakerのTerminalすら開かずに使えてほしい。<br />
 sudo mkdir -p /mnt/nfs
 sudo mount -t nfs <span style="color:#4070a0;font-weight:bold">\
 </span><span style="color:#4070a0;font-weight:bold"></span>-o rw,relatime,nfsvers<span style="color:#666">=</span><span style="color:#40a070">4</span>.1,rsize<span style="color:#666">=</span><span style="color:#40a070">1048576</span>,wsize<span style="color:#666">=</span><span style="color:#40a070">1048576</span>,hard,timeo<span style="color:#666">=</span><span style="color:#40a070">600</span>,retrans<span style="color:#666">=</span><span style="color:#40a070">2</span> <span style="color:#4070a0;font-weight:bold">\
-</span><span style="color:#4070a0;font-weight:bold"></span>fs-********.efs.us-east-1.amazonaws.com:/ /mnt/nfs</code></pre></div>
+</span><span style="color:#4070a0;font-weight:bold"></span>fs-********.efs.us-east-1.amazonaws.com:/ /mnt/nfs</code></pre></div></li>
+</ol>
+
 <p><code>Create configuration</code> ボタンをクリックすると以下のようにスクリプトが登録される。<br />
 <figure>
     <img src="/posts/2018.05/sagemaker-efs-auto-mount-with-lifecycles-configuration/0002.png" width="800"/> 

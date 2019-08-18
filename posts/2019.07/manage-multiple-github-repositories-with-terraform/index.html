@@ -149,9 +149,9 @@
 <p><a href="https://github.com/mazgi-showcase/2019.07.manage-repos-with-terraform/blob/master/terraform.tf">/terraform.tf</a></p>
 
 <p>GitHub Enterpriseの場合はさらに <code>base_url</code> に <code>https://github.someorg.example/api/v3/</code> のようなWebAPIのエンドポイントURLを指定することで使える。</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-hcl" data-lang="hcl">provider &#34;github&#34; {
-  token        = &#34;${var.github_token}&#34;
-  organization = &#34;mazgi-sandbox&#34;
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-hcl" data-lang="hcl"><span style="color:#007020;font-weight:bold">provider</span> <span style="color:#4070a0">&#34;github&#34;</span> {
+  token        <span style="color:#666">=</span> <span style="color:#4070a0">&#34;${var.github_token}&#34;</span>
+  organization <span style="color:#666">=</span> <span style="color:#4070a0">&#34;mazgi-sandbox&#34;</span>
 }</code></pre></div>
 <p><strong>リポジトリの管理</strong></p>
 
@@ -164,20 +164,20 @@
 </ul>
 
 <p><a href="https://github.com/mazgi-showcase/2019.07.manage-repos-with-terraform/blob/master/github_repository.poc.tf">/github_repository.poc.tf</a></p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-hcl" data-lang="hcl">resource &#34;github_repository&#34; &#34;poc&#34; {
-  count = length(var.repositories_poc)
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-hcl" data-lang="hcl"><span style="color:#007020;font-weight:bold">resource</span> <span style="color:#4070a0">&#34;github_repository&#34; &#34;poc&#34;</span> {
+  count <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">length</span>(<span style="color:#007020;font-weight:bold">var</span>.<span style="color:#007020;font-weight:bold">repositories_poc</span>)
 
-  name        = format(&#34;201907.tf-gh.%s-poc&#34;, element(keys(var.repositories_poc), count.index))
-  description = element(values(var.repositories_poc), count.index)
-  has_issues  = true
+  name        <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">format</span>(<span style="color:#4070a0">&#34;201907.tf-gh.%s-poc&#34;</span>, <span style="color:#007020;font-weight:bold">element</span>(<span style="color:#007020;font-weight:bold">keys</span>(<span style="color:#007020;font-weight:bold">var</span>.<span style="color:#007020;font-weight:bold">repositories_poc</span>), <span style="color:#007020;font-weight:bold">count</span>.<span style="color:#007020;font-weight:bold">index</span>))
+  description <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">element</span>(<span style="color:#007020;font-weight:bold">values</span>(<span style="color:#007020;font-weight:bold">var</span>.<span style="color:#007020;font-weight:bold">repositories_poc</span>), <span style="color:#007020;font-weight:bold">count</span>.<span style="color:#007020;font-weight:bold">index</span>)
+  has_issues  <span style="color:#666">=</span> <span style="color:#902000">true</span>
 }</code></pre></div>
 <p>そしてリポジトリ名などの各リポジトリ固有の情報をListやMapで外出ししておく。</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-hcl" data-lang="hcl">variable &#34;repositories_poc&#34; {
-  type = map(string)
-  default = {
-    &#34;first&#34; = &#34;First PoC&#34;
-    &#34;2nd&#34;   = &#34;PoC #2&#34;
-    &#34;03&#34;    = &#34;PoC 03&#34;
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-hcl" data-lang="hcl"><span style="color:#007020;font-weight:bold">variable</span> <span style="color:#4070a0">&#34;repositories_poc&#34;</span> {
+  type <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">map</span>(<span style="color:#007020;font-weight:bold">string</span>)
+  default <span style="color:#666">=</span> {
+    &#34;first&#34; <span style="color:#666">=</span> <span style="color:#4070a0">&#34;First PoC&#34;</span>
+    &#34;2nd&#34;   <span style="color:#666">=</span> <span style="color:#4070a0">&#34;PoC #2&#34;</span>
+    &#34;03&#34;    <span style="color:#666">=</span> <span style="color:#4070a0">&#34;PoC 03&#34;</span>
   }
 }</code></pre></div>
 <p>同じようなPoC用リポジトリを増やす時はListやMapの要素を増やすことで対応できる。</p>

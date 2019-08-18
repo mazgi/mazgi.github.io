@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>aws on mazgi.log</title>
+    <link>https://mazgi.github.io/en/tags/aws/</link>
+    <description>Recent content in aws on mazgi.log</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 27 May 2019 22:04:36 +0000</lastBuildDate>
+    
+	<atom:link href="https://mazgi.github.io/en/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Brief Description of Xaas in the Ai Era</title>
+      <link></link>
+      <pubDate>Mon, 27 May 2019 22:04:36 +0000</pubDate>
+      
+      <guid></guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sagemaker Efs Auto Mount With Lifecycles Configuration</title>
+      <link></link>
+      <pubDate>Thu, 10 May 2018 02:03:25 +0900</pubDate>
+      
+      <guid></guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Amazon SageMaker実運用: NAT GatewayでNotebookの接続元IPアドレスを固定する</title>
+      <link></link>
+      <pubDate>Wed, 09 May 2018 01:46:59 +0900</pubDate>
+      
+      <guid></guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Processing With S3 Lambda Sqs</title>
+      <link></link>
+      <pubDate>Tue, 17 Apr 2018 00:12:10 +0900</pubDate>
+      
+      <guid></guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Setup Amazon Sagemaker</title>
+      <link></link>
+      <pubDate>Tue, 06 Mar 2018 00:06:04 +0900</pubDate>
+      
+      <guid></guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>s3fs for S3 with SSE-KMS</title>
+      <link></link>
+      <pubDate>Thu, 01 Mar 2018 04:32:56 +0900</pubDate>
+      
+      <guid></guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>S3&#43;cloudfront Website With Terraform and Circleci</title>
+      <link></link>
+      <pubDate>Thu, 15 Feb 2018 05:24:40 +0900</pubDate>
+      
+      <guid></guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

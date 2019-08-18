@@ -3,20 +3,33 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://mazgi.github.io/tags/1password/</loc>
+    <lastmod>2019-07-08T03:43:00+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://mazgi.github.io/posts/2019.07/how-to-use-1password-cli/</loc>
     <lastmod>2019-07-08T03:43:00+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://mazgi.github.io/tags/1password/</loc>
+    <loc>https://mazgi.github.io/</loc>
     <lastmod>2019-07-08T03:43:00+09:00</lastmod>
-    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/"
+                />
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/</loc>
     <lastmod>2019-07-08T03:43:00+09:00</lastmod>
-    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -32,7 +45,6 @@
   <url>
     <loc>https://mazgi.github.io/tags/</loc>
     <lastmod>2019-07-08T03:43:00+09:00</lastmod>
-    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -46,31 +58,33 @@
   </url>
   
   <url>
-    <loc>https://mazgi.github.io/</loc>
-    <lastmod>2019-07-08T03:43:00+09:00</lastmod>
-    <priority>0</priority>
+    <loc>https://mazgi.github.io/tags/github/</loc>
+    <lastmod>2019-07-07T01:46:11+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://mazgi.github.io/en/"
+                href="https://mazgi.github.io/en/tags/github/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://mazgi.github.io/"
+                href="https://mazgi.github.io/tags/github/"
                 />
-  </url>
-  
-  <url>
-    <loc>https://mazgi.github.io/tags/github/</loc>
-    <lastmod>2019-07-07T01:46:11+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/terraform/</loc>
     <lastmod>2019-07-07T01:46:11+09:00</lastmod>
-    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/tags/terraform/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/tags/terraform/"
+                />
   </url>
   
   <url>
@@ -79,18 +93,57 @@
   </url>
   
   <url>
+    <loc>https://mazgi.github.io/tags/docker/</loc>
+    <lastmod>2019-06-29T14:19:44+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/tags/docker/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/tags/docker/"
+                />
+  </url>
+  
+  <url>
     <loc>https://mazgi.github.io/posts/2019.06/publish-docker-image-to-github-package-registry/</loc>
     <lastmod>2019-06-29T14:19:44+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://mazgi.github.io/tags/docker/</loc>
-    <lastmod>2019-06-29T14:19:44+09:00</lastmod>
-    <priority>0</priority>
+    <loc>https://mazgi.github.io/tags/aws/</loc>
+    <lastmod>2019-06-28T08:53:25+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/tags/aws/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/tags/aws/"
+                />
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2019.06/the-trend-of-aws-storages/</loc>
+    <lastmod>2019-06-28T08:53:25+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/tags/benchmark/</loc>
+    <lastmod>2019-06-28T08:53:25+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/tags/file-system/</loc>
+    <lastmod>2019-06-28T08:53:25+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/tags/gcp/</loc>
     <lastmod>2019-06-28T08:53:25+09:00</lastmod>
   </url>
   
@@ -100,45 +153,18 @@
   </url>
   
   <url>
-    <loc>https://mazgi.github.io/tags/aws/</loc>
-    <lastmod>2019-06-28T08:53:25+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mazgi.github.io/tags/benchmark/</loc>
-    <lastmod>2019-06-28T08:53:25+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mazgi.github.io/tags/file-system/</loc>
-    <lastmod>2019-06-28T08:53:25+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mazgi.github.io/tags/gcp/</loc>
-    <lastmod>2019-06-28T08:53:25+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://mazgi.github.io/tags/nfs/</loc>
     <lastmod>2019-06-28T08:53:25+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/storage/</loc>
     <lastmod>2019-06-28T08:53:25+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/categories/</loc>
     <lastmod>2019-06-22T11:33:27+09:00</lastmod>
-    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -154,19 +180,26 @@
   <url>
     <loc>https://mazgi.github.io/categories/infrastructure-as-code/</loc>
     <lastmod>2019-06-22T11:33:27+09:00</lastmod>
-    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/categories/infrastructure-as-code/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/categories/infrastructure-as-code/"
+                />
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/ml-engineering/</loc>
     <lastmod>2019-06-22T11:33:27+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/terraform-module/</loc>
     <lastmod>2019-06-22T11:33:27+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -187,19 +220,46 @@
   <url>
     <loc>https://mazgi.github.io/tags/docker-compose/</loc>
     <lastmod>2019-05-28T22:24:10+09:00</lastmod>
-    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/tags/docker-compose/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/tags/docker-compose/"
+                />
   </url>
   
   <url>
     <loc>https://mazgi.github.io/categories/event/</loc>
     <lastmod>2019-05-28T22:24:10+09:00</lastmod>
-    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/categories/event/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/categories/event/"
+                />
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/xaas/</loc>
     <lastmod>2019-05-28T22:24:10+09:00</lastmod>
-    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/tags/xaas/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/tags/xaas/"
+                />
   </url>
   
   <url>
@@ -215,31 +275,36 @@
   <url>
     <loc>https://mazgi.github.io/tags/docker-hub/</loc>
     <lastmod>2019-04-28T06:06:59+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/categories/incident/</loc>
     <lastmod>2019-04-28T06:06:59+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/security/</loc>
     <lastmod>2019-04-28T06:06:59+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/analytics-infrastructure/</loc>
     <lastmod>2019-04-28T02:33:57+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/dena/</loc>
     <lastmod>2019-04-29T18:57:31+09:00</lastmod>
-    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/tags/dena/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/tags/dena/"
+                />
   </url>
   
   <url>
@@ -248,50 +313,83 @@
   </url>
   
   <url>
-    <loc>https://mazgi.github.io/posts/2019.04/built-noops-blog-with-github-circleci-s3/</loc>
-    <lastmod>2019-04-29T18:57:31+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://mazgi.github.io/tags/amazon-cloudfront/</loc>
     <lastmod>2019-04-29T18:57:31+09:00</lastmod>
-    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/tags/amazon-cloudfront/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/tags/amazon-cloudfront/"
+                />
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/amazon-s3/</loc>
     <lastmod>2019-04-29T18:57:31+09:00</lastmod>
-    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/tags/amazon-s3/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/tags/amazon-s3/"
+                />
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/aws-certificate-manager/</loc>
     <lastmod>2019-04-29T18:57:31+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/aws-waf/</loc>
     <lastmod>2019-04-29T18:57:31+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/circleci/</loc>
     <lastmod>2019-04-29T18:57:31+09:00</lastmod>
-    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/tags/circleci/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/tags/circleci/"
+                />
   </url>
   
   <url>
     <loc>https://mazgi.github.io/categories/continuous-integration-and-delivery/</loc>
     <lastmod>2019-04-29T18:57:31+09:00</lastmod>
-    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/categories/continuous-integration-and-delivery/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/categories/continuous-integration-and-delivery/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/posts/2019.04/built-noops-blog-with-github-circleci-s3/</loc>
+    <lastmod>2019-04-29T18:57:31+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/hugo/</loc>
     <lastmod>2019-04-29T18:57:31+09:00</lastmod>
-    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -307,13 +405,21 @@
   <url>
     <loc>https://mazgi.github.io/categories/noops/</loc>
     <lastmod>2019-04-29T18:57:31+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/categories/static-website/</loc>
     <lastmod>2019-04-29T18:57:31+09:00</lastmod>
-    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/categories/static-website/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/categories/static-website/"
+                />
   </url>
   
   <url>
@@ -324,13 +430,11 @@
   <url>
     <loc>https://mazgi.github.io/tags/flask/</loc>
     <lastmod>2019-04-10T04:46:20+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/ruby-on-rails/</loc>
     <lastmod>2019-04-10T04:46:20+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -341,19 +445,16 @@
   <url>
     <loc>https://mazgi.github.io/tags/google/</loc>
     <lastmod>2019-04-10T05:50:27+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/kubernetes/</loc>
     <lastmod>2019-04-10T05:50:27+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/hugo-theme/</loc>
     <lastmod>2018-12-01T09:17:11+09:00</lastmod>
-    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -389,13 +490,26 @@
   <url>
     <loc>https://mazgi.github.io/tags/nativefier/</loc>
     <lastmod>2018-09-18T00:16:10+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/categories/tips/</loc>
     <lastmod>2018-09-22T18:21:34+09:00</lastmod>
-    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/tags/beer/</loc>
+    <lastmod>2019-03-26T20:53:02+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/tags/cake/</loc>
+    <lastmod>2019-03-26T20:53:02+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/tags/hashicorp/</loc>
+    <lastmod>2019-03-26T20:53:02+09:00</lastmod>
   </url>
   
   <url>
@@ -404,27 +518,13 @@
   </url>
   
   <url>
-    <loc>https://mazgi.github.io/tags/beer/</loc>
-    <lastmod>2019-03-26T20:53:02+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mazgi.github.io/tags/cake/</loc>
-    <lastmod>2019-03-26T20:53:02+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mazgi.github.io/tags/hashicorp/</loc>
-    <lastmod>2019-03-26T20:53:02+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://mazgi.github.io/tags/prosciutto/</loc>
     <lastmod>2019-03-26T20:53:02+09:00</lastmod>
-    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/tags/packer/</loc>
+    <lastmod>2018-09-15T23:16:32+09:00</lastmod>
   </url>
   
   <url>
@@ -433,15 +533,8 @@
   </url>
   
   <url>
-    <loc>https://mazgi.github.io/tags/packer/</loc>
-    <lastmod>2018-09-15T23:16:32+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://mazgi.github.io/categories/provisioning/</loc>
     <lastmod>2018-09-15T23:16:32+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -452,7 +545,11 @@
   <url>
     <loc>https://mazgi.github.io/tags/speakerdeck/</loc>
     <lastmod>2018-08-19T17:26:05+09:00</lastmod>
-    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/tags/airdrop/</loc>
+    <lastmod>2018-07-29T17:31:40+09:00</lastmod>
   </url>
   
   <url>
@@ -461,33 +558,23 @@
   </url>
   
   <url>
-    <loc>https://mazgi.github.io/tags/airdrop/</loc>
-    <lastmod>2018-07-29T17:31:40+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://mazgi.github.io/tags/do-not-disturb/</loc>
     <lastmod>2018-07-29T17:31:40+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/ios/</loc>
     <lastmod>2018-07-29T17:31:40+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/macos/</loc>
     <lastmod>2018-07-29T17:31:40+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/tmux/</loc>
     <lastmod>2018-09-22T18:21:34+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -498,31 +585,66 @@
   <url>
     <loc>https://mazgi.github.io/tags/zsh/</loc>
     <lastmod>2018-09-22T18:21:34+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/etl/</loc>
     <lastmod>2018-08-19T16:34:59+09:00</lastmod>
-    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/tags/etl/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/tags/etl/"
+                />
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/google-bigquery/</loc>
     <lastmod>2018-08-19T16:34:59+09:00</lastmod>
-    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/tags/google-bigquery/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/tags/google-bigquery/"
+                />
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/hadoop/</loc>
     <lastmod>2018-08-19T16:34:59+09:00</lastmod>
-    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/tags/hadoop/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/tags/hadoop/"
+                />
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/tdtech/</loc>
     <lastmod>2018-08-19T16:34:59+09:00</lastmod>
-    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/tags/tdtech/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/tags/tdtech/"
+                />
   </url>
   
   <url>
@@ -531,44 +653,98 @@
   </url>
   
   <url>
-    <loc>https://mazgi.github.io/posts/2018.05/sagemaker-efs-auto-mount-with-lifecycles-configuration/</loc>
-    <lastmod>2019-04-22T23:22:52+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://mazgi.github.io/tags/amazon-efs/</loc>
     <lastmod>2019-04-22T23:22:52+09:00</lastmod>
-    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/tags/amazon-efs/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/tags/amazon-efs/"
+                />
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/amazon-sagemaker/</loc>
     <lastmod>2019-04-22T23:22:52+09:00</lastmod>
-    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/tags/amazon-sagemaker/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/tags/amazon-sagemaker/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/posts/2018.05/sagemaker-efs-auto-mount-with-lifecycles-configuration/</loc>
+    <lastmod>2019-04-22T23:22:52+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/amazon-vpc/</loc>
     <lastmod>2019-04-22T23:22:52+09:00</lastmod>
-    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/tags/amazon-vpc/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/tags/amazon-vpc/"
+                />
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/amazon-vpc-nat-gateway/</loc>
     <lastmod>2019-04-22T23:22:52+09:00</lastmod>
-    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/tags/amazon-vpc-nat-gateway/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/tags/amazon-vpc-nat-gateway/"
+                />
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/aws-elb/</loc>
     <lastmod>2019-04-22T23:22:52+09:00</lastmod>
-    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/tags/aws-elb/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/tags/aws-elb/"
+                />
   </url>
   
   <url>
     <loc>https://mazgi.github.io/categories/software-architecture/</loc>
     <lastmod>2019-04-22T23:22:52+09:00</lastmod>
-    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/categories/software-architecture/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/categories/software-architecture/"
+                />
   </url>
   
   <url>
@@ -579,25 +755,61 @@
   <url>
     <loc>https://mazgi.github.io/tags/bootstrap/</loc>
     <lastmod>2018-05-06T23:13:17+09:00</lastmod>
-    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/tags/bootstrap/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/tags/bootstrap/"
+                />
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/bootstrap-4/</loc>
     <lastmod>2018-05-06T23:13:17+09:00</lastmod>
-    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/tags/bootstrap-4/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/tags/bootstrap-4/"
+                />
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/github-pages/</loc>
     <lastmod>2018-05-06T23:13:17+09:00</lastmod>
-    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/tags/github-pages/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/tags/github-pages/"
+                />
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/web-design/</loc>
     <lastmod>2018-05-06T23:13:17+09:00</lastmod>
-    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/tags/web-design/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/tags/web-design/"
+                />
   </url>
   
   <url>
@@ -611,20 +823,38 @@
   </url>
   
   <url>
-    <loc>https://mazgi.github.io/posts/2018.04/processing-with-s3-lambda-sqs/</loc>
-    <lastmod>2018-05-03T12:08:33+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://mazgi.github.io/tags/amazon-sqs/</loc>
     <lastmod>2018-05-03T12:08:33+09:00</lastmod>
-    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/tags/amazon-sqs/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/tags/amazon-sqs/"
+                />
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/aws-lambda/</loc>
     <lastmod>2018-05-03T12:08:33+09:00</lastmod>
-    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/tags/aws-lambda/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/tags/aws-lambda/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/posts/2018.04/processing-with-s3-lambda-sqs/</loc>
+    <lastmod>2018-05-03T12:08:33+09:00</lastmod>
   </url>
   
   <url>
@@ -683,20 +913,18 @@
   </url>
   
   <url>
+    <loc>https://mazgi.github.io/tags/gentoo/</loc>
+    <lastmod>2018-06-16T21:34:28+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://mazgi.github.io/posts/2016.02/cve-2015-7547-on-gentoo/</loc>
     <lastmod>2018-06-16T21:23:29+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://mazgi.github.io/tags/gentoo/</loc>
-    <lastmod>2018-06-16T21:34:28+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://mazgi.github.io/categories/security/</loc>
     <lastmod>2018-06-16T21:23:29+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

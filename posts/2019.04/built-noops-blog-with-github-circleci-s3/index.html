@@ -235,8 +235,8 @@ Viva! NoOps!! 🎉</p>
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-terraform" data-lang="terraform"><span style="color:#007020;font-weight:bold">variable</span> <span style="color:#4070a0">&#34;aws_access_key_id&#34;</span> {}<span style="">
-</span><span style="">variable</span> <span style="color:#4070a0">&#34;aws_secret_access_key&#34;</span> {}</code></pre></td></tr></table>
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-terraform" data-lang="terraform"><span style="color:#007020;font-weight:bold">variable</span> <span style="color:#4070a0">&#34;aws_access_key_id&#34;</span> {}
+<span style="color:#007020;font-weight:bold">variable</span> <span style="color:#4070a0">&#34;aws_secret_access_key&#34;</span> {}</code></pre></td></tr></table>
 </div>
 </div>
 
@@ -379,13 +379,13 @@ AWSでは物理的な立地を「リージョン」として指定できます�
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-terraform" data-lang="terraform"><span style="color:#007020;font-weight:bold">variable</span> <span style="color:#4070a0">&#34;envs&#34;</span> {<span style="">
-</span><span style="">  default = </span>[<span style="">
-</span><span style="">    &#34;external&#34;</span>,<span style=""> # https://example</span>.<span style="">jp/
-</span><span style="">    &#34;review&#34;</span>,<span style="">   # review environment for external and internal
-</span><span style="">    &#34;internal&#34;</span>,<span style="">
-</span><span style="">  </span>]<span style="">
-</span><span style=""></span>}</code></pre></td></tr></table>
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-terraform" data-lang="terraform"><span style="color:#007020;font-weight:bold">variable</span> <span style="color:#4070a0">&#34;envs&#34;</span> {
+<span style="color:#4070a0">  default</span> <span style="color:#666">=</span> [
+    <span style="color:#4070a0">&#34;external&#34;</span>,<span style="color:#60a0b0;font-style:italic"> # https://example.jp/
+</span><span style="color:#60a0b0;font-style:italic"></span>    <span style="color:#4070a0">&#34;review&#34;</span>,<span style="color:#60a0b0;font-style:italic">   # review environment for external and internal
+</span><span style="color:#60a0b0;font-style:italic"></span>    <span style="color:#4070a0">&#34;internal&#34;</span>,
+  ]
+}</code></pre></td></tr></table>
 </div>
 </div>
 
@@ -434,21 +434,21 @@ AWSでは物理的な立地を「リージョン」として指定できます�
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-terraform" data-lang="terraform"><span style="color:#007020;font-weight:bold">resource</span> <span style="color:#4070a0">&#34;aws_s3_bucket&#34; &#34;website-content&#34;</span> {<span style="">
-</span><span style="">  count =</span> <span style="color:#4070a0">&#34;${length(var.envs)}&#34;</span>
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-terraform" data-lang="terraform"><span style="color:#007020;font-weight:bold">resource</span> <span style="color:#4070a0">&#34;aws_s3_bucket&#34; &#34;website-content&#34;</span> {
+<span style="color:#4070a0">  count</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#34;${length(var.envs)}&#34;</span>
 
-  <span style="">bucket =</span> <span style="color:#4070a0">&#34;${element(var.envs, count.index)}-${var.service_name}-content&#34;</span>
-  <span style="">acl    =</span> <span style="color:#4070a0">&#34;public-read&#34;</span>
+<span style="color:#4070a0">  bucket</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#34;${element(var.envs, count.index)}-${var.service_name}-content&#34;</span>
+<span style="color:#4070a0">  acl</span>    <span style="color:#666">=</span> <span style="color:#4070a0">&#34;public-read&#34;</span>
 
-  <span style="">website </span>{<span style="">
-</span><span style="">    index_document =</span> <span style="color:#4070a0">&#34;index.html&#34;</span>
-    <span style="">error_document =</span> <span style="color:#4070a0">&#34;404.html&#34;</span>
-  }<span style="">
-</span><span style="">
-</span><span style="">  tags </span>{}<span style="">
-</span><span style="">
-</span><span style="">  force_destroy = true
-</span><span style=""></span>}</code></pre></td></tr></table>
+  <span style="">website</span> {
+<span style="color:#4070a0">    index_document</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#34;index.html&#34;</span>
+<span style="color:#4070a0">    error_document</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#34;404.html&#34;</span>
+  }
+
+  <span style="">tags</span> {}
+
+<span style="color:#4070a0">  force_destroy</span> <span style="color:#666">=</span> <span style="color:#902000">true</span>
+}</code></pre></td></tr></table>
 </div>
 </div>
 
@@ -684,17 +684,17 @@ Terraformの設定は<a href="https://github.com/mazgi-showcase/2019.04.built-no
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-terraform" data-lang="terraform"><span style="color:#007020;font-weight:bold">variable</span> <span style="color:#4070a0">&#34;default_env_name&#34;</span> {<span style="">
-</span><span style="">  default =</span> <span style="color:#4070a0">&#34;external&#34;</span>
-}<span style="">
-</span><span style="">
-</span><span style="">variable</span> <span style="color:#4070a0">&#34;envs&#34;</span> {<span style="">
-</span><span style="">  default = </span>[<span style="">
-</span><span style="">    &#34;external&#34;</span>,<span style=""> # https://example</span>.<span style="">jp/
-</span><span style="">    &#34;review&#34;</span>,<span style="">   # review environment for external and internal
-</span><span style="">    &#34;internal&#34;</span>,<span style="">
-</span><span style="">  </span>]<span style="">
-</span><span style=""></span>}</code></pre></td></tr></table>
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-terraform" data-lang="terraform"><span style="color:#007020;font-weight:bold">variable</span> <span style="color:#4070a0">&#34;default_env_name&#34;</span> {
+<span style="color:#4070a0">  default</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#34;external&#34;</span>
+}
+
+<span style="color:#007020;font-weight:bold">variable</span> <span style="color:#4070a0">&#34;envs&#34;</span> {
+<span style="color:#4070a0">  default</span> <span style="color:#666">=</span> [
+    <span style="color:#4070a0">&#34;external&#34;</span>,<span style="color:#60a0b0;font-style:italic"> # https://example.jp/
+</span><span style="color:#60a0b0;font-style:italic"></span>    <span style="color:#4070a0">&#34;review&#34;</span>,<span style="color:#60a0b0;font-style:italic">   # review environment for external and internal
+</span><span style="color:#60a0b0;font-style:italic"></span>    <span style="color:#4070a0">&#34;internal&#34;</span>,
+  ]
+}</code></pre></td></tr></table>
 </div>
 </div>
 
@@ -758,21 +758,21 @@ Terraformの設定は<a href="https://github.com/mazgi-showcase/2019.04.built-no
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">93
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-terraform" data-lang="terraform"><span style="color:#007020;font-weight:bold">resource</span> <span style="color:#4070a0">&#34;aws_route53_record&#34; &#34;records_com_example_&#34;</span> {<span style="">
-</span><span style="">  count =</span> <span style="color:#4070a0">&#34;${length(var.envs)}&#34;</span>
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-terraform" data-lang="terraform"><span style="color:#007020;font-weight:bold">resource</span> <span style="color:#4070a0">&#34;aws_route53_record&#34; &#34;records_com_example_&#34;</span> {
+<span style="color:#4070a0">  count</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#34;${length(var.envs)}&#34;</span>
 
-  <span style="">zone_id =</span> <span style="color:#4070a0">&#34;${aws_route53_zone.zone_com_example.zone_id}&#34;</span>
+<span style="color:#4070a0">  zone_id</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#34;${aws_route53_zone.zone_com_example.zone_id}&#34;</span><span style="color:#60a0b0;font-style:italic">
+</span><span style="color:#60a0b0;font-style:italic">
+</span><span style="color:#60a0b0;font-style:italic">  # ToDo: remove `temporary.`
+</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#4070a0">  name</span> <span style="color:#666">=</span><span style="color:#4070a0"> &#34;${element(var.envs, count.index)</span> <span style="color:#666">==</span> <span style="">var</span>.<span style="">default_env_name</span> <span style="">?</span> <span style="color:#4070a0">&#34;temporary.&#34; : format(&#34;%s.&#34;, element(var.envs, count.index))}example.com&#34;</span>
+<span style="color:#4070a0">  type</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#34;A&#34;</span>
 
-  <span style=""># ToDo: remove `temporary</span>.<span style="">`
-</span><span style="">  name =</span> <span style="color:#4070a0">&#34;${element(var.envs, count.index) == var.default_env_name ? &#34;temporary.&#34; : format(&#34;%s.&#34;, element(var.envs, count.index))}example.com&#34;</span>
-  <span style="">type =</span> <span style="color:#4070a0">&#34;A&#34;</span>
-
-  <span style="">alias </span>{<span style="">
-</span><span style="">    name                   =</span> <span style="color:#4070a0">&#34;${element(aws_cloudfront_distribution.distribution_com_example.*.domain_name, count.index)}&#34;</span>
-    <span style="">zone_id                =</span> <span style="color:#4070a0">&#34;${element(aws_cloudfront_distribution.distribution_com_example.*.hosted_zone_id, count.index)}&#34;</span>
-    <span style="">evaluate_target_health = false
-</span><span style="">  </span>}<span style="">
-</span><span style=""></span>}</code></pre></td></tr></table>
+  <span style="color:#007020;font-weight:bold">alias</span> {
+<span style="color:#4070a0">    name</span>                   <span style="color:#666">=</span> <span style="color:#4070a0">&#34;${element(aws_cloudfront_distribution.distribution_com_example.*.domain_name, count.index)}&#34;</span>
+<span style="color:#4070a0">    zone_id</span>                <span style="color:#666">=</span> <span style="color:#4070a0">&#34;${element(aws_cloudfront_distribution.distribution_com_example.*.hosted_zone_id, count.index)}&#34;</span>
+<span style="color:#4070a0">    evaluate_target_health</span> <span style="color:#666">=</span> <span style="color:#902000">false</span>
+  }
+}</code></pre></td></tr></table>
 </div>
 </div>
 
@@ -1104,14 +1104,14 @@ exports.handler <span style="color:#666">=</span> (event, context, callback) =&g
   }
 }
 
-<span style="color:#007020;font-weight:bold">resource</span> <span style="color:#4070a0">&#34;aws_iam_role&#34; &#34;website-lambda-assume-role&#34;</span> {<span style="">
-</span><span style="">  name               =</span> <span style="color:#4070a0">&#34;website-lambda-assume-role&#34;</span>
-  <span style="">assume_role_policy =</span> <span style="color:#4070a0">&#34;${data.aws_iam_policy_document.website-lambda-assume-role-policy.json}&#34;</span>
-}<span style="">
-</span><span style="">
-</span><span style="">resource</span> <span style="color:#4070a0">&#34;aws_iam_role_policy_attachment&#34; &#34;website-lambda-assume-role-policy-attachment&#34;</span> {<span style="">
-</span><span style="">  role       =</span> <span style="color:#4070a0">&#34;${aws_iam_role.website-lambda-assume-role.name}&#34;</span>
-  <span style="">policy_arn =</span> <span style="color:#4070a0">&#34;arniam:policy/service-role/AWSLambdaBasicExecutionRole&#34;</span>
+<span style="color:#007020;font-weight:bold">resource</span> <span style="color:#4070a0">&#34;aws_iam_role&#34; &#34;website-lambda-assume-role&#34;</span> {
+<span style="color:#4070a0">  name</span>               <span style="color:#666">=</span> <span style="color:#4070a0">&#34;website-lambda-assume-role&#34;</span>
+<span style="color:#4070a0">  assume_role_policy</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#34;${data.aws_iam_policy_document.website-lambda-assume-role-policy.json}&#34;</span>
+}
+
+<span style="color:#007020;font-weight:bold">resource</span> <span style="color:#4070a0">&#34;aws_iam_role_policy_attachment&#34; &#34;website-lambda-assume-role-policy-attachment&#34;</span> {
+<span style="color:#4070a0">  role</span>       <span style="color:#666">=</span> <span style="color:#4070a0">&#34;${aws_iam_role.website-lambda-assume-role.name}&#34;</span>
+<span style="color:#4070a0">  policy_arn</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#34;arniam:policy/service-role/AWSLambdaBasicExecutionRole&#34;</span>
 }</code></pre></td></tr></table>
 </div>
 </div>
@@ -1150,15 +1150,15 @@ exports.handler <span style="color:#666">=</span> (event, context, callback) =&g
 <span style="color:#4070a0">  output_path</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#34;lambda-arhives/redirect-to-index-document.zip&#34;</span>
 }
 
-<span style="color:#007020;font-weight:bold">resource</span> <span style="color:#4070a0">&#34;aws_lambda_function&#34; &#34;website-lambda-redirect-to-index-document&#34;</span> {<span style="">
-</span><span style="">  filename         =</span> <span style="color:#4070a0">&#34;${data.archive_file.website-lambda-redirect-to-index-document.output_path}&#34;</span>
-  <span style="">function_name    =</span> <span style="color:#4070a0">&#34;website-lambda-redirect-to-index-document&#34;</span>
-  <span style="">role             =</span> <span style="color:#4070a0">&#34;${aws_iam_role.website-lambda-assume-role.arn}&#34;</span>
-  <span style="">handler          =</span> <span style="color:#4070a0">&#34;index.handler&#34;</span>
-  <span style="">source_code_hash =</span> <span style="color:#4070a0">&#34;${data.archive_file.website-lambda-redirect-to-index-document.output_base64sha256}&#34;</span>
-  <span style="">runtime          =</span> <span style="color:#4070a0">&#34;nodejs8.10&#34;</span>
-  <span style="">publish          = true
-</span><span style=""></span>}</code></pre></td></tr></table>
+<span style="color:#007020;font-weight:bold">resource</span> <span style="color:#4070a0">&#34;aws_lambda_function&#34; &#34;website-lambda-redirect-to-index-document&#34;</span> {
+<span style="color:#4070a0">  filename</span>         <span style="color:#666">=</span> <span style="color:#4070a0">&#34;${data.archive_file.website-lambda-redirect-to-index-document.output_path}&#34;</span>
+<span style="color:#4070a0">  function_name</span>    <span style="color:#666">=</span> <span style="color:#4070a0">&#34;website-lambda-redirect-to-index-document&#34;</span>
+<span style="color:#4070a0">  role</span>             <span style="color:#666">=</span> <span style="color:#4070a0">&#34;${aws_iam_role.website-lambda-assume-role.arn}&#34;</span>
+<span style="color:#4070a0">  handler</span>          <span style="color:#666">=</span> <span style="color:#4070a0">&#34;index.handler&#34;</span>
+<span style="color:#4070a0">  source_code_hash</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#34;${data.archive_file.website-lambda-redirect-to-index-document.output_base64sha256}&#34;</span>
+<span style="color:#4070a0">  runtime</span>          <span style="color:#666">=</span> <span style="color:#4070a0">&#34;nodejs8.10&#34;</span>
+<span style="color:#4070a0">  publish</span>          <span style="color:#666">=</span> <span style="color:#902000">true</span>
+}</code></pre></td></tr></table>
 </div>
 </div>
 

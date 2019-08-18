@@ -6,9 +6,55 @@
     <description>Recent content in Categories on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Mon, 27 May 2019 22:04:36 +0000</lastBuildDate>
     
 	<atom:link href="https://mazgi.github.io/en/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>event</title>
+      <link>https://mazgi.github.io/en/categories/event/</link>
+      <pubDate>Mon, 27 May 2019 22:04:36 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/en/categories/event/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>software architecture</title>
+      <link>https://mazgi.github.io/en/categories/software-architecture/</link>
+      <pubDate>Thu, 10 May 2018 02:03:25 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/en/categories/software-architecture/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>static website</title>
+      <link>https://mazgi.github.io/en/categories/static-website/</link>
+      <pubDate>Sun, 06 May 2018 21:04:37 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/en/categories/static-website/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>infrastructure as code</title>
+      <link>https://mazgi.github.io/en/categories/infrastructure-as-code/</link>
+      <pubDate>Tue, 17 Apr 2018 00:12:10 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/en/categories/infrastructure-as-code/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>continuous integration and delivery</title>
+      <link>https://mazgi.github.io/en/categories/continuous-integration-and-delivery/</link>
+      <pubDate>Thu, 15 Feb 2018 05:24:40 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/en/categories/continuous-integration-and-delivery/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>
