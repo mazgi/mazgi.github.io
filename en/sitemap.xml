@@ -3,6 +3,126 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://mazgi.github.io/en/tags/docker/</loc>
+    <lastmod>2019-08-18T17:38:21+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/tags/docker/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/tags/docker/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/en/tags/github/</loc>
+    <lastmod>2019-08-18T17:38:21+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/tags/github/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/tags/github/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/en/tags/github-actions/</loc>
+    <lastmod>2019-08-18T17:38:21+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/tags/github-actions/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/tags/github-actions/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/en/tags/github-package-registry/</loc>
+    <lastmod>2019-08-18T17:38:21+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/tags/github-package-registry/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/tags/github-package-registry/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/en/</loc>
+    <lastmod>2019-08-18T17:38:21+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/en/posts/</loc>
+    <lastmod>2019-08-18T17:38:21+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/posts/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/en/tags/</loc>
+    <lastmod>2019-08-18T17:38:21+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/en/posts/2019.08/use-github-actions-cicd-with-github-package-registry/</loc>
+    <lastmod>2019-08-18T17:38:21+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/posts/2019.08/use-github-actions-cicd-with-github-package-registry/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/posts/2019.08/use-github-actions-cicd-with-github-package-registry/"
+                />
+  </url>
+  
+  <url>
     <loc>https://mazgi.github.io/en/tags/aws/</loc>
     <lastmod>2019-05-28T22:24:52+09:00</lastmod>
     <xhtml:link
@@ -33,21 +153,6 @@
   </url>
   
   <url>
-    <loc>https://mazgi.github.io/en/tags/docker/</loc>
-    <lastmod>2019-05-28T22:24:52+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/tags/docker/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/tags/docker/"
-                />
-  </url>
-  
-  <url>
     <loc>https://mazgi.github.io/en/tags/docker-compose/</loc>
     <lastmod>2019-05-28T22:24:52+09:00</lastmod>
     <xhtml:link
@@ -74,21 +179,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://mazgi.github.io/en/categories/event/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://mazgi.github.io/en/tags/</loc>
-    <lastmod>2019-05-28T22:24:52+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/tags/"
                 />
   </url>
   
@@ -149,36 +239,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://mazgi.github.io/en/tags/hugo-theme/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://mazgi.github.io/en/</loc>
-    <lastmod>2018-12-01T09:17:11+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://mazgi.github.io/en/posts/</loc>
-    <lastmod>2018-12-01T09:17:11+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/posts/"
                 />
   </url>
   
@@ -389,21 +449,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://mazgi.github.io/en/tags/bootstrap-4/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://mazgi.github.io/en/tags/github/</loc>
-    <lastmod>2018-05-06T23:13:17+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/tags/github/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/tags/github/"
                 />
   </url>
   

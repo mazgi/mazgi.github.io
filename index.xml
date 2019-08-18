@@ -6,10 +6,19 @@
     <description>Recent content on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 07 Jul 2019 17:18:09 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 18 Aug 2019 07:23:57 +0000</lastBuildDate>
     
 	<atom:link href="https://mazgi.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>新しいGitHub ActionsとGitHub Package RegistryでCI/CD(サンプルあり)</title>
+      <link>https://mazgi.github.io/posts/2019.08/use-github-actions-cicd-with-github-package-registry/</link>
+      <pubDate>Sun, 18 Aug 2019 07:23:57 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2019.08/use-github-actions-cicd-with-github-package-registry/</guid>
+      <description>ありがたいことにGitHub Actions(beta)とGitHub Package Registry(beta)両方が使えるようになったので試してみました</description>
+    </item>
     
     <item>
       <title>1Password Cliの使い方</title>

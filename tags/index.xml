@@ -6,10 +6,46 @@
     <description>Recent content in Tags on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 07 Jul 2019 17:18:09 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 18 Aug 2019 07:23:57 +0000</lastBuildDate>
     
 	<atom:link href="https://mazgi.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>docker</title>
+      <link>https://mazgi.github.io/tags/docker/</link>
+      <pubDate>Sun, 18 Aug 2019 07:23:57 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>github</title>
+      <link>https://mazgi.github.io/tags/github/</link>
+      <pubDate>Sun, 18 Aug 2019 07:23:57 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>github actions</title>
+      <link>https://mazgi.github.io/tags/github-actions/</link>
+      <pubDate>Sun, 18 Aug 2019 07:23:57 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/github-actions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>github package registry</title>
+      <link>https://mazgi.github.io/tags/github-package-registry/</link>
+      <pubDate>Sun, 18 Aug 2019 07:23:57 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/github-package-registry/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>1password</title>
@@ -21,29 +57,11 @@
     </item>
     
     <item>
-      <title>github</title>
-      <link>https://mazgi.github.io/tags/github/</link>
-      <pubDate>Sat, 06 Jul 2019 15:10:53 +0000</pubDate>
-      
-      <guid>https://mazgi.github.io/tags/github/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>terraform</title>
       <link>https://mazgi.github.io/tags/terraform/</link>
       <pubDate>Sat, 06 Jul 2019 15:10:53 +0000</pubDate>
       
       <guid>https://mazgi.github.io/tags/terraform/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>docker</title>
-      <link>https://mazgi.github.io/tags/docker/</link>
-      <pubDate>Sat, 29 Jun 2019 04:00:09 +0000</pubDate>
-      
-      <guid>https://mazgi.github.io/tags/docker/</guid>
       <description></description>
     </item>
     
@@ -102,7 +120,7 @@
     </item>
     
     <item>
-      <title>ml-engineering</title>
+      <title>ml engineering</title>
       <link>https://mazgi.github.io/tags/ml-engineering/</link>
       <pubDate>Tue, 11 Jun 2019 14:27:24 +0000</pubDate>
       
