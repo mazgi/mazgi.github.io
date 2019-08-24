@@ -206,13 +206,19 @@
 
 <p>でステータスバッヂが取れます。</p>
 
-<p><code>https://github.com/mazgi/201908.github-actions-cicd-examples/workflows/Basic%2001%3A%20Environment/badge.svg</code> みたいな感じですね。<br />
-<em>&hellip;workflow名をもう少しシンプルにしておけばよかったと思いました。</em></p>
-
 <figure>
     <img src="0040.png"/> 
 </figure>
 
+
+<p>注意点としては <strong><code>${WORKFLOW_NAME}</code> はworkflowファイル名ではなく <code>name</code> で指定</strong> するようです。</p>
+
+<p>したがって <code>/.github/workflows/basic-01-environment.yml</code> に</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">name:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;Basic 01: Environment&#34;</span></code></pre></div>
+<p>と書いた場合、badgeを取得するためには <code>basic-01-environment</code> ではなく <code>Basic%2001%3A%20Environment</code> と指定する必要があります。</p>
+
+<p>今回の例であれば <code>https://github.com/mazgi/201908.github-actions-cicd-examples/workflows/Basic%2001%3A%20Environment/badge.svg</code> みたいな感じですね。<br />
+<em>&hellip;workflow名をもう少しシンプルにすればよかった。</em></p>
 
 <h1 id="that-s-all">That&rsquo;s all</h1>
 
