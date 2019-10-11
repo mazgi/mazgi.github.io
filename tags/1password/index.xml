@@ -17,7 +17,7 @@
       <pubDate>Sun, 07 Jul 2019 17:18:09 +0000</pubDate>
       
       <guid>https://mazgi.github.io/posts/2019.07/how-to-use-1password-cli/</guid>
-      <description>1Password Cliのサインイン方法を全く覚えられないのでメモ。 How to Install via Homebrew brew cask install 1password-cli で入ります。 $ brew cask info 1password-cli 1password-cli: 0.5.7 https://support.1password.com/command-line/ /usr/local/Caskroom/1password-cli/0.5.7 (2 files, 10.1MB) From: https://github.com/Homebrew/homebrew-cask/blob/master/Casks/1password-cli.rb ==&amp;gt; Name 1Password CLI ==&amp;gt; Artifacts op (Binary) How to Sign-in 1Pas</description>
+      <description>1Password Cliのサインイン方法を全く覚えられないのでメモ。 How to Install via Homebrew for macOS brew cask install 1password-cli で入ります。 $ brew cask info 1password-cli 1password-cli: 0.5.7 https://support.1password.com/command-line/ /usr/local/Caskroom/1password-cli/0.5.7 (2 files, 10.1MB) From: https://github.com/Homebrew/homebrew-cask/blob/master/Casks/1password-cli.rb ==&amp;gt; Name 1Password CLI ==&amp;gt; Artifacts op (Binary) from Zip archive Li</description>
     </item>
     
   </channel>
