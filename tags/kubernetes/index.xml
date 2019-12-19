@@ -6,10 +6,28 @@
     <description>Recent content in kubernetes on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 26 Mar 2019 11:54:51 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Dec 2019 23:35:25 +0000</lastBuildDate>
     
 	<atom:link href="https://mazgi.github.io/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>なぜそのプロジェクトでKubernetesが選択されたか</title>
+      <link>https://mazgi.github.io/posts/2019.12/why-choose-k8s-for-the-project/</link>
+      <pubDate>Wed, 18 Dec 2019 23:35:25 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2019.12/why-choose-k8s-for-the-project/</guid>
+      <description>これは「GCPUG Tokyo December 2019」の記事から「Why Kubernetes? Why not GAE or others?」部分を切り出した記事です。 本記事のコンテキストとして、イベントで</description>
+    </item>
+    
+    <item>
+      <title>「GCPUG Tokyo December 2019」でお話させていただきました</title>
+      <link>https://mazgi.github.io/posts/2019.12/went-to-gcpug-tokyo-dec-2019/</link>
+      <pubDate>Wed, 18 Dec 2019 22:35:25 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2019.12/went-to-gcpug-tokyo-dec-2019/</guid>
+      <description>昨日 12&amp;frasl;18 に開催された「GCPUG Tokyo December 2019」で「ML アプリケーション短期開発 / Fast development for ML Web Service on GKE &amp;amp; GCP」と題してお話しさせていただきました。</description>
+    </item>
     
     <item>
       <title>#gc_k8sday &#34;Google Cloud Kubernetes Day&#34;に行ってきました</title>

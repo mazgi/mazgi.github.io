@@ -6,7 +6,7 @@
     <description>Recent content in Tags on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 18 Aug 2019 07:23:57 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Dec 2019 23:35:25 +0000</lastBuildDate>
     
 	<atom:link href="https://mazgi.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,45 @@
     <item>
       <title>docker</title>
       <link>https://mazgi.github.io/tags/docker/</link>
-      <pubDate>Sun, 18 Aug 2019 07:23:57 +0000</pubDate>
+      <pubDate>Wed, 18 Dec 2019 23:35:25 +0000</pubDate>
       
       <guid>https://mazgi.github.io/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker-compose</title>
+      <link>https://mazgi.github.io/tags/docker-compose/</link>
+      <pubDate>Wed, 18 Dec 2019 23:35:25 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/docker-compose/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubernetes</title>
+      <link>https://mazgi.github.io/tags/kubernetes/</link>
+      <pubDate>Wed, 18 Dec 2019 23:35:25 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ml-engineering</title>
+      <link>https://mazgi.github.io/tags/ml-engineering/</link>
+      <pubDate>Wed, 18 Dec 2019 23:35:25 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/ml-engineering/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>web-frontend</title>
+      <link>https://mazgi.github.io/tags/web-frontend/</link>
+      <pubDate>Wed, 18 Dec 2019 23:35:25 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/web-frontend/</guid>
       <description></description>
     </item>
     
@@ -120,29 +156,11 @@
     </item>
     
     <item>
-      <title>ml-engineering</title>
-      <link>https://mazgi.github.io/tags/ml-engineering/</link>
-      <pubDate>Tue, 11 Jun 2019 14:27:24 +0000</pubDate>
-      
-      <guid>https://mazgi.github.io/tags/ml-engineering/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>terraform module</title>
       <link>https://mazgi.github.io/tags/terraform-module/</link>
       <pubDate>Tue, 11 Jun 2019 14:27:24 +0000</pubDate>
       
       <guid>https://mazgi.github.io/tags/terraform-module/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>docker-compose</title>
-      <link>https://mazgi.github.io/tags/docker-compose/</link>
-      <pubDate>Mon, 27 May 2019 22:04:33 +0000</pubDate>
-      
-      <guid>https://mazgi.github.io/tags/docker-compose/</guid>
       <description></description>
     </item>
     
@@ -269,15 +287,6 @@
       <pubDate>Tue, 26 Mar 2019 11:54:51 +0000</pubDate>
       
       <guid>https://mazgi.github.io/tags/google/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>kubernetes</title>
-      <link>https://mazgi.github.io/tags/kubernetes/</link>
-      <pubDate>Tue, 26 Mar 2019 11:54:51 +0000</pubDate>
-      
-      <guid>https://mazgi.github.io/tags/kubernetes/</guid>
       <description></description>
     </item>
     
