@@ -6,10 +6,19 @@
     <description>Recent content on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 18 Dec 2019 23:35:25 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 08 Jan 2020 13:24:12 +0000</lastBuildDate>
     
 	<atom:link href="https://mazgi.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Adobe Photoshop 2020 の Document Presets の在りか(macOS)</title>
+      <link>https://mazgi.github.io/posts/2020.01/where-are-photoshop-2020-document-presets/</link>
+      <pubDate>Wed, 08 Jan 2020 13:24:12 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2020.01/where-are-photoshop-2020-document-presets/</guid>
+      <description>ドキュメントのプリセット、これです。 新しくファイル作る画面で選べるやつ。 用紙サイズとかカラーモード指定用の。 macOS の場合、 ~/Library/Preferences/Adobe Photoshop 2020 Settings/New Doc Sizes.json にあります</description>
+    </item>
     
     <item>
       <title>なぜそのプロジェクトでKubernetesが選択されたか</title>
