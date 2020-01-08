@@ -6,10 +6,19 @@
     <description>Recent content in Tags on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 18 Aug 2019 07:24:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 08 Jan 2020 13:24:15 +0000</lastBuildDate>
     
 	<atom:link href="https://mazgi.github.io/en/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>photoshop</title>
+      <link>https://mazgi.github.io/en/tags/photoshop/</link>
+      <pubDate>Wed, 08 Jan 2020 13:24:15 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/en/tags/photoshop/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>docker</title>

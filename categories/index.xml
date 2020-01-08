@@ -6,10 +6,19 @@
     <description>Recent content in Categories on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 18 Dec 2019 22:35:25 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 08 Jan 2020 13:24:12 +0000</lastBuildDate>
     
 	<atom:link href="https://mazgi.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>tips</title>
+      <link>https://mazgi.github.io/categories/tips/</link>
+      <pubDate>Wed, 08 Jan 2020 13:24:12 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/categories/tips/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>event</title>
@@ -62,15 +71,6 @@
       <pubDate>Thu, 25 Apr 2019 03:37:18 +0000</pubDate>
       
       <guid>https://mazgi.github.io/categories/static-website/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tips</title>
-      <link>https://mazgi.github.io/categories/tips/</link>
-      <pubDate>Mon, 17 Sep 2018 23:32:42 +0900</pubDate>
-      
-      <guid>https://mazgi.github.io/categories/tips/</guid>
       <description></description>
     </item>
     
