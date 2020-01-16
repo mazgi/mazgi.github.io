@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="/common/favicon.ico">
+    
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/common/site.css">
+    
+    
+    <title>mazgi.log :: Web APIをTypeScriptで書いてDockerでビルドする</title>
+    <meta property="og:title"       content="mazgi.log :: Web APIをTypeScriptで書いてDockerでビルドする" />
+    <meta property="og:type"        content="article" />
+    
+    <meta property="og:url"         content="https://mazgi.github.io/posts/2020.01/dockerized-typescript-webapi-project/" />
+    <meta property="og:description" content="" />
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <meta name="twitter:card"       content="summary" />
+    
+    
+  </head>
+  <body>
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark">
+      
+      <span class="navbar-text mr-1">I am on</span>
+      
+      <ul class="navbar-nav">
+        
+        <li class="nav-item">
+          <a class="nav-link" target="github_mazgi" href="https://github.com/mazgi">GitHub<i class="ml-1 fab fa-github"></i></a>
+        </li>
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" target="twitter_mazgi" href="https://twitter.com/@mazgi">Twitter<i class="ml-1 fab fa-twitter"></i></a>
+        </li>
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" target="instagram_mazgi" href="https://www.instagram.com/mazgi">Instagram<i class="ml-1 fab fa-instagram"></i></a>
+        </li>
+        
+        
+      </ul>
+    </header>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="https://mazgi.github.io/">mazgi.log</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_nav" aria-controls="navbar_nav" aria-expand="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar_nav">
+        
+        <ul class="navbar-nav mr-auto">
+          
+          
+          
+          <li class="nav-item">
+            <span class="nav-link disabled">Created At: 2020.01.16</span>
+          </li>
+          <li class="nav-item">
+            <span class="nav-link disabled">Updated At: 2020.01.16</span>
+          </li>
+          
+        </ul>
+        
+        <div class="navbar-nav ml-auto">
+          <span class="navbar-text mr-1">share this page via</span>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="https://twitter.com/share?url=https%3a%2f%2fmazgi.github.io%2fposts%2f2020.01%2fdockerized-typescript-webapi-project%2f&text=Web%20API%e3%82%92TypeScript%e3%81%a7%e6%9b%b8%e3%81%84%e3%81%a6Docker%e3%81%a7%e3%83%93%e3%83%ab%e3%83%89%e3%81%99%e3%82%8b" target="_blank"><i class="fab fa-twitter"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fmazgi.github.io%2fposts%2f2020.01%2fdockerized-typescript-webapi-project%2f" target="_blank"><i class="fab fa-facebook"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.linkedin.com/shareArticle?url=https%3a%2f%2fmazgi.github.io%2fposts%2f2020.01%2fdockerized-typescript-webapi-project%2f&title=Web%20API%e3%82%92TypeScript%e3%81%a7%e6%9b%b8%e3%81%84%e3%81%a6Docker%e3%81%a7%e3%83%93%e3%83%ab%e3%83%89%e3%81%99%e3%82%8b" target="_blank"><i class="fab fa-linkedin"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://plusone.google.com/_/+1/confirm?url=https%3a%2f%2fmazgi.github.io%2fposts%2f2020.01%2fdockerized-typescript-webapi-project%2f" target="_blank"><i class="fab fa-google-plus"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://b.hatena.ne.jp/entry/https://mazgi.github.io/posts/2020.01/dockerized-typescript-webapi-project/" target="_blank">b!</a>
+            </li>
+          </ul>
+        </div>
+        
+      </div>
+    </nav>
+    <main role="main" class="container-fluid col-lg-10 offset-lg-1">
+
+<div class="row">
+  <div class="col-lg-9">
+    <article>
+      <div class="row">
+        <h1>Web APIをTypeScriptで書いてDockerでビルドする</h1>
+      </div>
+      
+
+<p>「手っ取り早く Web インターフェースを手に入れる方法 2020」みたいなことを考えながら勉強のために BFF(Backend For Frontend) のサンプルプロジェクトを作ってみました。<br />
+ただしプロジェクト構成やビルド方法の検証が主なので BFF に特化した機能はなく、実行すると Express が起動してコンソールログが表示されるだけのアプリケーションです。</p>
+
+<pre><code>❯ docker run -it --rm 19472c5d8df4
+💽 Loaded the configuration: version: 2020.1.0-default, baseVersion: 2020.1.0-default
+⚡ App is running at :4000 in production mode
+  Press CTRL-C to stop
+</code></pre>
+
+<p>コードは&rdquo;<a href="https://github.com/mazgi-sandbox/202001.express-typescript-build-with-webpack/tree/b92fdceb1d1af289d7e94a05240133669d02765d">mazgi-sandbox/202001.express-typescript-build-with-webpack</a>&ldquo;にあります。</p>
+
+<p>使っている技術スタックは概ね以下です。</p>
+
+<ul>
+<li><a href="https://www.typescriptlang.org/">TypeScript</a>
+
+<ul>
+<li><a href="https://github.com/whitecolor/ts-node-dev">ts-node-dev</a></li>
+<li><a href="https://github.com/dividab/tsconfig-paths">tsconfig-paths</a></li>
+</ul></li>
+<li><a href="https://webpack.js.org/">webpack</a></li>
+<li><a href="https://nodejs.org/">Node.js</a></li>
+<li><a href="https://expressjs.com/">Express</a></li>
+<li>(<a href="https://typeorm.io/">TypeORM</a>)
+
+<ul>
+<li>ある程度実用的な設定ファイルとして DB 接続設定を例にしたかったので含めています</li>
+</ul></li>
+<li><a href="https://www.docker.com/">Docker &amp; Docker Compose</a></li>
+<li><a href="https://github.com/sagiegurari/cargo-make">cargo-make</a></li>
+</ul>
+
+<!-- more -->
+
+<h2 id="out-of-scope">Out of Scope</h2>
+
+<p>今回のサンプルでは以下を扱いません。</p>
+
+<ul>
+<li>Web Frontend</li>
+<li>Routing</li>
+<li>Business or domain logic</li>
+<li>Test</li>
+<li>Deploy</li>
+</ul>
+
+<h2 id="how-to-run">How to run</h2>
+
+<p>次の 3 ステップで起動できるはずです。</p>
+
+<ol>
+<li><code>cargo-make</code>を<a href="https://github.com/sagiegurari/cargo-make/releases">リリースページ</a>からダウンロードして <code>bin/cargo-make</code> に配置</li>
+<li><code>bin/cargo-make make --makefile tasks/setup-project.toml</code> を実行して空の設定ファイルを生成</li>
+<li><code>docker-compose up</code></li>
+</ol>
+
+<p><code>docker-compose up</code> すると次の 2 つの Docker コンテナが起動します。</p>
+
+<ul>
+<li><a href="https://code.visualstudio.com/">Visual Studio Code</a>用の Docker コンテナ
+
+<ul>
+<li>起動してすぐ終了しますが意図した動作です</li>
+</ul></li>
+
+<li><p>BFF の Docker コンテナ</p>
+
+<pre><code>❯ docker-compose up
+Creating network &quot;202001express-typescript-build-with-webpack_default&quot; with the default driver
+Creating 202001express-typescript-build-with-webpack_bff_1    ... done
+Creating 202001express-typescript-build-with-webpack_vscode_1 ... done
+Attaching to 202001express-typescript-build-with-webpack_bff_1, 202001express-typescript-build-with-webpack_vscode_1
+vscode_1  | npm WARN workspace No repository field.
+vscode_1  | npm WARN workspace No license field.
+vscode_1  |
+vscode_1  | audited 280 packages in 1.558s
+vscode_1  |
+vscode_1  | 2 packages are looking for funding
+vscode_1  |   run `npm fund` for details
+vscode_1  |
+vscode_1  | found 0 vulnerabilities
+vscode_1  |
+202001express-typescript-build-with-webpack_vscode_1 exited with code 0
+bff_1     | npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.11 (node_modules/fsevents):
+bff_1     | npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.11: wanted {&quot;os&quot;:&quot;darwin&quot;,&quot;arch&quot;:&quot;any&quot;} (current: {&quot;os&quot;:&quot;linux&quot;,&quot;arch&quot;:&quot;x64&quot;})
+bff_1     |
+bff_1     | removed 1 package and audited 5783 packages in 4.334s
+bff_1     |
+bff_1     | 6 packages are looking for funding
+bff_1     |   run `npm fund` for details
+bff_1     |
+bff_1     | found 0 vulnerabilities
+bff_1     |
+bff_1     |
+bff_1     | &gt; bff@ dev /workspace
+bff_1     | &gt; ts-node-dev -r tsconfig-paths/register src/index.ts
+bff_1     |
+bff_1     | Using ts-node version 8.5.4, typescript version 3.7.4
+bff_1     | 💽 Loaded the configuration: version: 2020.1.0-default, baseVersion: 2020.1.0-default
+bff_1     | ⚡ App is running at :4000 in development mode
+bff_1     |   Press CTRL-C to stop
+bff_1     |
+</code></pre></li>
+</ul>
+
+<p>接続するとエラーページが返りますが、route を 1 つも作っていないのでこれも意図した挙動です。</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">❯ curl -L 127.0.0.1:4000
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;en&#34;&gt;
+&lt;head&gt;
+&lt;meta charset=&#34;utf-8&#34;&gt;
+&lt;title&gt;Error&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;pre&gt;Cannot GET /&lt;/pre&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre></div>
+<h2 id="programming-language-and-web-framework">Programming Language and Web Framework</h2>
+
+<p>Backend For Frontend なので開発者に求めるスキルセットが Web フロントエンドに近く、開発時に Web フロントエンドと行き来してもコンテキストスイッチが少ないことを意識しました。</p>
+
+<p>そのため TypeScript で実装し Node.js + Express で動かす構成にしてます。</p>
+
+<h2 id="directory-structure-for-development">Directory structure for Development</h2>
+
+<p>きっと世の中の多くの方がそう願っていると思うのですが、私も開発時は TypeScript を書いて保存するとアプリケーションに自動反映されててほしいのですが、ビルドした際には 1 つの JavaScript ファイルに pack されてほしいと思っています。</p>
+
+<p>そのために<a href="https://webpack.js.org/">webpack</a>があるのですが、個人的にとても難しいと <em><code>ERROR in Entry module not found: Error: Cannot resolve file or directory...</code></em></p>
+
+<p>本サンプルでも試行錯誤の結果、どうにか開発時の利便性とビルドの成功を両立できた気がします。</p>
+
+<p>まず、BFF ソースコード部分のディレクトリ構成は次のようにしています。</p>
+
+<pre><code>└── bff
+    ├── ormconfig.json
+    ├── package.json
+    ├── package-lock.json
+    ├── src
+    │   ├── config
+    │   │   ├── Config.ts
+    │   │   ├── ConfigType.ts
+    │   │   ├── default.json
+    │   │   └── index.ts
+    │   └── index.ts
+    ├── tsconfig.json
+    └── webpack.config.js
+</code></pre>
+
+<p>そして <a href="https://github.com/mazgi-sandbox/202001.express-typescript-build-with-webpack/blob/b92fdceb1d1af289d7e94a05240133669d02765d/bff/package.json"><code>/bff/package.json</code></a> ではビルド時のみ <code>webpack</code> を使い、開発時は <a href="https://github.com/whitecolor/ts-node-dev"><code>ts-node-dev</code></a> で <code>index.ts</code> ファイルを直接実行しています。<br />
+(後述の <code>TypeScript</code> の <code>pahts</code> のために <code>tsconfig-paths</code> を使っています。)</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#4070a0">&#34;scripts&#34;</span><span style="">:</span> {
+  <span style="color:#062873;font-weight:bold">&#34;dev&#34;</span>: <span style="color:#4070a0">&#34;ts-node-dev -r tsconfig-paths/register src/index.ts&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;build&#34;</span>: <span style="color:#4070a0">&#34;webpack&#34;</span>,
+  <span style="color:#062873;font-weight:bold">&#34;build:debug&#34;</span>: <span style="color:#4070a0">&#34;webpack --mode development&#34;</span>
+}<span style="">,</span></code></pre></div>
+<h3 id="typescript-paths">TypeScript paths</h3>
+
+<p>そしてビルド時は <code>webpack</code> で pack するのですが、ここで TypeScript 特有の問題に遭遇します。</p>
+
+<p>同じプロジェクト内のモジュールを参照するときに <code>import X from '../../lib/xxx'</code> ではなく <code>import X from 'lib/xxx'</code> と書きたいので <a href="https://github.com/mazgi-sandbox/202001.express-typescript-build-with-webpack/blob/b92fdceb1d1af289d7e94a05240133669d02765d/bff/tsconfig.json#L43-L46"><code>/bff/tsconfig.json</code></a> で次のように <code>paths</code> を設定するのですが、ビルド時にモジュールが見つからず頭を抱えます(抱えました)。</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#4070a0">&#34;baseUrl&#34;</span><span style="">:</span> <span style="color:#4070a0">&#34;src&#34;</span><span style="">,</span>
+<span style="color:#4070a0">&#34;paths&#34;</span><span style="">:</span> {
+  <span style="color:#062873;font-weight:bold">&#34;*&#34;</span>: [<span style="color:#4070a0">&#34;*&#34;</span>]
+}<span style="">,</span></code></pre></div>
+<p>理由についてはこちらの記事がわかりやすかったです。</p>
+
+<p><a href="https://www.agent-grow.com/self20percent/2019/03/11/typescript-paths-work-careful/">TypeScript の paths はパスを解決してくれないので注意すべし！ – 自主的 20%るぅる</a></p>
+
+<p><a href="https://github.com/microsoft/TypeScript/issues/10866">Issue も賑わっておりロックされています。</a></p>
+
+<p>その上で <a href="https://github.com/mazgi-sandbox/202001.express-typescript-build-with-webpack/blob/b92fdceb1d1af289d7e94a05240133669d02765d/bff/webpack.config.js#L23"><code>bff/webpack.config.js</code></a> の <code>resolve.modules</code> にも <code>src</code> ディレクトリを追加します。</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">modules<span style="color:#666">:</span> [<span style="color:#4070a0">&#39;node_modules&#39;</span>, path.resolve(__dirname, <span style="color:#4070a0">&#39;src&#39;</span>)],
+</code></pre></div>
+<p>これで <code>src</code> 以下にモジュールを追加する限りは、開発時でもビルド時でも <code>webpack.config.js</code> も <code>tsconfig.json</code> も書き変えずに参照できる、はずです。たぶん。</p>
+
+<h2 id="application-configuration">Application Configuration</h2>
+
+<p>アプリケーションの設定をどのように適用するかは常に悩ましいですが、本サンプルではデフォルトの設定をアプリケーション内に持ち、外部から上書きする想定をしました。</p>
+
+<p><a href="https://github.com/mazgi-sandbox/202001.express-typescript-build-with-webpack/blob/b92fdceb1d1af289d7e94a05240133669d02765d/bff/src/config/default.json"><code>/bff/src/config/default.json</code></a>がデフォルトの設定ファイルです。<br />
+TypeScript で開発する恩恵として<a href="https://github.com/mazgi-sandbox/202001.express-typescript-build-with-webpack/blob/b92fdceb1d1af289d7e94a05240133669d02765d/bff/src/config/ConfigType.ts"><code>/bff/src/config/ConfigType.ts</code></a>で定義された型で JSON が読み込まれ、<code>ConfigType</code> 型として扱えます。</p>
+
+<p>それなりに実用的な設定ファイルの例として RDBMS 接続の設定を<a href="https://github.com/mazgi-sandbox/202001.express-typescript-build-with-webpack/blob/b92fdceb1d1af289d7e94a05240133669d02765d/bff/src/config/ConfigType.ts#L9"><code>ConfigType</code>型の中に<code>ConnectionOptions</code>型のフィールドとして持たせています。</a><br />
+ここで使っている <code>ConnectionOptions</code> 型は <code>TypeORM</code> で定義されています。</p>
+
+<p>なお最近の webpack では <code>json-loader</code> はデフォルトで組み込まれており<a href="https://github.com/mazgi-sandbox/202001.express-typescript-build-with-webpack/blob/b92fdceb1d1af289d7e94a05240133669d02765d/bff/src/config/Config.ts#L19"><code>require('path/to/json')</code> を書くだけで読み込める</a>ので便利ですね。<br />
+<code>eslint</code> に怒られるのですがこれは除外する以外に回避方法あるのでしょうか。</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#60a0b0;font-style:italic">// load default config from the file.
+</span><span style="color:#60a0b0;font-style:italic">// eslint-disable-next-line @typescript-eslint/no-var-requires
+</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">let</span> defaultConfig <span style="color:#666">=</span> require(<span style="color:#4070a0">&#34;./default.json&#34;</span>);</code></pre></div>
+<p><a href="https://webpack.js.org/migrate/3/#json-loader-is-not-required-anymore"><code>json-loader</code> is not required anymore</a></p>
+
+<h3 id="in-development-env">In Development env</h3>
+
+<p>開発中はデフォルトの設定ファイルに加えてローカルの開発用設定ファイルを参照しています。</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#007020;font-weight:bold">if</span> (isDevelopment) {
+  <span style="color:#60a0b0;font-style:italic">// load development config from the file that mounted by docker-compose.
+</span><span style="color:#60a0b0;font-style:italic"></span>  <span style="color:#60a0b0;font-style:italic">// eslint-disable-next-line @typescript-eslint/no-var-requires
+</span><span style="color:#60a0b0;font-style:italic"></span>  <span style="color:#007020;font-weight:bold">const</span> devConfig <span style="color:#666">=</span> require(<span style="color:#4070a0">&#34;/data/config/bff/config.json&#34;</span>);
+  defaultConfig <span style="color:#666">=</span> { ...defaultConfig, ...devConfig };
+}</code></pre></div>
+<p>開発用設定ファイルは <a href="https://github.com/mazgi-sandbox/202001.express-typescript-build-with-webpack/blob/b92fdceb1d1af289d7e94a05240133669d02765d/docker-compose.yml#L27"><code>docker-compose.yml</code> 内で bind しています。</a></p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">volumes:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span>-<span style="color:#bbb"> </span>./bff:/workspace<span style="color:#bbb">
+</span><span style="color:#bbb">  </span>-<span style="color:#bbb"> </span>./config.development/bff/config.json:/data/config/bff/config.json:ro</code></pre></div>
+<h3 id="in-production-env">In Production env</h3>
+
+<p>本番環境では S3 や GCS のようなオブジェクトストレージから設定ファイルを読み込むことを考えています。</p>
+
+<h2 id="build-and-just-before-deploy">Build and just before Deploy</h2>
+
+<p>「Docker イメージまで作れば Deploy はどうにでもなるでしょ」と考えているので <code>cargo-make</code> で Docker イメージのビルドまで行なってます。
+しかし本サンプルではどういう tag を打ってどこに push するかまでは考えていません。</p>
+
+<p><a href="https://github.com/mazgi-sandbox/202001.express-typescript-build-with-webpack/blob/b92fdceb1d1af289d7e94a05240133669d02765d/tasks/build-production-images.toml">/tasks/build-production-images.toml</a> がビルドのためのファイルです。</p>
+
+<p>次のように実行すると Docker イメージがビルドされます。</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">bin/cargo-make make --makefile tasks/build-production-images.toml</code></pre></div>
+<p>本来は Docker イメージに tag を打って ECR や GCR に push してしまいたいですが本サンプルでは tag を打っていません。<br />
+そのためビルドの最後に表示されるイメージ ID を控えておきます。</p>
+
+<pre><code>Step 11/11 : CMD [&quot;node&quot;, &quot;/app/main.js&quot;]
+ ---&gt; Running in 1c99cb90cc27
+Removing intermediate container 1c99cb90cc27
+ ---&gt; 19472c5d8df4
+Successfully built 19472c5d8df4
+[cargo-make] INFO - Running Task: default
+[cargo-make] INFO - Running Task: empty
+[cargo-make] INFO - Build Done in 22 seconds.
+</code></pre>
+
+<p>イメージ ID を指定して <code>docker run</code> すると次のようなコンソールログと共に BFF が起動します。</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">❯ docker run -it --rm 19472c5d8df4
+💽 Loaded the configuration: version: 2020.1.0-default, baseVersion: 2020.1.0-default
+⚡ App is running at :4000 in production mode
+  Press CTRL-C to stop</code></pre></div>
+<h3 id="cargo-make">cargo-make</h3>
+
+<p>Docker コンテナの作り方はできる限り <code>Dockerfile</code> に入れてしまいたいのですが、 <code>Dockerfile</code> の表現力や各種制約によりどうしてもビルド用スクリプトが必要になることがあります。<br />
+しかしビルドのために shellscript を書き始めるとキリがなく、実行順や依存関係などに悩みがちです。</p>
+
+<p>Makefile の書き方もすっかり忘れてしまい思い出したくないので、TOML でやりたいことを書いてバイナリをぽんっと置けばビルドできる <a href="https://github.com/sagiegurari/cargo-make">cargo-make</a> を導入しました。<br />
+同僚でも使ってる方がおり「いいよ〜」と評判は聞いていたのですが今回の要件を概ね満たしていると感じました。</p>
+
+<p><a href="https://tkat0.github.io/posts/cargo-make-1/">タスクランナーを make から cargo-make へ移行 · tkat0.github.io</a></p>
+
+<p><a href="https://github.com/mazgi-sandbox/202001.express-typescript-build-with-webpack/blob/b92fdceb1d1af289d7e94a05240133669d02765d/tasks/build-production-images.toml#L6"><code>cwd</code> で起点となる path を設定できる</a>ので、すべてのスクリプトファイルに「想定外の階層から実行されたら叱る」実装を書かなくて済みますし、</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">cwd = <span style="color:#4070a0">&#34;${CARGO_MAKE_CURRENT_TASK_INITIAL_MAKEFILE_DIRECTORY}/../&#34;</span></code></pre></div>
+<p><a href="https://github.com/mazgi-sandbox/202001.express-typescript-build-with-webpack/blob/b92fdceb1d1af289d7e94a05240133669d02765d/tasks/build-production-images.toml#L9-L11">依存関係を書ける</a>のもタスクランナーならではです。</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">dependencies = [
+  <span style="color:#4070a0">&#34;prepare&#34;</span>
+]</code></pre></div>
+<p>一方でビルドの内容自体は<a href="https://github.com/mazgi-sandbox/202001.express-typescript-build-with-webpack/blob/b92fdceb1d1af289d7e94a05240133669d02765d/tasks/build-production-images.toml#L12-L20">コマンドをそのまま記載</a>できるので初期の学習コストも小さいと感じました。</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">script = [
+<span style="color:#4070a0">&#39;&#39;&#39;
+</span><span style="color:#4070a0">rm -rf Dockerfile.d/bff/rootfs
+</span><span style="color:#4070a0">mkdir -p Dockerfile.d/bff/rootfs/
+</span><span style="color:#4070a0">cp -Rp bff Dockerfile.d/bff/rootfs/workspace
+</span><span style="color:#4070a0">docker build --no-cache --target production Dockerfile.d/bff
+</span><span style="color:#4070a0">&#39;&#39;&#39;</span>
+]</code></pre></div>
+<p>ただしハマりどころや機能の不足も感じるので機会があればまとめたいと思っています。</p>
+
+<h2 id="that-s-all">That&rsquo;s all</h2>
+
+<p>だいぶ手探りしましたがこんな感じで TypeScript で Web API を書いて Docker イメージをビルドするサンプルが作れたので、これを叩き台に開発してみたいと思っています。</p>
+
+    </article>
+  </div>
+  <div class="col-lg-3">
+    <div class="sidebar">
+  
+  <h4><a href="/about/">About</a></h4>
+  <p><strong>Hidenori MATSUKI</strong></p>
+
+<p>🍣 🍶</p>
+
+<p>another website: <a href="https://mazgi.com/">mazgi.com</a></p>
+  
+  <hr />
+  <h4>TableOfContents</h4>
+  <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#out-of-scope">Out of Scope</a></li>
+<li><a href="#how-to-run">How to run</a></li>
+<li><a href="#programming-language-and-web-framework">Programming Language and Web Framework</a></li>
+<li><a href="#directory-structure-for-development">Directory structure for Development</a>
+<ul>
+<li><a href="#typescript-paths">TypeScript paths</a></li>
+</ul></li>
+<li><a href="#application-configuration">Application Configuration</a>
+<ul>
+<li><a href="#in-development-env">In Development env</a></li>
+<li><a href="#in-production-env">In Production env</a></li>
+</ul></li>
+<li><a href="#build-and-just-before-deploy">Build and just before Deploy</a>
+<ul>
+<li><a href="#cargo-make">cargo-make</a></li>
+</ul></li>
+<li><a href="#that-s-all">That&rsquo;s all</a></li>
+</ul></li>
+</ul>
+</nav>
+  <hr />
+  <h4><a href="/categories/">Categories</a></h4>
+  
+  <hr />
+  <h4><a href="/tags/">Tags</a></h4>
+  
+  <div>
+    
+    <a class="badge badge-pill badge-secondary" href="/tags/typescript/">typescript</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/tags/docker/">docker</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/tags/web-api/">web-api</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/tags/cargo-make/">cargo-make</a>
+    
+  </div>
+  
+</div>
+
+  </div>
+</div>
+      <div class="row">
+        <footer class="col-lg-12">
+          <hr/>
+          <span>&copy; mazgi.log</span>
+          <span>&nbsp;&middot;&nbsp;</span>
+          <i class="fas fa-bolt"></i>
+          <span>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a></span>
+        </footer>
+      </div>
+    </div>
+    </main>
+    
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68170979-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-68170979-2');
+    </script>
+    
+      
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+      });
+    </script>
+  </body>
+</html>
+

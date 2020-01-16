@@ -6,10 +6,46 @@
     <description>Recent content in Tags on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 08 Jan 2020 13:24:12 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 16 Jan 2020 00:10:30 +0000</lastBuildDate>
     
 	<atom:link href="https://mazgi.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>cargo-make</title>
+      <link>https://mazgi.github.io/tags/cargo-make/</link>
+      <pubDate>Thu, 16 Jan 2020 00:10:30 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/cargo-make/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>https://mazgi.github.io/tags/docker/</link>
+      <pubDate>Thu, 16 Jan 2020 00:10:30 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>typescript</title>
+      <link>https://mazgi.github.io/tags/typescript/</link>
+      <pubDate>Thu, 16 Jan 2020 00:10:30 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/typescript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>web-api</title>
+      <link>https://mazgi.github.io/tags/web-api/</link>
+      <pubDate>Thu, 16 Jan 2020 00:10:30 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/web-api/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>photoshop</title>
@@ -17,15 +53,6 @@
       <pubDate>Wed, 08 Jan 2020 13:24:12 +0000</pubDate>
       
       <guid>https://mazgi.github.io/tags/photoshop/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>docker</title>
-      <link>https://mazgi.github.io/tags/docker/</link>
-      <pubDate>Wed, 18 Dec 2019 23:35:25 +0000</pubDate>
-      
-      <guid>https://mazgi.github.io/tags/docker/</guid>
       <description></description>
     </item>
     
@@ -48,7 +75,7 @@
     </item>
     
     <item>
-      <title>ml-engineering</title>
+      <title>ml engineering</title>
       <link>https://mazgi.github.io/tags/ml-engineering/</link>
       <pubDate>Wed, 18 Dec 2019 23:35:25 +0000</pubDate>
       
