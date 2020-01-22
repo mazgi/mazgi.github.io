@@ -70,7 +70,7 @@
             <span class="nav-link disabled">Created At: 2020.01.16</span>
           </li>
           <li class="nav-item">
-            <span class="nav-link disabled">Updated At: 2020.01.16</span>
+            <span class="nav-link disabled">Updated At: 2020.01.22</span>
           </li>
           
         </ul>
@@ -117,7 +117,7 @@
   Press CTRL-C to stop
 </code></pre>
 
-<p>コードは&rdquo;<a href="https://github.com/mazgi-sandbox/202001.express-typescript-build-with-webpack/tree/b92fdceb1d1af289d7e94a05240133669d02765d">mazgi-sandbox/202001.express-typescript-build-with-webpack</a>&ldquo;にあります。</p>
+<p>コードは&rdquo;<a href="https://github.com/mazgi-showcase/202001.express-typescript-build-with-webpack/tree/b92fdceb1d1af289d7e94a05240133669d02765d">mazgi-showcase/202001.express-typescript-build-with-webpack</a>&ldquo;にあります。</p>
 
 <p>使っている技術スタックは概ね以下です。</p>
 
@@ -256,7 +256,7 @@ bff_1     |
     └── webpack.config.js
 </code></pre>
 
-<p>そして <a href="https://github.com/mazgi-sandbox/202001.express-typescript-build-with-webpack/blob/b92fdceb1d1af289d7e94a05240133669d02765d/bff/package.json"><code>/bff/package.json</code></a> ではビルド時のみ <code>webpack</code> を使い、開発時は <a href="https://github.com/whitecolor/ts-node-dev"><code>ts-node-dev</code></a> で <code>index.ts</code> ファイルを直接実行しています。<br />
+<p>そして <a href="https://github.com/mazgi-showcase/202001.express-typescript-build-with-webpack/blob/b92fdceb1d1af289d7e94a05240133669d02765d/bff/package.json"><code>/bff/package.json</code></a> ではビルド時のみ <code>webpack</code> を使い、開発時は <a href="https://github.com/whitecolor/ts-node-dev"><code>ts-node-dev</code></a> で <code>index.ts</code> ファイルを直接実行しています。<br />
 (後述の <code>TypeScript</code> の <code>pahts</code> のために <code>tsconfig-paths</code> を使っています。)</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#4070a0">&#34;scripts&#34;</span><span style="">:</span> {
   <span style="color:#062873;font-weight:bold">&#34;dev&#34;</span>: <span style="color:#4070a0">&#34;ts-node-dev -r tsconfig-paths/register src/index.ts&#34;</span>,
@@ -267,7 +267,7 @@ bff_1     |
 
 <p>そしてビルド時は <code>webpack</code> で pack するのですが、ここで TypeScript 特有の問題に遭遇します。</p>
 
-<p>同じプロジェクト内のモジュールを参照するときに <code>import X from '../../lib/xxx'</code> ではなく <code>import X from 'lib/xxx'</code> と書きたいので <a href="https://github.com/mazgi-sandbox/202001.express-typescript-build-with-webpack/blob/b92fdceb1d1af289d7e94a05240133669d02765d/bff/tsconfig.json#L43-L46"><code>/bff/tsconfig.json</code></a> で次のように <code>paths</code> を設定するのですが、ビルド時にモジュールが見つからず頭を抱えます(抱えました)。</p>
+<p>同じプロジェクト内のモジュールを参照するときに <code>import X from '../../lib/xxx'</code> ではなく <code>import X from 'lib/xxx'</code> と書きたいので <a href="https://github.com/mazgi-showcase/202001.express-typescript-build-with-webpack/blob/b92fdceb1d1af289d7e94a05240133669d02765d/bff/tsconfig.json#L43-L46"><code>/bff/tsconfig.json</code></a> で次のように <code>paths</code> を設定するのですが、ビルド時にモジュールが見つからず頭を抱えます(抱えました)。</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#4070a0">&#34;baseUrl&#34;</span><span style="">:</span> <span style="color:#4070a0">&#34;src&#34;</span><span style="">,</span>
 <span style="color:#4070a0">&#34;paths&#34;</span><span style="">:</span> {
   <span style="color:#062873;font-weight:bold">&#34;*&#34;</span>: [<span style="color:#4070a0">&#34;*&#34;</span>]
@@ -278,7 +278,7 @@ bff_1     |
 
 <p><a href="https://github.com/microsoft/TypeScript/issues/10866">Issue も賑わっておりロックされています。</a></p>
 
-<p>その上で <a href="https://github.com/mazgi-sandbox/202001.express-typescript-build-with-webpack/blob/b92fdceb1d1af289d7e94a05240133669d02765d/bff/webpack.config.js#L23"><code>bff/webpack.config.js</code></a> の <code>resolve.modules</code> にも <code>src</code> ディレクトリを追加します。</p>
+<p>その上で <a href="https://github.com/mazgi-showcase/202001.express-typescript-build-with-webpack/blob/b92fdceb1d1af289d7e94a05240133669d02765d/bff/webpack.config.js#L23"><code>bff/webpack.config.js</code></a> の <code>resolve.modules</code> にも <code>src</code> ディレクトリを追加します。</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">modules<span style="color:#666">:</span> [<span style="color:#4070a0">&#39;node_modules&#39;</span>, path.resolve(__dirname, <span style="color:#4070a0">&#39;src&#39;</span>)],
 </code></pre></div>
 <p>これで <code>src</code> 以下にモジュールを追加する限りは、開発時でもビルド時でも <code>webpack.config.js</code> も <code>tsconfig.json</code> も書き変えずに参照できる、はずです。たぶん。</p>
@@ -287,13 +287,13 @@ bff_1     |
 
 <p>アプリケーションの設定をどのように適用するかは常に悩ましいですが、本サンプルではデフォルトの設定をアプリケーション内に持ち、外部から上書きする想定をしました。</p>
 
-<p><a href="https://github.com/mazgi-sandbox/202001.express-typescript-build-with-webpack/blob/b92fdceb1d1af289d7e94a05240133669d02765d/bff/src/config/default.json"><code>/bff/src/config/default.json</code></a>がデフォルトの設定ファイルです。<br />
-TypeScript で開発する恩恵として<a href="https://github.com/mazgi-sandbox/202001.express-typescript-build-with-webpack/blob/b92fdceb1d1af289d7e94a05240133669d02765d/bff/src/config/ConfigType.ts"><code>/bff/src/config/ConfigType.ts</code></a>で定義された型で JSON が読み込まれ、<code>ConfigType</code> 型として扱えます。</p>
+<p><a href="https://github.com/mazgi-showcase/202001.express-typescript-build-with-webpack/blob/b92fdceb1d1af289d7e94a05240133669d02765d/bff/src/config/default.json"><code>/bff/src/config/default.json</code></a>がデフォルトの設定ファイルです。<br />
+TypeScript で開発する恩恵として<a href="https://github.com/mazgi-showcase/202001.express-typescript-build-with-webpack/blob/b92fdceb1d1af289d7e94a05240133669d02765d/bff/src/config/ConfigType.ts"><code>/bff/src/config/ConfigType.ts</code></a>で定義された型で JSON が読み込まれ、<code>ConfigType</code> 型として扱えます。</p>
 
-<p>それなりに実用的な設定ファイルの例として RDBMS 接続の設定を<a href="https://github.com/mazgi-sandbox/202001.express-typescript-build-with-webpack/blob/b92fdceb1d1af289d7e94a05240133669d02765d/bff/src/config/ConfigType.ts#L9"><code>ConfigType</code>型の中に<code>ConnectionOptions</code>型のフィールドとして持たせています。</a><br />
+<p>それなりに実用的な設定ファイルの例として RDBMS 接続の設定を<a href="https://github.com/mazgi-showcase/202001.express-typescript-build-with-webpack/blob/b92fdceb1d1af289d7e94a05240133669d02765d/bff/src/config/ConfigType.ts#L9"><code>ConfigType</code>型の中に<code>ConnectionOptions</code>型のフィールドとして持たせています。</a><br />
 ここで使っている <code>ConnectionOptions</code> 型は <code>TypeORM</code> で定義されています。</p>
 
-<p>なお最近の webpack では <code>json-loader</code> はデフォルトで組み込まれており<a href="https://github.com/mazgi-sandbox/202001.express-typescript-build-with-webpack/blob/b92fdceb1d1af289d7e94a05240133669d02765d/bff/src/config/Config.ts#L19"><code>require('path/to/json')</code> を書くだけで読み込める</a>ので便利ですね。<br />
+<p>なお最近の webpack では <code>json-loader</code> はデフォルトで組み込まれており<a href="https://github.com/mazgi-showcase/202001.express-typescript-build-with-webpack/blob/b92fdceb1d1af289d7e94a05240133669d02765d/bff/src/config/Config.ts#L19"><code>require('path/to/json')</code> を書くだけで読み込める</a>ので便利ですね。<br />
 <code>eslint</code> に怒られるのですがこれは除外する以外に回避方法あるのでしょうか。</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#60a0b0;font-style:italic">// load default config from the file.
 </span><span style="color:#60a0b0;font-style:italic">// eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -309,7 +309,7 @@ TypeScript で開発する恩恵として<a href="https://github.com/mazgi-sandb
 </span><span style="color:#60a0b0;font-style:italic"></span>  <span style="color:#007020;font-weight:bold">const</span> devConfig <span style="color:#666">=</span> require(<span style="color:#4070a0">&#34;/data/config/bff/config.json&#34;</span>);
   defaultConfig <span style="color:#666">=</span> { ...defaultConfig, ...devConfig };
 }</code></pre></div>
-<p>開発用設定ファイルは <a href="https://github.com/mazgi-sandbox/202001.express-typescript-build-with-webpack/blob/b92fdceb1d1af289d7e94a05240133669d02765d/docker-compose.yml#L27"><code>docker-compose.yml</code> 内で bind しています。</a></p>
+<p>開発用設定ファイルは <a href="https://github.com/mazgi-showcase/202001.express-typescript-build-with-webpack/blob/b92fdceb1d1af289d7e94a05240133669d02765d/docker-compose.yml#L27"><code>docker-compose.yml</code> 内で bind しています。</a></p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">volumes:<span style="color:#bbb">
 </span><span style="color:#bbb">  </span>-<span style="color:#bbb"> </span>./bff:/workspace<span style="color:#bbb">
 </span><span style="color:#bbb">  </span>-<span style="color:#bbb"> </span>./config.development/bff/config.json:/data/config/bff/config.json:ro</code></pre></div>
@@ -322,7 +322,7 @@ TypeScript で開発する恩恵として<a href="https://github.com/mazgi-sandb
 <p>「Docker イメージまで作れば Deploy はどうにでもなるでしょ」と考えているので <code>cargo-make</code> で Docker イメージのビルドまで行なってます。
 しかし本サンプルではどういう tag を打ってどこに push するかまでは考えていません。</p>
 
-<p><a href="https://github.com/mazgi-sandbox/202001.express-typescript-build-with-webpack/blob/b92fdceb1d1af289d7e94a05240133669d02765d/tasks/build-production-images.toml">/tasks/build-production-images.toml</a> がビルドのためのファイルです。</p>
+<p><a href="https://github.com/mazgi-showcase/202001.express-typescript-build-with-webpack/blob/b92fdceb1d1af289d7e94a05240133669d02765d/tasks/build-production-images.toml">/tasks/build-production-images.toml</a> がビルドのためのファイルです。</p>
 
 <p>次のように実行すると Docker イメージがビルドされます。</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">bin/cargo-make make --makefile tasks/build-production-images.toml</code></pre></div>
@@ -354,13 +354,13 @@ Successfully built 19472c5d8df4
 
 <p><a href="https://tkat0.github.io/posts/cargo-make-1/">タスクランナーを make から cargo-make へ移行 · tkat0.github.io</a></p>
 
-<p><a href="https://github.com/mazgi-sandbox/202001.express-typescript-build-with-webpack/blob/b92fdceb1d1af289d7e94a05240133669d02765d/tasks/build-production-images.toml#L6"><code>cwd</code> で起点となる path を設定できる</a>ので、すべてのスクリプトファイルに「想定外の階層から実行されたら叱る」実装を書かなくて済みますし、</p>
+<p><a href="https://github.com/mazgi-showcase/202001.express-typescript-build-with-webpack/blob/b92fdceb1d1af289d7e94a05240133669d02765d/tasks/build-production-images.toml#L6"><code>cwd</code> で起点となる path を設定できる</a>ので、すべてのスクリプトファイルに「想定外の階層から実行されたら叱る」実装を書かなくて済みますし、</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">cwd = <span style="color:#4070a0">&#34;${CARGO_MAKE_CURRENT_TASK_INITIAL_MAKEFILE_DIRECTORY}/../&#34;</span></code></pre></div>
-<p><a href="https://github.com/mazgi-sandbox/202001.express-typescript-build-with-webpack/blob/b92fdceb1d1af289d7e94a05240133669d02765d/tasks/build-production-images.toml#L9-L11">依存関係を書ける</a>のもタスクランナーならではです。</p>
+<p><a href="https://github.com/mazgi-showcase/202001.express-typescript-build-with-webpack/blob/b92fdceb1d1af289d7e94a05240133669d02765d/tasks/build-production-images.toml#L9-L11">依存関係を書ける</a>のもタスクランナーならではです。</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">dependencies = [
   <span style="color:#4070a0">&#34;prepare&#34;</span>
 ]</code></pre></div>
-<p>一方でビルドの内容自体は<a href="https://github.com/mazgi-sandbox/202001.express-typescript-build-with-webpack/blob/b92fdceb1d1af289d7e94a05240133669d02765d/tasks/build-production-images.toml#L12-L20">コマンドをそのまま記載</a>できるので初期の学習コストも小さいと感じました。</p>
+<p>一方でビルドの内容自体は<a href="https://github.com/mazgi-showcase/202001.express-typescript-build-with-webpack/blob/b92fdceb1d1af289d7e94a05240133669d02765d/tasks/build-production-images.toml#L12-L20">コマンドをそのまま記載</a>できるので初期の学習コストも小さいと感じました。</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">script = [
 <span style="color:#4070a0">&#39;&#39;&#39;
 </span><span style="color:#4070a0">rm -rf Dockerfile.d/bff/rootfs

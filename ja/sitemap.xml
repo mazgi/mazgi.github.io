@@ -4,12 +4,12 @@
   
   <url>
     <loc>https://mazgi.github.io/tags/cargo-make/</loc>
-    <lastmod>2020-01-16T20:10:46+09:00</lastmod>
+    <lastmod>2020-01-22T22:48:58+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/docker/</loc>
-    <lastmod>2020-01-16T20:10:46+09:00</lastmod>
+    <lastmod>2020-01-22T22:48:58+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -23,8 +23,13 @@
   </url>
   
   <url>
+    <loc>https://mazgi.github.io/tags/jest/</loc>
+    <lastmod>2020-01-22T22:48:58+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://mazgi.github.io/</loc>
-    <lastmod>2020-01-16T20:10:46+09:00</lastmod>
+    <lastmod>2020-01-22T22:48:58+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -38,8 +43,13 @@
   </url>
   
   <url>
+    <loc>https://mazgi.github.io/tags/nextjs/</loc>
+    <lastmod>2020-01-22T22:48:58+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://mazgi.github.io/posts/</loc>
-    <lastmod>2020-01-16T20:10:46+09:00</lastmod>
+    <lastmod>2020-01-22T22:48:58+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -54,7 +64,7 @@
   
   <url>
     <loc>https://mazgi.github.io/tags/</loc>
-    <lastmod>2020-01-16T20:10:46+09:00</lastmod>
+    <lastmod>2020-01-22T22:48:58+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -68,18 +78,33 @@
   </url>
   
   <url>
+    <loc>https://mazgi.github.io/tags/test/</loc>
+    <lastmod>2020-01-22T22:48:58+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://mazgi.github.io/tags/typescript/</loc>
-    <lastmod>2020-01-16T20:10:46+09:00</lastmod>
+    <lastmod>2020-01-22T22:48:58+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/posts/2020.01/dockerized-typescript-nextjs-project/</loc>
+    <lastmod>2020-01-22T22:48:58+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/tags/web-frontend/</loc>
+    <lastmod>2020-01-22T22:48:58+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2020.01/dockerized-typescript-webapi-project/</loc>
-    <lastmod>2020-01-16T20:10:46+09:00</lastmod>
+    <lastmod>2020-01-22T22:38:19+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/web-api/</loc>
-    <lastmod>2020-01-16T20:10:46+09:00</lastmod>
+    <lastmod>2020-01-22T22:38:19+09:00</lastmod>
   </url>
   
   <url>
@@ -154,11 +179,6 @@
   
   <url>
     <loc>https://mazgi.github.io/tags/ml-engineering/</loc>
-    <lastmod>2019-12-19T13:14:16+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://mazgi.github.io/tags/web-frontend/</loc>
     <lastmod>2019-12-19T13:14:16+09:00</lastmod>
   </url>
   

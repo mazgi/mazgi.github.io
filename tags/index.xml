@@ -6,7 +6,7 @@
     <description>Recent content in Tags on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 16 Jan 2020 00:10:30 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 22 Jan 2020 12:22:49 +0000</lastBuildDate>
     
 	<atom:link href="https://mazgi.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>cargo-make</title>
       <link>https://mazgi.github.io/tags/cargo-make/</link>
-      <pubDate>Thu, 16 Jan 2020 00:10:30 +0000</pubDate>
+      <pubDate>Wed, 22 Jan 2020 12:22:49 +0000</pubDate>
       
       <guid>https://mazgi.github.io/tags/cargo-make/</guid>
       <description></description>
@@ -23,18 +23,54 @@
     <item>
       <title>docker</title>
       <link>https://mazgi.github.io/tags/docker/</link>
-      <pubDate>Thu, 16 Jan 2020 00:10:30 +0000</pubDate>
+      <pubDate>Wed, 22 Jan 2020 12:22:49 +0000</pubDate>
       
       <guid>https://mazgi.github.io/tags/docker/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>jest</title>
+      <link>https://mazgi.github.io/tags/jest/</link>
+      <pubDate>Wed, 22 Jan 2020 12:22:49 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/jest/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nextjs</title>
+      <link>https://mazgi.github.io/tags/nextjs/</link>
+      <pubDate>Wed, 22 Jan 2020 12:22:49 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/nextjs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>test</title>
+      <link>https://mazgi.github.io/tags/test/</link>
+      <pubDate>Wed, 22 Jan 2020 12:22:49 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/test/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>typescript</title>
       <link>https://mazgi.github.io/tags/typescript/</link>
-      <pubDate>Thu, 16 Jan 2020 00:10:30 +0000</pubDate>
+      <pubDate>Wed, 22 Jan 2020 12:22:49 +0000</pubDate>
       
       <guid>https://mazgi.github.io/tags/typescript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>web-frontend</title>
+      <link>https://mazgi.github.io/tags/web-frontend/</link>
+      <pubDate>Wed, 22 Jan 2020 12:22:49 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/web-frontend/</guid>
       <description></description>
     </item>
     
@@ -80,15 +116,6 @@
       <pubDate>Wed, 18 Dec 2019 23:35:25 +0000</pubDate>
       
       <guid>https://mazgi.github.io/tags/ml-engineering/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>web-frontend</title>
-      <link>https://mazgi.github.io/tags/web-frontend/</link>
-      <pubDate>Wed, 18 Dec 2019 23:35:25 +0000</pubDate>
-      
-      <guid>https://mazgi.github.io/tags/web-frontend/</guid>
       <description></description>
     </item>
     

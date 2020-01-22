@@ -6,10 +6,19 @@
     <description>Recent content in web-frontend on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 18 Dec 2019 23:35:25 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 22 Jan 2020 12:22:49 +0000</lastBuildDate>
     
 	<atom:link href="https://mazgi.github.io/tags/web-frontend/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Web Frontend を Next.js &#43; TypeScript で書いて Docker でビルドする</title>
+      <link>https://mazgi.github.io/posts/2020.01/dockerized-typescript-nextjs-project/</link>
+      <pubDate>Wed, 22 Jan 2020 12:22:49 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2020.01/dockerized-typescript-nextjs-project/</guid>
+      <description>「手っ取り早く Web インターフェースを手に入れる方法 2020」シリーズ(?)のBFF サンプルプロジェクト と同じように Web Frontend サンプルプロジェクトを作</description>
+    </item>
     
     <item>
       <title>なぜそのプロジェクトでKubernetesが選択されたか</title>
