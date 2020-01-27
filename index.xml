@@ -6,10 +6,19 @@
     <description>Recent content on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Jan 2020 12:22:49 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 27 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://mazgi.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>技術書典８ 2/29(土) 11〜17時 Day1あ38 出展情報 - 567e5bd</title>
+      <link>https://mazgi.github.io/news/2020.01/provision-workstation-on-gcp-on-techbookfest-8/</link>
+      <pubDate>Mon, 27 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/news/2020.01/provision-workstation-on-gcp-on-techbookfest-8/</guid>
+      <description>このページを更新します。</description>
+    </item>
     
     <item>
       <title>Web Frontend を Next.js &#43; TypeScript で書いて Docker でビルドする</title>

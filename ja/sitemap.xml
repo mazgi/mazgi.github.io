@@ -3,6 +3,31 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://mazgi.github.io/</loc>
+    <lastmod>2020-01-28T00:47:24+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/news/</loc>
+    <lastmod>2020-01-28T00:47:24+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/news/2020.01/provision-workstation-on-gcp-on-techbookfest-8/</loc>
+    <lastmod>2020-01-28T00:47:24+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://mazgi.github.io/tags/cargo-make/</loc>
     <lastmod>2020-01-22T22:48:58+09:00</lastmod>
   </url>
@@ -25,21 +50,6 @@
   <url>
     <loc>https://mazgi.github.io/tags/jest/</loc>
     <lastmod>2020-01-22T22:48:58+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://mazgi.github.io/</loc>
-    <lastmod>2020-01-22T22:48:58+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/"
-                />
   </url>
   
   <url>
