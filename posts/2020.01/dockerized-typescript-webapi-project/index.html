@@ -74,7 +74,7 @@
             <span class="nav-link disabled">Created At: 2020.01.16</span>
           </li>
           <li class="nav-item">
-            <span class="nav-link disabled">Updated At: 2020.01.22</span>
+            <span class="nav-link disabled">Updated At: 2020.01.29</span>
           </li>
           
         </ul>
@@ -110,17 +110,12 @@
       <div class="row">
         <h1>Web APIをTypeScriptで書いてDockerでビルドする</h1>
       </div>
-      
-
-<p>「手っ取り早く Web インターフェースを手に入れる方法 2020」みたいなことを考えながら勉強のために BFF(Backend For Frontend) のサンプルプロジェクトを作ってみました。<br />
+      <p>「手っ取り早く Web インターフェースを手に入れる方法 2020」みたいなことを考えながら勉強のために BFF(Backend For Frontend) のサンプルプロジェクトを作ってみました。<br />
 ただしプロジェクト構成やビルド方法の検証が主なので BFF に特化した機能はなく、実行すると Express が起動してコンソールログが表示されるだけのアプリケーションです。</p>
-
-<pre><code>❯ docker run -it --rm 19472c5d8df4
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">❯ docker run -it --rm 19472c5d8df4
 💽 Loaded the configuration: version: 2020.1.0-default, baseVersion: 2020.1.0-default
 ⚡ App is running at :4000 in production mode
-  Press CTRL-C to stop
-</code></pre>
-
+  Press CTRL-C to stop</code></pre></div>
 <p>コードは&rdquo;<a href="https://github.com/mazgi-showcase/202001.express-typescript-build-with-webpack/tree/b92fdceb1d1af289d7e94a05240133669d02765d">mazgi-showcase/202001.express-typescript-build-with-webpack</a>&ldquo;にあります。</p>
 
 <p>使っている技術スタックは概ね以下です。</p>
@@ -143,8 +138,6 @@
 <li><a href="https://www.docker.com/">Docker &amp; Docker Compose</a></li>
 <li><a href="https://github.com/sagiegurari/cargo-make">cargo-make</a></li>
 </ul>
-
-<!-- more -->
 
 <h2 id="out-of-scope">Out of Scope</h2>
 
@@ -378,7 +371,6 @@ Successfully built 19472c5d8df4
 <h2 id="that-s-all">That&rsquo;s all</h2>
 
 <p>だいぶ手探りしましたがこんな感じで TypeScript で Web API を書いて Docker イメージをビルドするサンプルが作れたので、これを叩き台に開発してみたいと思っています。</p>
-
     </article>
   </div>
   <div class="col-lg-3">

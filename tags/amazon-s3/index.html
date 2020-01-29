@@ -119,6 +119,33 @@
     
     <article>
       <div class="row">
+        <h3><a href="/posts/2020.01/how-to-transfer-multiple-files-with-tar-and-multistage-ssh/">tarとsshで複数ファイルやディレクトリを送る/取ってくる</a></h3>
+      </div>
+      <div class="row">
+        <span class="ml-1">Created At: 2020.01.29</span>
+        <span class="ml-1">Updated At: 2020.01.29</span>
+        
+      </div>
+      <div class="row">
+        <p>「サーバーにディレクトリ丸っと送りたいんだけど、途中に踏み台サーバーが居て&hellip;」よくあります。<br />
+「え、ProxyCommand塞がれてるの??」とセキュリティ堅い環境でよく聞きます。</p>
+
+<p><code>tar+ssh</code> で大抵回避できるのでコピペで使えるようにまとめました。</p>
+      </div>
+      <div class="row">
+        
+        
+        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/ssh/">ssh</a>
+        
+        
+      </div>
+    </article>
+    <hr/>
+    
+    
+    
+    <article>
+      <div class="row">
         <h3><a href="/news/2020.01/provision-workstation-on-gcp-on-techbookfest-8/">技術書典８ 2/29(土) 11〜17時 Day1あ38 出展します - 567e5bd</a></h3>
       </div>
       <div class="row">
@@ -143,11 +170,20 @@
       </div>
       <div class="row">
         <span class="ml-1">Created At: 2020.01.22</span>
-        <span class="ml-1">Updated At: 2020.01.22</span>
+        <span class="ml-1">Updated At: 2020.01.29</span>
         
       </div>
       <div class="row">
-        「手っ取り早く Web インターフェースを手に入れる方法 2020」シリーズ(?)のBFF サンプルプロジェクト と同じように Web Frontend サンプルプロジェクトを作
+        <p>「手っ取り早く Web インターフェースを手に入れる方法 2020」シリーズ(?)の<a href="/posts/2020.01/dockerized-typescript-webapi-project/">BFF サンプルプロジェクト</a> と同じように Web Frontend サンプルプロジェクトを作ってみました。</p>
+
+<p>今回もプロジェクト構成やビルド方法の検証が主目的です。<br />
+そのためアプリケーション自体は Docker イメージを実行すると<a href="https://nextjs.org/">Next.js</a>の Web サーバーが起動しこんなページが表示されるだけのシンプルな機能しかありません。</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">❯ docker run -it --rm -p 3000:3000 b2ee27d0d01d
+
+&gt; @ start /app
+&gt; next start
+
+&gt; Ready on http://localhost:3000</code></pre></div>
       </div>
       <div class="row">
         
@@ -179,11 +215,16 @@
       </div>
       <div class="row">
         <span class="ml-1">Created At: 2020.01.16</span>
-        <span class="ml-1">Updated At: 2020.01.22</span>
+        <span class="ml-1">Updated At: 2020.01.29</span>
         
       </div>
       <div class="row">
-        「手っ取り早く Web インターフェースを手に入れる方法 2020」みたいなことを考えながら勉強のために BFF(Backend For Frontend) のサンプルプロジェクトを作ってみました。
+        <p>「手っ取り早く Web インターフェースを手に入れる方法 2020」みたいなことを考えながら勉強のために BFF(Backend For Frontend) のサンプルプロジェクトを作ってみました。<br />
+ただしプロジェクト構成やビルド方法の検証が主なので BFF に特化した機能はなく、実行すると Express が起動してコンソールログが表示されるだけのアプリケーションです。</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">❯ docker run -it --rm 19472c5d8df4
+💽 Loaded the configuration: version: 2020.1.0-default, baseVersion: 2020.1.0-default
+⚡ App is running at :4000 in production mode
+  Press CTRL-C to stop</code></pre></div>
       </div>
       <div class="row">
         
@@ -233,11 +274,12 @@
       </div>
       <div class="row">
         <span class="ml-1">Created At: 2019.12.18</span>
-        <span class="ml-1">Updated At: 2019.12.19</span>
+        <span class="ml-1">Updated At: 2020.01.29</span>
         
       </div>
       <div class="row">
-        これは「GCPUG Tokyo December 2019」の記事から「Why Kubernetes? Why not GAE or others?」部分を切り出した記事です。 本記事のコンテキストとして、イベントで
+        <p>これは<a href="/posts/2019.12/went-to-gcpug-tokyo-dec-2019/">「GCPUG Tokyo December 2019」の記事</a>から「Why Kubernetes? Why not GAE or others?」部分を切り出した記事です。<br />
+本記事のコンテキストとして、イベントでお話しさせていただいた資料「<a href="https://speakerdeck.com/mazgi/fast-development-for-ml-web-service-on-gke-and-gcp">ML アプリケーション短期開発 / Fast development for ML Web Service on GKE &amp; GCP</a>」」を事前にご参照いただけると幸いです。</p>
       </div>
       <div class="row">
         
@@ -265,11 +307,13 @@
       </div>
       <div class="row">
         <span class="ml-1">Created At: 2019.12.18</span>
-        <span class="ml-1">Updated At: 2019.12.19</span>
+        <span class="ml-1">Updated At: 2020.01.29</span>
         
       </div>
       <div class="row">
-        昨日 12&frasl;18 に開催された「GCPUG Tokyo December 2019」で「ML アプリケーション短期開発 / Fast development for ML Web Service on GKE &amp; GCP」と題してお話しさせていただきました。
+        <p>昨日 <sup>12</sup>&frasl;<sub>18</sub> に開催された「<a href="https://gcpug-tokyo.connpass.com/event/152607/">GCPUG Tokyo December 2019</a>」で「<a href="https://speakerdeck.com/mazgi/fast-development-for-ml-web-service-on-gke-and-gcp">ML アプリケーション短期開発 / Fast development for ML Web Service on GKE &amp; GCP</a>」と題してお話しさせていただきました。</p>
+
+<script async class="speakerdeck-embed" data-id="3330c952865c46068644f1bc24042b2d" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
       </div>
       <div class="row">
         
@@ -327,11 +371,11 @@
       </div>
       <div class="row">
         <span class="ml-1">Created At: 2019.07.07</span>
-        <span class="ml-1">Updated At: 2019.10.11</span>
+        <span class="ml-1">Updated At: 2020.01.29</span>
         
       </div>
       <div class="row">
-        1Password Cliのサインイン方法を全く覚えられないのでメモ。 How to Install via Homebrew for macOS brew cask install 1password-cli で入ります。 $ brew cask info 1password-cli 1password-cli: 0.5.7 https://support.1password.com/command-line/ /usr/local/Caskroom/1password-cli/0.5.7 (2 files, 10.1MB) From: https://github.com/Homebrew/homebrew-cask/blob/master/Casks/1password-cli.rb ==&gt; Name 1Password CLI ==&gt; Artifacts op (Binary) from Zip archive Li
+        <p><a href="https://support.1password.com/command-line/">1Password Cli</a>のサインイン方法を全く覚えられないのでメモ。</p>
       </div>
       <div class="row">
         
@@ -361,32 +405,6 @@
         
         
         <a class="ml-1 badge badge-pill badge-secondary" href="/tags/terraform/">terraform</a>
-        
-        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/github/">github</a>
-        
-        
-      </div>
-    </article>
-    <hr/>
-    
-    
-    
-    <article>
-      <div class="row">
-        <h3><a href="/posts/2019.06/publish-docker-image-to-github-package-registry/">Publish Docker Image to GitHub Package Registry</a></h3>
-      </div>
-      <div class="row">
-        <span class="ml-1">Created At: 2019.06.29</span>
-        <span class="ml-1">Updated At: 2019.06.29</span>
-        
-      </div>
-      <div class="row">
-        5月に発表されたGitHub Package Registryのlimited public betaが通ったのでひとまずDockerイメージをpushしてみた。 How to Use D
-      </div>
-      <div class="row">
-        
-        
-        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/docker/">docker</a>
         
         <a class="ml-1 badge badge-pill badge-secondary" href="/tags/github/">github</a>
         

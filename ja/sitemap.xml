@@ -3,8 +3,23 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://mazgi.github.io/categories/</loc>
+    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/categories/"
+                />
+  </url>
+  
+  <url>
     <loc>https://mazgi.github.io/</loc>
-    <lastmod>2020-01-29T06:10:23+09:00</lastmod>
+    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -14,6 +29,71 @@
                 rel="alternate"
                 hreflang="ja"
                 href="https://mazgi.github.io/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/posts/</loc>
+    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/posts/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/tags/ssh/</loc>
+    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/tags/ssh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/tags/ssh/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/tags/</loc>
+    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/posts/2020.01/how-to-transfer-multiple-files-with-tar-and-multistage-ssh/</loc>
+    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/categories/tips/</loc>
+    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/categories/tips/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/categories/tips/"
                 />
   </url>
   
@@ -29,12 +109,12 @@
   
   <url>
     <loc>https://mazgi.github.io/tags/cargo-make/</loc>
-    <lastmod>2020-01-22T22:48:58+09:00</lastmod>
+    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/docker/</loc>
-    <lastmod>2020-01-22T22:48:58+09:00</lastmod>
+    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -49,92 +129,47 @@
   
   <url>
     <loc>https://mazgi.github.io/tags/jest/</loc>
-    <lastmod>2020-01-22T22:48:58+09:00</lastmod>
+    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/nextjs/</loc>
-    <lastmod>2020-01-22T22:48:58+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://mazgi.github.io/posts/</loc>
-    <lastmod>2020-01-22T22:48:58+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/posts/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://mazgi.github.io/tags/</loc>
-    <lastmod>2020-01-22T22:48:58+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/tags/"
-                />
+    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/test/</loc>
-    <lastmod>2020-01-22T22:48:58+09:00</lastmod>
+    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/typescript/</loc>
-    <lastmod>2020-01-22T22:48:58+09:00</lastmod>
+    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2020.01/dockerized-typescript-nextjs-project/</loc>
-    <lastmod>2020-01-22T22:48:58+09:00</lastmod>
+    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/web-frontend/</loc>
-    <lastmod>2020-01-22T22:48:58+09:00</lastmod>
+    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2020.01/dockerized-typescript-webapi-project/</loc>
-    <lastmod>2020-01-22T22:38:19+09:00</lastmod>
+    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/web-api/</loc>
-    <lastmod>2020-01-22T22:38:19+09:00</lastmod>
+    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2020.01/where-are-photoshop-2020-document-presets/</loc>
     <lastmod>2020-01-08T23:04:52+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://mazgi.github.io/categories/</loc>
-    <lastmod>2020-01-08T23:04:52+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/categories/"
-                />
   </url>
   
   <url>
@@ -153,23 +188,8 @@
   </url>
   
   <url>
-    <loc>https://mazgi.github.io/categories/tips/</loc>
-    <lastmod>2020-01-08T23:04:52+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/categories/tips/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/categories/tips/"
-                />
-  </url>
-  
-  <url>
     <loc>https://mazgi.github.io/tags/docker-compose/</loc>
-    <lastmod>2019-12-19T13:14:16+09:00</lastmod>
+    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -184,22 +204,22 @@
   
   <url>
     <loc>https://mazgi.github.io/tags/kubernetes/</loc>
-    <lastmod>2019-12-19T13:14:16+09:00</lastmod>
+    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/ml-engineering/</loc>
-    <lastmod>2019-12-19T13:14:16+09:00</lastmod>
+    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2019.12/why-choose-k8s-for-the-project/</loc>
-    <lastmod>2019-12-19T13:14:16+09:00</lastmod>
+    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/categories/event/</loc>
-    <lastmod>2019-12-19T13:14:16+09:00</lastmod>
+    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -214,7 +234,7 @@
   
   <url>
     <loc>https://mazgi.github.io/posts/2019.12/went-to-gcpug-tokyo-dec-2019/</loc>
-    <lastmod>2019-12-19T13:14:16+09:00</lastmod>
+    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
   </url>
   
   <url>
@@ -279,12 +299,12 @@
   
   <url>
     <loc>https://mazgi.github.io/tags/1password/</loc>
-    <lastmod>2019-10-11T11:36:02+09:00</lastmod>
+    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2019.07/how-to-use-1password-cli/</loc>
-    <lastmod>2019-10-11T11:36:02+09:00</lastmod>
+    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
   </url>
   
   <url>
@@ -689,42 +709,42 @@
   
   <url>
     <loc>https://mazgi.github.io/tags/airdrop/</loc>
-    <lastmod>2018-07-29T17:31:40+09:00</lastmod>
+    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2018.07/airdrop-sleeps-when-do-not-disturb-is-turned-on/</loc>
-    <lastmod>2018-07-29T17:31:40+09:00</lastmod>
+    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/do-not-disturb/</loc>
-    <lastmod>2018-07-29T17:31:40+09:00</lastmod>
+    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/ios/</loc>
-    <lastmod>2018-07-29T17:31:40+09:00</lastmod>
+    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/macos/</loc>
-    <lastmod>2018-07-29T17:31:40+09:00</lastmod>
+    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/tmux/</loc>
-    <lastmod>2018-09-22T18:21:34+09:00</lastmod>
+    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2018.07/useful-tmux-with-zsh/</loc>
-    <lastmod>2018-09-22T18:21:34+09:00</lastmod>
+    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/zsh/</loc>
-    <lastmod>2018-09-22T18:21:34+09:00</lastmod>
+    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
   </url>
   
   <url>
@@ -1029,22 +1049,22 @@
   
   <url>
     <loc>https://mazgi.github.io/posts/2016.09/held-hadoop-bootup-0/</loc>
-    <lastmod>2018-04-10T21:04:41+09:00</lastmod>
+    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2016.08/went-to-23x/</loc>
-    <lastmod>2018-04-10T21:27:34+09:00</lastmod>
+    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2016.07/interviewed-for-ansible/</loc>
-    <lastmod>2018-04-10T22:02:45+09:00</lastmod>
+    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2016.07/racktables-for-home-network/</loc>
-    <lastmod>2018-04-10T22:16:53+09:00</lastmod>
+    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
   </url>
   
   <url>

@@ -6,10 +6,19 @@
     <description>Recent content in Tags on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 08 Jan 2020 13:24:15 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jan 2020 03:53:07 +0000</lastBuildDate>
     
 	<atom:link href="https://mazgi.github.io/en/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ssh</title>
+      <link>https://mazgi.github.io/en/tags/ssh/</link>
+      <pubDate>Wed, 29 Jan 2020 03:53:07 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/en/tags/ssh/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>photoshop</title>

@@ -6,10 +6,22 @@
     <description>Recent content in Posts on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Jan 2020 12:22:49 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jan 2020 03:53:07 +0000</lastBuildDate>
     
 	<atom:link href="https://mazgi.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>tarとsshで複数ファイルやディレクトリを送る/取ってくる</title>
+      <link>https://mazgi.github.io/posts/2020.01/how-to-transfer-multiple-files-with-tar-and-multistage-ssh/</link>
+      <pubDate>Wed, 29 Jan 2020 03:53:07 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2020.01/how-to-transfer-multiple-files-with-tar-and-multistage-ssh/</guid>
+      <description>&lt;p&gt;「サーバーにディレクトリ丸っと送りたいんだけど、途中に踏み台サーバーが居て&amp;hellip;」よくあります。&lt;br /&gt;
+「え、ProxyCommand塞がれてるの??」とセキュリティ堅い環境でよく聞きます。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;tar+ssh&lt;/code&gt; で大抵回避できるのでコピペで使えるようにまとめました。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Web Frontend を Next.js &#43; TypeScript で書いて Docker でビルドする</title>
@@ -17,7 +29,16 @@
       <pubDate>Wed, 22 Jan 2020 12:22:49 +0000</pubDate>
       
       <guid>https://mazgi.github.io/posts/2020.01/dockerized-typescript-nextjs-project/</guid>
-      <description>「手っ取り早く Web インターフェースを手に入れる方法 2020」シリーズ(?)のBFF サンプルプロジェクト と同じように Web Frontend サンプルプロジェクトを作</description>
+      <description>&lt;p&gt;「手っ取り早く Web インターフェースを手に入れる方法 2020」シリーズ(?)の&lt;a href=&#34;https://mazgi.github.io/posts/2020.01/dockerized-typescript-webapi-project/&#34;&gt;BFF サンプルプロジェクト&lt;/a&gt; と同じように Web Frontend サンプルプロジェクトを作ってみました。&lt;/p&gt;
+
+&lt;p&gt;今回もプロジェクト構成やビルド方法の検証が主目的です。&lt;br /&gt;
+そのためアプリケーション自体は Docker イメージを実行すると&lt;a href=&#34;https://nextjs.org/&#34;&gt;Next.js&lt;/a&gt;の Web サーバーが起動しこんなページが表示されるだけのシンプルな機能しかありません。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shellsession&#34; data-lang=&#34;shellsession&#34;&gt;❯ docker run -it --rm -p 3000:3000 b2ee27d0d01d
+
+&amp;gt; @ start /app
+&amp;gt; next start
+
+&amp;gt; Ready on http://localhost:3000&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -26,7 +47,12 @@
       <pubDate>Thu, 16 Jan 2020 00:10:30 +0000</pubDate>
       
       <guid>https://mazgi.github.io/posts/2020.01/dockerized-typescript-webapi-project/</guid>
-      <description>「手っ取り早く Web インターフェースを手に入れる方法 2020」みたいなことを考えながら勉強のために BFF(Backend For Frontend) のサンプルプロジェクトを作ってみました。</description>
+      <description>&lt;p&gt;「手っ取り早く Web インターフェースを手に入れる方法 2020」みたいなことを考えながら勉強のために BFF(Backend For Frontend) のサンプルプロジェクトを作ってみました。&lt;br /&gt;
+ただしプロジェクト構成やビルド方法の検証が主なので BFF に特化した機能はなく、実行すると Express が起動してコンソールログが表示されるだけのアプリケーションです。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shellsession&#34; data-lang=&#34;shellsession&#34;&gt;❯ docker run -it --rm 19472c5d8df4
+💽 Loaded the configuration: version: 2020.1.0-default, baseVersion: 2020.1.0-default
+⚡ App is running at :4000 in production mode
+  Press CTRL-C to stop&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -44,7 +70,8 @@
       <pubDate>Wed, 18 Dec 2019 23:35:25 +0000</pubDate>
       
       <guid>https://mazgi.github.io/posts/2019.12/why-choose-k8s-for-the-project/</guid>
-      <description>これは「GCPUG Tokyo December 2019」の記事から「Why Kubernetes? Why not GAE or others?」部分を切り出した記事です。 本記事のコンテキストとして、イベントで</description>
+      <description>&lt;p&gt;これは&lt;a href=&#34;https://mazgi.github.io/posts/2019.12/went-to-gcpug-tokyo-dec-2019/&#34;&gt;「GCPUG Tokyo December 2019」の記事&lt;/a&gt;から「Why Kubernetes? Why not GAE or others?」部分を切り出した記事です。&lt;br /&gt;
+本記事のコンテキストとして、イベントでお話しさせていただいた資料「&lt;a href=&#34;https://speakerdeck.com/mazgi/fast-development-for-ml-web-service-on-gke-and-gcp&#34;&gt;ML アプリケーション短期開発 / Fast development for ML Web Service on GKE &amp;amp; GCP&lt;/a&gt;」」を事前にご参照いただけると幸いです。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -53,7 +80,9 @@
       <pubDate>Wed, 18 Dec 2019 22:35:25 +0000</pubDate>
       
       <guid>https://mazgi.github.io/posts/2019.12/went-to-gcpug-tokyo-dec-2019/</guid>
-      <description>昨日 12&amp;frasl;18 に開催された「GCPUG Tokyo December 2019」で「ML アプリケーション短期開発 / Fast development for ML Web Service on GKE &amp;amp; GCP」と題してお話しさせていただきました。</description>
+      <description>&lt;p&gt;昨日 &lt;sup&gt;12&lt;/sup&gt;&amp;frasl;&lt;sub&gt;18&lt;/sub&gt; に開催された「&lt;a href=&#34;https://gcpug-tokyo.connpass.com/event/152607/&#34;&gt;GCPUG Tokyo December 2019&lt;/a&gt;」で「&lt;a href=&#34;https://speakerdeck.com/mazgi/fast-development-for-ml-web-service-on-gke-and-gcp&#34;&gt;ML アプリケーション短期開発 / Fast development for ML Web Service on GKE &amp;amp; GCP&lt;/a&gt;」と題してお話しさせていただきました。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;3330c952865c46068644f1bc24042b2d&#34; data-ratio=&#34;1.77777777777778&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;</description>
     </item>
     
     <item>
@@ -71,7 +100,7 @@
       <pubDate>Sun, 07 Jul 2019 17:18:09 +0000</pubDate>
       
       <guid>https://mazgi.github.io/posts/2019.07/how-to-use-1password-cli/</guid>
-      <description>1Password Cliのサインイン方法を全く覚えられないのでメモ。 How to Install via Homebrew for macOS brew cask install 1password-cli で入ります。 $ brew cask info 1password-cli 1password-cli: 0.5.7 https://support.1password.com/command-line/ /usr/local/Caskroom/1password-cli/0.5.7 (2 files, 10.1MB) From: https://github.com/Homebrew/homebrew-cask/blob/master/Casks/1password-cli.rb ==&amp;gt; Name 1Password CLI ==&amp;gt; Artifacts op (Binary) from Zip archive Li</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://support.1password.com/command-line/&#34;&gt;1Password Cli&lt;/a&gt;のサインイン方法を全く覚えられないのでメモ。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -246,7 +275,8 @@
       <pubDate>Sat, 28 Jul 2018 16:01:14 +0900</pubDate>
       
       <guid>https://mazgi.github.io/posts/2018.07/airdrop-sleeps-when-do-not-disturb-is-turned-on/</guid>
-      <description>タイトルの通り。 Do Not Disturb をOnにするとAirDropの送り先リストから消えてしまう。 えー、AirDropが使えなくなった… &amp;mdash; Hidenori MATSUKI (@mazgi) July 27, 2018 こいつ</description>
+      <description>&lt;p&gt;タイトルの通り。&lt;br /&gt;
+&lt;code&gt;Do Not Disturb&lt;/code&gt; をOnにするとAirDropの送り先リストから消えてしまう。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -255,7 +285,15 @@
       <pubDate>Sat, 28 Jul 2018 13:57:40 +0900</pubDate>
       
       <guid>https://mazgi.github.io/posts/2018.07/useful-tmux-with-zsh/</guid>
-      <description>tl;dr Terminal.app や SSH のようなCUIで作業するときはtmux使うと便利 tmux 使うときはシェルを zsh にすると便利 サーバーサイド開発をやってる人には今更な話ですけど</description>
+      <description>&lt;h2 id=&#34;tl-dr&#34;&gt;tl;dr&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Terminal.app&lt;/code&gt; や &lt;code&gt;SSH&lt;/code&gt; のようなCUIで作業するときはtmux使うと便利&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tmux&lt;/code&gt; 使うときはシェルを &lt;code&gt;zsh&lt;/code&gt; にすると便利&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;サーバーサイド開発をやってる人には今更な話ですけど最近何度かオススメする機会があったので記事を書くことにしました。&lt;br /&gt;
+以下、私の使い方を説明しているだけで特に目新しい話はありません。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -363,7 +401,7 @@
       <pubDate>Mon, 12 Sep 2016 23:42:41 +0900</pubDate>
       
       <guid>https://mazgi.github.io/posts/2016.09/held-hadoop-bootup-0/</guid>
-      <description>@usaturnさんと一緒に「Hadoop黙々会」を始めました。 [](http://hadoop-bootup.connpass.com/event/39859/) 私の思惑としては「エンジニアたる者、何歳になっても学び続けないとね。でも機</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://twitter.com/usaturn&#34;&gt;@usaturn&lt;/a&gt;さんと一緒に「&lt;a href=&#34;http://hadoop-bootup.connpass.com/event/39859/&#34;&gt;Hadoop黙々会&lt;/a&gt;」を始めました。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -372,7 +410,15 @@
       <pubDate>Wed, 31 Aug 2016 23:30:00 +0900</pubDate>
       
       <guid>https://mazgi.github.io/posts/2016.08/went-to-23x/</guid>
-      <description>追記 当日のツイートをTogetterにまとめさせていただきました！ dots.さんで「NISSAN×DeNA 車は、モノ&amp;lt;プロダクト&amp;gt</description>
+      <description>&lt;h3 id=&#34;追記&#34;&gt;追記&lt;/h3&gt;
+
+&lt;p&gt;当日のツイートを&lt;a href=&#34;http://togetter.com/li/1018957&#34;&gt;Togetter&lt;/a&gt;にまとめさせていただきました！&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://eventdots.jp&#34;&gt;dots.&lt;/a&gt;さんで「NISSAN×DeNA　車は、モノ&amp;lt;プロダクト&amp;gt;なのか、コト&amp;lt;サービス&amp;gt;なのか。当事者たちから見える風景を語る。」というイベントが開催されたので「えっ？日産の方とDeNAの方がDeep Learningや機械学習について語るの！？」と分かりやすく興味喚起されて伺ってきました！&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://eventdots.jp/event/596516&#34;&gt;【満席につき、さらに50名増席します！】NISSAN×DeNA　車は、モノ&amp;lt;プロダクト&amp;gt;なのか、コト&amp;lt;サービス&amp;gt;なのか。当事者たちから見える風景を語る。｜IT勉強会ならTECH PLAY［テックプレイ］&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -381,7 +427,22 @@
       <pubDate>Fri, 15 Jul 2016 20:00:00 +0900</pubDate>
       
       <guid>https://mazgi.github.io/posts/2016.07/interviewed-for-ansible/</guid>
-      <description>追記 さくらのクラウドについて取材していただいた記事も公開されました！ 合わせてご覧ください！！ さくらのクラウドで「尖ったインフラ環境」を構築。</description>
+      <description>&lt;h3 id=&#34;追記&#34;&gt;追記&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://cloud.sakura.ad.jp&#34;&gt;さくらのクラウド&lt;/a&gt;について取材していただいた記事も公開されました！&lt;br /&gt;
+合わせてご覧ください！！&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://seleck.cc/article/459&#34;&gt;さくらのクラウドで「尖ったインフラ環境」を構築。カスタマイズに強い、その実力とは | SELECK&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;本編&#34;&gt;本編&lt;/h2&gt;
+
+&lt;p&gt;先日「&lt;a href=&#34;https://seleck.cc&#34;&gt;SELECK(セレック)&lt;/a&gt;」様に&lt;a href=&#34;https://www.ansible.com&#34;&gt;Ansible&lt;/a&gt;の活用事例をインタビューいただきました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://seleck.cc/article/437&#34;&gt;数百台のサーバー構成を「Ansible」で管理。大規模DSPシステムを支える技術とは | SELECK&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;素晴らしい記事にしていただいたのでせっかくなら何か&lt;s&gt;ネタになりそうな&lt;/s&gt;実例をご紹介したいと考えた結果(?)、&lt;s&gt;バッドノウハウが詰まった&lt;/s&gt;パーティションの切り方をご紹介したいと思います！&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -390,7 +451,14 @@
       <pubDate>Fri, 15 Jul 2016 07:00:00 +0900</pubDate>
       
       <guid>https://mazgi.github.io/posts/2016.07/racktables-for-home-network/</guid>
-      <description>個人で使っているさくらのクラウドアカウントでサーバーやスイッチが増えてしまいどれが何やら分からなくなってきたのでRackTablesで管理し</description>
+      <description>&lt;p&gt;個人で使っている&lt;a href=&#34;http://cloud.sakura.ad.jp&#34;&gt;さくらのクラウド&lt;/a&gt;アカウントでサーバーやスイッチが増えてしまいどれが何やら分からなくなってきたので&lt;a href=&#34;http://racktables.org/&#34;&gt;RackTables&lt;/a&gt;で管理しようと思い(立ってからだいぶ時間が)たちました。&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://mazgi.github.io/posts/2016.07/racktables-for-home-network/0001.png&#34; width=&#34;800&#34;/&gt; 
+&lt;/figure&gt;
+
+
+&lt;p&gt;ようやく重い腰を上げてRackTablesを運用し始めたのでメモしておきます。&lt;/p&gt;</description>
     </item>
     
     <item>
