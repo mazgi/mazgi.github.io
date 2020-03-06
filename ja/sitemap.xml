@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://mazgi.github.io/categories/</loc>
-    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
+    <lastmod>2020-03-07T02:15:16+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -19,7 +19,7 @@
   
   <url>
     <loc>https://mazgi.github.io/</loc>
-    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
+    <lastmod>2020-03-07T02:15:16+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -34,7 +34,7 @@
   
   <url>
     <loc>https://mazgi.github.io/posts/</loc>
-    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
+    <lastmod>2020-03-07T02:15:16+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -45,6 +45,26 @@
                 hreflang="ja"
                 href="https://mazgi.github.io/posts/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/categories/tips/</loc>
+    <lastmod>2020-03-07T02:15:16+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/categories/tips/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/categories/tips/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/posts/2020.03/critical-points-for-choose-the-displays-for-software-development-for-me/</loc>
+    <lastmod>2020-03-07T02:15:16+09:00</lastmod>
   </url>
   
   <url>
@@ -80,21 +100,6 @@
   <url>
     <loc>https://mazgi.github.io/posts/2020.01/how-to-transfer-multiple-files-with-tar-and-multistage-ssh/</loc>
     <lastmod>2020-01-29T14:43:27+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://mazgi.github.io/categories/tips/</loc>
-    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/categories/tips/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/categories/tips/"
-                />
   </url>
   
   <url>

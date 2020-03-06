@@ -6,10 +6,19 @@
     <description>Recent content in Posts on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 29 Jan 2020 03:53:07 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 06 Mar 2020 15:13:24 +0000</lastBuildDate>
     
 	<atom:link href="https://mazgi.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>私的ソフトウェア開発用ディスプレイ選択のポイント</title>
+      <link>https://mazgi.github.io/posts/2020.03/critical-points-for-choose-the-displays-for-software-development-for-me/</link>
+      <pubDate>Fri, 06 Mar 2020 15:13:24 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2020.03/critical-points-for-choose-the-displays-for-software-development-for-me/</guid>
+      <description>時は 2020 年 3 月、日本全国空前の WFH(在宅勤務)ブームで、自宅の作業環境を整えている方も多いのではないでしょうか。 IT エンジニアリングをされてい</description>
+    </item>
     
     <item>
       <title>tarとsshで複数ファイルやディレクトリを送る/取ってくる</title>
