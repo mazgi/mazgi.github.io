@@ -6,10 +6,46 @@
     <description>Recent content in Tags on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 29 Jan 2020 03:53:07 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 22 Apr 2020 10:51:55 +0000</lastBuildDate>
     
 	<atom:link href="https://mazgi.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>daas</title>
+      <link>https://mazgi.github.io/tags/daas/</link>
+      <pubDate>Wed, 22 Apr 2020 10:51:55 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/daas/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gcp</title>
+      <link>https://mazgi.github.io/tags/gcp/</link>
+      <pubDate>Wed, 22 Apr 2020 10:51:55 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/gcp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>google compute engine</title>
+      <link>https://mazgi.github.io/tags/google-compute-engine/</link>
+      <pubDate>Wed, 22 Apr 2020 10:51:55 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/google-compute-engine/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>windows</title>
+      <link>https://mazgi.github.io/tags/windows/</link>
+      <pubDate>Wed, 22 Apr 2020 10:51:55 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/windows/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>ssh</title>
@@ -197,15 +233,6 @@
       <pubDate>Sat, 22 Jun 2019 12:12:44 +0000</pubDate>
       
       <guid>https://mazgi.github.io/tags/file-system/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>gcp</title>
-      <link>https://mazgi.github.io/tags/gcp/</link>
-      <pubDate>Sat, 22 Jun 2019 12:12:44 +0000</pubDate>
-      
-      <guid>https://mazgi.github.io/tags/gcp/</guid>
       <description></description>
     </item>
     
