@@ -74,7 +74,7 @@
             <span class="nav-link disabled">Created At: 2020.05.07</span>
           </li>
           <li class="nav-item">
-            <span class="nav-link disabled">Updated At: 2020.05.07</span>
+            <span class="nav-link disabled">Updated At: 2020.05.09</span>
           </li>
           
         </ul>
@@ -121,8 +121,10 @@
 
 <h2 id="prepare">Prepare</h2>
 
-<p>まずはプロジェクトに合わせて <code>Dockerfile</code> を用意します。<br />
-今回は「GCP プロジェクトを Terraform で provisioning する」開発プロジェクトを想定してみます。</p>
+<p>今回は「GCP プロジェクトを Terraform で provisioning する」開発プロジェクトを想定してみます。<br />
+先々の CI/CD なども考慮し Terraform の適用には個人と紐づいた Google アカウントではなく専用のサービスアカウントを使うことにします。</p>
+
+<p>まずはプロジェクトに合わせて <code>Dockerfile</code> を用意します。</p>
 
 <script type="application/javascript" src="https://gist.github.com/mazgi/dc9ee43d86f3a93c3e193a093bfc362a.js?file=Dockerfile"></script>
 
@@ -140,7 +142,8 @@
 <li><code>terraform init</code></li>
 </ul>
 
-<p><code>docker-compose.yml</code>　内で参照している環境変数の値は例えば次のように <code>.env</code> ファイルに書いておけば <code>docker-compose up</code> した際に読み込まれます。</p>
+<p><code>docker-compose.yml</code>　内で参照している GCP サービスアカウントの鍵ファイルは <code>config/credentials/google-cloud-keyfile.json</code> に置くと <code>docker-compose up</code> 時に読み込まれ activate されます。<br />
+環境変数の値は例えば次のように <code>.env</code> ファイルに書いておけば同じく <code>docker-compose up</code> した際に読み込まれます。</p>
 
 <pre><code>TF_VAR_basename=example-service
 CLOUDSDK_CORE_PROJECT=example-gcp-project
@@ -150,6 +153,8 @@ PROJECT_UNIQUE_ID=example-1234
 
 <p><code>.env</code> ファイル生成自体もスクリプト化しても良いですし、Git で管理しても、逆にパスワードなどを描く場合は Git の管理から外しても良いでしょう。</p>
 
+<p>例えば本番と開発環境など&rdquo;よく似た&rdquo;複数の環境を構築し維持する場合は、鍵ファイルと <code>.env</code> ファイルの 2 つを差し替えるだけで対応できます。</p>
+
 <h2 id="how-to-provision">How to provision</h2>
 
 <p>このように Provisioning の仕組みを Docker と Docker Compose に閉じ込めることで、README に書く手順は数ステップで済みます。</p>
@@ -158,6 +163,13 @@ PROJECT_UNIQUE_ID=example-1234
 
 
 <h2 id="that-s-all">That&rsquo;s all</h2>
+
+<p>このように IaC 部分を Docker Compose 内で完結させることで、<a href="/posts/2020.01/dockerized-typescript-nextjs-project/">Web Frontend 開発環境を Docker 化する記事</a>や<a href="/posts/2020.01/dockerized-typescript-webapi-project/">BFF(Web API)開発環境を Docker 化する記事</a>のように開発環境で Docker Compose を使っているプロジェクトであれば、新たな技術スタックを必要な部分だけ学びながら環境構築を行えます。</p>
+
+<p>一方で Docker に依存してしまうので、プロジェクトやチームとして Docker 経験値が極めて少ない場合には先に Docker 自体に慣れる必要があるでしょう。</p>
+
+<p>また依存と手順の分岐が少ないので、一度この構成を経験した人が provisioning 部分を新たなプロジェクトに導入することも容易です。<br />
+特に IaaS や provisioning に関しては「もし x がまだであれば x1 を、済んでいれば x2 を実行」「y がローカルで 1 度実行されていれば y2 から行う」「z がリモートで済んでいれば z1 はスキップする」などなど手順が煩雑になりがちですが、この方法では極力そのような分岐を減らしています。</p>
 
 <p>もちろん、いわゆる「フルスタックエンジニア」のように全員が IaaS も運用可能な設計をしてビジネスロジックも Web Frontend も開発できる体制であればこのような工夫は必要ないのかもしれませんが、やはり多くの場合どこかに特化するもので個人的には到底全てを一人でやり切れる気はしません。</p>
 
