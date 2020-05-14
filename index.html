@@ -120,22 +120,50 @@
     
     <article>
       <div class="row">
+        <h3><a href="/posts/2020.05/provision-gce-webapp-environment-by-terraform/">Terraformを使ってWebアプリケーション運用向けにGCEを構築する</a></h3>
+      </div>
+      <div class="row">
+        <span class="ml-1">Created At: 2020.05.14</span>
+        <span class="ml-1">Updated At: 2020.05.14</span>
+        
+      </div>
+      <div class="row">
+        <p>普通の Web アプリケーション向け環境を Google Compute Engine(GCE)を中心に構成する、そんなよくあるシステムのサンプルです。<br />
+GKE とか登場しないトラディショナルな構成を先人の知恵に学びつつ機会がある度に色々考えますが、結局こんな感じになるのではと思ってます。</p>
+
+<p>ソースコードは<a href="https://github.com/mazgi-showcase/202005.gce-webapp-environment">mazgi-showcase/202005.gce-webapp-environment</a>にあります。</p>
+      </div>
+      <div class="row">
+        
+        
+        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/gcp/">gcp</a>
+        
+        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/google-compute-engine/">google compute engine</a>
+        
+        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/cloud-sql/">cloud sql</a>
+        
+        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/memorystore/">memorystore</a>
+        
+        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/terraform/">terraform</a>
+        
+        
+      </div>
+    </article>
+    <hr/>
+    
+    
+    
+    <article>
+      <div class="row">
         <h3><a href="/posts/2020.05/dockerized-provisioning-project/">ProvisioningをDocker Composeで完結させる</a></h3>
       </div>
       <div class="row">
         <span class="ml-1">Created At: 2020.05.07</span>
-        <span class="ml-1">Updated At: 2020.05.09</span>
+        <span class="ml-1">Updated At: 2020.05.14</span>
         
       </div>
       <div class="row">
         <p><a href="/posts/2020.01/dockerized-typescript-nextjs-project/">Web Frontend 開発環境を Docker 化する記事</a>や<a href="/posts/2020.01/dockerized-typescript-webapi-project/">BFF(Web API)開発環境を Docker 化する記事</a>に続いて「IaaS の Provisioning を Docker 化する」方法を考えてみました。</p>
-
-<p>PoC を目的としたプロジェクトなどで Web アプリケーション開発の初期のシステム設計だけサクッと手伝う場合などがあり、そのような場合は例えば IaaS 上のシステム設計と Provisioning くらいまでを考えて再現性を担保した上で共有できると後々プロジェクトとシステムの運用が省力化できます。</p>
-
-<p>ただ、IaaS 上でシステムを維持するためには各 IaaS の CLI や Terraform など、普段 Web アプリケーション開発を専門にしている方にはなじみが薄いツールが登場します。<br />
-これらのツールの導入手順を書くだけでも README が長くなってしまいますし、毎回同じような内容になりがちな手順は書く場合も読む場合も負担です。</p>
-
-<p>そこでそれらの IaaS 関連ツールや設定作業をコード化し隠蔽し「プロジェクトメンバー全員が IaaS 構成を 1 日程度のハンズオンで扱えるようになる」方法を考えてみました。</p>
       </div>
       <div class="row">
         
@@ -364,40 +392,6 @@
       <div class="row">
         <p>これは<a href="/posts/2019.12/went-to-gcpug-tokyo-dec-2019/">「GCPUG Tokyo December 2019」の記事</a>から「Why Kubernetes? Why not GAE or others?」部分を切り出した記事です。<br />
 本記事のコンテキストとして、イベントでお話しさせていただいた資料「<a href="https://speakerdeck.com/mazgi/fast-development-for-ml-web-service-on-gke-and-gcp">ML アプリケーション短期開発 / Fast development for ML Web Service on GKE &amp; GCP</a>」」を事前にご参照いただけると幸いです。</p>
-      </div>
-      <div class="row">
-        
-        
-        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/kubernetes/">kubernetes</a>
-        
-        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/docker/">docker</a>
-        
-        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/docker-compose/">docker-compose</a>
-        
-        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/ml-engineering/">ml-engineering</a>
-        
-        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/web-frontend/">web-frontend</a>
-        
-        
-      </div>
-    </article>
-    <hr/>
-    
-    
-    
-    <article>
-      <div class="row">
-        <h3><a href="/posts/2019.12/went-to-gcpug-tokyo-dec-2019/">「GCPUG Tokyo December 2019」でお話させていただきました</a></h3>
-      </div>
-      <div class="row">
-        <span class="ml-1">Created At: 2019.12.18</span>
-        <span class="ml-1">Updated At: 2020.01.29</span>
-        
-      </div>
-      <div class="row">
-        <p>昨日 <sup>12</sup>&frasl;<sub>18</sub> に開催された「<a href="https://gcpug-tokyo.connpass.com/event/152607/">GCPUG Tokyo December 2019</a>」で「<a href="https://speakerdeck.com/mazgi/fast-development-for-ml-web-service-on-gke-and-gcp">ML アプリケーション短期開発 / Fast development for ML Web Service on GKE &amp; GCP</a>」と題してお話しさせていただきました。</p>
-
-<script async class="speakerdeck-embed" data-id="3330c952865c46068644f1bc24042b2d" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
       </div>
       <div class="row">
         

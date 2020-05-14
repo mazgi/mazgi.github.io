@@ -17,14 +17,7 @@
       <pubDate>Thu, 07 May 2020 03:48:13 +0000</pubDate>
       
       <guid>https://mazgi.github.io/posts/2020.05/dockerized-provisioning-project/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://mazgi.github.io/posts/2020.01/dockerized-typescript-nextjs-project/&#34;&gt;Web Frontend 開発環境を Docker 化する記事&lt;/a&gt;や&lt;a href=&#34;https://mazgi.github.io/posts/2020.01/dockerized-typescript-webapi-project/&#34;&gt;BFF(Web API)開発環境を Docker 化する記事&lt;/a&gt;に続いて「IaaS の Provisioning を Docker 化する」方法を考えてみました。&lt;/p&gt;
-
-&lt;p&gt;PoC を目的としたプロジェクトなどで Web アプリケーション開発の初期のシステム設計だけサクッと手伝う場合などがあり、そのような場合は例えば IaaS 上のシステム設計と Provisioning くらいまでを考えて再現性を担保した上で共有できると後々プロジェクトとシステムの運用が省力化できます。&lt;/p&gt;
-
-&lt;p&gt;ただ、IaaS 上でシステムを維持するためには各 IaaS の CLI や Terraform など、普段 Web アプリケーション開発を専門にしている方にはなじみが薄いツールが登場します。&lt;br /&gt;
-これらのツールの導入手順を書くだけでも README が長くなってしまいますし、毎回同じような内容になりがちな手順は書く場合も読む場合も負担です。&lt;/p&gt;
-
-&lt;p&gt;そこでそれらの IaaS 関連ツールや設定作業をコード化し隠蔽し「プロジェクトメンバー全員が IaaS 構成を 1 日程度のハンズオンで扱えるようになる」方法を考えてみました。&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://mazgi.github.io/posts/2020.01/dockerized-typescript-nextjs-project/&#34;&gt;Web Frontend 開発環境を Docker 化する記事&lt;/a&gt;や&lt;a href=&#34;https://mazgi.github.io/posts/2020.01/dockerized-typescript-webapi-project/&#34;&gt;BFF(Web API)開発環境を Docker 化する記事&lt;/a&gt;に続いて「IaaS の Provisioning を Docker 化する」方法を考えてみました。&lt;/p&gt;</description>
     </item>
     
     <item>

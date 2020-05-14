@@ -6,10 +6,55 @@
     <description>Recent content in Tags on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 07 May 2020 03:48:13 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 14 May 2020 13:13:17 +0000</lastBuildDate>
     
 	<atom:link href="https://mazgi.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>cloud sql</title>
+      <link>https://mazgi.github.io/tags/cloud-sql/</link>
+      <pubDate>Thu, 14 May 2020 13:13:17 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/cloud-sql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gcp</title>
+      <link>https://mazgi.github.io/tags/gcp/</link>
+      <pubDate>Thu, 14 May 2020 13:13:17 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/gcp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>google compute engine</title>
+      <link>https://mazgi.github.io/tags/google-compute-engine/</link>
+      <pubDate>Thu, 14 May 2020 13:13:17 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/google-compute-engine/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>memorystore</title>
+      <link>https://mazgi.github.io/tags/memorystore/</link>
+      <pubDate>Thu, 14 May 2020 13:13:17 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/memorystore/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>terraform</title>
+      <link>https://mazgi.github.io/tags/terraform/</link>
+      <pubDate>Thu, 14 May 2020 13:13:17 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/tags/terraform/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>cargo-make</title>
@@ -35,24 +80,6 @@
       <pubDate>Wed, 22 Apr 2020 10:51:55 +0000</pubDate>
       
       <guid>https://mazgi.github.io/tags/daas/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>gcp</title>
-      <link>https://mazgi.github.io/tags/gcp/</link>
-      <pubDate>Wed, 22 Apr 2020 10:51:55 +0000</pubDate>
-      
-      <guid>https://mazgi.github.io/tags/gcp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>google compute engine</title>
-      <link>https://mazgi.github.io/tags/google-compute-engine/</link>
-      <pubDate>Wed, 22 Apr 2020 10:51:55 +0000</pubDate>
-      
-      <guid>https://mazgi.github.io/tags/google-compute-engine/</guid>
       <description></description>
     </item>
     
@@ -197,15 +224,6 @@
       <pubDate>Sun, 07 Jul 2019 17:18:09 +0000</pubDate>
       
       <guid>https://mazgi.github.io/tags/1password/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>terraform</title>
-      <link>https://mazgi.github.io/tags/terraform/</link>
-      <pubDate>Sat, 06 Jul 2019 15:10:53 +0000</pubDate>
-      
-      <guid>https://mazgi.github.io/tags/terraform/</guid>
       <description></description>
     </item>
     
