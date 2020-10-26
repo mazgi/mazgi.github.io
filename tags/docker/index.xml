@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>docker on mazgi.log</title>
@@ -6,11 +6,7 @@
     <description>Recent content in docker on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 07 May 2020 03:48:13 +0000</lastBuildDate>
-    
-	<atom:link href="https://mazgi.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 07 May 2020 03:48:13 +0000</lastBuildDate><atom:link href="https://mazgi.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ProvisioningをDocker Composeで完結させる</title>
       <link>https://mazgi.github.io/posts/2020.05/dockerized-provisioning-project/</link>
@@ -27,15 +23,16 @@
       
       <guid>https://mazgi.github.io/posts/2020.01/dockerized-typescript-nextjs-project/</guid>
       <description>&lt;p&gt;「手っ取り早く Web インターフェースを手に入れる方法 2020」シリーズ(?)の&lt;a href=&#34;https://mazgi.github.io/posts/2020.01/dockerized-typescript-webapi-project/&#34;&gt;BFF サンプルプロジェクト&lt;/a&gt; と同じように Web Frontend サンプルプロジェクトを作ってみました。&lt;/p&gt;
-
-&lt;p&gt;今回もプロジェクト構成やビルド方法の検証が主目的です。&lt;br /&gt;
+&lt;p&gt;今回もプロジェクト構成やビルド方法の検証が主目的です。&lt;br&gt;
 そのためアプリケーション自体は Docker イメージを実行すると&lt;a href=&#34;https://nextjs.org/&#34;&gt;Next.js&lt;/a&gt;の Web サーバーが起動しこんなページが表示されるだけのシンプルな機能しかありません。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shellsession&#34; data-lang=&#34;shellsession&#34;&gt;❯ docker run -it --rm -p 3000:3000 b2ee27d0d01d
+&lt;pre&gt;&lt;code class=&#34;language-shellsession&#34; data-lang=&#34;shellsession&#34;&gt;❯ docker run -it --rm -p 3000:3000 b2ee27d0d01d
 
 &amp;gt; @ start /app
 &amp;gt; next start
 
-&amp;gt; Ready on http://localhost:3000&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&amp;gt; Ready on http://localhost:3000
+
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     
     <item>
@@ -44,12 +41,13 @@
       <pubDate>Thu, 16 Jan 2020 00:10:30 +0000</pubDate>
       
       <guid>https://mazgi.github.io/posts/2020.01/dockerized-typescript-webapi-project/</guid>
-      <description>&lt;p&gt;「手っ取り早く Web インターフェースを手に入れる方法 2020」みたいなことを考えながら勉強のために BFF(Backend For Frontend) のサンプルプロジェクトを作ってみました。&lt;br /&gt;
+      <description>&lt;p&gt;「手っ取り早く Web インターフェースを手に入れる方法 2020」みたいなことを考えながら勉強のために BFF(Backend For Frontend) のサンプルプロジェクトを作ってみました。&lt;br&gt;
 ただしプロジェクト構成やビルド方法の検証が主なので BFF に特化した機能はなく、実行すると Express が起動してコンソールログが表示されるだけのアプリケーションです。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shellsession&#34; data-lang=&#34;shellsession&#34;&gt;❯ docker run -it --rm 19472c5d8df4
+&lt;pre&gt;&lt;code class=&#34;language-shellsession&#34; data-lang=&#34;shellsession&#34;&gt;❯ docker run -it --rm 19472c5d8df4
 💽 Loaded the configuration: version: 2020.1.0-default, baseVersion: 2020.1.0-default
 ⚡ App is running at :4000 in production mode
-  Press CTRL-C to stop&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+  Press CTRL-C to stop
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     
     <item>
@@ -58,7 +56,7 @@
       <pubDate>Wed, 18 Dec 2019 23:35:25 +0000</pubDate>
       
       <guid>https://mazgi.github.io/posts/2019.12/why-choose-k8s-for-the-project/</guid>
-      <description>&lt;p&gt;これは&lt;a href=&#34;https://mazgi.github.io/posts/2019.12/went-to-gcpug-tokyo-dec-2019/&#34;&gt;「GCPUG Tokyo December 2019」の記事&lt;/a&gt;から「Why Kubernetes? Why not GAE or others?」部分を切り出した記事です。&lt;br /&gt;
+      <description>&lt;p&gt;これは&lt;a href=&#34;https://mazgi.github.io/posts/2019.12/went-to-gcpug-tokyo-dec-2019/&#34;&gt;「GCPUG Tokyo December 2019」の記事&lt;/a&gt;から「Why Kubernetes? Why not GAE or others?」部分を切り出した記事です。&lt;br&gt;
 本記事のコンテキストとして、イベントでお話しさせていただいた資料「&lt;a href=&#34;https://speakerdeck.com/mazgi/fast-development-for-ml-web-service-on-gke-and-gcp&#34;&gt;ML アプリケーション短期開発 / Fast development for ML Web Service on GKE &amp;amp; GCP&lt;/a&gt;」」を事前にご参照いただけると幸いです。&lt;/p&gt;</description>
     </item>
     
@@ -68,9 +66,8 @@
       <pubDate>Wed, 18 Dec 2019 22:35:25 +0000</pubDate>
       
       <guid>https://mazgi.github.io/posts/2019.12/went-to-gcpug-tokyo-dec-2019/</guid>
-      <description>&lt;p&gt;昨日 &lt;sup&gt;12&lt;/sup&gt;&amp;frasl;&lt;sub&gt;18&lt;/sub&gt; に開催された「&lt;a href=&#34;https://gcpug-tokyo.connpass.com/event/152607/&#34;&gt;GCPUG Tokyo December 2019&lt;/a&gt;」で「&lt;a href=&#34;https://speakerdeck.com/mazgi/fast-development-for-ml-web-service-on-gke-and-gcp&#34;&gt;ML アプリケーション短期開発 / Fast development for ML Web Service on GKE &amp;amp; GCP&lt;/a&gt;」と題してお話しさせていただきました。&lt;/p&gt;
-
-&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;3330c952865c46068644f1bc24042b2d&#34; data-ratio=&#34;1.77777777777778&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;</description>
+      <description>&lt;p&gt;昨日 12/18 に開催された「&lt;a href=&#34;https://gcpug-tokyo.connpass.com/event/152607/&#34;&gt;GCPUG Tokyo December 2019&lt;/a&gt;」で「&lt;a href=&#34;https://speakerdeck.com/mazgi/fast-development-for-ml-web-service-on-gke-and-gcp&#34;&gt;ML アプリケーション短期開発 / Fast development for ML Web Service on GKE &amp;amp; GCP&lt;/a&gt;」と題してお話しさせていただきました。&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
     <item>
@@ -115,10 +112,9 @@
       <pubDate>Tue, 09 Apr 2019 19:26:15 +0000</pubDate>
       
       <guid>https://mazgi.github.io/posts/2019.04/published-dev-environments-for-webapps-with-docker-compose/</guid>
-      <description>&lt;p&gt;最近、Macなどのローカルには極力rbenvなどをインストールせずにできる限りDockerコンテナ上に開発環境を作ろうとしています。&lt;br /&gt;
-開発中は&lt;a href=&#34;https://docs.docker.com/compose/&#34;&gt;docker-compose&lt;/a&gt;を使っているのですが、いろいろなリポジトリに似たような &lt;code&gt;docker-compose.yml&lt;/code&gt; が増えてきたのでテンプレート代わりにまとめました。&lt;br /&gt;
+      <description>&lt;p&gt;最近、Macなどのローカルには極力rbenvなどをインストールせずにできる限りDockerコンテナ上に開発環境を作ろうとしています。&lt;br&gt;
+開発中は&lt;a href=&#34;https://docs.docker.com/compose/&#34;&gt;docker-compose&lt;/a&gt;を使っているのですが、いろいろなリポジトリに似たような &lt;code&gt;docker-compose.yml&lt;/code&gt; が増えてきたのでテンプレート代わりにまとめました。&lt;br&gt;
 リポジトリはこちら。&lt;/p&gt;
-
 &lt;p&gt;&lt;a href=&#34;https://github.com/mazgi-showcase/docker-compose.webapp-dev-envs/tree/2019.04.0&#34;&gt;GitHub repository&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     

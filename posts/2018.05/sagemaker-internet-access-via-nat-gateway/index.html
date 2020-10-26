@@ -78,7 +78,7 @@
             <span class="nav-link disabled">Created At: 2018.05.09</span>
           </li>
           <li class="nav-item">
-            <span class="nav-link disabled">Updated At: 2019.04.22</span>
+            <span class="nav-link disabled">Updated At: 2020.10.26</span>
           </li>
           
         </ul>
@@ -114,131 +114,102 @@
       <div class="row">
         <h1>Amazon SageMaker実運用: NAT GatewayでNotebookの接続元IPアドレスを固定する</h1>
       </div>
-      
-
-<p><a href="https://aws.amazon.com/jp/sagemaker/">Amazon SageMaker</a>を使っていてNotebookインスタンスから以下を行いたくなったので構成を考えてみた。</p>
-
+      <p><a href="https://aws.amazon.com/jp/sagemaker/">Amazon SageMaker</a>を使っていてNotebookインスタンスから以下を行いたくなったので構成を考えてみた。</p>
 <ul>
 <li>Notebookインスタンスから外部システムにアクセスしたい
-
 <ul>
 <li>対象のシステムはアクセス制限を行なっており接続元IPアドレスを固定したい</li>
-</ul></li>
+</ul>
+</li>
 <li>NotebookインスタンスマネージドNFSサービスである<a href="https://aws.amazon.com/jp/efs/">Amazon EFS</a>をマウントしたい
-
 <ul>
 <li>VPC内のインスタンスからはマウントできるよう設定済み</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2 id="解答">解答</h2>
-
 <p><a href="https://aws.amazon.com/blogs/machine-learning/">AWS Machine Learning Blog</a>に正解が書いてあった。</p>
-
 <ul>
 <li><a href="https://aws.amazon.com/blogs/machine-learning/customize-your-amazon-sagemaker-notebook-instances-with-lifecycle-configurations-and-the-option-to-disable-internet-access/">Customize your Amazon SageMaker notebook instances with lifecycle configurations and the option to disable internet access</a></li>
 <li><a href="https://aws.amazon.com/blogs/machine-learning/mount-an-efs-file-system-to-an-amazon-sagemaker-notebook-with-lifecycle-configurations/">Mount an EFS file system to an Amazon SageMaker notebook (with lifecycle configurations)</a></li>
 </ul>
-
 <h2 id="構成">構成</h2>
-
-<p>上記を踏まえて以下のような構成を考えた。<br />
+<p>上記を踏まえて以下のような構成を考えた。<br>
 <figure>
     <img src="/posts/2018.05/sagemaker-internet-access-via-nat-gateway/0000.png" width="800"/> 
 </figure>
 </p>
-
 <h3 id="notebookインスタンス">Notebookインスタンス</h3>
-
 <p>前提として人間がNotebookを使用する方法は当然ながらWeb UIを使う。</p>
-
-<h4 id="notebookインスタンスからのvpc内-外部アクセス">NotebookインスタンスからのVPC内/外部アクセス</h4>
-
-<p>後述するようにNotebook作成時にVPCとPrivate Subnetを紐づける。<br />
-すると指定したPrivate Subnet内にNICが作成され、NotebookインスタンスからVPC内にアクセスできるようになる。<br />
-NAT Gatewayを配置しているので、NAT GatewayにattachしたEIPアドレスを接続元として外部にアクセスできるようになる。<br />
+<h4 id="notebookインスタンスからのvpc内外部アクセス">NotebookインスタンスからのVPC内/外部アクセス</h4>
+<p>後述するようにNotebook作成時にVPCとPrivate Subnetを紐づける。<br>
+すると指定したPrivate Subnet内にNICが作成され、NotebookインスタンスからVPC内にアクセスできるようになる。<br>
+NAT Gatewayを配置しているので、NAT GatewayにattachしたEIPアドレスを接続元として外部にアクセスできるようになる。<br>
 ちなみにPublic SubnetからNAT Gatewayへのrouteは動作しない(?)ので、Private Subnetを紐づける必要がある。</p>
-
-<p>おそらくNotebookインスタンス自体は専用の不可視VPC内で起動されている。<br />
+<p>おそらくNotebookインスタンス自体は専用の不可視VPC内で起動されている。<br>
 (<code>No VPC</code> 設定でNotebookインスタンスを起動してもNICが2つ存在する,VPCを紐づけるとNICがもう1つ増える)</p>
-
 <p>なお接続対象の外部システムについてこの記事では触れないが、以下のような外部システムを想定している。</p>
-
 <ul>
 <li>接続元IPアドレスによるアクセス制限を行なっている</li>
 <li>HTTPSとSSH両方で接続したい</li>
 </ul>
-
 <h4 id="notebookインスタンスからのefsボリュームマウント">NotebookインスタンスからのEFSボリュームマウント</h4>
-
-<p>Private SubnetにNICが作成されているのでEFSボリュームにも問題なくアクセスできる。<br />
-Web UIからTerminal(こちらもWeb UI)を開いて <code>sudo mount ~</code> 等実行することもできる。<br />
+<p>Private SubnetにNICが作成されているのでEFSボリュームにも問題なくアクセスできる。<br>
+Web UIからTerminal(こちらもWeb UI)を開いて <code>sudo mount ~</code> 等実行することもできる。<br>
 しかし <code>Lifecycle configuration</code> なる便利機能が追加されており、スクリプトを指定するとある程度自動化できる。</p>
-
 <h3 id="その他gpuインスタンス他">その他GPUインスタンス他</h3>
-
-<p>既存のいわゆるAIプロジェクトで使うことを想定しているためGPUインスタンス等がある。<br />
+<p>既存のいわゆるAIプロジェクトで使うことを想定しているためGPUインスタンス等がある。<br>
 以下に少し情報がある。</p>
-
 <ul>
 <li><a href="https://speakerdeck.com/sonots/dena-aisisutemubu-niokerukuraudowohuo-yong-sitaji-jie-xue-xi-ji-pan-falsegou-zhu?slide=27">https://speakerdeck.com/sonots/dena-aisisutemubu-niokerukuraudowohuo-yong-sitaji-jie-xue-xi-ji-pan-falsegou-zhu?slide=27</a></li>
 <li><a href="https://speakerdeck.com/mazgi/dena-ai-cloud-infrastructure-2018-summary?slide=13">https://speakerdeck.com/mazgi/dena-ai-cloud-infrastructure-2018-summary?slide=13</a></li>
 </ul>
-
 <h4 id="elbとwebインスタンス">ELBとWebインスタンス</h4>
-
-<p>機械学習Jobの結果をWebから閲覧したいことがあるのでシンプルなWebサーバーを立てる。<br />
+<p>機械学習Jobの結果をWebから閲覧したいことがあるのでシンプルなWebサーバーを立てる。<br>
 ELBをPublic Subnetに、Webサーバー用のEC2インスタンスを同じAZのPrivate Subnet上に立てて追加してしまうのがAI R&amp;Dエンジニアにとって楽そう。</p>
-
 <h4 id="ssh接続について">SSH接続について</h4>
-
-<p>最初にSSHログインする踏み台ホストのIPアドレスは固定したいのでインスタンスにEIPを振る。<br />
-可用性を考えるとAZごとに配置すると安全。<br />
-万が一AZがダウンした場合は手動でログインし直すことにする。<br />
+<p>最初にSSHログインする踏み台ホストのIPアドレスは固定したいのでインスタンスにEIPを振る。<br>
+可用性を考えるとAZごとに配置すると安全。<br>
+万が一AZがダウンした場合は手動でログインし直すことにする。<br>
 ファイルはEFSに置いておけばそれほど困らない想定。</p>
-
 <h2 id="notebookインスタンス作成方法">Notebookインスタンス作成方法</h2>
-
-<p>以前より細かく設定できるようになっている。ありがたい。<br />
+<p>以前より細かく設定できるようになっている。ありがたい。<br>
 <figure>
     <img src="/posts/2018.05/sagemaker-internet-access-via-nat-gateway/0001.png" width="800"/> 
 </figure>
 </p>
-
 <p><a href="/posts/2018.03/setup-amazon-sagemaker/">2018.03に書いた記事</a>からの差分は以下。</p>
-
 <ul>
 <li>VPC
-
 <ul>
 <li>今回はVPCを選択する</li>
-</ul></li>
+</ul>
+</li>
 <li>Subnet(s)
-
 <ul>
 <li>現時点ではSubnetが1つ指定できる</li>
 <li>表示されたSubnetからPrivate Subnetを選ぶ</li>
-</ul></li>
+</ul>
+</li>
 <li>Security group(s)
-
 <ul>
 <li>必要なSecurity Groupを選ぶ</li>
 <li>こちらは複数選択できる</li>
-</ul></li>
+</ul>
+</li>
 <li>Direct internet access
-
 <ul>
 <li>NATでインターネットアクセスするので <code>Disable</code> を選ぶ</li>
-</ul></li>
+</ul>
+</li>
 <li>Lifecycle configuration
-
 <ul>
 <li>Notebookインスタンスの作成/起動時にスクリプトを実行できるようになっていた、便利</li>
 <li><del>(たぶん)次の記事で書く</del> =&gt; <a href="/posts/2018.05/sagemaker-efs-auto-mount-with-lifecycles-configuration/">書いた</a></li>
-</ul></li>
 </ul>
-
-<p>ということでSageMakerの進歩のおかげで希望に近い構成が作れそうな予感がしてきた。<br />
+</li>
+</ul>
+<p>ということでSageMakerの進歩のおかげで希望に近い構成が作れそうな予感がしてきた。<br>
 <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">おれは<br>kaggle masterに<br>sedとかmountとか<br>叩かせたくないんや！</p>&mdash; Hidenori Matsuki (@mazgi) <a href="https://twitter.com/mazgi/status/993505452838170625?ref_src=twsrc%5Etfw">May 7, 2018</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </p>
@@ -250,34 +221,22 @@ ELBをPublic Subnetに、Webサーバー用のEC2インスタンスを同じAZ�
   
   <h4><a href="/about/">About</a></h4>
   <p><strong>Hidenori MATSUKI</strong></p>
-
 <p>🍣 🍶</p>
-
 <p>another website: <a href="https://mazgi.com/">mazgi.com</a></p>
   
   <hr />
   <h4>TableOfContents</h4>
   <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#解答">解答</a></li>
-<li><a href="#構成">構成</a>
-<ul>
-<li><a href="#notebookインスタンス">Notebookインスタンス</a>
-<ul>
-<li><a href="#notebookインスタンスからのvpc内-外部アクセス">NotebookインスタンスからのVPC内/外部アクセス</a></li>
-<li><a href="#notebookインスタンスからのefsボリュームマウント">NotebookインスタンスからのEFSボリュームマウント</a></li>
-</ul></li>
-<li><a href="#その他gpuインスタンス他">その他GPUインスタンス他</a>
-<ul>
-<li><a href="#elbとwebインスタンス">ELBとWebインスタンス</a></li>
-<li><a href="#ssh接続について">SSH接続について</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#notebookインスタンス作成方法">Notebookインスタンス作成方法</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#解答">解答</a></li>
+    <li><a href="#構成">構成</a>
+      <ul>
+        <li><a href="#notebookインスタンス">Notebookインスタンス</a></li>
+        <li><a href="#その他gpuインスタンス他">その他GPUインスタンス他</a></li>
+      </ul>
+    </li>
+    <li><a href="#notebookインスタンス作成方法">Notebookインスタンス作成方法</a></li>
+  </ul>
 </nav>
   <hr />
   <h4><a href="/categories/">Categories</a></h4>

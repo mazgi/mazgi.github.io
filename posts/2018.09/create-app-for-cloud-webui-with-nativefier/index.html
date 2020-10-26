@@ -78,7 +78,7 @@
             <span class="nav-link disabled">Created At: 2018.09.17</span>
           </li>
           <li class="nav-item">
-            <span class="nav-link disabled">Updated At: 2018.09.18</span>
+            <span class="nav-link disabled">Updated At: 2020.10.26</span>
           </li>
           
         </ul>
@@ -119,47 +119,39 @@
     <img src="/posts/2018.09/create-app-for-cloud-webui-with-nativefier/0001.png" width="800"/> 
 </figure>
 </p>
-
-<p>GCPプロジェクトは <code>https://console.cloud.google.com/home/dashboard?project=YOUR_GCP_PROJECT_ID</code> のようにURLのクエリパラメタでタブごとに異なるプロジェクトを表示できるし、<br />
+<p>GCPプロジェクトは <code>https://console.cloud.google.com/home/dashboard?project=YOUR_GCP_PROJECT_ID</code> のようにURLのクエリパラメタでタブごとに異なるプロジェクトを表示できるし、<br>
 AWSアカウントもswitch roleを使えば複数のAWSアカウント間を行き来できる。</p>
-
 <p>しかし今回sandboxとして以下のようなことをやったので既存のブラウザセッションだとやはり不便。</p>
-
 <ul>
 <li>GCPプロジェクトはそもそものGoogleアカウントを新たに作った</li>
 <li>AWSアカウントはOrganizationを新しく作った</li>
 </ul>
-
 <p>しかし専用アプリにしてしまえばこのように異なるAWSアカウントを同時に使うことも可能、便利。
 <figure>
     <img src="/posts/2018.09/create-app-for-cloud-webui-with-nativefier/0002.png" width="800"/> 
 </figure>
 </p>
-
-<p><code>~/Library/Application Support/</code> を覗くとプロファイルディレクトリ自体が分かれているのがわかる。<br />
+<p><code>~/Library/Application Support/</code> を覗くとプロファイルディレクトリ自体が分かれているのがわかる。<br>
 <em>この記事を書き始めた時はアカウントを伏せていたのだけどめんどくさくなったのでそのまま</em></p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">$ ls -1d ~/Library/Application\ Support/{aws,gcp}*
+<pre><code class="language-shellsession" data-lang="shellsession">$ ls -1d ~/Library/Application\ Support/{aws,gcp}*
 /Users/hidenori.matsuki/Library/Application Support/aws-console-mazgi-sb-billing-aws-nativefier-8a6ce6/
 /Users/hidenori.matsuki/Library/Application Support/aws-console-mazgi-step-aws-nativefier-8a6ce6/
-/Users/hidenori.matsuki/Library/Application Support/gcp-console-mazgi-sandbox-nativefier-6d960f/</code></pre></div>
-<p>もう1つ嬉しい点としてはMacの場合Chromeでプロファイルを複数作っても <code>⌘+TAB</code> でWindowを切り替えることはできないが、Nativefierで作ったアプリならこのように切り替えできる。
+/Users/hidenori.matsuki/Library/Application Support/gcp-console-mazgi-sandbox-nativefier-6d960f/
+</code></pre><p>もう1つ嬉しい点としてはMacの場合Chromeでプロファイルを複数作っても <code>⌘+TAB</code> でWindowを切り替えることはできないが、Nativefierで作ったアプリならこのように切り替えできる。
 <figure>
     <img src="/posts/2018.09/create-app-for-cloud-webui-with-nativefier/0003.png" width="800"/> 
 </figure>
 </p>
-
-<p>Nativefierのインストールはnodeやnpmがあれば <code>npm install -g nativefier</code> するだけなのだが、最近は手元のMacから色々なソフトウェアを追い出したいと思っていて、Dockerコンテナ内に押し込んだ。<br />
+<p>Nativefierのインストールはnodeやnpmがあれば <code>npm install -g nativefier</code> するだけなのだが、最近は手元のMacから色々なソフトウェアを追い出したいと思っていて、Dockerコンテナ内に押し込んだ。<br>
 Dockerfileとimageはそれぞれ以下に公開している。</p>
-
 <ul>
 <li>Dockerfile: <a href="https://github.com/mazgi/docker.nativefier">https://github.com/mazgi/docker.nativefier</a></li>
 <li>Docker image: <a href="https://hub.docker.com/r/mazgi/nativefier/">https://hub.docker.com/r/mazgi/nativefier/</a></li>
 </ul>
-
-<p>DockerイメージはすでにDocker Hubに公開されているので、アプリを作る時は ⬇️ の1行を実行するだけ。<br />
+<p>DockerイメージはすでにDocker Hubに公開されているので、アプリを作る時は ⬇️ の1行を実行するだけ。<br>
 気をつけるポイントとしてはDocker(for Mac)はLinux VMで実行されているので <code>--platform osx</code> のようにプラットフォームを指定しないとLinux版のアプリが作られてしまう。</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">$ docker run -v $PWD:/pwd -it mazgi/nativefier nativefier --platform osx --counter --bounce --name &#34;AWS Console(mazgi-sb-billing-aws)&#34; console.aws.amazon.com</code></pre></div>
-<p>このように実行したディレクトリ内に各アプリができあがる。
+<pre><code class="language-shellsession" data-lang="shellsession">$ docker run -v $PWD:/pwd -it mazgi/nativefier nativefier --platform osx --counter --bounce --name &quot;AWS Console(mazgi-sb-billing-aws)&quot; console.aws.amazon.com
+</code></pre><p>このように実行したディレクトリ内に各アプリができあがる。
 <figure>
     <img src="/posts/2018.09/create-app-for-cloud-webui-with-nativefier/0004.png" width="800"/> 
 </figure>
@@ -172,14 +164,12 @@ Dockerfileとimageはそれぞれ以下に公開している。</p>
   
   <h4><a href="/about/">About</a></h4>
   <p><strong>Hidenori MATSUKI</strong></p>
-
 <p>🍣 🍶</p>
-
 <p>another website: <a href="https://mazgi.com/">mazgi.com</a></p>
   
   <hr />
   <h4>TableOfContents</h4>
-  
+  <nav id="TableOfContents"></nav>
   <hr />
   <h4><a href="/categories/">Categories</a></h4>
   

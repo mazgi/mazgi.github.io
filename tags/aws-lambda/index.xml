@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>aws lambda on mazgi.log</title>
@@ -6,11 +6,7 @@
     <description>Recent content in aws lambda on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 17 Apr 2018 00:12:10 +0900</lastBuildDate>
-    
-	<atom:link href="https://mazgi.github.io/tags/aws-lambda/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 17 Apr 2018 00:12:10 +0900</lastBuildDate><atom:link href="https://mazgi.github.io/tags/aws-lambda/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>S3 &#43; Lambda &#43; SQSでファイル処理する仕組みをTerraformで構築する</title>
       <link>https://mazgi.github.io/posts/2018.04/processing-with-s3-lambda-sqs/</link>

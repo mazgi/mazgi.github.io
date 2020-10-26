@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tips on mazgi.log</title>
@@ -6,11 +6,7 @@
     <description>Recent content in tips on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 06 Mar 2020 15:13:24 +0000</lastBuildDate>
-    
-	<atom:link href="https://mazgi.github.io/categories/tips/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 06 Mar 2020 15:13:24 +0000</lastBuildDate><atom:link href="https://mazgi.github.io/categories/tips/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>私的ソフトウェア開発用ディスプレイ選択のポイント</title>
       <link>https://mazgi.github.io/posts/2020.03/critical-points-for-choose-the-displays-for-software-development-for-me/</link>
@@ -26,9 +22,8 @@
       <pubDate>Wed, 29 Jan 2020 03:53:07 +0000</pubDate>
       
       <guid>https://mazgi.github.io/posts/2020.01/how-to-transfer-multiple-files-with-tar-and-multistage-ssh/</guid>
-      <description>&lt;p&gt;「サーバーにディレクトリ丸っと送りたいんだけど、途中に踏み台サーバーが居て&amp;hellip;」よくあります。&lt;br /&gt;
+      <description>&lt;p&gt;「サーバーにディレクトリ丸っと送りたいんだけど、途中に踏み台サーバーが居て&amp;hellip;」よくあります。&lt;br&gt;
 「え、ProxyCommand塞がれてるの??」とセキュリティ堅い環境でよく聞きます。&lt;/p&gt;
-
 &lt;p&gt;&lt;code&gt;tar+ssh&lt;/code&gt; で大抵回避できるのでコピペで使えるようにまとめました。&lt;/p&gt;</description>
     </item>
     
@@ -56,7 +51,7 @@
       <pubDate>Sat, 28 Jul 2018 16:01:14 +0900</pubDate>
       
       <guid>https://mazgi.github.io/posts/2018.07/airdrop-sleeps-when-do-not-disturb-is-turned-on/</guid>
-      <description>&lt;p&gt;タイトルの通り。&lt;br /&gt;
+      <description>&lt;p&gt;タイトルの通り。&lt;br&gt;
 &lt;code&gt;Do Not Disturb&lt;/code&gt; をOnにするとAirDropの送り先リストから消えてしまう。&lt;/p&gt;</description>
     </item>
     
@@ -66,14 +61,12 @@
       <pubDate>Sat, 28 Jul 2018 13:57:40 +0900</pubDate>
       
       <guid>https://mazgi.github.io/posts/2018.07/useful-tmux-with-zsh/</guid>
-      <description>&lt;h2 id=&#34;tl-dr&#34;&gt;tl;dr&lt;/h2&gt;
-
+      <description>&lt;h2 id=&#34;tldr&#34;&gt;tl;dr&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;Terminal.app&lt;/code&gt; や &lt;code&gt;SSH&lt;/code&gt; のようなCUIで作業するときはtmux使うと便利&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;tmux&lt;/code&gt; 使うときはシェルを &lt;code&gt;zsh&lt;/code&gt; にすると便利&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;サーバーサイド開発をやってる人には今更な話ですけど最近何度かオススメする機会があったので記事を書くことにしました。&lt;br /&gt;
+&lt;p&gt;サーバーサイド開発をやってる人には今更な話ですけど最近何度かオススメする機会があったので記事を書くことにしました。&lt;br&gt;
 以下、私の使い方を説明しているだけで特に目新しい話はありません。&lt;/p&gt;</description>
     </item>
     

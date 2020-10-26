@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>gcp on mazgi.log</title>
@@ -6,20 +6,15 @@
     <description>Recent content in gcp on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 14 May 2020 13:13:17 +0000</lastBuildDate>
-    
-	<atom:link href="https://mazgi.github.io/tags/gcp/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 14 May 2020 13:13:17 +0000</lastBuildDate><atom:link href="https://mazgi.github.io/tags/gcp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Terraformを使ってWebアプリケーション運用向けにGCEを構築する</title>
       <link>https://mazgi.github.io/posts/2020.05/provision-gce-webapp-environment-by-terraform/</link>
       <pubDate>Thu, 14 May 2020 13:13:17 +0000</pubDate>
       
       <guid>https://mazgi.github.io/posts/2020.05/provision-gce-webapp-environment-by-terraform/</guid>
-      <description>&lt;p&gt;普通の Web アプリケーション向け環境を Google Compute Engine(GCE)を中心に構成する、そんなよくあるシステムのサンプルです。&lt;br /&gt;
+      <description>&lt;p&gt;普通の Web アプリケーション向け環境を Google Compute Engine(GCE)を中心に構成する、そんなよくあるシステムのサンプルです。&lt;br&gt;
 GKE とか登場しないトラディショナルな構成を先人の知恵に学びつつ機会がある度に色々考えますが、結局こんな感じになるのではと思ってます。&lt;/p&gt;
-
 &lt;p&gt;ソースコードは&lt;a href=&#34;https://github.com/mazgi-showcase/202005.gce-webapp-environment&#34;&gt;mazgi-showcase/202005.gce-webapp-environment&lt;/a&gt;にあります。&lt;/p&gt;</description>
     </item>
     
@@ -47,7 +42,7 @@ GKE とか登場しないトラディショナルな構成を先人の知恵に�
       <pubDate>Tue, 11 Jun 2019 14:27:24 +0000</pubDate>
       
       <guid>https://mazgi.github.io/posts/2019.06/the-simplest-ml-environment-with-terraform-on-gcp/</guid>
-      <description>普段の仕事でやっているML Ops業務の振り返りを兼ねて最低限必要そうなVPC構成用のTerraform Module for GCPです。 Moduleには&amp;rd</description>
+      <description>普段の仕事でやっているML Ops業務の振り返りを兼ねて最低限必要そうなVPC構成用のTerraform Module for GCPです。 Moduleには&amp;qu</description>
     </item>
     
   </channel>

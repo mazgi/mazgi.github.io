@@ -78,7 +78,7 @@
             <span class="nav-link disabled">Created At: 2018.05.10</span>
           </li>
           <li class="nav-item">
-            <span class="nav-link disabled">Updated At: 2019.04.22</span>
+            <span class="nav-link disabled">Updated At: 2020.10.26</span>
           </li>
           
         </ul>
@@ -114,88 +114,69 @@
       <div class="row">
         <h1>Amazon SageMaker実運用: &#34;Lifecycle Configuration&#34;でEFSを自動マウント</h1>
       </div>
-      
-
-<p><a href="/posts/2018.05/sagemaker-internet-access-via-nat-gateway/">前回の記事</a>に続いてマネージドJupyterサービス<a href="https://aws.amazon.com/jp/sagemaker/">Amazon SageMaker</a>のNotebookインスタンスにEFSのボリュームを自動マウントする。</p>
-
-<p>なおこの発言の真意ですが、<a href="https://dena.ai/kaggle/">Kaggle社内ランク制度</a>なるものができ部内にKagglerな方が増える今日この頃、インフラ的な細かな作業に気持ちと時間を取られずにスコアを叩き出していただきたいという意図です。<br />
-SageMakerのTerminalすら開かずに使えてほしい。<br />
+      <p><a href="/posts/2018.05/sagemaker-internet-access-via-nat-gateway/">前回の記事</a>に続いてマネージドJupyterサービス<a href="https://aws.amazon.com/jp/sagemaker/">Amazon SageMaker</a>のNotebookインスタンスにEFSのボリュームを自動マウントする。</p>
+<p>なおこの発言の真意ですが、<a href="https://dena.ai/kaggle/">Kaggle社内ランク制度</a>なるものができ部内にKagglerな方が増える今日この頃、インフラ的な細かな作業に気持ちと時間を取られずにスコアを叩き出していただきたいという意図です。<br>
+SageMakerのTerminalすら開かずに使えてほしい。<br>
 <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">おれは<br>kaggle masterに<br>sedとかmountとか<br>叩かせたくないんや！</p>&mdash; Hidenori Matsuki (@mazgi) <a href="https://twitter.com/mazgi/status/993505452838170625?ref_src=twsrc%5Etfw">May 7, 2018</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </p>
-
 <h2 id="解答">解答</h2>
-
-<p>前回&rdquo;AWS Machine Learning Blog&rdquo;の記事をご紹介したが、<a href="https://aws.amazon.com/jp/blogs/news/">Amazon Web Services ブログ</a>に和訳があった。</p>
-
+<p>前回&quot;AWS Machine Learning Blog&quot;の記事をご紹介したが、<a href="https://aws.amazon.com/jp/blogs/news/">Amazon Web Services ブログ</a>に和訳があった。</p>
 <ul>
 <li><a href="https://aws.amazon.com/jp/blogs/news/customize-your-amazon-sagemaker-notebook-instances-with-lifecycle-configurations-and-the-option-to-disable-internet-access/">ライフサイクル構成およびインターネットアクセスを無効にするオプションを使用して Amazon SageMaker ノートブックインスタンスをカスタマイズする</a></li>
 <li><a href="https://aws.amazon.com/jp/blogs/news/mount-an-efs-file-system-to-an-amazon-sagemaker-notebook-with-lifecycle-configurations/">EFS ファイルシステムを Amazon SageMaker ノートブックに (ライフサイクル設定を含めて) マウントする</a></li>
 </ul>
-
 <h2 id="notebookインスタンス作成時">Notebookインスタンス作成時</h2>
-
 <p>前回の記事通りだが、Notebookインスタンス作成時に以下を指定することで、EFSボリュームがマウントされた状態でNotebookインスタンスが起動されるようになる。</p>
-
 <figure>
     <img src="/posts/2018.05/sagemaker-efs-auto-mount-with-lifecycles-configuration/0000.png" width="800"/> 
 </figure>
 
-
 <ul>
 <li>VPC, Subnet(s), Security group(2), Direct internet access
-
 <ul>
 <li><a href="/posts/2018.05/sagemaker-internet-access-via-nat-gateway/">前回の記事</a>通りに設定</li>
-</ul></li>
+</ul>
+</li>
 <li>Lifecycle configuration
-
 <ul>
 <li>今回は <code>mount-efs</code> を選択するとEFSボリュームがマウントされるようにする</li>
-</ul></li>
 </ul>
-
-<h2 id="lifecycle-configuration-スクリプトの作成-登録">Lifecycle configuration スクリプトの作成/登録</h2>
-
+</li>
+</ul>
+<h2 id="lifecycle-configuration-スクリプトの作成登録">Lifecycle configuration スクリプトの作成/登録</h2>
 <p>順番が前後するが、あらかじめ以下のようにLifecycle configuration スクリプトを作成し登録しておく。</p>
-
 <ol>
 <li>SageMakerのダッシュボードから <code>Lifecycle configurations</code> の画面に移動する</li>
 <li><code>Create configuration</code> ボタンをクリックする</li>
 </ol>
-
-<p>すると以下のようなスクリプトを登録できる画面になる。<br />
+<p>すると以下のようなスクリプトを登録できる画面になる。<br>
 <figure>
     <img src="/posts/2018.05/sagemaker-efs-auto-mount-with-lifecycles-configuration/0001.png" width="800"/> 
 </figure>
 </p>
-
-<p><code>Name</code> は <code>mount-efs</code> と入力。<br />
-スクリプトのタイプは、Notebookインスタンス起動時に毎回実行されてほしいので <code>Start notebook</code> を選ぶ。<br />
+<p><code>Name</code> は <code>mount-efs</code> と入力。<br>
+スクリプトのタイプは、Notebookインスタンス起動時に毎回実行されてほしいので <code>Start notebook</code> を選ぶ。<br>
 スクリプトの内容は以下のようにした。</p>
-
 <ol>
 <li>マウントポイントとなるディレクトリを作成</li>
-
-<li><p>EFSボリュームをマウント</p>
+<li>EFSボリュームをマウント</li>
+</ol>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#007020">#!/bin/bash
 </span><span style="color:#007020"></span>
 <span style="color:#007020">set</span> -e
 
 sudo mkdir -p /mnt/nfs
 sudo mount -t nfs <span style="color:#4070a0;font-weight:bold">\
-</span><span style="color:#4070a0;font-weight:bold"></span>-o rw,relatime,nfsvers<span style="color:#666">=</span><span style="color:#40a070">4</span>.1,rsize<span style="color:#666">=</span><span style="color:#40a070">1048576</span>,wsize<span style="color:#666">=</span><span style="color:#40a070">1048576</span>,hard,timeo<span style="color:#666">=</span><span style="color:#40a070">600</span>,retrans<span style="color:#666">=</span><span style="color:#40a070">2</span> <span style="color:#4070a0;font-weight:bold">\
-</span><span style="color:#4070a0;font-weight:bold"></span>fs-********.efs.us-east-1.amazonaws.com:/ /mnt/nfs</code></pre></div></li>
-</ol>
-
-<p><code>Create configuration</code> ボタンをクリックすると以下のようにスクリプトが登録される。<br />
+</span><span style="color:#4070a0;font-weight:bold"></span>-o rw,relatime,nfsvers<span style="color:#666">=</span>4.1,rsize<span style="color:#666">=</span>1048576,wsize<span style="color:#666">=</span>1048576,hard,timeo<span style="color:#666">=</span>600,retrans<span style="color:#666">=</span><span style="color:#40a070">2</span> <span style="color:#4070a0;font-weight:bold">\
+</span><span style="color:#4070a0;font-weight:bold"></span>fs-********.efs.us-east-1.amazonaws.com:/ /mnt/nfs
+</code></pre></div><p><code>Create configuration</code> ボタンをクリックすると以下のようにスクリプトが登録される。<br>
 <figure>
     <img src="/posts/2018.05/sagemaker-efs-auto-mount-with-lifecycles-configuration/0002.png" width="800"/> 
 </figure>
 </p>
-
-<p>以上で、SageMakerのTerminalすら開かずにEFSボリュームがマウントされるようになった。<br />
-いずれこれらを全てTerraformでできるようになってほしいと願いながらIssueをウォッチしている。<br />
+<p>以上で、SageMakerのTerminalすら開かずにEFSボリュームがマウントされるようになった。<br>
+いずれこれらを全てTerraformでできるようになってほしいと願いながらIssueをウォッチしている。<br>
 <a href="https://github.com/terraform-providers/terraform-provider-aws/issues/2493">https://github.com/terraform-providers/terraform-provider-aws/issues/2493</a></p>
 
     </article>
@@ -205,22 +186,17 @@ sudo mount -t nfs <span style="color:#4070a0;font-weight:bold">\
   
   <h4><a href="/about/">About</a></h4>
   <p><strong>Hidenori MATSUKI</strong></p>
-
 <p>🍣 🍶</p>
-
 <p>another website: <a href="https://mazgi.com/">mazgi.com</a></p>
   
   <hr />
   <h4>TableOfContents</h4>
   <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#解答">解答</a></li>
-<li><a href="#notebookインスタンス作成時">Notebookインスタンス作成時</a></li>
-<li><a href="#lifecycle-configuration-スクリプトの作成-登録">Lifecycle configuration スクリプトの作成/登録</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#解答">解答</a></li>
+    <li><a href="#notebookインスタンス作成時">Notebookインスタンス作成時</a></li>
+    <li><a href="#lifecycle-configuration-スクリプトの作成登録">Lifecycle configuration スクリプトの作成/登録</a></li>
+  </ul>
 </nav>
   <hr />
   <h4><a href="/categories/">Categories</a></h4>

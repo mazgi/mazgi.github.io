@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>test on mazgi.log</title>
@@ -6,11 +6,7 @@
     <description>Recent content in test on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Jan 2020 12:22:49 +0000</lastBuildDate>
-    
-	<atom:link href="https://mazgi.github.io/tags/test/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 22 Jan 2020 12:22:49 +0000</lastBuildDate><atom:link href="https://mazgi.github.io/tags/test/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Web Frontend を Next.js &#43; TypeScript で書いて Docker でビルドする</title>
       <link>https://mazgi.github.io/posts/2020.01/dockerized-typescript-nextjs-project/</link>
@@ -18,15 +14,16 @@
       
       <guid>https://mazgi.github.io/posts/2020.01/dockerized-typescript-nextjs-project/</guid>
       <description>&lt;p&gt;「手っ取り早く Web インターフェースを手に入れる方法 2020」シリーズ(?)の&lt;a href=&#34;https://mazgi.github.io/posts/2020.01/dockerized-typescript-webapi-project/&#34;&gt;BFF サンプルプロジェクト&lt;/a&gt; と同じように Web Frontend サンプルプロジェクトを作ってみました。&lt;/p&gt;
-
-&lt;p&gt;今回もプロジェクト構成やビルド方法の検証が主目的です。&lt;br /&gt;
+&lt;p&gt;今回もプロジェクト構成やビルド方法の検証が主目的です。&lt;br&gt;
 そのためアプリケーション自体は Docker イメージを実行すると&lt;a href=&#34;https://nextjs.org/&#34;&gt;Next.js&lt;/a&gt;の Web サーバーが起動しこんなページが表示されるだけのシンプルな機能しかありません。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shellsession&#34; data-lang=&#34;shellsession&#34;&gt;❯ docker run -it --rm -p 3000:3000 b2ee27d0d01d
+&lt;pre&gt;&lt;code class=&#34;language-shellsession&#34; data-lang=&#34;shellsession&#34;&gt;❯ docker run -it --rm -p 3000:3000 b2ee27d0d01d
 
 &amp;gt; @ start /app
 &amp;gt; next start
 
-&amp;gt; Ready on http://localhost:3000&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&amp;gt; Ready on http://localhost:3000
+
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     
   </channel>

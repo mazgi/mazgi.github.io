@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>analytics-infrastructure on mazgi.log</title>
@@ -6,11 +6,7 @@
     <description>Recent content in analytics-infrastructure on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 27 Apr 2019 01:03:05 +0000</lastBuildDate>
-    
-	<atom:link href="https://mazgi.github.io/tags/analytics-infrastructure/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 27 Apr 2019 01:03:05 +0000</lastBuildDate><atom:link href="https://mazgi.github.io/tags/analytics-infrastructure/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>仕事の振り返り(2019.04)</title>
       <link>https://mazgi.github.io/posts/2019.04/my-role-in-dena-was-simplified/</link>

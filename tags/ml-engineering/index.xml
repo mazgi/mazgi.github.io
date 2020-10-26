@@ -1,23 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ml engineering on mazgi.log</title>
+    <title>ml-engineering on mazgi.log</title>
     <link>https://mazgi.github.io/tags/ml-engineering/</link>
-    <description>Recent content in ml engineering on mazgi.log</description>
+    <description>Recent content in ml-engineering on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 18 Dec 2019 23:35:25 +0000</lastBuildDate>
-    
-	<atom:link href="https://mazgi.github.io/tags/ml-engineering/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 18 Dec 2019 23:35:25 +0000</lastBuildDate><atom:link href="https://mazgi.github.io/tags/ml-engineering/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>なぜそのプロジェクトでKubernetesが選択されたか</title>
       <link>https://mazgi.github.io/posts/2019.12/why-choose-k8s-for-the-project/</link>
       <pubDate>Wed, 18 Dec 2019 23:35:25 +0000</pubDate>
       
       <guid>https://mazgi.github.io/posts/2019.12/why-choose-k8s-for-the-project/</guid>
-      <description>&lt;p&gt;これは&lt;a href=&#34;https://mazgi.github.io/posts/2019.12/went-to-gcpug-tokyo-dec-2019/&#34;&gt;「GCPUG Tokyo December 2019」の記事&lt;/a&gt;から「Why Kubernetes? Why not GAE or others?」部分を切り出した記事です。&lt;br /&gt;
+      <description>&lt;p&gt;これは&lt;a href=&#34;https://mazgi.github.io/posts/2019.12/went-to-gcpug-tokyo-dec-2019/&#34;&gt;「GCPUG Tokyo December 2019」の記事&lt;/a&gt;から「Why Kubernetes? Why not GAE or others?」部分を切り出した記事です。&lt;br&gt;
 本記事のコンテキストとして、イベントでお話しさせていただいた資料「&lt;a href=&#34;https://speakerdeck.com/mazgi/fast-development-for-ml-web-service-on-gke-and-gcp&#34;&gt;ML アプリケーション短期開発 / Fast development for ML Web Service on GKE &amp;amp; GCP&lt;/a&gt;」」を事前にご参照いただけると幸いです。&lt;/p&gt;</description>
     </item>
     
@@ -27,9 +23,8 @@
       <pubDate>Wed, 18 Dec 2019 22:35:25 +0000</pubDate>
       
       <guid>https://mazgi.github.io/posts/2019.12/went-to-gcpug-tokyo-dec-2019/</guid>
-      <description>&lt;p&gt;昨日 &lt;sup&gt;12&lt;/sup&gt;&amp;frasl;&lt;sub&gt;18&lt;/sub&gt; に開催された「&lt;a href=&#34;https://gcpug-tokyo.connpass.com/event/152607/&#34;&gt;GCPUG Tokyo December 2019&lt;/a&gt;」で「&lt;a href=&#34;https://speakerdeck.com/mazgi/fast-development-for-ml-web-service-on-gke-and-gcp&#34;&gt;ML アプリケーション短期開発 / Fast development for ML Web Service on GKE &amp;amp; GCP&lt;/a&gt;」と題してお話しさせていただきました。&lt;/p&gt;
-
-&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;3330c952865c46068644f1bc24042b2d&#34; data-ratio=&#34;1.77777777777778&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;</description>
+      <description>&lt;p&gt;昨日 12/18 に開催された「&lt;a href=&#34;https://gcpug-tokyo.connpass.com/event/152607/&#34;&gt;GCPUG Tokyo December 2019&lt;/a&gt;」で「&lt;a href=&#34;https://speakerdeck.com/mazgi/fast-development-for-ml-web-service-on-gke-and-gcp&#34;&gt;ML アプリケーション短期開発 / Fast development for ML Web Service on GKE &amp;amp; GCP&lt;/a&gt;」と題してお話しさせていただきました。&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
     <item>
@@ -47,7 +42,7 @@
       <pubDate>Tue, 11 Jun 2019 14:27:24 +0000</pubDate>
       
       <guid>https://mazgi.github.io/posts/2019.06/the-simplest-ml-environment-with-terraform-on-gcp/</guid>
-      <description>普段の仕事でやっているML Ops業務の振り返りを兼ねて最低限必要そうなVPC構成用のTerraform Module for GCPです。 Moduleには&amp;rd</description>
+      <description>普段の仕事でやっているML Ops業務の振り返りを兼ねて最低限必要そうなVPC構成用のTerraform Module for GCPです。 Moduleには&amp;qu</description>
     </item>
     
     <item>

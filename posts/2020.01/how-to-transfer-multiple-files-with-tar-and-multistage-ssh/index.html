@@ -74,7 +74,7 @@
             <span class="nav-link disabled">Created At: 2020.01.29</span>
           </li>
           <li class="nav-item">
-            <span class="nav-link disabled">Updated At: 2020.01.29</span>
+            <span class="nav-link disabled">Updated At: 2020.10.26</span>
           </li>
           
         </ul>
@@ -110,202 +110,178 @@
       <div class="row">
         <h1>tarとsshで複数ファイルやディレクトリを送る/取ってくる</h1>
       </div>
-      <p>「サーバーにディレクトリ丸っと送りたいんだけど、途中に踏み台サーバーが居て&hellip;」よくあります。<br />
+      <p>「サーバーにディレクトリ丸っと送りたいんだけど、途中に踏み台サーバーが居て&hellip;」よくあります。<br>
 「え、ProxyCommand塞がれてるの??」とセキュリティ堅い環境でよく聞きます。</p>
-
 <p><code>tar+ssh</code> で大抵回避できるのでコピペで使えるようにまとめました。</p>
-
-<h2 id="tl-dr">tl;dr</h2>
-
-<p><code>ssh -l $STEP_USER $STEP ssh -l $REMOTE_USER $REMOTE tar c $FILES | ssh -l $STEP_USER $STEP ssh -l $REMOTE_USER $REMOTE tar x</code> が分かれば状況に応じて削るだけ。<br />
+<h2 id="tldr">tl;dr</h2>
+<p><code>ssh -l $STEP_USER $STEP ssh -l $REMOTE_USER $REMOTE tar c $FILES | ssh -l $STEP_USER $STEP ssh -l $REMOTE_USER $REMOTE tar x</code> が分かれば状況に応じて削るだけ。<br>
 quoteは回避しつつ避けられない場合はがんばりましょう。</p>
-
 <p><strong>direct</strong></p>
-
 <p>to remote:</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">tar c *.txt | ssh remote.example.com tar x</code></pre></div>
-<p>from remote:</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">ssh remote.example.com tar c &#39;*.txt&#39; | tar x</code></pre></div>
-<p><strong>over the step</strong></p>
-
+<pre><code class="language-shellsession" data-lang="shellsession">tar c *.txt | ssh remote.example.com tar x
+</code></pre><p>from remote:</p>
+<pre><code class="language-shellsession" data-lang="shellsession">ssh remote.example.com tar c '*.txt' | tar x
+</code></pre><p><strong>over the step</strong></p>
 <p>to remote:</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">tar c *.txt | ssh step.example.com ssh remote.example.com tar x</code></pre></div>
-<p>from remote:</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">ssh step.example.com ssh remote.example.com tar c &#39;*.txt&#39; | tar x</code></pre></div>
-<h2 id="prepare">Prepare</h2>
-
-<p>送ったり取ってくるためのサンプルファイルを作ります。<br />
+<pre><code class="language-shellsession" data-lang="shellsession">tar c *.txt | ssh step.example.com ssh remote.example.com tar x
+</code></pre><p>from remote:</p>
+<pre><code class="language-shellsession" data-lang="shellsession">ssh step.example.com ssh remote.example.com tar c '*.txt' | tar x
+</code></pre><h2 id="prepare">Prepare</h2>
+<p>送ったり取ってくるためのサンプルファイルを作ります。<br>
 ファイルはなんでもいいのですが「ファイルサイズが小さくて内容の確認が容易で重複しない」要件を満たすためにUUIDを書き込んだテキストファイルを2つ作りました。</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">❯ uuidgen | tee -a uuid.1.txt
+<pre><code class="language-shellsession" data-lang="shellsession">❯ uuidgen | tee -a uuid.1.txt
 16293D4F-419C-4925-8C88-6C0136F69F14
 
 ❯ uuidgen | tee -a uuid.2.txt
-17B42188-9445-4DB6-B22F-BA14DC4B5D8D</code></pre></div>
-<p>念のため中身を確認しておきます。<br />
-<code>find</code> コマンドはSSH越しに実行するとオプションのクオートやエスケープに手間がかかり良いサンプルなので、今回は次のように確認しました。<br />
+17B42188-9445-4DB6-B22F-BA14DC4B5D8D
+</code></pre><p>念のため中身を確認しておきます。<br>
+<code>find</code> コマンドはSSH越しに実行するとオプションのクオートやエスケープに手間がかかり良いサンプルなので、今回は次のように確認しました。<br>
 あえて <code>find</code> を使う必要はありませんので状況に応じた適した方法で確認してください。</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">❯ find . -type f -name &#39;uuid.*.txt&#39; -print -exec cat {} \;
+<pre><code class="language-shellsession" data-lang="shellsession">❯ find . -type f -name 'uuid.*.txt' -print -exec cat {} \;
 ./uuid.2.txt
 17B42188-9445-4DB6-B22F-BA14DC4B5D8D
 ./uuid.1.txt
-16293D4F-419C-4925-8C88-6C0136F69F14</code></pre></div>
-<h3 id="servers">Servers</h3>
-
+16293D4F-419C-4925-8C88-6C0136F69F14
+</code></pre><h3 id="servers">Servers</h3>
 <p>今回はこの <code>uuid.1.txt</code> と <code>uuid.2.txt</code> を次の3つのホストの間でやりとりします。</p>
-
 <ul>
 <li><code>(localhost)</code>
-
 <ul>
 <li>特に表記しませんが手元で直接Terminalを開いているmacOSやLinuxです</li>
-</ul></li>
+</ul>
+</li>
 <li><code>step.example.com</code>
-
 <ul>
 <li>制約やルールにより経由する必要がある踏み台サーバーです</li>
 <li>これが登場すると急にややこしくなりますね</li>
-</ul></li>
+</ul>
+</li>
 <li><code>remote.example.com</code>
-
 <ul>
 <li>本来ファイルをやりとりしたいLinuxなどが動いているサーバーです</li>
-</ul></li>
 </ul>
-
-<p>それぞれ読み替えてください。<br />
+</li>
+</ul>
+<p>それぞれ読み替えてください。<br>
 <code>tar</code> を使うのでディレクトリをやりとりする場合でもだいたい同じです。</p>
-
 <h2 id="to-remote">to remote</h2>
-
 <p>まずは基本、SSH越しに送ります。</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">❯ tar c uuid.*.txt | ssh remote.example.com tar x</code></pre></div>
-<p>処理の流れは次の通りです。</p>
-
+<pre><code class="language-shellsession" data-lang="shellsession">❯ tar c uuid.*.txt | ssh remote.example.com tar x
+</code></pre><p>処理の流れは次の通りです。</p>
 <ol>
 <li>ローカルで <code>tar c</code> を実行して作ったtarアーカイブをパイプで標準出力に渡します</li>
 <li><code>ssh $REMOTE</code> でSSHログインし、</li>
 <li>リモートで <code>tar x</code> が実行されtarアーカイブが標準入力から読まれて展開されます</li>
 </ol>
-
-<p>もし <code>step.example.com</code> にSSHログインするユーザー <code>user</code> を指定する場合は、<br />
+<p>もし <code>step.example.com</code> にSSHログインするユーザー <code>user</code> を指定する場合は、<br>
 <code>user@host</code> の形式で次のように指定するか、</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">❯ tar c uuid.*.txt | ssh user@remote.example.com tar x</code></pre></div>
-<p>または <code>-l user</code> オプションを使って</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">❯ tar c uuid.*.txt | ssh -l user remote.example.com tar x</code></pre></div>
-<p>のように指定します。<br />
+<pre><code class="language-shellsession" data-lang="shellsession">❯ tar c uuid.*.txt | ssh user@remote.example.com tar x
+</code></pre><p>または <code>-l user</code> オプションを使って</p>
+<pre><code class="language-shellsession" data-lang="shellsession">❯ tar c uuid.*.txt | ssh -l user remote.example.com tar x
+</code></pre><p>のように指定します。<br>
 これはsshコマンドのオプションなので以降すべて共通です。</p>
-
-<p>送ったファイルを確認してみます。<br />
+<p>送ったファイルを確認してみます。<br>
 <code>*</code> がローカルで展開されないようにクオートで囲む必要があります。</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">❯ ssh remote.example.com ls -1 &#39;uuid.*.txt&#39;
+<pre><code class="language-shellsession" data-lang="shellsession">❯ ssh remote.example.com ls -1 'uuid.*.txt'
 uuid.1.txt
-uuid.2.txt</code></pre></div>
-<p>ファイルの中身を確認してみましょう。<br />
+uuid.2.txt
+</code></pre><p>ファイルの中身を確認してみましょう。<br>
 あえて <code>find</code> を使っていますが、 <code>*</code>, <code>{</code>, <code>}</code>, <code>\</code> などは見るからにややこしそうですね。</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">❯ tar c uuid.*.txt | ssh remote.example.com &#34;find . -type f -name &#39;uuid.*.txt&#39; -print -exec cat {} \;&#34; 
+<pre><code class="language-shellsession" data-lang="shellsession">❯ tar c uuid.*.txt | ssh remote.example.com &quot;find . -type f -name 'uuid.*.txt' -print -exec cat {} \;&quot; 
 ./uuid.1.txt
 16293D4F-419C-4925-8C88-6C0136F69F14
 ./uuid.2.txt
-17B42188-9445-4DB6-B22F-BA14DC4B5D8D</code></pre></div>
-<p><code>&quot;&quot;</code> で <code>find</code> コマンドを囲み、 <code>find</code> に渡すファイルパターン <code>uuid.*.txt</code> を <code>''</code> で囲むことでSSH越しに実行できます。</p>
-
+17B42188-9445-4DB6-B22F-BA14DC4B5D8D
+</code></pre><p><code>&quot;&quot;</code> で <code>find</code> コマンドを囲み、 <code>find</code> に渡すファイルパターン <code>uuid.*.txt</code> を <code>''</code> で囲むことでSSH越しに実行できます。</p>
 <p>ファイルが少ないときは1つずつ指定した方がきっと楽です。</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">❯ ssh remote.example.com cat uuid.1.txt
+<pre><code class="language-shellsession" data-lang="shellsession">❯ ssh remote.example.com cat uuid.1.txt
 16293D4F-419C-4925-8C88-6C0136F69F14
 
 ❯ ssh remote.example.com cat uuid.2.txt
-17B42188-9445-4DB6-B22F-BA14DC4B5D8D</code></pre></div>
-<h2 id="from-remote">from remote</h2>
-
+17B42188-9445-4DB6-B22F-BA14DC4B5D8D
+</code></pre><h2 id="from-remote">from remote</h2>
 <p>もう1つ基本パターンとしてSSH越しに取ってくる場合です。</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">❯ ssh remote.example.com tar c &#39;uuid.*.txt&#39; | tar x</code></pre></div>
-<p>ファイルを送る場合と逆に以下を行なっています。</p>
-
+<pre><code class="language-shellsession" data-lang="shellsession">❯ ssh remote.example.com tar c 'uuid.*.txt' | tar x
+</code></pre><p>ファイルを送る場合と逆に以下を行なっています。</p>
 <ol>
 <li><code>ssh $REMOTE</code> でSSHログインし、</li>
 <li>リモートで <code>tar c</code> を実行して作ったtarアーカイブをパイプで標準出力に渡し、</li>
 <li>標準入力からtarアーカイブを読んで <code>tar x</code> でローカルに展開する</li>
 </ol>
-
-<p>ファイルパターン <code>uuid.*.txt</code> がローカルで展開されないように、先ほどSSH越しに <code>ls</code> や <code>find</code> を使った時と同じくクオートが必要です。<br />
+<p>ファイルパターン <code>uuid.*.txt</code> がローカルで展開されないように、先ほどSSH越しに <code>ls</code> や <code>find</code> を使った時と同じくクオートが必要です。<br>
 また今回の例であれば次のように <code>*</code> を <code>\</code> でエスケープしても実行できます。</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">❯ ssh step.example.com tar c uuid.\*.txt | tar x</code></pre></div>
-<h2 id="to-remote-over-the-step">to remote over the step</h2>
-
+<pre><code class="language-shellsession" data-lang="shellsession">❯ ssh step.example.com tar c uuid.\*.txt | tar x
+</code></pre><h2 id="to-remote-over-the-step">to remote over the step</h2>
 <p>いよいよ踏み台サーバー登場ですが、次のように要は「踏み台サーバーでもう1回sshする」だけです。</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">❯ tar c uuid.*.txt | ssh step.example.com ssh remote.example.com tar x</code></pre></div>
-<p>SSH越しに <code>ls</code> などを実行するときも考え方は一緒です。</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">❯ ssh step.example.com ssh remote.example.com ls -1 &#39;uuid.*.txt&#39;
+<pre><code class="language-shellsession" data-lang="shellsession">❯ tar c uuid.*.txt | ssh step.example.com ssh remote.example.com tar x
+</code></pre><p>SSH越しに <code>ls</code> などを実行するときも考え方は一緒です。</p>
+<pre><code class="language-shellsession" data-lang="shellsession">❯ ssh step.example.com ssh remote.example.com ls -1 'uuid.*.txt'
 uuid.1.txt
-uuid.2.txt</code></pre></div>
-<p><code>find</code> のようなオプションに記号が豊富なコマンドはちょっとややこしくなります。</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">❯ ssh step.example.com &#34;ssh remote.example.com \&#34;find . -type f -name &#39;uuid.*.txt&#39; -print -exec cat {} \;\&#34;&#34;
+uuid.2.txt
+</code></pre><p><code>find</code> のようなオプションに記号が豊富なコマンドはちょっとややこしくなります。</p>
+<pre><code class="language-shellsession" data-lang="shellsession">❯ ssh step.example.com &quot;ssh remote.example.com \&quot;find . -type f -name 'uuid.*.txt' -print -exec cat {} \;\&quot;&quot;
 ./uuid.1.txt
 16293D4F-419C-4925-8C88-6C0136F69F14
 ./uuid.2.txt
-17B42188-9445-4DB6-B22F-BA14DC4B5D8D</code></pre></div>
-<p>考え方は次の通りです。</p>
-
+17B42188-9445-4DB6-B22F-BA14DC4B5D8D
+</code></pre><p>考え方は次の通りです。</p>
 <ol>
-<li><code>uuid.*.txt</code> が展開されずに <code>find</code> コマンドに渡るよう <code>'</code> で囲む
-
+<li><code>uuid.*.txt</code> が展開されずに <code>find</code> コマンドに渡るよう <code>'</code> で囲む</li>
+</ol>
 <ul>
 <li><code>'uuid.*.txt'</code> 部分</li>
-</ul></li>
-<li><code>find</code> コマンドのオプション <code>\</code> などが <code>remote.example.com</code> に渡るよう <code>&quot;</code> で囲む
-
+</ul>
+<ol start="2">
+<li><code>find</code> コマンドのオプション <code>\</code> などが <code>remote.example.com</code> に渡るよう <code>&quot;</code> で囲む</li>
+</ol>
 <ul>
 <li><code>&quot;find . -type f -name 'uuid.*.txt' -print -exec cat {} \;&quot;</code> 部分</li>
-</ul></li>
-<li><code>(2)</code> がローカルで展開されないようSSH接続部分自体を <code>&quot;</code> で囲む
-
+</ul>
+<ol>
+<li><code>(2)</code> がローカルで展開されないようSSH接続部分自体を <code>&quot;</code> で囲む</li>
+</ol>
 <ul>
-<li><code>&quot;ssh remote.example.com</code> から最後まで</li>
-</ul></li>
-<li><code>&quot;</code> が入れ子になるので <code>(2)</code> 部分の <code>&quot;</code> を <code>\&quot;</code> とエスケープする
-
+<li><code>&quot;ssh remote.example.com </code> から最後まで</li>
+</ul>
+<ol>
+<li><code>&quot;</code> が入れ子になるので <code>(2)</code> 部分の <code>&quot;</code> を <code>\&quot;</code> とエスケープする</li>
+</ol>
 <ul>
 <li><code>&quot;find . -type f -name 'uuid.*.txt' -print -exec cat {} \;&quot;</code> -&gt; <code>\&quot;find . -type f -name 'uuid.*.txt' -print -exec cat {} \;\&quot;</code></li>
-</ul></li>
-</ol>
-
-<p>ややこしいですね。<br />
+</ul>
+<p>ややこしいですね。<br>
 ファイルを1つずつ指定できる場合はその方が明らかに楽です。</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">❯ ssh step.example.com ssh remote.example.com cat uuid.1.txt 
+<pre><code class="language-shellsession" data-lang="shellsession">❯ ssh step.example.com ssh remote.example.com cat uuid.1.txt 
 16293D4F-419C-4925-8C88-6C0136F69F14
 
 ❯ ssh step.example.com ssh remote.example.com cat uuid.2.txt
-17B42188-9445-4DB6-B22F-BA14DC4B5D8D</code></pre></div>
-<h2 id="from-remote-over-the-step">from remote over the step</h2>
-
+17B42188-9445-4DB6-B22F-BA14DC4B5D8D
+</code></pre><h2 id="from-remote-over-the-step">from remote over the step</h2>
 <p>SSH越しに踏み台サーバーを経由して取ってくる場合は次の通りです。</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">❯ ssh step.example.com ssh remote.example.com tar c &#39;uuid.*.txt&#39; | tar x</code></pre></div>
-<h2 id="remote-to-remote-over-the-step">remote to remote over the step</h2>
-
+<pre><code class="language-shellsession" data-lang="shellsession">❯ ssh step.example.com ssh remote.example.com tar c 'uuid.*.txt' | tar x
+</code></pre><h2 id="remote-to-remote-over-the-step">remote to remote over the step</h2>
 <p>ここまでできれば「踏み台サーバーA越しにサーバーBのファイルを取ってきて、そのままパイプを使って踏み台サーバーC越しにサーバーDに送る」こともできます。</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">❯ ssh step.example.com ssh remote.example.com tar c &#39;uuid.*.txt&#39; | ssh step-2.example.com ssh remote-2.example.com tar xv</code></pre></div>
-<h2 id="appendix-tar-options">appendix: tar options</h2>
-
+<pre><code class="language-shellsession" data-lang="shellsession">❯ ssh step.example.com ssh remote.example.com tar c 'uuid.*.txt' | ssh step-2.example.com ssh remote-2.example.com tar xv
+</code></pre><h2 id="appendix-tar-options">appendix: tar options</h2>
 <p><code>man tar</code> でマニュアルが読めますが今回使ったオプションだけ紹介します。</p>
-
 <ul>
 <li><code>tar c</code>
-
 <ul>
 <li><code>tar -c</code>, <code>tar --create</code> でも効果は同じです</li>
 <li><code>tar cz</code> と <code>z</code> オプションを指定して圧縮することもできます</li>
-</ul></li>
+</ul>
+</li>
 <li><code>tar x</code>
-
 <ul>
 <li><code>tar -x</code>, <code>tar --extract</code> でも効果は同じです</li>
 <li><code>z</code> オプションを作るときに <code>z</code> オプションを指定して圧縮した場合は <code>tar xz</code> のように展開時にも <code>z</code> オプションを指定できます
-
 <ul>
 <li>が、最近のtarは展開時には <code>z</code> オプションを指定しなくても勝手に伸張して展開してくれます</li>
-</ul></li>
+</ul>
+</li>
 <li><code>tar xv</code> の <code>v</code> オプションを指定すると展開されるファイル名が表示されるので安心できます</li>
-</ul></li>
+</ul>
+</li>
 </ul>
     </article>
   </div>
@@ -314,30 +290,26 @@ uuid.2.txt</code></pre></div>
   
   <h4><a href="/about/">About</a></h4>
   <p><strong>Hidenori MATSUKI</strong></p>
-
 <p>🍣 🍶</p>
-
 <p>another website: <a href="https://mazgi.com/">mazgi.com</a></p>
   
   <hr />
   <h4>TableOfContents</h4>
   <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#tl-dr">tl;dr</a></li>
-<li><a href="#prepare">Prepare</a>
-<ul>
-<li><a href="#servers">Servers</a></li>
-</ul></li>
-<li><a href="#to-remote">to remote</a></li>
-<li><a href="#from-remote">from remote</a></li>
-<li><a href="#to-remote-over-the-step">to remote over the step</a></li>
-<li><a href="#from-remote-over-the-step">from remote over the step</a></li>
-<li><a href="#remote-to-remote-over-the-step">remote to remote over the step</a></li>
-<li><a href="#appendix-tar-options">appendix: tar options</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#tldr">tl;dr</a></li>
+    <li><a href="#prepare">Prepare</a>
+      <ul>
+        <li><a href="#servers">Servers</a></li>
+      </ul>
+    </li>
+    <li><a href="#to-remote">to remote</a></li>
+    <li><a href="#from-remote">from remote</a></li>
+    <li><a href="#to-remote-over-the-step">to remote over the step</a></li>
+    <li><a href="#from-remote-over-the-step">from remote over the step</a></li>
+    <li><a href="#remote-to-remote-over-the-step">remote to remote over the step</a></li>
+    <li><a href="#appendix-tar-options">appendix: tar options</a></li>
+  </ul>
 </nav>
   <hr />
   <h4><a href="/categories/">Categories</a></h4>

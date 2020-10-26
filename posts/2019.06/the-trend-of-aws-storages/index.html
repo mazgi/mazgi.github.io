@@ -74,7 +74,7 @@
             <span class="nav-link disabled">Created At: 2019.06.22</span>
           </li>
           <li class="nav-item">
-            <span class="nav-link disabled">Updated At: 2019.06.28</span>
+            <span class="nav-link disabled">Updated At: 2020.10.26</span>
           </li>
           
         </ul>
@@ -110,63 +110,44 @@
       <div class="row">
         <h1>AWSストレージ概観</h1>
       </div>
-      
-
-<p>AWSで使えるローカルストレージとNFSストレージを一通り試してみました。<br />
+      <p>AWSで使えるローカルストレージとNFSストレージを一通り試してみました。<br>
 <a href="/posts/2019.06/the-trend-of-gcp-storages/">GCP編はこちら</a>。</p>
-
 <h1 id="about">About</h1>
-
-<p>ベンチマークはfioコマンドで取得した。<br />
+<p>ベンチマークはfioコマンドで取得した。<br>
 機械学習のワークロードで扱う機会が多い、CSVのような小さめのテキストファイルとマルチメディアファイルを想定して4kと32mのデータで測定した。</p>
-
-<p>なお、ストレージタイプごとの傾向をざっくりと知りたかったので性能を引き出すような設定や調整は行なっていない。<br />
+<p>なお、ストレージタイプごとの傾向をざっくりと知りたかったので性能を引き出すような設定や調整は行なっていない。<br>
 また以下の理由でIaaSのストレージを厳密に測定してもあまり意味はないと考えている。</p>
-
 <ul>
 <li>IaaSのリソースはシェアされているので他のユーザー(テナント)の影響を受ける</li>
 <li>非公開な仕様が特に告知なく更新される(バス幅や各種ストレージの物理仕様など)</li>
 </ul>
-
 <p>試したストレージは以下。</p>
-
 <ul>
 <li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume</a>(ローカルブロックデバイス)
-
 <ul>
 <li><code>gp2</code> : 汎用, SSD</li>
 <li><code>io1</code> : Highest-performance SSD</li>
 <li><em>HDD(<code>st1</code>, <code>sc1</code>)は試さなかった</em></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html">Amazon EFS Performance</a>(マネージドNFSサービス)</li>
 </ul>
-
 <h1 id="results">Results</h1>
-
-<p>以下の通りTerraformによるIaCでprovisioningした。<br />
+<p>以下の通りTerraformによるIaCでprovisioningした。<br>
 <a href="https://github.com/mazgi/terraform-aws-simple-vpc/tree/v2019.06.2/examples/multiple-volumes">https://github.com/mazgi/terraform-aws-simple-vpc/tree/v2019.06.2/examples/multiple-volumes</a></p>
-
 <p>また<a href="https://aws.amazon.com/ec2/instance-types/i3en/"><code>i3en</code></a>インスタンスを使って測定したので<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro</a>アーキテクチャでの結果となる。</p>
-
-<p>結果はこちら。<br />
+<p>結果はこちら。<br>
 <a href="https://gist.github.com/mazgi/fa855f576aca50ff0f204f6386c275dc">https://gist.github.com/mazgi/fa855f576aca50ff0f204f6386c275dc</a></p>
-
 <p>結果をテーブルにまとめた。</p>
-
 <h2 id="ebs">EBS</h2>
-
 <p><code>io1</code> はたしかに、</p>
-
 <blockquote>
 <p>more than 16,000 IOPS or 250 MiB/s of throughput per volume</p>
 </blockquote>
-
 <p>と<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">書いてある</a>通りの性能が出ている。</p>
-
-<p><code>i3en</code> についてくるNVMe SSDも速い。<br />
-ボリュームサイズが <code>1,250 GB</code> の倍数で自動的に決まってしまう制約はあるが使えるシチュエーションはそれなりにありそう。<br />
+<p><code>i3en</code> についてくるNVMe SSDも速い。<br>
+ボリュームサイズが <code>1,250 GB</code> の倍数で自動的に決まってしまう制約はあるが使えるシチュエーションはそれなりにありそう。<br>
 4k randreadが妙に遅いのでこれは実行タイミングで何かあったのかもしれない。</p>
-
 <table>
 <thead>
 <tr>
@@ -179,7 +160,6 @@
 <th>,32m</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>gp2</td>
@@ -190,7 +170,6 @@
 <td>12.1MiB</td>
 <td>129MiB</td>
 </tr>
-
 <tr>
 <td>gp2</td>
 <td>w</td>
@@ -200,7 +179,6 @@
 <td>7165KiB</td>
 <td>134MiB</td>
 </tr>
-
 <tr>
 <td>gp2</td>
 <td>r</td>
@@ -210,7 +188,6 @@
 <td>12.1MiB</td>
 <td>129MiB</td>
 </tr>
-
 <tr>
 <td>gp2</td>
 <td>w</td>
@@ -220,7 +197,6 @@
 <td>7453KiB</td>
 <td>134MiB</td>
 </tr>
-
 <tr>
 <td>io1</td>
 <td>r</td>
@@ -230,7 +206,6 @@
 <td>67.2MiB</td>
 <td>429MiB</td>
 </tr>
-
 <tr>
 <td>io1</td>
 <td>w</td>
@@ -240,7 +215,6 @@
 <td>9014KiB</td>
 <td>484MiB</td>
 </tr>
-
 <tr>
 <td>io1</td>
 <td>r</td>
@@ -250,7 +224,6 @@
 <td>67.6MiB</td>
 <td>428MiB</td>
 </tr>
-
 <tr>
 <td>io1</td>
 <td>w</td>
@@ -260,7 +233,6 @@
 <td>9690KiB</td>
 <td>483MiB</td>
 </tr>
-
 <tr>
 <td>NVMe (i3en)</td>
 <td>r</td>
@@ -270,7 +242,6 @@
 <td>81.1MiB</td>
 <td>350MiB</td>
 </tr>
-
 <tr>
 <td>NVMe (i3en)</td>
 <td>w</td>
@@ -280,7 +251,6 @@
 <td>130MiB</td>
 <td>165MiB</td>
 </tr>
-
 <tr>
 <td>NVMe (i3en)</td>
 <td>r</td>
@@ -290,7 +260,6 @@
 <td>176MiB</td>
 <td>346MiB</td>
 </tr>
-
 <tr>
 <td>NVMe (i3en)</td>
 <td>w</td>
@@ -302,27 +271,21 @@
 </tr>
 </tbody>
 </table>
-
 <h2 id="efs">EFS</h2>
-
 <p>AWSのマネージドNFSサービスであるEFSは案外選択肢が豊富で、2つの <code>Performance Mode</code> と2つの <code>Throughput Mode</code> を選べるため、 <code>2 * 2 = 4</code> 通りのボリュームを設定できる。</p>
-
 <ul>
 <li><strong>Performance Mode:</strong> <code>General Purpose</code> or <code>Max I/O</code></li>
 <li><strong>Throughput Modes:</strong> <code>Bursting</code> or <code>Provisioned</code>
-
 <ul>
 <li><code>Bursting</code> =&gt; <a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html#throughput-modes">使用容量が増えるとスループットが引き上げられる</a>モード、今回は空の状態でベンチマークを実行したので最低ラインのスループットなはず</li>
 <li><code>Provisioned</code> =&gt; 使用容量に関わらず課金でスループットを買えるモード、今回のベンチマークは最大値である <code>1024</code> で測定</li>
-</ul></li>
 </ul>
-
-<p>Performance Modeの違いはよくわからなかった。<br />
-ほとんどのシチュエーションではGeneral Purposeを使っておけば良さそう。<br />
+</li>
+</ul>
+<p>Performance Modeの違いはよくわからなかった。<br>
+ほとんどのシチュエーションではGeneral Purposeを使っておけば良さそう。<br>
 (Performance ModeはEFSボリューム作成後に変更できない)</p>
-
 <p>Throughput ModeはEFSボリュームを作った後でも変更できるので、お金に余裕があるときは <code>Provisioned</code> で始めて容量が増えたら <code>Bursting</code> に変える方法が使えそう。</p>
-
 <table>
 <thead>
 <tr>
@@ -335,7 +298,6 @@
 <th>,32m</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>GP (bursting)</td>
@@ -346,7 +308,6 @@
 <td>3580KiB</td>
 <td>101MiB</td>
 </tr>
-
 <tr>
 <td>GP (bursting)</td>
 <td>w</td>
@@ -356,7 +317,6 @@
 <td>1003KiB</td>
 <td>104MiB</td>
 </tr>
-
 <tr>
 <td>GP (bursting)</td>
 <td>r</td>
@@ -366,7 +326,6 @@
 <td>3604KiB</td>
 <td>101MiB</td>
 </tr>
-
 <tr>
 <td>GP (bursting)</td>
 <td>w</td>
@@ -376,7 +335,6 @@
 <td>1034KiB</td>
 <td>95.4MiB</td>
 </tr>
-
 <tr>
 <td>GP (provisioned)</td>
 <td>r</td>
@@ -386,7 +344,6 @@
 <td>3680KiB</td>
 <td>258MiB</td>
 </tr>
-
 <tr>
 <td>GP (provisioned)</td>
 <td>w</td>
@@ -396,7 +353,6 @@
 <td>1014KiB</td>
 <td>204MiB</td>
 </tr>
-
 <tr>
 <td>GP (provisioned)</td>
 <td>r</td>
@@ -406,7 +362,6 @@
 <td>4085KiB</td>
 <td>258MiB</td>
 </tr>
-
 <tr>
 <td>GP (provisioned)</td>
 <td>w</td>
@@ -416,7 +371,6 @@
 <td>1105KiB</td>
 <td>202MiB</td>
 </tr>
-
 <tr>
 <td>Max I/O (bursting)</td>
 <td>r</td>
@@ -426,7 +380,6 @@
 <td>2662KiB</td>
 <td>104MiB</td>
 </tr>
-
 <tr>
 <td>Max I/O (bursting)</td>
 <td>w</td>
@@ -436,7 +389,6 @@
 <td>748KiB</td>
 <td>102MiB</td>
 </tr>
-
 <tr>
 <td>Max I/O (bursting)</td>
 <td>r</td>
@@ -446,7 +398,6 @@
 <td>3103KiB</td>
 <td>104MiB</td>
 </tr>
-
 <tr>
 <td>Max I/O (bursting)</td>
 <td>w</td>
@@ -456,7 +407,6 @@
 <td>1054KiB</td>
 <td>103MiB</td>
 </tr>
-
 <tr>
 <td>Max I/O (provisioned)</td>
 <td>r</td>
@@ -466,7 +416,6 @@
 <td>3052KiB</td>
 <td>257MiB</td>
 </tr>
-
 <tr>
 <td>Max I/O (provisioned)</td>
 <td>w</td>
@@ -476,7 +425,6 @@
 <td>1061KiB</td>
 <td>153MiB</td>
 </tr>
-
 <tr>
 <td>Max I/O (provisioned)</td>
 <td>r</td>
@@ -486,7 +434,6 @@
 <td>2940KiB</td>
 <td>258MiB</td>
 </tr>
-
 <tr>
 <td>Max I/O (provisioned)</td>
 <td>w</td>
@@ -498,11 +445,8 @@
 </tr>
 </tbody>
 </table>
-
-<h1 id="that-s-all">That&rsquo;s all</h1>
-
+<h1 id="thats-all">That&rsquo;s all</h1>
 <p>AWSのストレージは本当に種類が多くて選択に迷っていたので一度全部試してみたかった。</p>
-
 <p>今回、「インターネットやAIを活用し、世の中にデライトを届けていく」<a href="https://dena.ai/">dena.ai</a>の提供でベンチマーク実行させていただきスッキリしました。感謝 🙏</p>
 
     </article>
@@ -512,23 +456,16 @@
   
   <h4><a href="/about/">About</a></h4>
   <p><strong>Hidenori MATSUKI</strong></p>
-
 <p>🍣 🍶</p>
-
 <p>another website: <a href="https://mazgi.com/">mazgi.com</a></p>
   
   <hr />
   <h4>TableOfContents</h4>
   <nav id="TableOfContents">
-<ul>
-<li><a href="#about">About</a></li>
-<li><a href="#results">Results</a>
-<ul>
-<li><a href="#ebs">EBS</a></li>
-<li><a href="#efs">EFS</a></li>
-</ul></li>
-<li><a href="#that-s-all">That&rsquo;s all</a></li>
-</ul>
+  <ul>
+    <li><a href="#ebs">EBS</a></li>
+    <li><a href="#efs">EFS</a></li>
+  </ul>
 </nav>
   <hr />
   <h4><a href="/categories/">Categories</a></h4>

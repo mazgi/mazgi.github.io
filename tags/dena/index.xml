@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>dena on mazgi.log</title>
@@ -6,11 +6,7 @@
     <description>Recent content in dena on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 27 Apr 2019 01:03:05 +0000</lastBuildDate>
-    
-	<atom:link href="https://mazgi.github.io/tags/dena/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 27 Apr 2019 01:03:05 +0000</lastBuildDate><atom:link href="https://mazgi.github.io/tags/dena/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>仕事の振り返り(2019.04)</title>
       <link>https://mazgi.github.io/posts/2019.04/my-role-in-dena-was-simplified/</link>
@@ -26,7 +22,7 @@
       <pubDate>Thu, 25 Apr 2019 03:37:18 +0000</pubDate>
       
       <guid>https://mazgi.github.io/posts/2019.04/built-noops-blog-with-github-circleci-s3/</guid>
-      <description>本業の傍ら会社の技術Blogリニューアルに携わっており、概要をAdvent Calendarで「DeNA Engineers&amp;rsquo; Blogをリニューアルしている話」と</description>
+      <description>本業の傍ら会社の技術Blogリニューアルに携わっており、概要をAdvent Calendarで「DeNA Engineers&#39; Blogをリニューアルしている話」と</description>
     </item>
     
     <item>

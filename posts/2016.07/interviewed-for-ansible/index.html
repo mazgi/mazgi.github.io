@@ -74,7 +74,7 @@
             <span class="nav-link disabled">Created At: 2016.07.15</span>
           </li>
           <li class="nav-item">
-            <span class="nav-link disabled">Updated At: 2020.01.29</span>
+            <span class="nav-link disabled">Updated At: 2020.10.26</span>
           </li>
           
         </ul>
@@ -111,87 +111,63 @@
         <h1>【SELECK掲載記念】AnsibleでPartitionを切る！</h1>
       </div>
       <h3 id="追記">追記</h3>
-
-<p><a href="http://cloud.sakura.ad.jp">さくらのクラウド</a>について取材していただいた記事も公開されました！<br />
+<p><a href="http://cloud.sakura.ad.jp">さくらのクラウド</a>について取材していただいた記事も公開されました！<br>
 合わせてご覧ください！！</p>
-
 <p><a href="https://seleck.cc/article/459">さくらのクラウドで「尖ったインフラ環境」を構築。カスタマイズに強い、その実力とは | SELECK</a></p>
-
-<hr />
-
+<hr>
 <h2 id="本編">本編</h2>
-
 <p>先日「<a href="https://seleck.cc">SELECK(セレック)</a>」様に<a href="https://www.ansible.com">Ansible</a>の活用事例をインタビューいただきました。</p>
-
 <p><a href="https://seleck.cc/article/437">数百台のサーバー構成を「Ansible」で管理。大規模DSPシステムを支える技術とは | SELECK</a></p>
-
-<p>素晴らしい記事にしていただいたのでせっかくなら何か<s>ネタになりそうな</s>実例をご紹介したいと考えた結果(?)、<s>バッドノウハウが詰まった</s>パーティションの切り方をご紹介したいと思います！</p>
-
-<p><a href="https://groups.google.com/forum/#!msg/ansible-project/AlmNfHshvAw/pPirMfYKG1AJ">Googleグループでも話題になって</a>いますが、本記事を書いている時点ではAnsibleにpartitionを切るモジュールはないようです。<br />
+<p>素晴らしい記事にしていただいたのでせっかくなら何か<!-- raw HTML omitted -->ネタになりそうな<!-- raw HTML omitted -->実例をご紹介したいと考えた結果(?)、<!-- raw HTML omitted -->バッドノウハウが詰まった<!-- raw HTML omitted -->パーティションの切り方をご紹介したいと思います！</p>
+<p><a href="https://groups.google.com/forum/#!msg/ansible-project/AlmNfHshvAw/pPirMfYKG1AJ">Googleグループでも話題になって</a>いますが、本記事を書いている時点ではAnsibleにpartitionを切るモジュールはないようです。<br>
 しかしながら物理サーバーや場合によってはクラウドサーバーでもパーティションを切りたいケースは当然あります。</p>
-
-<h2 id="hdd-ssdにパーティションを切る">HDD/SSDにパーティションを切る</h2>
-
+<h2 id="hddssdにパーティションを切る">HDD/SSDにパーティションを切る</h2>
 <p>さすがに会社のプライベートリポジトリからPlaybookを持ってくるわけにもいかないので、今回は近いものとして私の個人的なPlaybookをご紹介します。</p>
-
 <p><a href="https://github.com/mazgi/ansible-gentooinstallbattle">mazgi/ansible-gentooinstallbattle</a></p>
-
 <p>なお、実際のギョウムでは優秀な若者が改善したPlaybookが使われていることを申し添えておきます。</p>
-
-<p><code>gdisk</code> や <code>fdisk</code> ではなく <code>parted</code> を使うとAnsibleでも比較的簡単にパーティションを切ることができます。<br />
+<p><code>gdisk</code> や <code>fdisk</code> ではなく <code>parted</code> を使うとAnsibleでも比較的簡単にパーティションを切ることができます。<br>
 いつ何時数十台のサーバーで同時にパーティションを切る必要が生じるとも限りませんので覚えておいて損はないと思います！！</p>
-
 <ul>
 <li>GPTパーティションテーブルを作る</li>
 </ul>
-
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">-<span style="color:#bbb"> </span>name:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;Create partition table&#34;</span><span style="color:#bbb">
-</span><span style="color:#bbb">  </span>command:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;parted --script --align optimal /dev/vda -- mklabel gpt&#34;</span></code></pre></div>
-
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#062873;font-weight:bold">name</span>:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;Create partition table&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#062873;font-weight:bold">command</span>:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;parted --script --align optimal /dev/vda -- mklabel gpt&#34;</span></code></pre></div>
 <ul>
 <li>各パーティションを切る</li>
 </ul>
-
-<p>ここでは、<br />
-第1パーティションはGRUB2用にVFATで、<br />
-第2パーティションはSWAP用に、<br />
+<p>ここでは、<br>
+第1パーティションはGRUB2用にVFATで、<br>
+第2パーティションはSWAP用に、<br>
 第3パーティションはOS用に切ることにします。</p>
-
-<p>GRUB2用のパーティションはFAT32で4MiBもあれば十分です。フォーマットしなくても使える気がします。<br />
+<p>GRUB2用のパーティションはFAT32で4MiBもあれば十分です。フォーマットしなくても使える気がします。<br>
 OS用の第3パーティションは空き領域を全て割り当てるため最後の引数に <code>-1</code> を渡しています。</p>
-
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">-<span style="color:#bbb"> </span>name:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;Create BIOS boot partition&#34;</span><span style="color:#bbb">
-</span><span style="color:#bbb">  </span>command:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;parted --script --align optimal /dev/vda -- mkpart bios_boot fat32 1MiB 5MiB&#34;</span><span style="color:#bbb">
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#062873;font-weight:bold">name</span>:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;Create BIOS boot partition&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#062873;font-weight:bold">command</span>:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;parted --script --align optimal /dev/vda -- mkpart bios_boot fat32 1MiB 5MiB&#34;</span><span style="color:#bbb">
 </span><span style="color:#bbb">
-</span><span style="color:#bbb"></span>-<span style="color:#bbb"> </span>name:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;Set BIOS boot partition&#34;</span><span style="color:#bbb">
-</span><span style="color:#bbb">  </span>command:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;parted --script --align optimal /dev/vda -- set 1 bios_grub on&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span>- <span style="color:#062873;font-weight:bold">name</span>:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;Set BIOS boot partition&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#062873;font-weight:bold">command</span>:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;parted --script --align optimal /dev/vda -- set 1 bios_grub on&#34;</span><span style="color:#bbb">
 </span><span style="color:#bbb">
-</span><span style="color:#bbb"></span>-<span style="color:#bbb"> </span>name:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;Create filesystem for grub2&#34;</span><span style="color:#bbb">
-</span><span style="color:#bbb">  </span>filesystem:<span style="color:#bbb"> </span>fstype=vfat<span style="color:#bbb"> </span>dev=/dev/vda1<span style="color:#bbb">
+</span><span style="color:#bbb"></span>- <span style="color:#062873;font-weight:bold">name</span>:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;Create filesystem for grub2&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#062873;font-weight:bold">filesystem</span>:<span style="color:#bbb"> </span>fstype=vfat dev=/dev/vda1<span style="color:#bbb">
 </span><span style="color:#bbb">
-</span><span style="color:#bbb"></span>-<span style="color:#bbb"> </span>name:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;Create swap partition&#34;</span><span style="color:#bbb">
-</span><span style="color:#bbb">  </span>command:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;parted --script --align optimal /dev/vda -- mkpart swap linux-swap 5MiB 4GiB&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span>- <span style="color:#062873;font-weight:bold">name</span>:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;Create swap partition&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#062873;font-weight:bold">command</span>:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;parted --script --align optimal /dev/vda -- mkpart swap linux-swap 5MiB 4GiB&#34;</span><span style="color:#bbb">
 </span><span style="color:#bbb">
-</span><span style="color:#bbb"></span>-<span style="color:#bbb"> </span>name:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;Create filesystem for swap&#34;</span><span style="color:#bbb">
-</span><span style="color:#bbb">  </span>command:<span style="color:#bbb"> </span>mkswap<span style="color:#bbb"> </span>/dev/vda2<span style="color:#bbb">
+</span><span style="color:#bbb"></span>- <span style="color:#062873;font-weight:bold">name</span>:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;Create filesystem for swap&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#062873;font-weight:bold">command</span>:<span style="color:#bbb"> </span>mkswap /dev/vda2<span style="color:#bbb">
 </span><span style="color:#bbb">
-</span><span style="color:#bbb"></span>-<span style="color:#bbb"> </span>name:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;Create root partition&#34;</span><span style="color:#bbb">
-</span><span style="color:#bbb">  </span>command:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;parted --script --align optimal /dev/vda -- mkpart linux btrfs 4GiB -1&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span>- <span style="color:#062873;font-weight:bold">name</span>:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;Create root partition&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#062873;font-weight:bold">command</span>:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;parted --script --align optimal /dev/vda -- mkpart linux btrfs 4GiB -1&#34;</span><span style="color:#bbb">
 </span><span style="color:#bbb">
-</span><span style="color:#bbb"></span>-<span style="color:#bbb"> </span>name:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;Create filesystem for /&#34;</span><span style="color:#bbb">
-</span><span style="color:#bbb">  </span>filesystem:<span style="color:#bbb"> </span>fstype=btrfs<span style="color:#bbb"> </span>dev=/dev/vda3</code></pre></div>
-
-<p>対話式インタフェースがメインの <code>gdisk</code> や <code>fdisk</code> と違って <code>parted</code> ならAnsibleのcommandモジュールで扱いやすいですね！<br />
+</span><span style="color:#bbb"></span>- <span style="color:#062873;font-weight:bold">name</span>:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;Create filesystem for /&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#062873;font-weight:bold">filesystem</span>:<span style="color:#bbb"> </span>fstype=btrfs dev=/dev/vda3</code></pre></div>
+<p>対話式インタフェースがメインの <code>gdisk</code> や <code>fdisk</code> と違って <code>parted</code> ならAnsibleのcommandモジュールで扱いやすいですね！<br>
 あとはパーティションサイズの指定をもう少し楽にできると尚良しです。</p>
-
-<p>なお、この方法では「冪等性？なにそれおいしいの？」になってしまいます。<br />
-<a href="http://docs.ansible.com/ansible/filesystem_module.html">filesystemモジュール</a>はあるので、&rdquo;partition module&rdquo;みたいなのが提供されるとうれしいですね！<br />
+<p>なお、この方法では「冪等性？なにそれおいしいの？」になってしまいます。<br>
+<a href="http://docs.ansible.com/ansible/filesystem_module.html">filesystemモジュール</a>はあるので、&ldquo;partition module&quot;みたいなのが提供されるとうれしいですね！<br>
 どなたか作ってください！！</p>
-
 <h2 id="さいごに">さいごに</h2>
-
 <p>SELECKではAnsibleを含めた色々なツールやサービスの事例を知ることができておすすめです！！(宣伝)</p>
-
 <p><a href="https://seleck.cc/article/437">数百台のサーバー構成を「Ansible」で管理。大規模DSPシステムを支える技術とは | SELECK</a></p>
     </article>
   </div>
@@ -200,26 +176,22 @@ OS用の第3パーティションは空き領域を全て割り当てるため�
   
   <h4><a href="/about/">About</a></h4>
   <p><strong>Hidenori MATSUKI</strong></p>
-
 <p>🍣 🍶</p>
-
 <p>another website: <a href="https://mazgi.com/">mazgi.com</a></p>
   
   <hr />
   <h4>TableOfContents</h4>
   <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#追記">追記</a></li>
-</ul></li>
-<li><a href="#本編">本編</a></li>
-<li><a href="#hdd-ssdにパーティションを切る">HDD/SSDにパーティションを切る</a></li>
-<li><a href="#さいごに">さいごに</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#追記">追記</a></li>
+      </ul>
+    </li>
+    <li><a href="#本編">本編</a></li>
+    <li><a href="#hddssdにパーティションを切る">HDD/SSDにパーティションを切る</a></li>
+    <li><a href="#さいごに">さいごに</a></li>
+  </ul>
 </nav>
   <hr />
   <h4><a href="/categories/">Categories</a></h4>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>google on mazgi.log</title>
@@ -6,11 +6,7 @@
     <description>Recent content in google on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 26 Mar 2019 11:54:51 +0000</lastBuildDate>
-    
-	<atom:link href="https://mazgi.github.io/tags/google/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 26 Mar 2019 11:54:51 +0000</lastBuildDate><atom:link href="https://mazgi.github.io/tags/google/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>#gc_k8sday &#34;Google Cloud Kubernetes Day&#34;に行ってきました</title>
       <link>https://mazgi.github.io/posts/2019.03/went-to-google-cloud-kubernetes-day/</link>

@@ -1,45 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://mazgi.github.io/posts/2020.09/better-web-application-infrastructure-in-my-case/</loc>
-    <lastmod>2020-09-22T21:38:03+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://mazgi.github.io/</loc>
-    <lastmod>2020-09-22T21:38:03+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://mazgi.github.io/posts/</loc>
-    <lastmod>2020-09-22T21:38:03+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/posts/"
-                />
-  </url>
-  
-  <url>
     <loc>https://mazgi.github.io/categories/</loc>
-    <lastmod>2020-05-14T23:50:25+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -54,42 +19,62 @@
   
   <url>
     <loc>https://mazgi.github.io/tags/cloud-sql/</loc>
-    <lastmod>2020-05-14T23:50:25+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/gcp/</loc>
-    <lastmod>2020-05-14T23:50:25+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/google-compute-engine/</loc>
-    <lastmod>2020-05-14T23:50:25+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/categories/infrastructure-as-code/</loc>
-    <lastmod>2020-05-14T23:50:25+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/</loc>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://mazgi.github.io/en/categories/infrastructure-as-code/"
+                href="https://mazgi.github.io/en/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://mazgi.github.io/categories/infrastructure-as-code/"
+                href="https://mazgi.github.io/"
                 />
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/memorystore/</loc>
-    <lastmod>2020-05-14T23:50:25+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/posts/</loc>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/posts/"
+                />
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/</loc>
-    <lastmod>2020-05-14T23:50:25+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -104,32 +89,22 @@
   
   <url>
     <loc>https://mazgi.github.io/tags/terraform/</loc>
-    <lastmod>2020-05-14T23:50:25+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/tags/terraform/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/tags/terraform/"
-                />
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2020.05/provision-gce-webapp-environment-by-terraform/</loc>
-    <lastmod>2020-05-14T23:50:25+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/cargo-make/</loc>
-    <lastmod>2020-05-14T23:33:35+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/docker/</loc>
-    <lastmod>2020-05-14T23:33:35+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -144,187 +119,137 @@
   
   <url>
     <loc>https://mazgi.github.io/posts/2020.05/dockerized-provisioning-project/</loc>
-    <lastmod>2020-05-14T23:33:35+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/daas/</loc>
-    <lastmod>2020-04-22T23:06:42+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/windows/</loc>
-    <lastmod>2020-04-22T23:06:42+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2020.04/windows-server-on-google-compute-engine/</loc>
-    <lastmod>2020-04-22T23:06:42+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/categories/tips/</loc>
-    <lastmod>2020-04-30T19:59:23+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/categories/tips/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/categories/tips/"
-                />
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2020.03/critical-points-for-choose-the-displays-for-software-development-for-me/</loc>
-    <lastmod>2020-04-30T19:59:23+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/ssh/</loc>
-    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/tags/ssh/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/tags/ssh/"
-                />
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2020.01/how-to-transfer-multiple-files-with-tar-and-multistage-ssh/</loc>
-    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/news/</loc>
-    <lastmod>2020-01-29T06:10:23+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/news/2020.01/provision-workstation-on-gcp-on-techbookfest-8/</loc>
-    <lastmod>2020-01-29T06:10:23+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/jest/</loc>
-    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/nextjs/</loc>
-    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/test/</loc>
-    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/typescript/</loc>
-    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2020.01/dockerized-typescript-nextjs-project/</loc>
-    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/web-frontend/</loc>
-    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2020.01/dockerized-typescript-webapi-project/</loc>
-    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/web-api/</loc>
-    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2020.01/where-are-photoshop-2020-document-presets/</loc>
-    <lastmod>2020-01-08T23:04:52+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/photoshop/</loc>
-    <lastmod>2020-01-08T23:04:52+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/tags/photoshop/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/tags/photoshop/"
-                />
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/docker-compose/</loc>
-    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/tags/docker-compose/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/tags/docker-compose/"
-                />
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/kubernetes/</loc>
-    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/ml-engineering/</loc>
-    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2019.12/why-choose-k8s-for-the-project/</loc>
-    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/categories/event/</loc>
-    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/categories/event/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/categories/event/"
-                />
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2019.12/went-to-gcpug-tokyo-dec-2019/</loc>
-    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/github/</loc>
-    <lastmod>2019-08-24T15:51:33+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -339,7 +264,7 @@
   
   <url>
     <loc>https://mazgi.github.io/tags/github-actions/</loc>
-    <lastmod>2019-08-24T15:51:33+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -354,7 +279,7 @@
   
   <url>
     <loc>https://mazgi.github.io/tags/github-package-registry/</loc>
-    <lastmod>2019-08-24T15:51:33+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -369,7 +294,7 @@
   
   <url>
     <loc>https://mazgi.github.io/posts/2019.08/use-github-actions-cicd-with-github-package-registry/</loc>
-    <lastmod>2019-08-24T15:51:33+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -384,232 +309,162 @@
   
   <url>
     <loc>https://mazgi.github.io/tags/1password/</loc>
-    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2019.07/how-to-use-1password-cli/</loc>
-    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2019.07/manage-multiple-github-repositories-with-terraform/</loc>
-    <lastmod>2019-07-07T01:46:11+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2019.06/publish-docker-image-to-github-package-registry/</loc>
-    <lastmod>2019-06-29T14:19:44+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/aws/</loc>
-    <lastmod>2019-06-28T08:53:25+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/tags/aws/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/tags/aws/"
-                />
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2019.06/the-trend-of-aws-storages/</loc>
-    <lastmod>2019-06-28T08:53:25+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/benchmark/</loc>
-    <lastmod>2019-06-28T08:53:25+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/file-system/</loc>
-    <lastmod>2019-06-28T08:53:25+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2019.06/the-trend-of-gcp-storages/</loc>
-    <lastmod>2019-06-28T08:53:25+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/nfs/</loc>
-    <lastmod>2019-06-28T08:53:25+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/storage/</loc>
-    <lastmod>2019-06-28T08:53:25+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/terraform-module/</loc>
-    <lastmod>2019-06-22T11:33:27+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2019.06/the-simplest-ml-environment-with-terraform-on-aws/</loc>
-    <lastmod>2019-06-22T11:33:27+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2019.06/the-simplest-ml-environment-with-terraform-on-gcp/</loc>
-    <lastmod>2019-06-22T11:33:27+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2019.05/brief-description-of-xaas-in-the-ai-era/</loc>
-    <lastmod>2019-05-28T22:24:10+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/xaas/</loc>
-    <lastmod>2019-05-28T22:24:10+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/tags/xaas/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/tags/xaas/"
-                />
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2019.05/went-to-container-build-meetup-02/</loc>
-    <lastmod>2019-05-16T07:41:21+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2019.04/docker-hub-database-was-hacked/</loc>
-    <lastmod>2019-04-28T06:06:59+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/docker-hub/</loc>
-    <lastmod>2019-04-28T06:06:59+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/categories/incident/</loc>
-    <lastmod>2019-04-28T06:06:59+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/security/</loc>
-    <lastmod>2019-04-28T06:06:59+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/analytics-infrastructure/</loc>
-    <lastmod>2019-04-28T02:33:57+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/dena/</loc>
-    <lastmod>2019-04-29T18:57:31+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/tags/dena/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/tags/dena/"
-                />
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2019.04/my-role-in-dena-was-simplified/</loc>
-    <lastmod>2019-04-28T02:33:57+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/amazon-cloudfront/</loc>
-    <lastmod>2019-04-29T18:57:31+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/tags/amazon-cloudfront/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/tags/amazon-cloudfront/"
-                />
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/amazon-s3/</loc>
-    <lastmod>2019-04-29T18:57:31+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/tags/amazon-s3/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/tags/amazon-s3/"
-                />
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/aws-certificate-manager/</loc>
-    <lastmod>2019-04-29T18:57:31+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/aws-waf/</loc>
-    <lastmod>2019-04-29T18:57:31+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/circleci/</loc>
-    <lastmod>2019-04-29T18:57:31+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/tags/circleci/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/tags/circleci/"
-                />
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/categories/continuous-integration-and-delivery/</loc>
-    <lastmod>2019-04-29T18:57:31+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/categories/continuous-integration-and-delivery/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/categories/continuous-integration-and-delivery/"
-                />
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2019.04/built-noops-blog-with-github-circleci-s3/</loc>
-    <lastmod>2019-04-29T18:57:31+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/hugo/</loc>
-    <lastmod>2019-04-29T18:57:31+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -624,52 +479,42 @@
   
   <url>
     <loc>https://mazgi.github.io/categories/noops/</loc>
-    <lastmod>2019-04-29T18:57:31+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/categories/static-website/</loc>
-    <lastmod>2019-04-29T18:57:31+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/categories/static-website/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/categories/static-website/"
-                />
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2019.04/published-dev-environments-for-webapps-with-docker-compose/</loc>
-    <lastmod>2019-04-10T04:46:20+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/flask/</loc>
-    <lastmod>2019-04-10T04:46:20+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/ruby-on-rails/</loc>
-    <lastmod>2019-04-10T04:46:20+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2019.03/went-to-google-cloud-kubernetes-day/</loc>
-    <lastmod>2019-04-10T05:50:27+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/google/</loc>
-    <lastmod>2019-04-10T05:50:27+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/hugo-theme/</loc>
-    <lastmod>2018-12-01T09:17:11+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -684,7 +529,7 @@
   
   <url>
     <loc>https://mazgi.github.io/posts/2018.12/this-blogs-theme-appeared-in-the-hugo-themes/</loc>
-    <lastmod>2018-12-01T09:17:11+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -699,452 +544,292 @@
   
   <url>
     <loc>https://mazgi.github.io/posts/2018.09/create-app-for-cloud-webui-with-nativefier/</loc>
-    <lastmod>2018-09-18T00:16:10+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/nativefier/</loc>
-    <lastmod>2018-09-18T00:16:10+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/beer/</loc>
-    <lastmod>2019-03-26T20:53:02+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/cake/</loc>
-    <lastmod>2019-03-26T20:53:02+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/hashicorp/</loc>
-    <lastmod>2019-03-26T20:53:02+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2018.09/hashicorp-japan-meatup-on-dena/</loc>
-    <lastmod>2019-03-26T20:53:02+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/prosciutto/</loc>
-    <lastmod>2019-03-26T20:53:02+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/packer/</loc>
-    <lastmod>2018-09-15T23:16:32+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2018.09/push-docker-image-to-ecr-and-gcr-with-packer/</loc>
-    <lastmod>2018-09-15T23:16:32+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/categories/provisioning/</loc>
-    <lastmod>2018-09-15T23:16:32+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2018.08/hugo-removed-speakerdeck-shortcode/</loc>
-    <lastmod>2018-08-19T17:26:05+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/speakerdeck/</loc>
-    <lastmod>2018-08-19T17:26:05+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/airdrop/</loc>
-    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2018.07/airdrop-sleeps-when-do-not-disturb-is-turned-on/</loc>
-    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/do-not-disturb/</loc>
-    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/ios/</loc>
-    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/macos/</loc>
-    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/tmux/</loc>
-    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2018.07/useful-tmux-with-zsh/</loc>
-    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/zsh/</loc>
-    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/etl/</loc>
-    <lastmod>2018-08-19T16:34:59+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/tags/etl/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/tags/etl/"
-                />
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/google-bigquery/</loc>
-    <lastmod>2018-08-19T16:34:59+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/tags/google-bigquery/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/tags/google-bigquery/"
-                />
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/hadoop/</loc>
-    <lastmod>2018-08-19T16:34:59+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/tags/hadoop/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/tags/hadoop/"
-                />
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/tdtech/</loc>
-    <lastmod>2018-08-19T16:34:59+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/tags/tdtech/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/tags/tdtech/"
-                />
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2018.05/td-tech-talk-2018/</loc>
-    <lastmod>2018-08-19T16:34:59+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/amazon-efs/</loc>
-    <lastmod>2019-04-22T23:22:52+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/tags/amazon-efs/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/tags/amazon-efs/"
-                />
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/amazon-sagemaker/</loc>
-    <lastmod>2019-04-22T23:22:52+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/tags/amazon-sagemaker/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/tags/amazon-sagemaker/"
-                />
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2018.05/sagemaker-efs-auto-mount-with-lifecycles-configuration/</loc>
-    <lastmod>2019-04-22T23:22:52+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/amazon-vpc/</loc>
-    <lastmod>2019-04-22T23:22:52+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/tags/amazon-vpc/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/tags/amazon-vpc/"
-                />
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/amazon-vpc-nat-gateway/</loc>
-    <lastmod>2019-04-22T23:22:52+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/tags/amazon-vpc-nat-gateway/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/tags/amazon-vpc-nat-gateway/"
-                />
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/aws-elb/</loc>
-    <lastmod>2019-04-22T23:22:52+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/tags/aws-elb/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/tags/aws-elb/"
-                />
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/categories/software-architecture/</loc>
-    <lastmod>2019-04-22T23:22:52+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/categories/software-architecture/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/categories/software-architecture/"
-                />
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2018.05/sagemaker-internet-access-via-nat-gateway/</loc>
-    <lastmod>2019-04-22T23:22:52+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/bootstrap/</loc>
-    <lastmod>2018-05-06T23:13:17+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/tags/bootstrap/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/tags/bootstrap/"
-                />
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/bootstrap-4/</loc>
-    <lastmod>2018-05-06T23:13:17+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/tags/bootstrap-4/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/tags/bootstrap-4/"
-                />
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/github-pages/</loc>
-    <lastmod>2018-05-06T23:13:17+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/tags/github-pages/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/tags/github-pages/"
-                />
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/web-design/</loc>
-    <lastmod>2018-05-06T23:13:17+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/tags/web-design/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/tags/web-design/"
-                />
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2018.05/update-hugo-theme/</loc>
-    <lastmod>2018-05-06T23:13:17+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/about/</loc>
-    <lastmod>2018-05-06T22:54:50+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/amazon-sqs/</loc>
-    <lastmod>2018-05-03T12:08:33+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/tags/amazon-sqs/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/tags/amazon-sqs/"
-                />
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/aws-lambda/</loc>
-    <lastmod>2018-05-03T12:08:33+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/tags/aws-lambda/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/tags/aws-lambda/"
-                />
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2018.04/processing-with-s3-lambda-sqs/</loc>
-    <lastmod>2018-05-03T12:08:33+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2018.03/setup-amazon-sagemaker/</loc>
-    <lastmod>2019-04-22T23:22:52+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2018.03/s3fs-for-s3-with-sse-kms/</loc>
-    <lastmod>2018-05-03T12:08:33+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/</loc>
-    <lastmod>2018-05-09T02:53:03+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2017.12/technical-docs-with-hugo/</loc>
-    <lastmod>2018-05-06T21:33:21+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2017.12/dockerimage-for-chainermn-on-v100/</loc>
-    <lastmod>2018-04-10T20:20:17+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2017.02/deactivate-and-activate-adobecc/</loc>
-    <lastmod>2018-04-10T20:40:03+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2016.09/held-hadoop-bootup-0/</loc>
-    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2016.08/went-to-23x/</loc>
-    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2016.07/interviewed-for-ansible/</loc>
-    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2016.07/racktables-for-home-network/</loc>
-    <lastmod>2020-01-29T14:43:27+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2016.02/tls-certificates-validation-via-s_client/</loc>
-    <lastmod>2018-06-16T21:12:37+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/tags/gentoo/</loc>
-    <lastmod>2018-06-16T21:34:28+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2016.02/cve-2015-7547-on-gentoo/</loc>
-    <lastmod>2018-06-16T21:23:29+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/categories/security/</loc>
-    <lastmod>2018-06-16T21:23:29+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2015.10/gentoo-talk-on-ssmjp/</loc>
-    <lastmod>2018-06-16T21:34:28+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://mazgi.github.io/posts/2015.02/morisnite-02-with-whole-prosciutto/</loc>
-    <lastmod>2018-09-16T09:15:20+09:00</lastmod>
+    <lastmod>2020-10-26T08:14:43+00:00</lastmod>
   </url>
   
 </urlset>

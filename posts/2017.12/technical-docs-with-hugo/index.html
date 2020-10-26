@@ -78,7 +78,7 @@
             <span class="nav-link disabled">Created At: 2017.12.08</span>
           </li>
           <li class="nav-item">
-            <span class="nav-link disabled">Updated At: 2018.05.06</span>
+            <span class="nav-link disabled">Updated At: 2020.10.26</span>
           </li>
           
         </ul>
@@ -114,61 +114,44 @@
       <div class="row">
         <h1>簡易な技術ドキュメントをHugoで書くと便利だった</h1>
       </div>
-      
-
-<p>サンプルコードのドキュメントを<a href="https://gohugo.io/">Hugo</a>で書いてサンプルコードと一緒に配ったら便利そうだったのでやってみた。</p>
-
+      <p>サンプルコードのドキュメントを<a href="https://gohugo.io/">Hugo</a>で書いてサンプルコードと一緒に配ったら便利そうだったのでやってみた。</p>
 <h2 id="やりたいこと">やりたいこと</h2>
-
 <p>仕事で他社さんにサンプルコードとドキュメントをセットでお渡ししたいのだけど社ではGitHub Enterpriseを使っているのでリポジトリを直接見ていただくことが難しいケースがある。</p>
-
-<p>規模が大きいプロジェクトなら<a href="http://www.sphinx-doc.org/">Sphinx</a>使うと(やる気次第で)いくらでも綺麗なドキュメントが書けそうではあるけど、規模がそれほどじゃないうちはサクッとMarkdownで書いて、でもソースコードとドキュメントが整合性取れててほしいという気持ちになる。<br />
+<p>規模が大きいプロジェクトなら<a href="http://www.sphinx-doc.org/">Sphinx</a>使うと(やる気次第で)いくらでも綺麗なドキュメントが書けそうではあるけど、規模がそれほどじゃないうちはサクッとMarkdownで書いて、でもソースコードとドキュメントが整合性取れててほしいという気持ちになる。<br>
 (今は<a href="http://www.sphinx-doc.org/en/stable/markdown.html">SphinxもMarkdownで書ける</a>そうだ、最近知った)</p>
-
 <p>そもそも(私は)ドキュメント書きたくないので、できるだけスクリプトの提供やソースコードコメントで賄って文章量は最小限に抑えたいというモチベーションもあった。</p>
-
 <p>そこで以下のような作戦を考えた。</p>
-
 <h3 id="さくせん">さくせん</h3>
-
 <ul>
 <li>ドキュメントはHugoでプレビューしながらMarkdownで書く</li>
 <li>生成したHTMLは <code>/docs</code> ディレクトリに突っ込む</li>
 <li>社内向けにはGitHub PagesでmasterのHEADをホスティングする</li>
 <li>社外向けには最新リリースのアーカイブを提供する</li>
 </ul>
-
 <p>プレビューできるから書くの楽だし、tag打てるからソースコードとドキュメントの整合性も取りやすい。きっと便利！</p>
-
 <h2 id="できたもの">できたもの</h2>
-
 <ul>
 <li>リポジトリ: <a href="https://github.com/mazgi/example-document-with-hugo">https://github.com/mazgi/example-document-with-hugo</a></li>
 <li>GitHub Pages: <a href="https://mazgi.github.io/example-document-with-hugo/index.html">https://mazgi.github.io/example-document-with-hugo/index.html</a></li>
 </ul>
-
-<p>テーマはこちらを使わせていただいた。<br />
-サイドバーでエントリが一覧できて技術ドキュメントらしさがある。<br />
+<p>テーマはこちらを使わせていただいた。<br>
+サイドバーでエントリが一覧できて技術ドキュメントらしさがある。<br>
 <a href="https://github.com/vjeantet/hugo-theme-docdock">https://github.com/vjeantet/hugo-theme-docdock</a></p>
-
 <h2 id="工夫">工夫</h2>
-
 <p><a href="https://github.com/mazgi/example-document-with-hugo/blob/master/docs.source/config.toml">設定ファイルはこれ。</a></p>
-
 <ul>
 <li>以下で生成したHTML内のリンクが <code>/</code> からの相対PATHになるふいんき(ちゃんと調べていない)
-
 <ul>
 <li><code>baseURL = &quot;/&quot;</code></li>
 <li><code>relativeURLs = true</code></li>
 <li><code>uglyurls = true</code></li>
-</ul></li>
+</ul>
+</li>
 <li>themeの指定</li>
 </ul>
-
 <div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -180,7 +163,7 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">baseURL = <span style="color:#4070a0">&#34;/&#34;</span>
 languageCode = <span style="color:#4070a0">&#34;en-us&#34;</span>
 DefaultContentLanguage = <span style="color:#4070a0">&#34;en&#34;</span>
@@ -194,23 +177,17 @@ theme = <span style="color:#4070a0">&#34;docdock&#34;</span>
 themeVariant = <span style="color:#4070a0">&#34;gray&#34;</span></code></pre></td></tr></table>
 </div>
 </div>
-
-<p>また、この設定ファイルとドキュメントのソースコード(Markdown他)を <code>/docs.source</code> に置き、 <code>publishDir = &quot;../docs&quot;</code> と設定することでリポジトリのrootにあまりファイルを置かないようにしている。<br />
+<p>また、この設定ファイルとドキュメントのソースコード(Markdown他)を <code>/docs.source</code> に置き、 <code>publishDir = &quot;../docs&quot;</code> と設定することでリポジトリのrootにあまりファイルを置かないようにしている。<br>
 これはこのリポジトリにサンプルコードも同居する想定であり、rootにファイルが増えて見通しがわるくなることを避けるため。</p>
-
-<p>HTMLを生成してcommitしてpushしてtagを打ったものがこちら。<br />
+<p>HTMLを生成してcommitしてpushしてtagを打ったものがこちら。<br>
 <a href="https://github.com/mazgi/example-document-with-hugo/releases/tag/v0.0.1">https://github.com/mazgi/example-document-with-hugo/releases/tag/v0.0.1</a></p>
-
-<p>アーカイブをダウンロードして手元で開くとこんな感じで <code>index.html</code> が見える。<br />
+<p>アーカイブをダウンロードして手元で開くとこんな感じで <code>index.html</code> が見える。<br>
 アーカイブファイルにも展開後のディレクトリにもバージョンナンバーが含まれわかりやすい。</p>
-
 <figure>
     <img src="/posts/2017.12/technical-docs-with-hugo/0001.png"/> 
 </figure>
 
-
 <p><code>index.html</code> もリンク先のドキュメントもブラウザで表示できる。便利。</p>
-
 <figure>
     <img src="/posts/2017.12/technical-docs-with-hugo/0002.png"/> 
 </figure>
@@ -223,25 +200,21 @@ themeVariant = <span style="color:#4070a0">&#34;gray&#34;</span></code></pre></t
   
   <h4><a href="/about/">About</a></h4>
   <p><strong>Hidenori MATSUKI</strong></p>
-
 <p>🍣 🍶</p>
-
 <p>another website: <a href="https://mazgi.com/">mazgi.com</a></p>
   
   <hr />
   <h4>TableOfContents</h4>
   <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#やりたいこと">やりたいこと</a>
-<ul>
-<li><a href="#さくせん">さくせん</a></li>
-</ul></li>
-<li><a href="#できたもの">できたもの</a></li>
-<li><a href="#工夫">工夫</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#やりたいこと">やりたいこと</a>
+      <ul>
+        <li><a href="#さくせん">さくせん</a></li>
+      </ul>
+    </li>
+    <li><a href="#できたもの">できたもの</a></li>
+    <li><a href="#工夫">工夫</a></li>
+  </ul>
 </nav>
   <hr />
   <h4><a href="/categories/">Categories</a></h4>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>hugo on mazgi.log</title>
@@ -6,11 +6,7 @@
     <description>Recent content in hugo on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 30 Nov 2018 23:48:26 +0000</lastBuildDate>
-    
-	<atom:link href="https://mazgi.github.io/en/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 30 Nov 2018 23:48:26 +0000</lastBuildDate><atom:link href="https://mazgi.github.io/en/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>This blog&#39;s theme appeared in the &#34;Hugo Themes&#34;</title>
       <link>https://mazgi.github.io/en/posts/2018.12/this-blogs-theme-appeared-in-the-hugo-themes/</link>
@@ -21,34 +17,7 @@
 Techblog Simple is a Bootstrap-based blog theme for Hugo. Made by @mazgi.https://t.co/IZ4W1pSwnX
 &amp;mdash; GoHugo.io (@GoHugoIO) November 29, 2018  Hugo Theme Techlog Simple | Hugo Themes
 For details, refer to the following links.
- (gohugoio/hugoThemes)README#adding-a-theme-to-the-list My pull requests:  https://github.com/gohugoio/hugoThemes/issues/444 https://github.com/mazgi/hugo-theme-techlog-simple/pull/2   </description>
-    </item>
-    
-    <item>
-      <title>Update Hugo Theme</title>
-      <link></link>
-      <pubDate>Sun, 06 May 2018 21:04:37 +0900</pubDate>
-      
-      <guid></guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Technical Docs With Hugo</title>
-      <link></link>
-      <pubDate>Wed, 21 Mar 2018 03:49:48 +0900</pubDate>
-      
-      <guid></guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>S3&#43;cloudfront Website With Terraform and Circleci</title>
-      <link></link>
-      <pubDate>Thu, 15 Feb 2018 05:24:40 +0900</pubDate>
-      
-      <guid></guid>
-      <description></description>
+ (gohugoio/hugoThemes)README#adding-a-theme-to-the-list My pull requests:  https://github.com/gohugoio/hugoThemes/issues/444 https://github.com/mazgi/hugo-theme-techlog-simple/pull/2    </description>
     </item>
     
   </channel>

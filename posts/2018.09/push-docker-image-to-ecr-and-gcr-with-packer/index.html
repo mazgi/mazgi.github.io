@@ -74,7 +74,7 @@
             <span class="nav-link disabled">Created At: 2018.09.09</span>
           </li>
           <li class="nav-item">
-            <span class="nav-link disabled">Updated At: 2018.09.15</span>
+            <span class="nav-link disabled">Updated At: 2020.10.26</span>
           </li>
           
         </ul>
@@ -110,12 +110,10 @@
       <div class="row">
         <h1>Packerを使ってECRとGCRに同じDockerイメージをPushする</h1>
       </div>
-      <p>自分用のML環境としてDockerイメージを作っていたのだが、 <code>FROM: nvidia/cuda:9.2-cudnn7-devel-ubuntu18.04</code> なのでDockerHubでpublicにするのも憚られ、ECR/GCRに置くことにした。<br />
+      <p>自分用のML環境としてDockerイメージを作っていたのだが、 <code>FROM: nvidia/cuda:9.2-cudnn7-devel-ubuntu18.04</code> なのでDockerHubでpublicにするのも憚られ、ECR/GCRに置くことにした。<br>
 ECR/GCRに置くついでに <code>packer build</code> だけでECRとGCRに同じイメージが置かれてほしいと思ってやってみた。</p>
-
-<p><code>packer.json</code> はこちら。<br />
+<p><code>packer.json</code> はこちら。<br>
 <a href="https://github.com/mazgi/docker.ml">https://github.com/mazgi/docker.ml</a></p>
-
 <p>ECRはPackerが対応しているので<code>post-processors</code> のなかでtagを打ってpushするだけで済む。便利。</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#4070a0">&#34;post-processors&#34;</span><span style="">:</span> [
   [
@@ -132,8 +130,8 @@ ECR/GCRに置くついでに <code>packer build</code> だけでECRとGCRに同�
       <span style="color:#062873;font-weight:bold">&#34;login_server&#34;</span>: <span style="color:#4070a0">&#34;{{ user `ecr_repository_uri` }}&#34;</span>
     }
   ]
-]</code></pre></div>
-<p>問題はGCRで、Packerが対応しているわけではないのでtagは打てるがpushができなさそう。<br />
+]
+</code></pre></div><p>問題はGCRで、Packerが対応しているわけではないのでtagは打てるがpushができなさそう。<br>
 結局 <code>shell-local</code> のなかで <code>gcloud docker</code> をたたくことにした。</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#4070a0">&#34;post-processors&#34;</span><span style="">:</span> [
   [
@@ -149,14 +147,14 @@ ECR/GCRに置くついでに <code>packer build</code> だけでECRとGCRに同�
       ]
     }
   ]
-]</code></pre></div>
-<p>先に <code>gcloud auth login</code> が必要だがこんな感じでbuild &amp;&amp; pushできる。<br />
-すでにpush済みのイメージをbuildしているため <code>already exists</code> と言われている、また出力はところどころ省略している。<br />
+]
+</code></pre></div><p>先に <code>gcloud auth login</code> が必要だがこんな感じでbuild &amp;&amp; pushできる。<br>
+すでにpush済みのイメージをbuildしているため <code>already exists</code> と言われている、また出力はところどころ省略している。<br>
 アカウントIDとかプロジェクトIDは公開して困る理由が思い当たらなかったので伏せていない。</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">$ ECR_REPOSITORY_URI=&#39;579744961348.dkr.ecr.us-east-1.amazonaws.com&#39; \
-ECR_AWS_ACCESS_KEY=&#39;********&#39; \
-ECR_AWS_SECRET_KEY=&#39;********&#39; \
-GCR_PROJECT_ID=&#39;mazgi-images-gcp&#39; \
+<pre><code class="language-shellsession" data-lang="shellsession">$ ECR_REPOSITORY_URI='579744961348.dkr.ecr.us-east-1.amazonaws.com' \
+ECR_AWS_ACCESS_KEY='********' \
+ECR_AWS_SECRET_KEY='********' \
+GCR_PROJECT_ID='mazgi-images-gcp' \
 packer build packer.json
 docker output will be in this color.
 
@@ -217,12 +215,13 @@ docker output will be in this color.
     docker (docker-push): Logging out...
     docker (docker-push): Removing login credentials for 579744961348.dkr.ecr.us-east-1.amazonaws.com
     docker (docker-push): WARNING: could not erase credentials: error erasing credentials - err: exit status 1, out: `The specified item could not be found in the keychain.`
-Build &#39;docker&#39; finished.
+Build 'docker' finished.
 
 ==&gt; Builds finished. The artifacts of successful builds are:
 --&gt; docker: Imported Docker image: sha256:08098cb675df683a10c04cbd0931a9b927e7db0d854acebb67a3c1f0507284d5
 --&gt; docker: Imported Docker image: gcr.io/mazgi-images-gcp/ml:latest
---&gt; docker: </code></pre></div>
+--&gt; docker: 
+</code></pre>
     </article>
   </div>
   <div class="col-lg-3">
@@ -230,14 +229,12 @@ Build &#39;docker&#39; finished.
   
   <h4><a href="/about/">About</a></h4>
   <p><strong>Hidenori MATSUKI</strong></p>
-
 <p>🍣 🍶</p>
-
 <p>another website: <a href="https://mazgi.com/">mazgi.com</a></p>
   
   <hr />
   <h4>TableOfContents</h4>
-  
+  <nav id="TableOfContents"></nav>
   <hr />
   <h4><a href="/categories/">Categories</a></h4>
   

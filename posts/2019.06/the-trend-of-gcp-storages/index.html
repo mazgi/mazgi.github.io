@@ -74,7 +74,7 @@
             <span class="nav-link disabled">Created At: 2019.06.22</span>
           </li>
           <li class="nav-item">
-            <span class="nav-link disabled">Updated At: 2019.06.28</span>
+            <span class="nav-link disabled">Updated At: 2020.10.26</span>
           </li>
           
         </ul>
@@ -110,47 +110,32 @@
       <div class="row">
         <h1>GCPストレージ概観</h1>
       </div>
-      
-
-<p>GCPで使えるローカルストレージとNFSストレージを一通り試してみました。<br />
+      <p>GCPで使えるローカルストレージとNFSストレージを一通り試してみました。<br>
 <a href="/posts/2019.06/the-trend-of-aws-storages/">AWS編はこちら</a>。</p>
-
 <h1 id="about">About</h1>
-
-<p>ベンチマークはfioコマンドで取得した。<br />
+<p>ベンチマークはfioコマンドで取得した。<br>
 機械学習のワークロードで扱う機会が多い、CSVのような小さめのテキストファイルとマルチメディアファイルを想定して4kと32mのデータで測定した。</p>
-
-<p>なお、ストレージタイプごとの傾向をざっくりと知りたかったので性能を引き出すような設定や調整は行なっていない。<br />
+<p>なお、ストレージタイプごとの傾向をざっくりと知りたかったので性能を引き出すような設定や調整は行なっていない。<br>
 また以下の理由でIaaSのストレージを厳密に測定してもあまり意味はないと考えている。</p>
-
 <ul>
 <li>IaaSのリソースはシェアされているので他のユーザー(テナント)の影響を受ける</li>
 <li>非公開な仕様が特に告知なく更新される(バス幅や各種ストレージの物理仕様など)</li>
 </ul>
-
-<p>試したストレージは以下。<br />
+<p>試したストレージは以下。<br>
 <em><a href="https://cloud.google.com/compute/docs/disks/local-ssd">Local SSD</a>は存在を忘れていて試していない。。</em></p>
-
 <ul>
 <li><a href="https://cloud.google.com/persistent-disk/">Persistent Disk</a>(ローカルブロックデバイス)</li>
 <li><a href="https://cloud.google.com/filestore/">Cloud Filestore</a>(マネージドNFSサービス)</li>
 </ul>
-
 <h1 id="results">Results</h1>
-
-<p>以下の通りTerraformによるIaCでprovisioningした。<br />
+<p>以下の通りTerraformによるIaCでprovisioningした。<br>
 <a href="https://github.com/mazgi/terraform-google-simple-vpc/tree/v2019.06.1/examples/multiple-volumes">https://github.com/mazgi/terraform-google-simple-vpc/tree/v2019.06.1/examples/multiple-volumes</a></p>
-
-<p>結果はこちら。<br />
+<p>結果はこちら。<br>
 <a href="https://gist.github.com/mazgi/21f85139e50fbce8e508adc0c4985f4f">https://gist.github.com/mazgi/21f85139e50fbce8e508adc0c4985f4f</a></p>
-
 <p>結果をテーブルにまとめた。</p>
-
 <h2 id="persistent-disks">Persistent disks</h2>
-
-<p>SSDが思ったより早くない。<br />
+<p>SSDが思ったより早くない。<br>
 Standard(HDD)は個人的には使えるシチュエーションがかなり限られそう。。</p>
-
 <table>
 <thead>
 <tr>
@@ -163,7 +148,6 @@ Standard(HDD)は個人的には使えるシチュエーションがかなり限�
 <th>,32m</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>PD (standard)</td>
@@ -174,7 +158,6 @@ Standard(HDD)は個人的には使えるシチュエーションがかなり限�
 <td>822KiB</td>
 <td>116MiB</td>
 </tr>
-
 <tr>
 <td>PD (standard)</td>
 <td>w</td>
@@ -184,7 +167,6 @@ Standard(HDD)は個人的には使えるシチュエーションがかなり限�
 <td>6152KiB</td>
 <td>71.4MiB</td>
 </tr>
-
 <tr>
 <td>PD (standard)</td>
 <td>r</td>
@@ -194,7 +176,6 @@ Standard(HDD)は個人的には使えるシチュエーションがかなり限�
 <td>19.2MiB</td>
 <td>116MiB</td>
 </tr>
-
 <tr>
 <td>PD (standard)</td>
 <td>w</td>
@@ -204,7 +185,6 @@ Standard(HDD)は個人的には使えるシチュエーションがかなり限�
 <td>9.78MiB</td>
 <td>71.5MiB</td>
 </tr>
-
 <tr>
 <td>PD (ssd)</td>
 <td>r</td>
@@ -214,7 +194,6 @@ Standard(HDD)は個人的には使えるシチュエーションがかなり限�
 <td>13.8MiB</td>
 <td>242MiB</td>
 </tr>
-
 <tr>
 <td>PD (ssd)</td>
 <td>w</td>
@@ -224,7 +203,6 @@ Standard(HDD)は個人的には使えるシチュエーションがかなり限�
 <td>10.4MiB</td>
 <td>71.2MiB</td>
 </tr>
-
 <tr>
 <td>PD (ssd)</td>
 <td>r</td>
@@ -234,7 +212,6 @@ Standard(HDD)は個人的には使えるシチュエーションがかなり限�
 <td>17.9MiB</td>
 <td>242MiB</td>
 </tr>
-
 <tr>
 <td>PD (ssd)</td>
 <td>w</td>
@@ -246,12 +223,9 @@ Standard(HDD)は個人的には使えるシチュエーションがかなり限�
 </tr>
 </tbody>
 </table>
-
 <h2 id="cloud-filestore">Cloud Filestore</h2>
-
-<p>おかしい、ローカルストレージ(PD)より明らかに早い。<br />
+<p>おかしい、ローカルストレージ(PD)より明らかに早い。<br>
 キャッシュか何かの設定を誤ったのだろうか、あるいはネットワークの先に何か得体の知れないものが存在している?</p>
-
 <table>
 <thead>
 <tr>
@@ -264,7 +238,6 @@ Standard(HDD)は個人的には使えるシチュエーションがかなり限�
 <th>,32m</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>Filestore (standard)</td>
@@ -275,7 +248,6 @@ Standard(HDD)は個人的には使えるシチュエーションがかなり限�
 <td>62.1MiB</td>
 <td>1362MiB</td>
 </tr>
-
 <tr>
 <td>Filestore (standard)</td>
 <td>w</td>
@@ -285,7 +257,6 @@ Standard(HDD)は個人的には使えるシチュエーションがかなり限�
 <td>3673KiB</td>
 <td>107MiB</td>
 </tr>
-
 <tr>
 <td>Filestore (standard)</td>
 <td>r</td>
@@ -295,7 +266,6 @@ Standard(HDD)は個人的には使えるシチュエーションがかなり限�
 <td>63.4MiB</td>
 <td>1352MiB</td>
 </tr>
-
 <tr>
 <td>Filestore (standard)</td>
 <td>w</td>
@@ -305,7 +275,6 @@ Standard(HDD)は個人的には使えるシチュエーションがかなり限�
 <td>3725KiB</td>
 <td>170MiB</td>
 </tr>
-
 <tr>
 <td>Filestore (premium)</td>
 <td>r</td>
@@ -315,7 +284,6 @@ Standard(HDD)は個人的には使えるシチュエーションがかなり限�
 <td>54.9MiB</td>
 <td>1575MiB</td>
 </tr>
-
 <tr>
 <td>Filestore (premium)</td>
 <td>w</td>
@@ -325,7 +293,6 @@ Standard(HDD)は個人的には使えるシチュエーションがかなり限�
 <td>3283KiB</td>
 <td>167MiB</td>
 </tr>
-
 <tr>
 <td>Filestore (premium)</td>
 <td>r</td>
@@ -335,7 +302,6 @@ Standard(HDD)は個人的には使えるシチュエーションがかなり限�
 <td>53.1MiB</td>
 <td>1843MiB</td>
 </tr>
-
 <tr>
 <td>Filestore (premium)</td>
 <td>w</td>
@@ -347,11 +313,8 @@ Standard(HDD)は個人的には使えるシチュエーションがかなり限�
 </tr>
 </tbody>
 </table>
-
-<h1 id="that-s-all">That&rsquo;s all</h1>
-
+<h1 id="thats-all">That&rsquo;s all</h1>
 <p>雑に試したら頭抱える結果になったので改めてちゃんと測ります。</p>
-
 <p>今回のベンチマークは「インターネットやAIを活用し、世の中にデライトを届けていく」<a href="https://dena.ai/">dena.ai</a>の提供で実行させていただきました。感謝 🙏</p>
 
     </article>
@@ -361,23 +324,16 @@ Standard(HDD)は個人的には使えるシチュエーションがかなり限�
   
   <h4><a href="/about/">About</a></h4>
   <p><strong>Hidenori MATSUKI</strong></p>
-
 <p>🍣 🍶</p>
-
 <p>another website: <a href="https://mazgi.com/">mazgi.com</a></p>
   
   <hr />
   <h4>TableOfContents</h4>
   <nav id="TableOfContents">
-<ul>
-<li><a href="#about">About</a></li>
-<li><a href="#results">Results</a>
-<ul>
-<li><a href="#persistent-disks">Persistent disks</a></li>
-<li><a href="#cloud-filestore">Cloud Filestore</a></li>
-</ul></li>
-<li><a href="#that-s-all">That&rsquo;s all</a></li>
-</ul>
+  <ul>
+    <li><a href="#persistent-disks">Persistent disks</a></li>
+    <li><a href="#cloud-filestore">Cloud Filestore</a></li>
+  </ul>
 </nav>
   <hr />
   <h4><a href="/categories/">Categories</a></h4>

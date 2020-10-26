@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>daas on mazgi.log</title>
@@ -6,11 +6,7 @@
     <description>Recent content in daas on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Apr 2020 10:51:55 +0000</lastBuildDate>
-    
-	<atom:link href="https://mazgi.github.io/tags/daas/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 22 Apr 2020 10:51:55 +0000</lastBuildDate><atom:link href="https://mazgi.github.io/tags/daas/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Windows Server on Google Compute Engine</title>
       <link>https://mazgi.github.io/posts/2020.04/windows-server-on-google-compute-engine/</link>

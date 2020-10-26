@@ -78,7 +78,7 @@
             <span class="nav-link disabled">Created At: 2018.07.28</span>
           </li>
           <li class="nav-item">
-            <span class="nav-link disabled">Updated At: 2020.01.29</span>
+            <span class="nav-link disabled">Updated At: 2020.10.26</span>
           </li>
           
         </ul>
@@ -114,90 +114,63 @@
       <div class="row">
         <h1>tmuxとzshのススメ</h1>
       </div>
-      <h2 id="tl-dr">tl;dr</h2>
-
+      <h2 id="tldr">tl;dr</h2>
 <ul>
 <li><code>Terminal.app</code> や <code>SSH</code> のようなCUIで作業するときはtmux使うと便利</li>
 <li><code>tmux</code> 使うときはシェルを <code>zsh</code> にすると便利</li>
 </ul>
-
-<p>サーバーサイド開発をやってる人には今更な話ですけど最近何度かオススメする機会があったので記事を書くことにしました。<br />
+<p>サーバーサイド開発をやってる人には今更な話ですけど最近何度かオススメする機会があったので記事を書くことにしました。<br>
 以下、私の使い方を説明しているだけで特に目新しい話はありません。</p>
-
 <h2 id="tmuxとは">tmuxとは</h2>
-
-<p><a href="https://github.com/tmux/tmux/wiki">tmux</a>は「ターミナルマルチプレクサ」と呼ばれる類のソフトウェアです。<br />
-動作するレイヤーを図にするとこのようになり、ログインシェルの上でtmuxを起動し、さらにそのtmuxの上でログインシェルを起動することができます。<br />
+<p><a href="https://github.com/tmux/tmux/wiki">tmux</a>は「ターミナルマルチプレクサ」と呼ばれる類のソフトウェアです。<br>
+動作するレイヤーを図にするとこのようになり、ログインシェルの上でtmuxを起動し、さらにそのtmuxの上でログインシェルを起動することができます。<br>
 (ログインシェルとは異なるシェルを起動することもできます)</p>
-
 <figure>
     <img src="/posts/2018.07/useful-tmux-with-zsh/0001.png" width="800"/> 
 </figure>
 
-
 <p>ターミナル(CUI)上で起動することで主に以下ができます。</p>
-
-<h3 id="セッションの保持-復元">セッションの保持/復元</h3>
-
+<h3 id="セッションの保持復元">セッションの保持/復元</h3>
 <p>tmuxを使うと「SSH経由で時間のかかるコマンドを実行しているが、電車で移動しなければならなくなった。でも今このコマンドを止めたくない。」というようなシチュエーションで便利です。</p>
-
-<p>SSHでログインした後まずtmuxを起動し、tmux上で任意のコマンドを実行するようにすれば、ネットワークが切断されても再接続した後でコマンド実行中のコンソールに再接続することができます。<br />
+<p>SSHでログインした後まずtmuxを起動し、tmux上で任意のコマンドを実行するようにすれば、ネットワークが切断されても再接続した後でコマンド実行中のコンソールに再接続することができます。<br>
 もちろん手元のPCを再起動しても、SSHログインしていた先のサーバーとtmuxが起動したままであれば再接続できます。</p>
-
 <figure>
     <img src="/posts/2018.07/useful-tmux-with-zsh/0002.png" width="800"/> 
 </figure>
 
-
 <h3 id="ターミナル画面の分割">ターミナル画面の分割</h3>
-
-<p>1つのターミナル画面でいくつもの <code>window</code> を作ったり、 <code>pane</code> に分割することができます。<br />
+<p>1つのターミナル画面でいくつもの <code>window</code> を作ったり、 <code>pane</code> に分割することができます。<br>
 見た方がわかりやすいので動画にまとめました。</p>
 
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="//www.youtube.com/embed/sPvcKqzum3U" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+  <iframe src="https://www.youtube.com/embed/sPvcKqzum3U" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
 </div>
 
-
-<p>もちろん <code>window</code> も <code>pane</code> もtmux上の機能なので、一回切断して再接続してもそのままの状態で残っています。<br />
+<p>もちろん <code>window</code> も <code>pane</code> もtmux上の機能なので、一回切断して再接続してもそのままの状態で残っています。<br>
 接続元の画面サイズが変わるとレイアウトずれたりはします。</p>
-
 <p><code>tmux</code> 便利そうじゃないですか？？</p>
-
 <h2 id="なぜzshか">なぜzshか</h2>
-
-<p>一言で言うと「複数のzshプロセス間で履歴が共有できるから」に尽きます。<br />
+<p>一言で言うと「複数のzshプロセス間で履歴が共有できるから」に尽きます。<br>
 zshの場合、設定ファイルに <code>setopt share_history</code> の1行を書くだけで各zshプロセスの履歴がシェアされます。</p>
-
-<p>もちろん「Bashでも履歴共有できる」とか、<br />
-<em>(参考: <a href="https://unix.stackexchange.com/a/48113">Preserve bash history in multiple terminal windows - Unix &amp; Linux Stack Exchange</a>)</em><br />
+<p>もちろん「Bashでも履歴共有できる」とか、<br>
+<em>(参考: <a href="https://unix.stackexchange.com/a/48113">Preserve bash history in multiple terminal windows - Unix &amp; Linux Stack Exchange</a>)</em><br>
 「<a href="https://fishshell.com/">fish</a>の方が簡単」とか色々あると思うのでお好みで。</p>
-
-<h2 id="インストール-設定方法">インストール/設定方法</h2>
-
-<p>macOSの場合だけご紹介すると、 <code>zsh</code> は最初から入っています。<br />
+<h2 id="インストール設定方法">インストール/設定方法</h2>
+<p>macOSの場合だけご紹介すると、 <code>zsh</code> は最初から入っています。<br>
 <code>tmux</code> は<a href="https://brew.sh/">Homebrew</a>を使って <code>brew install tmux</code> を実行するだけで入ります。</p>
-
 <p>Ubuntuの場合はきっと <code>sudo apt install zsh tmux</code> とかで入るでしょうし、Gentooなら <code>sudo emerge zsh tmux</code> するだけです。</p>
-
-<p>zshの設定ファイルは <code>~/.zshrc</code> 、<br />
+<p>zshの設定ファイルは <code>~/.zshrc</code> 、<br>
 tmuxの設定ファイルは <code>~/.tmux.conf</code> です。</p>
-
 <p>私の設定ファイルは ⬇️ ですが、この記事を書いた後に色々と手を加えたので見た目がかなり変わりました。</p>
-
 <ul>
 <li><a href="https://github.com/mazgi/.dotfiles/blob/master/.zshrc">https://github.com/mazgi/.dotfiles/blob/master/.zshrc</a></li>
 <li><a href="https://github.com/mazgi/.dotfiles/blob/master/.tmux.conf">https://github.com/mazgi/.dotfiles/blob/master/.tmux.conf</a></li>
 </ul>
-
 <p>GitHubで次のように探すと色んな方が設定ファイルを公開しています。</p>
-
 <ul>
 <li><a href="https://github.com/search?q=filename%3A.zshrc">https://github.com/search?q=filename%3A.zshrc</a></li>
 <li><a href="https://github.com/search?q=filename%3A.tmux.conf">https://github.com/search?q=filename%3A.tmux.conf</a></li>
 </ul>
-
 <p>皆さま良いシェルライフを！</p>
     </article>
   </div>
@@ -206,27 +179,23 @@ tmuxの設定ファイルは <code>~/.tmux.conf</code> です。</p>
   
   <h4><a href="/about/">About</a></h4>
   <p><strong>Hidenori MATSUKI</strong></p>
-
 <p>🍣 🍶</p>
-
 <p>another website: <a href="https://mazgi.com/">mazgi.com</a></p>
   
   <hr />
   <h4>TableOfContents</h4>
   <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#tl-dr">tl;dr</a></li>
-<li><a href="#tmuxとは">tmuxとは</a>
-<ul>
-<li><a href="#セッションの保持-復元">セッションの保持/復元</a></li>
-<li><a href="#ターミナル画面の分割">ターミナル画面の分割</a></li>
-</ul></li>
-<li><a href="#なぜzshか">なぜzshか</a></li>
-<li><a href="#インストール-設定方法">インストール/設定方法</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#tldr">tl;dr</a></li>
+    <li><a href="#tmuxとは">tmuxとは</a>
+      <ul>
+        <li><a href="#セッションの保持復元">セッションの保持/復元</a></li>
+        <li><a href="#ターミナル画面の分割">ターミナル画面の分割</a></li>
+      </ul>
+    </li>
+    <li><a href="#なぜzshか">なぜzshか</a></li>
+    <li><a href="#インストール設定方法">インストール/設定方法</a></li>
+  </ul>
 </nav>
   <hr />
   <h4><a href="/categories/">Categories</a></h4>

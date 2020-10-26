@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on mazgi.log</title>
@@ -6,29 +6,15 @@
     <description>Recent content in Posts on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 19 Sep 2020 13:55:08 +0000</lastBuildDate>
-    
-	<atom:link href="https://mazgi.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>2020年代を生き抜くWebアプリケーション基盤の私的整理</title>
-      <link>https://mazgi.github.io/posts/2020.09/better-web-application-infrastructure-in-my-case/</link>
-      <pubDate>Sat, 19 Sep 2020 13:55:08 +0000</pubDate>
-      
-      <guid>https://mazgi.github.io/posts/2020.09/better-web-application-infrastructure-in-my-case/</guid>
-      <description>Webアプリケーションを動かすためにはどうしてもCPU、メモリ、ストレージなどが必要です。 せっかく作ったWebアプリケーションを誰かに使って</description>
-    </item>
-    
+    <lastBuildDate>Thu, 14 May 2020 13:13:17 +0000</lastBuildDate><atom:link href="https://mazgi.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Terraformを使ってWebアプリケーション運用向けにGCEを構築する</title>
       <link>https://mazgi.github.io/posts/2020.05/provision-gce-webapp-environment-by-terraform/</link>
       <pubDate>Thu, 14 May 2020 13:13:17 +0000</pubDate>
       
       <guid>https://mazgi.github.io/posts/2020.05/provision-gce-webapp-environment-by-terraform/</guid>
-      <description>&lt;p&gt;普通の Web アプリケーション向け環境を Google Compute Engine(GCE)を中心に構成する、そんなよくあるシステムのサンプルです。&lt;br /&gt;
+      <description>&lt;p&gt;普通の Web アプリケーション向け環境を Google Compute Engine(GCE)を中心に構成する、そんなよくあるシステムのサンプルです。&lt;br&gt;
 GKE とか登場しないトラディショナルな構成を先人の知恵に学びつつ機会がある度に色々考えますが、結局こんな感じになるのではと思ってます。&lt;/p&gt;
-
 &lt;p&gt;ソースコードは&lt;a href=&#34;https://github.com/mazgi-showcase/202005.gce-webapp-environment&#34;&gt;mazgi-showcase/202005.gce-webapp-environment&lt;/a&gt;にあります。&lt;/p&gt;</description>
     </item>
     
@@ -65,9 +51,8 @@ GKE とか登場しないトラディショナルな構成を先人の知恵に�
       <pubDate>Wed, 29 Jan 2020 03:53:07 +0000</pubDate>
       
       <guid>https://mazgi.github.io/posts/2020.01/how-to-transfer-multiple-files-with-tar-and-multistage-ssh/</guid>
-      <description>&lt;p&gt;「サーバーにディレクトリ丸っと送りたいんだけど、途中に踏み台サーバーが居て&amp;hellip;」よくあります。&lt;br /&gt;
+      <description>&lt;p&gt;「サーバーにディレクトリ丸っと送りたいんだけど、途中に踏み台サーバーが居て&amp;hellip;」よくあります。&lt;br&gt;
 「え、ProxyCommand塞がれてるの??」とセキュリティ堅い環境でよく聞きます。&lt;/p&gt;
-
 &lt;p&gt;&lt;code&gt;tar+ssh&lt;/code&gt; で大抵回避できるのでコピペで使えるようにまとめました。&lt;/p&gt;</description>
     </item>
     
@@ -78,15 +63,16 @@ GKE とか登場しないトラディショナルな構成を先人の知恵に�
       
       <guid>https://mazgi.github.io/posts/2020.01/dockerized-typescript-nextjs-project/</guid>
       <description>&lt;p&gt;「手っ取り早く Web インターフェースを手に入れる方法 2020」シリーズ(?)の&lt;a href=&#34;https://mazgi.github.io/posts/2020.01/dockerized-typescript-webapi-project/&#34;&gt;BFF サンプルプロジェクト&lt;/a&gt; と同じように Web Frontend サンプルプロジェクトを作ってみました。&lt;/p&gt;
-
-&lt;p&gt;今回もプロジェクト構成やビルド方法の検証が主目的です。&lt;br /&gt;
+&lt;p&gt;今回もプロジェクト構成やビルド方法の検証が主目的です。&lt;br&gt;
 そのためアプリケーション自体は Docker イメージを実行すると&lt;a href=&#34;https://nextjs.org/&#34;&gt;Next.js&lt;/a&gt;の Web サーバーが起動しこんなページが表示されるだけのシンプルな機能しかありません。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shellsession&#34; data-lang=&#34;shellsession&#34;&gt;❯ docker run -it --rm -p 3000:3000 b2ee27d0d01d
+&lt;pre&gt;&lt;code class=&#34;language-shellsession&#34; data-lang=&#34;shellsession&#34;&gt;❯ docker run -it --rm -p 3000:3000 b2ee27d0d01d
 
 &amp;gt; @ start /app
 &amp;gt; next start
 
-&amp;gt; Ready on http://localhost:3000&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&amp;gt; Ready on http://localhost:3000
+
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     
     <item>
@@ -95,12 +81,13 @@ GKE とか登場しないトラディショナルな構成を先人の知恵に�
       <pubDate>Thu, 16 Jan 2020 00:10:30 +0000</pubDate>
       
       <guid>https://mazgi.github.io/posts/2020.01/dockerized-typescript-webapi-project/</guid>
-      <description>&lt;p&gt;「手っ取り早く Web インターフェースを手に入れる方法 2020」みたいなことを考えながら勉強のために BFF(Backend For Frontend) のサンプルプロジェクトを作ってみました。&lt;br /&gt;
+      <description>&lt;p&gt;「手っ取り早く Web インターフェースを手に入れる方法 2020」みたいなことを考えながら勉強のために BFF(Backend For Frontend) のサンプルプロジェクトを作ってみました。&lt;br&gt;
 ただしプロジェクト構成やビルド方法の検証が主なので BFF に特化した機能はなく、実行すると Express が起動してコンソールログが表示されるだけのアプリケーションです。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shellsession&#34; data-lang=&#34;shellsession&#34;&gt;❯ docker run -it --rm 19472c5d8df4
+&lt;pre&gt;&lt;code class=&#34;language-shellsession&#34; data-lang=&#34;shellsession&#34;&gt;❯ docker run -it --rm 19472c5d8df4
 💽 Loaded the configuration: version: 2020.1.0-default, baseVersion: 2020.1.0-default
 ⚡ App is running at :4000 in production mode
-  Press CTRL-C to stop&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+  Press CTRL-C to stop
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     
     <item>
@@ -118,7 +105,7 @@ GKE とか登場しないトラディショナルな構成を先人の知恵に�
       <pubDate>Wed, 18 Dec 2019 23:35:25 +0000</pubDate>
       
       <guid>https://mazgi.github.io/posts/2019.12/why-choose-k8s-for-the-project/</guid>
-      <description>&lt;p&gt;これは&lt;a href=&#34;https://mazgi.github.io/posts/2019.12/went-to-gcpug-tokyo-dec-2019/&#34;&gt;「GCPUG Tokyo December 2019」の記事&lt;/a&gt;から「Why Kubernetes? Why not GAE or others?」部分を切り出した記事です。&lt;br /&gt;
+      <description>&lt;p&gt;これは&lt;a href=&#34;https://mazgi.github.io/posts/2019.12/went-to-gcpug-tokyo-dec-2019/&#34;&gt;「GCPUG Tokyo December 2019」の記事&lt;/a&gt;から「Why Kubernetes? Why not GAE or others?」部分を切り出した記事です。&lt;br&gt;
 本記事のコンテキストとして、イベントでお話しさせていただいた資料「&lt;a href=&#34;https://speakerdeck.com/mazgi/fast-development-for-ml-web-service-on-gke-and-gcp&#34;&gt;ML アプリケーション短期開発 / Fast development for ML Web Service on GKE &amp;amp; GCP&lt;/a&gt;」」を事前にご参照いただけると幸いです。&lt;/p&gt;</description>
     </item>
     
@@ -128,9 +115,8 @@ GKE とか登場しないトラディショナルな構成を先人の知恵に�
       <pubDate>Wed, 18 Dec 2019 22:35:25 +0000</pubDate>
       
       <guid>https://mazgi.github.io/posts/2019.12/went-to-gcpug-tokyo-dec-2019/</guid>
-      <description>&lt;p&gt;昨日 &lt;sup&gt;12&lt;/sup&gt;&amp;frasl;&lt;sub&gt;18&lt;/sub&gt; に開催された「&lt;a href=&#34;https://gcpug-tokyo.connpass.com/event/152607/&#34;&gt;GCPUG Tokyo December 2019&lt;/a&gt;」で「&lt;a href=&#34;https://speakerdeck.com/mazgi/fast-development-for-ml-web-service-on-gke-and-gcp&#34;&gt;ML アプリケーション短期開発 / Fast development for ML Web Service on GKE &amp;amp; GCP&lt;/a&gt;」と題してお話しさせていただきました。&lt;/p&gt;
-
-&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;3330c952865c46068644f1bc24042b2d&#34; data-ratio=&#34;1.77777777777778&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;</description>
+      <description>&lt;p&gt;昨日 12/18 に開催された「&lt;a href=&#34;https://gcpug-tokyo.connpass.com/event/152607/&#34;&gt;GCPUG Tokyo December 2019&lt;/a&gt;」で「&lt;a href=&#34;https://speakerdeck.com/mazgi/fast-development-for-ml-web-service-on-gke-and-gcp&#34;&gt;ML アプリケーション短期開発 / Fast development for ML Web Service on GKE &amp;amp; GCP&lt;/a&gt;」と題してお話しさせていただきました。&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
     <item>
@@ -157,7 +143,7 @@ GKE とか登場しないトラディショナルな構成を先人の知恵に�
       <pubDate>Sat, 06 Jul 2019 15:10:53 +0000</pubDate>
       
       <guid>https://mazgi.github.io/posts/2019.07/manage-multiple-github-repositories-with-terraform/</guid>
-      <description>普段の仕事でPoCやその他次々発生する実験的なプロジェクトのために&amp;rdquo;よく似たGitHubリポジトリ&amp;rdquo;を管理する必要が</description>
+      <description>普段の仕事でPoCやその他次々発生する実験的なプロジェクトのために&amp;quot;よく似たGitHubリポジトリ&amp;quot;を管理する必要があっ</description>
     </item>
     
     <item>
@@ -202,7 +188,7 @@ GKE とか登場しないトラディショナルな構成を先人の知恵に�
       <pubDate>Tue, 11 Jun 2019 14:27:24 +0000</pubDate>
       
       <guid>https://mazgi.github.io/posts/2019.06/the-simplest-ml-environment-with-terraform-on-gcp/</guid>
-      <description>普段の仕事でやっているML Ops業務の振り返りを兼ねて最低限必要そうなVPC構成用のTerraform Module for GCPです。 Moduleには&amp;rd</description>
+      <description>普段の仕事でやっているML Ops業務の振り返りを兼ねて最低限必要そうなVPC構成用のTerraform Module for GCPです。 Moduleには&amp;qu</description>
     </item>
     
     <item>
@@ -247,7 +233,7 @@ GKE とか登場しないトラディショナルな構成を先人の知恵に�
       <pubDate>Thu, 25 Apr 2019 03:37:18 +0000</pubDate>
       
       <guid>https://mazgi.github.io/posts/2019.04/built-noops-blog-with-github-circleci-s3/</guid>
-      <description>本業の傍ら会社の技術Blogリニューアルに携わっており、概要をAdvent Calendarで「DeNA Engineers&amp;rsquo; Blogをリニューアルしている話」と</description>
+      <description>本業の傍ら会社の技術Blogリニューアルに携わっており、概要をAdvent Calendarで「DeNA Engineers&#39; Blogをリニューアルしている話」と</description>
     </item>
     
     <item>
@@ -256,10 +242,9 @@ GKE とか登場しないトラディショナルな構成を先人の知恵に�
       <pubDate>Tue, 09 Apr 2019 19:26:15 +0000</pubDate>
       
       <guid>https://mazgi.github.io/posts/2019.04/published-dev-environments-for-webapps-with-docker-compose/</guid>
-      <description>&lt;p&gt;最近、Macなどのローカルには極力rbenvなどをインストールせずにできる限りDockerコンテナ上に開発環境を作ろうとしています。&lt;br /&gt;
-開発中は&lt;a href=&#34;https://docs.docker.com/compose/&#34;&gt;docker-compose&lt;/a&gt;を使っているのですが、いろいろなリポジトリに似たような &lt;code&gt;docker-compose.yml&lt;/code&gt; が増えてきたのでテンプレート代わりにまとめました。&lt;br /&gt;
+      <description>&lt;p&gt;最近、Macなどのローカルには極力rbenvなどをインストールせずにできる限りDockerコンテナ上に開発環境を作ろうとしています。&lt;br&gt;
+開発中は&lt;a href=&#34;https://docs.docker.com/compose/&#34;&gt;docker-compose&lt;/a&gt;を使っているのですが、いろいろなリポジトリに似たような &lt;code&gt;docker-compose.yml&lt;/code&gt; が増えてきたのでテンプレート代わりにまとめました。&lt;br&gt;
 リポジトリはこちら。&lt;/p&gt;
-
 &lt;p&gt;&lt;a href=&#34;https://github.com/mazgi-showcase/docker-compose.webapp-dev-envs/tree/2019.04.0&#34;&gt;GitHub repository&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
@@ -323,7 +308,7 @@ GKE とか登場しないトラディショナルな構成を先人の知恵に�
       <pubDate>Sat, 28 Jul 2018 16:01:14 +0900</pubDate>
       
       <guid>https://mazgi.github.io/posts/2018.07/airdrop-sleeps-when-do-not-disturb-is-turned-on/</guid>
-      <description>&lt;p&gt;タイトルの通り。&lt;br /&gt;
+      <description>&lt;p&gt;タイトルの通り。&lt;br&gt;
 &lt;code&gt;Do Not Disturb&lt;/code&gt; をOnにするとAirDropの送り先リストから消えてしまう。&lt;/p&gt;</description>
     </item>
     
@@ -333,14 +318,12 @@ GKE とか登場しないトラディショナルな構成を先人の知恵に�
       <pubDate>Sat, 28 Jul 2018 13:57:40 +0900</pubDate>
       
       <guid>https://mazgi.github.io/posts/2018.07/useful-tmux-with-zsh/</guid>
-      <description>&lt;h2 id=&#34;tl-dr&#34;&gt;tl;dr&lt;/h2&gt;
-
+      <description>&lt;h2 id=&#34;tldr&#34;&gt;tl;dr&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;Terminal.app&lt;/code&gt; や &lt;code&gt;SSH&lt;/code&gt; のようなCUIで作業するときはtmux使うと便利&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;tmux&lt;/code&gt; 使うときはシェルを &lt;code&gt;zsh&lt;/code&gt; にすると便利&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;サーバーサイド開発をやってる人には今更な話ですけど最近何度かオススメする機会があったので記事を書くことにしました。&lt;br /&gt;
+&lt;p&gt;サーバーサイド開発をやってる人には今更な話ですけど最近何度かオススメする機会があったので記事を書くことにしました。&lt;br&gt;
 以下、私の使い方を説明しているだけで特に目新しい話はありません。&lt;/p&gt;</description>
     </item>
     
@@ -459,13 +442,9 @@ GKE とか登場しないトラディショナルな構成を先人の知恵に�
       
       <guid>https://mazgi.github.io/posts/2016.08/went-to-23x/</guid>
       <description>&lt;h3 id=&#34;追記&#34;&gt;追記&lt;/h3&gt;
-
 &lt;p&gt;当日のツイートを&lt;a href=&#34;http://togetter.com/li/1018957&#34;&gt;Togetter&lt;/a&gt;にまとめさせていただきました！&lt;/p&gt;
-
-&lt;hr /&gt;
-
+&lt;hr&gt;
 &lt;p&gt;&lt;a href=&#34;https://eventdots.jp&#34;&gt;dots.&lt;/a&gt;さんで「NISSAN×DeNA　車は、モノ&amp;lt;プロダクト&amp;gt;なのか、コト&amp;lt;サービス&amp;gt;なのか。当事者たちから見える風景を語る。」というイベントが開催されたので「えっ？日産の方とDeNAの方がDeep Learningや機械学習について語るの！？」と分かりやすく興味喚起されて伺ってきました！&lt;/p&gt;
-
 &lt;p&gt;&lt;a href=&#34;https://eventdots.jp/event/596516&#34;&gt;【満席につき、さらに50名増席します！】NISSAN×DeNA　車は、モノ&amp;lt;プロダクト&amp;gt;なのか、コト&amp;lt;サービス&amp;gt;なのか。当事者たちから見える風景を語る。｜IT勉強会ならTECH PLAY［テックプレイ］&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
@@ -476,21 +455,14 @@ GKE とか登場しないトラディショナルな構成を先人の知恵に�
       
       <guid>https://mazgi.github.io/posts/2016.07/interviewed-for-ansible/</guid>
       <description>&lt;h3 id=&#34;追記&#34;&gt;追記&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://cloud.sakura.ad.jp&#34;&gt;さくらのクラウド&lt;/a&gt;について取材していただいた記事も公開されました！&lt;br /&gt;
+&lt;p&gt;&lt;a href=&#34;http://cloud.sakura.ad.jp&#34;&gt;さくらのクラウド&lt;/a&gt;について取材していただいた記事も公開されました！&lt;br&gt;
 合わせてご覧ください！！&lt;/p&gt;
-
 &lt;p&gt;&lt;a href=&#34;https://seleck.cc/article/459&#34;&gt;さくらのクラウドで「尖ったインフラ環境」を構築。カスタマイズに強い、その実力とは | SELECK&lt;/a&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
+&lt;hr&gt;
 &lt;h2 id=&#34;本編&#34;&gt;本編&lt;/h2&gt;
-
 &lt;p&gt;先日「&lt;a href=&#34;https://seleck.cc&#34;&gt;SELECK(セレック)&lt;/a&gt;」様に&lt;a href=&#34;https://www.ansible.com&#34;&gt;Ansible&lt;/a&gt;の活用事例をインタビューいただきました。&lt;/p&gt;
-
 &lt;p&gt;&lt;a href=&#34;https://seleck.cc/article/437&#34;&gt;数百台のサーバー構成を「Ansible」で管理。大規模DSPシステムを支える技術とは | SELECK&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;素晴らしい記事にしていただいたのでせっかくなら何か&lt;s&gt;ネタになりそうな&lt;/s&gt;実例をご紹介したいと考えた結果(?)、&lt;s&gt;バッドノウハウが詰まった&lt;/s&gt;パーティションの切り方をご紹介したいと思います！&lt;/p&gt;</description>
+&lt;p&gt;素晴らしい記事にしていただいたのでせっかくなら何か&lt;!-- raw HTML omitted --&gt;ネタになりそうな&lt;!-- raw HTML omitted --&gt;実例をご紹介したいと考えた結果(?)、&lt;!-- raw HTML omitted --&gt;バッドノウハウが詰まった&lt;!-- raw HTML omitted --&gt;パーティションの切り方をご紹介したいと思います！&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -500,11 +472,9 @@ GKE とか登場しないトラディショナルな構成を先人の知恵に�
       
       <guid>https://mazgi.github.io/posts/2016.07/racktables-for-home-network/</guid>
       <description>&lt;p&gt;個人で使っている&lt;a href=&#34;http://cloud.sakura.ad.jp&#34;&gt;さくらのクラウド&lt;/a&gt;アカウントでサーバーやスイッチが増えてしまいどれが何やら分からなくなってきたので&lt;a href=&#34;http://racktables.org/&#34;&gt;RackTables&lt;/a&gt;で管理しようと思い(立ってからだいぶ時間が)たちました。&lt;/p&gt;
-
 &lt;figure&gt;
     &lt;img src=&#34;https://mazgi.github.io/posts/2016.07/racktables-for-home-network/0001.png&#34; width=&#34;800&#34;/&gt; 
 &lt;/figure&gt;
-
 
 &lt;p&gt;ようやく重い腰を上げてRackTablesを運用し始めたのでメモしておきます。&lt;/p&gt;</description>
     </item>
@@ -524,7 +494,7 @@ GKE とか登場しないトラディショナルな構成を先人の知恵に�
       <pubDate>Thu, 18 Feb 2016 14:36:02 +0900</pubDate>
       
       <guid>https://mazgi.github.io/posts/2016.02/cve-2015-7547-on-gentoo/</guid>
-      <description>追記 私が何か勘違いしてたようですが glibc-2.21-r2 (~amd64マスクされてない)でpatchが取り込まれてますね。。 # emerge -fOq glibc &amp;gt;&amp;gt;&amp;gt; Fetching (1 of 1) sys-libs/glibc-2.21-r2::gentoo # tar tf /usr/portage/distfiles/glibc-2.21-patches-7.tar.bz2 | grep &amp;#39;CVE-2015-7547&amp;#39; patches/00_all_0028-CVE-2015-7547-getaddrinfo-stack-based-buffer-overflo.patch</description>
+      <description>追記 私が何か勘違いしてたようですが glibc-2.21-r2 (~amd64マスクされてない)でpatchが取り込まれてますね。。 # emerge -fOq glibc &amp;gt;&amp;gt;&amp;gt; Fetching (1 of 1) sys-libs/glibc-2.21-r2::gentoo # tar tf /usr/portage/distfiles/glibc-2.21-patches-7.tar.bz2 | grep &#39;CVE-2015-7547&#39; patches/00_all_0028-CVE-2015-7547-getaddrinfo-stack-based-buffer-overflo.patch</description>
     </item>
     
     <item>

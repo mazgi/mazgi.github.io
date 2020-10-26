@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>mazgi.log</title>
@@ -6,11 +6,7 @@
     <description>Recent content on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 18 Aug 2019 07:24:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://mazgi.github.io/en/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 18 Aug 2019 07:24:00 +0000</lastBuildDate><atom:link href="https://mazgi.github.io/en/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Use Github Actions Cicd With Github Package Registry</title>
       <link>https://mazgi.github.io/en/posts/2019.08/use-github-actions-cicd-with-github-package-registry/</link>
@@ -30,7 +26,7 @@
 Techblog Simple is a Bootstrap-based blog theme for Hugo. Made by @mazgi.https://t.co/IZ4W1pSwnX
 &amp;mdash; GoHugo.io (@GoHugoIO) November 29, 2018  Hugo Theme Techlog Simple | Hugo Themes
 For details, refer to the following links.
- (gohugoio/hugoThemes)README#adding-a-theme-to-the-list My pull requests:  https://github.com/gohugoio/hugoThemes/issues/444 https://github.com/mazgi/hugo-theme-techlog-simple/pull/2   </description>
+ (gohugoio/hugoThemes)README#adding-a-theme-to-the-list My pull requests:  https://github.com/gohugoio/hugoThemes/issues/444 https://github.com/mazgi/hugo-theme-techlog-simple/pull/2    </description>
     </item>
     
   </channel>

@@ -78,7 +78,7 @@
             <span class="nav-link disabled">Created At: 2020.04.22</span>
           </li>
           <li class="nav-item">
-            <span class="nav-link disabled">Updated At: 2020.04.22</span>
+            <span class="nav-link disabled">Updated At: 2020.10.26</span>
           </li>
           
         </ul>
@@ -114,73 +114,51 @@
       <div class="row">
         <h1>Windows Server on Google Compute Engine</h1>
       </div>
-      
-
-<p>「ちょっと GCP で Windows を使う」みたいな要件が発生して GCE で DaaS っぽい用途の Windows Server を立てたのでメモ。</p>
-
-<h2 id="tl-dr">tl;dr</h2>
-
+      <p>「ちょっと GCP で Windows を使う」みたいな要件が発生して GCE で DaaS っぽい用途の Windows Server を立てたのでメモ。</p>
+<h2 id="tldr">tl;dr</h2>
 <p>基本的に「<a href="https://cloud.google.com/compute/docs/instances/windows/creating-managing-windows-instances">Creating and managing Windows Server instances</a>」を読めば済むが以下はちょっとわかりづらかった。</p>
-
 <ul>
 <li>インスタンス立てたあとパスワード設定必要</li>
 <li>音を出すには <code>Audio Service</code> をスタート</li>
 <li>ファイル共有は RDP クライアントで設定できる</li>
 </ul>
-
 <h2 id="create-an-instance">Create an instance</h2>
-
-<p>今回は GCP の Web UI でインスタンスを立てる。<br />
-<code>Boot disk</code> で Windows Server のイメージを選ぶ。<br />
+<p>今回は GCP の Web UI でインスタンスを立てる。<br>
+<code>Boot disk</code> で Windows Server のイメージを選ぶ。<br>
 その他は Linux インスタンスを立てるときと特に変わらない。</p>
-
 <figure>
     <img src="0010.png" width="800"/> 
 </figure>
 
-
 <p>なお <code>Core</code> と名前がついてるイメージは GUI がない Windows Server(「Explorer なし」と言った方が合っているかもしれない)なので注意。</p>
-
-<p>また Windows 10 などのクライアント版 Windows はイメージが存在しない。<br />
-たしかライセンス上の問題だったと記憶している。<br />
+<p>また Windows 10 などのクライアント版 Windows はイメージが存在しない。<br>
+たしかライセンス上の問題だったと記憶している。<br>
 どうしてもクライアント版 Windows が必要な場合は Azure で<a href="https://azure.microsoft.com/en-us/services/virtual-desktop/">Windows Virtual Desktop</a>を使うことになる。</p>
-
 <h3 id="set-windows-password">Set Windows password</h3>
-
-<p>Linux インスタンスの場合は Metadata に SSH 公開鍵がセットされたりするが、Windows の場合はそもそも(まだ)SSH でログインというわけにもいかないので、ユーザー名とパスワードをセットして RDP クライアントで GUI ログインする。<br />
+<p>Linux インスタンスの場合は Metadata に SSH 公開鍵がセットされたりするが、Windows の場合はそもそも(まだ)SSH でログインというわけにもいかないので、ユーザー名とパスワードをセットして RDP クライアントで GUI ログインする。<br>
 ポイントとしては「GCP で生成されたパスワードがセットされて表示される」点、「自分で決めたパスワードをセットする」わけではないので事前のパスワード生成などは不要。</p>
-
 <p>立てたインスタンスの詳細画面を開いて <code>Set Windows password</code> ボタンを押す。</p>
-
 <figure>
     <img src="0020.png" width="640"/> 
 </figure>
 
-
-<p>そうすると <code>Username</code> を聞かれるので任意のユーザー名を設定する。<br />
+<p>そうすると <code>Username</code> を聞かれるので任意のユーザー名を設定する。<br>
 書かれている通り「存在しなければ作成、存在すればパスワードを再設定」となる。</p>
-
 <figure>
     <img src="0021.png" width="640"/> 
 </figure>
 
-
-<p>GCP で生成されセットされたパスワードが表示されるのでコピーしてメモしておく。<br />
-このダイアログを閉じてしまうとパスワードを知ることができないので注意。<br />
+<p>GCP で生成されセットされたパスワードが表示されるのでコピーしてメモしておく。<br>
+このダイアログを閉じてしまうとパスワードを知ることができないので注意。<br>
 (同じ手順で別のパスワードをセットすることはできる)</p>
-
 <figure>
     <img src="0022.png" width="640"/> 
 </figure>
 
-
 <h3 id="connect-to-the-instance-via-rdp">Connect to the instance via RDP</h3>
-
 <p>パスワードを設定したら <code>RDP</code> でインスタンスに接続する。</p>
-
-<p>もし GCP の Web UI を Chrome で開いていて<a href="https://chrome.google.com/webstore/detail/chrome-rdp-for-google-clo/mpbbnannobiobpnfblimoapbephgifkm">Chrome RDP for Google Cloud Platform</a>がインストールされている場合、 <code>RDP</code> ボタンを押すと Chrome が RDP クライアントになって便利。<br />
+<p>もし GCP の Web UI を Chrome で開いていて<a href="https://chrome.google.com/webstore/detail/chrome-rdp-for-google-clo/mpbbnannobiobpnfblimoapbephgifkm">Chrome RDP for Google Cloud Platform</a>がインストールされている場合、 <code>RDP</code> ボタンを押すと Chrome が RDP クライアントになって便利。<br>
 他の RDP クライアントを使う場合は <code>External IP</code> に対して接続すれば繋がる。</p>
-
 <p><figure>
     <img src="0030.png" width="800"/> 
 </figure>
@@ -193,62 +171,44 @@
     <img src="0032.png" width="800"/> 
 </figure>
 </p>
-
 <p>この RDP クライアントの場合は矢印部分を引っ張ると切断や <code>Ctrl+Alt+Del</code>の送信などが行える。</p>
-
 <figure>
     <img src="0033.png" width="800"/> 
 </figure>
 
-
 <h3 id="share-file-from-macos">Share file from macOS</h3>
-
 <p>macOS の場合は<a href="https://apps.apple.com/us/app/microsoft-remote-desktop-10/id1295203466?mt=12">Microsoft Remote Desktop 10</a>を使うとローカルのディレクトリをインスタンスからマウントできる。</p>
-
 <figure>
     <img src="0040.png" width="640"/> 
 </figure>
 
-
 <p>このようにインスタンスの <code>This PC</code> に表示される。</p>
-
 <figure>
     <img src="0041.png" width="800"/> 
 </figure>
 
-
 <h3 id="start-audio-service">Start Audio Service</h3>
-
 <p>Windows Server だからなのか <code>Audio Service</code> を明示的に起動しないと音が鳴らない。</p>
-
 <p>設定の <code>Themes</code> を起動する。</p>
-
 <figure>
     <img src="0050.png" width="800"/> 
 </figure>
 
-
-<p><code>Sound</code> をクリックするとダイアログが表示され <code>Would you like to enable the Windows Audio Service?</code> と聞かれるので <code>Yes</code> を押す。<br />
+<p><code>Sound</code> をクリックするとダイアログが表示され <code>Would you like to enable the Windows Audio Service?</code> と聞かれるので <code>Yes</code> を押す。<br>
 そうすると RDP クライアント経由で音が鳴るようになる。</p>
-
 <figure>
     <img src="0051.png" width="800"/> 
 </figure>
 
-
-<p>Youtube を開いて適当な動画を再生すると映像と音声再生とレイテンシが一度に確認できて便利。<br />
+<p>Youtube を開いて適当な動画を再生すると映像と音声再生とレイテンシが一度に確認できて便利。<br>
 (Chrome 拡張の RDP クライアントでは音が鳴らないようなので注意)</p>
-
 <figure>
     <img src="0052.png" width="800"/> 
 </figure>
 
-
 <h3 id="install-chrome-via-ie">Install Chrome via IE</h3>
-
-<p>Windows Server には IE が入っているが標準設定ではかなりセキュアに設定されており、なんというか色々なことができない。<br />
+<p>Windows Server には IE が入っているが標準設定ではかなりセキュアに設定されており、なんというか色々なことができない。<br>
 Server Manager の <code>IE Enhanced Security Configuration</code> をクリックして表示されたダイアログで一時的に Off にすると Chrome などがダウンロードできる。</p>
-
 <p><figure>
     <img src="0060.png" width="800"/> 
 </figure>
@@ -265,28 +225,24 @@ Server Manager の <code>IE Enhanced Security Configuration</code> をクリッ�
   
   <h4><a href="/about/">About</a></h4>
   <p><strong>Hidenori MATSUKI</strong></p>
-
 <p>🍣 🍶</p>
-
 <p>another website: <a href="https://mazgi.com/">mazgi.com</a></p>
   
   <hr />
   <h4>TableOfContents</h4>
   <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#tl-dr">tl;dr</a></li>
-<li><a href="#create-an-instance">Create an instance</a>
-<ul>
-<li><a href="#set-windows-password">Set Windows password</a></li>
-<li><a href="#connect-to-the-instance-via-rdp">Connect to the instance via RDP</a></li>
-<li><a href="#share-file-from-macos">Share file from macOS</a></li>
-<li><a href="#start-audio-service">Start Audio Service</a></li>
-<li><a href="#install-chrome-via-ie">Install Chrome via IE</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#tldr">tl;dr</a></li>
+    <li><a href="#create-an-instance">Create an instance</a>
+      <ul>
+        <li><a href="#set-windows-password">Set Windows password</a></li>
+        <li><a href="#connect-to-the-instance-via-rdp">Connect to the instance via RDP</a></li>
+        <li><a href="#share-file-from-macos">Share file from macOS</a></li>
+        <li><a href="#start-audio-service">Start Audio Service</a></li>
+        <li><a href="#install-chrome-via-ie">Install Chrome via IE</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   <hr />
   <h4><a href="/categories/">Categories</a></h4>

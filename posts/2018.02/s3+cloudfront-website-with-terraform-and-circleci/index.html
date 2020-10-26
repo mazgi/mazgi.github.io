@@ -74,7 +74,7 @@
             <span class="nav-link disabled">Created At: 2018.02.15</span>
           </li>
           <li class="nav-item">
-            <span class="nav-link disabled">Updated At: 2018.05.09</span>
+            <span class="nav-link disabled">Updated At: 2020.10.26</span>
           </li>
           
         </ul>
@@ -110,35 +110,23 @@
       <div class="row">
         <h1>S3 &#43; CloudFrontをTerraformで設定してCircleCIで更新する</h1>
       </div>
-      
-
-<p>「TerraformでS3+CloudFront+SSL/TLS証明書 w/ ACMを設定してHugoで作ったstaticなWebサイトをCircleCIで自動deployする」やつができた。</p>
-
+      <p>「TerraformでS3+CloudFront+SSL/TLS証明書 w/ ACMを設定してHugoで作ったstaticなWebサイトをCircleCIで自動deployする」やつができた。</p>
 <h1 id="できたもの">できたもの</h1>
-
-<p>普通のいかにも<a href="https://gohugo.io/">Hugo</a>で作ったWebサイトができた。<br />
-もう2018年なので手オペなどせずInfrastructure as Codeで構築かつCIでコンテンツdeployです。<br />
-中身はまだない。<br />
+<p>普通のいかにも<a href="https://gohugo.io/">Hugo</a>で作ったWebサイトができた。<br>
+もう2018年なので手オペなどせずInfrastructure as Codeで構築かつCIでコンテンツdeployです。<br>
+中身はまだない。<br>
 きっと酒とメシについての何かが書かれるのでしょう。</p>
-
 <figure><a href="https://sakemeshi.love/">
     <img src="/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/0001.png"/> </a>
 </figure>
 
-
-<p>これはそもそも<a href="https://denatechstudio.connpass.com/event/72710/">先日開催したハッカソン</a>でやろうとして途中までしか進められなかったので、その補習も兼ねてます。<br />
+<p>これはそもそも<a href="https://denatechstudio.connpass.com/event/72710/">先日開催したハッカソン</a>でやろうとして途中までしか進められなかったので、その補習も兼ねてます。<br>
 なお次回ハッカソンはGoです！</p>
-
 <p><a href="https://denatechstudio.connpass.com/event/75706/">DeNA Techathon: 著者と学ぶ「Goならわかるシステムプログラミング」黙々会 - connpass</a></p>
-
 <h2 id="構成">構成</h2>
-
 <p>図を描く気力がなかったのでテキストで。</p>
-
 <h3 id="インフラ構築編">インフラ構築編</h3>
-
 <p><a href="https://www.terraform.io/">Terraform</a>で以下を行なっている。</p>
-
 <ol>
 <li>Route 53にドメインのゾーン情報を登録する</li>
 <li>コンテンツ更新用のIAMグループとIAMユーザーを払い出す</li>
@@ -147,233 +135,178 @@
 <li>CloudFront distributionを設定する(ACMの証明書使いたいので)</li>
 <li>CloudFront distributionをRoute 53に登録する</li>
 </ol>
-
 <h3 id="コンテンツ更新編">コンテンツ更新編</h3>
-
 <p>GitHubへのpushをトリガーに<a href="https://circleci.com/">CircleCI</a>で以下を行なっている。</p>
-
 <ol>
 <li>HugoでstaticなWebコンテンツ生成する</li>
 <li>生成したWebコンテンツをS3に同期する</li>
 <li>CloudFrontのキャッシュをクリアする</li>
 </ol>
-
 <h3 id="github">GitHub</h3>
-
 <p><a href="https://github.com/">GitHub</a>で以下を管理している。</p>
-
 <ul>
 <li><a href="https://github.com/mazgi/sakemeshi.terraform">sakemeshi.terraform</a>
-
 <ul>
 <li>Terraformリポジトリ</li>
 <li>中身はRoute 53にドメインのゾーンを登録してmoduleを呼び出しているくらい</li>
 <li>AWSのcredential等は <code>sakemeshi.terraform-secret</code> リポジトリに置いてsubmoduleとして参照している</li>
-</ul></li>
+</ul>
+</li>
 <li><a href="https://github.com/mazgi/terraform-aws-static-website">terraform-aws-static-website</a>
-
 <ul>
 <li>自分用Terraform module</li>
 <li>S3+CloudFrontでstaticなWebサイトを作るもろもろが詰まっている</li>
-</ul></li>
+</ul>
+</li>
 <li>(private) sakemeshi.terraform-secret
-
 <ul>
 <li>AWSのcredentialなどが入っている</li>
 <li>credential store導入とかはまた今度</li>
-</ul></li>
+</ul>
+</li>
 <li>(private) sakemeshi.content
-
 <ul>
 <li>HugoによるWebサイトの中身</li>
 <li>このリポジトリのmasterにpushするとCircleCIが動いてS3にdeployされる</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h1 id="つくりかた">つくりかた</h1>
-
 <p>コンセプトとしてはWebUIを手でぽちぽちしたくないのでTerraformでInfra as Codeします！</p>
-
 <h2 id="aws-webコンソールぽちぽち">AWS Webコンソールぽちぽち</h2>
-
-<p>最初からコンセプトに反するようだが2018年時点では手でポチポチすることもまだ必要なのです。(あるいはCLI)<br />
+<p>最初からコンセプトに反するようだが2018年時点では手でポチポチすることもまだ必要なのです。(あるいはCLI)<br>
 作るものは2つ。</p>
-
 <h3 id="terraform-実行用-iam-user">Terraform 実行用 IAM User</h3>
-
-<p><code>terraform-admin</code> という名前で <code>AdministratorAccess</code> をattacheしたIAMユーザーを作る。<br />
+<p><code>terraform-admin</code> という名前で <code>AdministratorAccess</code> をattacheしたIAMユーザーを作る。<br>
 credentialも払い出して、今回の場合は <code>sakemeshi.terraform-secret</code> リポジトリにpushしておく。</p>
-
 <figure>
     <img src="/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/0002.png"/> 
 </figure>
 
-
 <h3 id="tfstate-格納用-s3-bucket">tfstate 格納用 S3 Bucket</h3>
-
 <p>Terraformは設定したクラウド環境の状態を <code>tfstate</code> というファイルで管理するのでそれを格納するS3バケットを作る。</p>
-
-<p>バケット名は <code>${AWSアカウント名}-terraform</code> としてバージョニングを有効にする。<br />
+<p>バケット名は <code>${AWSアカウント名}-terraform</code> としてバージョニングを有効にする。<br>
 先ほど作ったIAMユーザー <code>terraform-admin</code> からアクセスできれば良い。</p>
-
 <figure>
     <img src="/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/0003.png"/> 
 </figure>
 
-
 <p>詳しくは以下参照。</p>
-
 <p><a href="https://www.terraform.io/docs/backends/types/s3.html">Backend Type: s3 - Terraform by HashiCorp</a></p>
-
 <h2 id="infra-as-terraform">Infra as Terraform</h2>
-
 <h3 id="インフラをコードで書く">インフラをコードで書く</h3>
-
-<p>Terraformで構築するもろもろは専用のGitHubリポジトリを作って <code>terraform.tf</code> に書く。<br />
+<p>Terraformで構築するもろもろは専用のGitHubリポジトリを作って <code>terraform.tf</code> に書く。<br>
 先述の通りここで公開している。</p>
-
 <p><a href="https://github.com/mazgi/sakemeshi.terraform">mazgi/sakemeshi.terraform</a></p>
-
 <p>主な内容は以下の通り。</p>
-
 <ul>
 <li><code>prepare.sh</code>
-
 <ul>
 <li>terraformバイナリのダウンロードと展開</li>
 <li>必要な環境変数のexport</li>
 <li>なお命名は職場の文化に由来する</li>
-</ul></li>
+</ul>
+</li>
 <li><code>terraform.tf</code>
-
 <ul>
 <li>Terraformで行いたいもろもろ</li>
 <li>ただしほとんどはmoduleに追い出しているので、実際の内容はRoute 53のゾーン設定とmoduleの読み出し程度</li>
-</ul></li>
+</ul>
+</li>
 <li><code>terraform.tfvars</code>
-
 <ul>
 <li>後述のprivateなcredentialリポジトリ内へのsymlink</li>
 <li>AWSのACCESS_KEYやSECRET_KEYなどが書かれている</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p><code>terraform.tf</code> で参照しているmoduleは公開しているが後述のエラーやリージョンが固定などの残課題がある。</p>
-
 <p><a href="https://registry.terraform.io/modules/mazgi/static-website/aws/0.0.2">Terraform Module Registry | mazgi/static-website/aws</a></p>
-
-<p>先述の通りTerraformを実行するIAMユーザーのcredential等は別のprivateリポジトリを作って配置している。<br />
+<p>先述の通りTerraformを実行するIAMユーザーのcredential等は別のprivateリポジトリを作って配置している。<br>
 公開できないが中身はこの程度。</p>
-
 <figure>
     <img src="/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/0004.png"/> 
 </figure>
 
-
 <h3 id="terraform-実行">Terraform 実行</h3>
-
-<p>ようやくTerraformを実行できる環境が整ったので実行！<br />
+<p>ようやくTerraformを実行できる環境が整ったので実行！<br>
 なお <code>prepare.sh</code> は環境変数をexportするので必ず <code>source</code> する。</p>
-
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ <span style="color:#007020">source</span> prepare.sh
 $ bin/terraform apply</code></pre></div>
-
-<p>実行すると初回はもろもろのリソースが作られ、1件のエラーが発生する。<br />
-2回目以降はこのように1件のエラーが発生する。。<br />
+<p>実行すると初回はもろもろのリソースが作られ、1件のエラーが発生する。<br>
+2回目以降はこのように1件のエラーが発生する。。<br>
 後述する。</p>
-
 <figure>
     <img src="/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/0005.png"/> 
 </figure>
 
-
 <p>細かいことを書くと今回のドメイン自体はRoute 53で管理していないため、別途ネームサーバーをRoute 53に向けておく等の手順が必要です。</p>
-
-<h2 id="circleciで自動build-deploy">CircleCIで自動build &amp;&amp; deploy</h2>
-
+<h2 id="circleciで自動build--deploy">CircleCIで自動build &amp;&amp; deploy</h2>
 <p>Terraformで空のWebサイトができたので中身を作っていく。</p>
-
-<p>GitHubリポジトリを用意しておもむろに <code>hugo new site .</code> する。<br />
-適当なテーマをsubmoduleとして追加する。<br />
+<p>GitHubリポジトリを用意しておもむろに <code>hugo new site .</code> する。<br>
+適当なテーマをsubmoduleとして追加する。<br>
 <a href="https://gohugo.io/getting-started/quick-start/">Quick Start</a>通り。</p>
-
-<p>Hugoは今後がんばることにして今回はCircleCI 2.0をがんばる。<br />
-結論を書くと<a href="https://gist.github.com/mazgi/6c0dd922f89eee80fe5da6317d7e7aed">こういう <code>.circleci/config.yml</code> </a>を書いた。<br />
+<p>Hugoは今後がんばることにして今回はCircleCI 2.0をがんばる。<br>
+結論を書くと<a href="https://gist.github.com/mazgi/6c0dd922f89eee80fe5da6317d7e7aed">こういう <code>.circleci/config.yml</code> </a>を書いた。<br>
 ハマった。</p>
-
 <p>そのほかは本当に <code>hugo new site .</code> したまま。</p>
-
 <figure>
     <img src="/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/0006.png"/> 
 </figure>
 
-
 <p>何はともあれこれでCircleCIでのWebサイトのビルドとS3への同期が行えるようになった！めでたい！</p>
-
 <figure>
     <img src="/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/0007.png"/> 
 </figure>
 
-
 <h1 id="おわりに">おわりに</h1>
-
 <p>ということで(ほぼ)手でぽちぽちせずにInfrastructure as CodeでstaticなWebサイトが作れたし更新の仕組みもできた！やったね！</p>
-
 <h2 id="ポイント">ポイント</h2>
-
 <p>以下あまり書けてないので機会があったら書く。</p>
-
 <h3 id="terraform">Terraform</h3>
-
 <ul>
 <li>最近のTerraformは <code>terraform init</code> が必要
-
 <ul>
 <li>その作業ディレクトリでの初回実行やmoduleのバージョン上げた際など</li>
-</ul></li>
+</ul>
+</li>
 <li>最近のTerraformは <code>terraform apply</code> したあと本当に実行するか聞いてくる
-
 <ul>
 <li>そのため <code>terraform apply[ENTER]</code> してコーヒーを買いにいくと何十分後に戻っても <code>Do you want to perform these actions?</code> というメッセージが出迎えてくれる(もちろんあなたのクラウド環境には何も変化はない)</li>
 <li><code>terraform apply -auto-approve</code> というわるいオプションがある</li>
-</ul></li>
+</ul>
+</li>
 <li>tfstate格納用S3バケット(S3 backend)を使うためには環境変数or <code>~/.aws</code> 内にcredentialが必要
-
 <ul>
 <li>私は <code>prepare.sh</code> の中でexportしている(ので必ず <code>source</code> する)</li>
-</ul></li>
+</ul>
+</li>
 <li>ACMの検証が従来のメールだけではなくDNSでもできるようになっていてTerraformでも対応していた
-
 <ul>
 <li><a href="https://github.com/terraform-providers/terraform-provider-aws/pull/2813">New Resources: aws_acm_certificate and aws_acm_certificate_validation by flosell · Pull Request #2813 · terraform-providers/terraform-provider-aws</a></li>
 <li>これのおかげで <code>terraform apply</code> だけで証明書発行してIssuedになるところまで実現できた</li>
 <li>ただし<a href="https://github.com/mazgi/terraform-aws-static-website/blob/v0.0.2/main.tf#L9"> <code>AWS provider 1.9</code> 以上が必要</a></li>
-</ul></li>
 </ul>
-
-<h3 id="circleci-2-0">CircleCI 2.0</h3>
-
+</li>
+</ul>
+<h3 id="circleci-20">CircleCI 2.0</h3>
 <ul>
 <li>Docker便利だけども
-
 <ul>
 <li>使うDockerイメージにもよるが当然 <code>curl</code> も <code>git</code> も入ってなかったりする</li>
 <li>自分用Dockerイメージ作りたくなる</li>
 <li>開発環境がDocker Hubに公開できるDockerイメージで完結している場合は便利そう</li>
-</ul></li>
+</ul>
+</li>
 <li><code>checkout</code> に <code>git clone --recursive</code> 相当の機能がない(?)
-
 <ul>
 <li>そのため<a href="https://github.com/mazgi/sakemeshi.content/blob/master/.circleci/config.yml#L20-L21"><code>checkout</code> の次の行で <code>git submodule update</code> を書いた</a></li>
-</ul></li>
 </ul>
-
-<h2 id="特に-ハマりどころ">(特に)ハマりどころ</h2>
-
-<h3 id="terraform-apply-時の-aws-acm-certificate-validation-エラー">terraform apply 時の aws_acm_certificate_validation エラー</h3>
-
+</li>
+</ul>
+<h2 id="特にハマりどころ">(特に)ハマりどころ</h2>
+<h3 id="terraform-apply-時の-aws_acm_certificate_validation-エラー">terraform apply 時の aws_acm_certificate_validation エラー</h3>
 <p><code>terraform apply</code> する際に毎回このエラーが発生する。</p>
-
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Error: Error applying plan:
 
 <span style="color:#40a070">1</span> error<span style="color:#666">(</span>s<span style="color:#666">)</span> occurred:
@@ -381,21 +314,14 @@ $ bin/terraform apply</code></pre></div>
 * module.static-website.aws_acm_certificate_validation.website: <span style="color:#40a070">1</span> error<span style="color:#666">(</span>s<span style="color:#666">)</span> occurred:
 
 * aws_acm_certificate_validation.website: Certificate needs <span style="color:#666">[</span>VALIDATON_RECORD.YOURDOMAIN VALIDATON_RECORD.YOURDOMAIN<span style="color:#666">]</span> to be <span style="color:#007020">set</span> but only <span style="color:#666">[</span>VALIDATON_RECORD.YOURDOMAIN<span style="color:#666">]</span> was passed to validation_record_fqdns</code></pre></div>
-
 <p>これ <code>YOURDOMAIN</code> と <code>*.YOURDOMAIN</code> でバリデーションレコードが同じで、Route 53上は1レコードしかないものをTerraformの<a href="https://github.com/terraform-providers/terraform-provider-aws/blob/v1.9.0/aws/resource_aws_acm_certificate_validation.go">AWS provider</a>が2レコード返ってくることを期待しているように見えるんだけどどうしたものか。</p>
-
-<h3 id="circleci-2-0-で-attach-workspace-するために-ca-certificates-パッケージが必要">CircleCI 2.0 で attach_workspace するために ca-certificates パッケージが必要</h3>
-
-<p>前フェイズで永続化したワークスペースを後フェイズで <code>attach_workspace</code> して取り出すために <code>ca-certificates</code> パッケージ必要なのはハマった。<br />
+<h3 id="circleci-20-で-attach_workspace-するために-ca-certificates-パッケージが必要">CircleCI 2.0 で attach_workspace するために ca-certificates パッケージが必要</h3>
+<p>前フェイズで永続化したワークスペースを後フェイズで <code>attach_workspace</code> して取り出すために <code>ca-certificates</code> パッケージ必要なのはハマった。<br>
 こちらの記事に助けられた。</p>
-
 <p><a href="https://qiita.com/gcoka/items/8a9cd59fec324a1fca19">CircleCIでx509という証明書エラーに遭遇したときの対処 - Qiita</a></p>
-
-<p>それはそうと再掲するが <code>.circleci/config.yml</code> がこんな長さになった。つらい。<br />
+<p>それはそうと再掲するが <code>.circleci/config.yml</code> がこんな長さになった。つらい。<br>
 workflowとしてbuildとdeployが分かれるのは綺麗だけども。。</p>
-
 <script type="application/javascript" src="https://gist.github.com/mazgi/6c0dd922f89eee80fe5da6317d7e7aed.js"></script>
-
 
 <p>ともかくこういうサイトをいくつか作りたいニーズがあったのでやっていきます。</p>
 
@@ -406,52 +332,52 @@ workflowとしてbuildとdeployが分かれるのは綺麗だけども。。</p>
   
   <h4><a href="/about/">About</a></h4>
   <p><strong>Hidenori MATSUKI</strong></p>
-
 <p>🍣 🍶</p>
-
 <p>another website: <a href="https://mazgi.com/">mazgi.com</a></p>
   
   <hr />
   <h4>TableOfContents</h4>
   <nav id="TableOfContents">
-<ul>
-<li><a href="#できたもの">できたもの</a>
-<ul>
-<li><a href="#構成">構成</a>
-<ul>
-<li><a href="#インフラ構築編">インフラ構築編</a></li>
-<li><a href="#コンテンツ更新編">コンテンツ更新編</a></li>
-<li><a href="#github">GitHub</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#つくりかた">つくりかた</a>
-<ul>
-<li><a href="#aws-webコンソールぽちぽち">AWS Webコンソールぽちぽち</a>
-<ul>
-<li><a href="#terraform-実行用-iam-user">Terraform 実行用 IAM User</a></li>
-<li><a href="#tfstate-格納用-s3-bucket">tfstate 格納用 S3 Bucket</a></li>
-</ul></li>
-<li><a href="#infra-as-terraform">Infra as Terraform</a>
-<ul>
-<li><a href="#インフラをコードで書く">インフラをコードで書く</a></li>
-<li><a href="#terraform-実行">Terraform 実行</a></li>
-</ul></li>
-<li><a href="#circleciで自動build-deploy">CircleCIで自動build &amp;&amp; deploy</a></li>
-</ul></li>
-<li><a href="#おわりに">おわりに</a>
-<ul>
-<li><a href="#ポイント">ポイント</a>
-<ul>
-<li><a href="#terraform">Terraform</a></li>
-<li><a href="#circleci-2-0">CircleCI 2.0</a></li>
-</ul></li>
-<li><a href="#特に-ハマりどころ">(特に)ハマりどころ</a>
-<ul>
-<li><a href="#terraform-apply-時の-aws-acm-certificate-validation-エラー">terraform apply 時の aws_acm_certificate_validation エラー</a></li>
-<li><a href="#circleci-2-0-で-attach-workspace-するために-ca-certificates-パッケージが必要">CircleCI 2.0 で attach_workspace するために ca-certificates パッケージが必要</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#構成">構成</a>
+      <ul>
+        <li><a href="#インフラ構築編">インフラ構築編</a></li>
+        <li><a href="#コンテンツ更新編">コンテンツ更新編</a></li>
+        <li><a href="#github">GitHub</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#aws-webコンソールぽちぽち">AWS Webコンソールぽちぽち</a>
+      <ul>
+        <li><a href="#terraform-実行用-iam-user">Terraform 実行用 IAM User</a></li>
+        <li><a href="#tfstate-格納用-s3-bucket">tfstate 格納用 S3 Bucket</a></li>
+      </ul>
+    </li>
+    <li><a href="#infra-as-terraform">Infra as Terraform</a>
+      <ul>
+        <li><a href="#インフラをコードで書く">インフラをコードで書く</a></li>
+        <li><a href="#terraform-実行">Terraform 実行</a></li>
+      </ul>
+    </li>
+    <li><a href="#circleciで自動build--deploy">CircleCIで自動build &amp;&amp; deploy</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#ポイント">ポイント</a>
+      <ul>
+        <li><a href="#terraform">Terraform</a></li>
+        <li><a href="#circleci-20">CircleCI 2.0</a></li>
+      </ul>
+    </li>
+    <li><a href="#特にハマりどころ">(特に)ハマりどころ</a>
+      <ul>
+        <li><a href="#terraform-apply-時の-aws_acm_certificate_validation-エラー">terraform apply 時の aws_acm_certificate_validation エラー</a></li>
+        <li><a href="#circleci-20-で-attach_workspace-するために-ca-certificates-パッケージが必要">CircleCI 2.0 で attach_workspace するために ca-certificates パッケージが必要</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   <hr />
   <h4><a href="/categories/">Categories</a></h4>

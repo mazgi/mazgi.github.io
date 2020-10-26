@@ -74,7 +74,7 @@
             <span class="nav-link disabled">Created At: 2016.02.29</span>
           </li>
           <li class="nav-item">
-            <span class="nav-link disabled">Updated At: 2018.06.16</span>
+            <span class="nav-link disabled">Updated At: 2020.10.26</span>
           </li>
           
         </ul>
@@ -111,9 +111,8 @@
         <h1>複数のサーバーに対してSSL証明書の期限を確認する</h1>
       </div>
       <p>会社のサーバーが一斉にSSL証明書更新のシーズンを迎えたのでOpenSSLの各種コマンドで確認の手間を減らしてみる。</p>
-
 <p>まず、 <code>openssl s_client</code> コマンドで <code>/dev/null</code> を標準入力に入れつつ標準エラー出力を捨てるとこんな出力が得られる。</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">$ openssl s_client -connect www.mvrck.co.jp:443 &lt; /dev/null 2&gt; /dev/null                                        
+<pre><code class="language-shellsession" data-lang="shellsession">$ openssl s_client -connect www.mvrck.co.jp:443 &lt; /dev/null 2&gt; /dev/null                                        
 CONNECTED(00000003)
 ---
 Certificate chain
@@ -125,21 +124,21 @@ Certificate chain
 Server certificate
 (snip)
     Verify return code: 0 (ok)
----</code></pre></div>
-<p><code>openssl s_client</code> の結果を <code>-startdate</code>, <code>-enddate</code> オプションを指定しつつ <code>openssl x509</code> コマンドに渡すとこんな出力が得られる。</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">$ openssl s_client -connect www.mvrck.co.jp:443 &lt; /dev/null 2&gt; /dev/null | openssl x509 -noout -startdate -enddate 
+---
+</code></pre><p><code>openssl s_client</code> の結果を <code>-startdate</code>, <code>-enddate</code> オプションを指定しつつ <code>openssl x509</code> コマンドに渡すとこんな出力が得られる。</p>
+<pre><code class="language-shellsession" data-lang="shellsession">$ openssl s_client -connect www.mvrck.co.jp:443 &lt; /dev/null 2&gt; /dev/null | openssl x509 -noout -startdate -enddate 
 notBefore=Feb 24 16:02:53 2016 GMT
-notAfter=Mar 28 02:59:00 2017 GMT</code></pre></div>
-<p>のでこんな感じで複数のホストのSSL証明書の期限を確認できる。</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">$ for h in {foo,bar,baz}.example.com
+notAfter=Mar 28 02:59:00 2017 GMT
+</code></pre><p>のでこんな感じで複数のホストのSSL証明書の期限を確認できる。</p>
+<pre><code class="language-shellsession" data-lang="shellsession">$ for h in {foo,bar,baz}.example.com
 do
-echo -n &#34;$h:&#34;
-openssl s_client -connect $h:443 &lt; /dev/null 2&gt; /dev/null | openssl x509 -noout -enddate | grep -E &#39;^\s*notAfter=&#39;
+echo -n &quot;$h:&quot;
+openssl s_client -connect $h:443 &lt; /dev/null 2&gt; /dev/null | openssl x509 -noout -enddate | grep -E '^\s*notAfter='
 done
 foo.example.com:notAfter=Mar 28 01:23:45 2017 GMT
 bar.example.com:notAfter=Mar 28 01:23:45 2017 GMT
-baz.example.com:notAfter=Mar 28 01:23:45 2017 GMT</code></pre></div>
-<p>便利！</p>
+baz.example.com:notAfter=Mar 28 01:23:45 2017 GMT
+</code></pre><p>便利！</p>
 
     </article>
   </div>
@@ -148,14 +147,12 @@ baz.example.com:notAfter=Mar 28 01:23:45 2017 GMT</code></pre></div>
   
   <h4><a href="/about/">About</a></h4>
   <p><strong>Hidenori MATSUKI</strong></p>
-
 <p>🍣 🍶</p>
-
 <p>another website: <a href="https://mazgi.com/">mazgi.com</a></p>
   
   <hr />
   <h4>TableOfContents</h4>
-  
+  <nav id="TableOfContents"></nav>
   <hr />
   <h4><a href="/categories/">Categories</a></h4>
   

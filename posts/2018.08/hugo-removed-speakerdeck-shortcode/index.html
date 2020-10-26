@@ -78,7 +78,7 @@
             <span class="nav-link disabled">Created At: 2018.08.19</span>
           </li>
           <li class="nav-item">
-            <span class="nav-link disabled">Updated At: 2018.08.19</span>
+            <span class="nav-link disabled">Updated At: 2020.10.26</span>
           </li>
           
         </ul>
@@ -114,45 +114,34 @@
       <div class="row">
         <h1>Hugo 0.42 からSpeaker Deck貼付はshortcodeではなくembed codeを使う</h1>
       </div>
-      
-
-<p><strong>tldr:</strong> Hugo 0.42 以降でSpeaker Deckのスライドを貼り付けるときはSpeaker Deckのembed codeを使いましょう。</p>
-
-<hr />
-
+      <p><strong>tldr:</strong> Hugo 0.42 以降でSpeaker Deckのスライドを貼り付けるときはSpeaker Deckのembed codeを使いましょう。</p>
+<hr>
 <h3 id="ある日hugo-serverが実行できなくなった">ある日hugo serverが実行できなくなった</h3>
-
-<p>Hugoのバージョンを上げてこのblogの原稿を開いたらこんなエラーが発生してしまった。<br />
+<p>Hugoのバージョンを上げてこのblogの原稿を開いたらこんなエラーが発生してしまった。<br>
 <a href="/posts/2018.05/td-tech-talk-2018/">この記事</a>のSpeaker Deck shortcodeが問題あるらしい。</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">$ hugo server -D
-Building sites … ERROR 2018/08/19 16:32:45 Unable to locate template for shortcode &#34;speakerdeck&#34; in page &#34;posts/2018.05/td-tech-talk-2018.ja.md&#34;
+<pre><code class="language-shellsession" data-lang="shellsession">$ hugo server -D
+Building sites … ERROR 2018/08/19 16:32:45 Unable to locate template for shortcode &quot;speakerdeck&quot; in page &quot;posts/2018.05/td-tech-talk-2018.ja.md&quot;
 Total in 264 ms
-Error: Error building site: logged 1 error(s)</code></pre></div>
-<p>どうやらHugoからSpeaker Deckのshortcodeが取り除かれた模様。<br />
-<code>4:3</code> と <code>16:9</code> のスライドをうまく扱うのが困難とのこと。<br />
-<em>(正直、shortcodeのパラメタでアスペクト比指定させてくれればと思わなくもないが)</em><br />
+Error: Error building site: logged 1 error(s)
+</code></pre><p>どうやらHugoからSpeaker Deckのshortcodeが取り除かれた模様。<br>
+<code>4:3</code> と <code>16:9</code> のスライドをうまく扱うのが困難とのこと。<br>
+<em>(正直、shortcodeのパラメタでアスペクト比指定させてくれればと思わなくもないが)</em><br>
 <a href="https://github.com/gohugoio/hugo/issues/4830">Remove the Speaker Deck shortcode from Hugo · Issue #4830 · gohugoio/hugo</a></p>
-
 <p>この変更は <code>v0.42</code> でリリースされている。</p>
-
 <p><a href="https://github.com/gohugoio/hugo/releases/tag/v0.42">Release v0.42 · gohugoio/hugo</a></p>
-
 <blockquote>
 <p>Notes
 The speakerdeck shortcode is removed. It didn&rsquo;t work properly, so is isn&rsquo;t expected to be in wide use. If you use it, you will get a build error. You will either have to remove its usage or add a speakerdeck shortcode to your own project or theme.</p>
 </blockquote>
-
 <h3 id="ではどうすればよいのか">ではどうすればよいのか？</h3>
-
-<p>Speaker Deckのスライドからembed codeを取得できる。<br />
-shortcodeではなくこれを貼り付ければよい。<br />
+<p>Speaker Deckのスライドからembed codeを取得できる。<br>
+shortcodeではなくこれを貼り付ければよい。<br>
 <figure>
     <img src="/posts/2018.08/hugo-removed-speakerdeck-shortcode/0001.png" width="800"/> 
 </figure>
 </p>
-
-<p>diffはこんな感じ。<br />
-(テキストで書くとhugoがerrorにしてくれているので画像で貼っている)<br />
+<p>diffはこんな感じ。<br>
+(テキストで書くとhugoがerrorにしてくれているので画像で貼っている)<br>
 <figure>
     <img src="/posts/2018.08/hugo-removed-speakerdeck-shortcode/0002.png"/> 
 </figure>
@@ -165,24 +154,20 @@ shortcodeではなくこれを貼り付ければよい。<br />
   
   <h4><a href="/about/">About</a></h4>
   <p><strong>Hidenori MATSUKI</strong></p>
-
 <p>🍣 🍶</p>
-
 <p>another website: <a href="https://mazgi.com/">mazgi.com</a></p>
   
   <hr />
   <h4>TableOfContents</h4>
   <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#ある日hugo-serverが実行できなくなった">ある日hugo serverが実行できなくなった</a></li>
-<li><a href="#ではどうすればよいのか">ではどうすればよいのか？</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#ある日hugo-serverが実行できなくなった">ある日hugo serverが実行できなくなった</a></li>
+        <li><a href="#ではどうすればよいのか">ではどうすればよいのか？</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   <hr />
   <h4><a href="/categories/">Categories</a></h4>

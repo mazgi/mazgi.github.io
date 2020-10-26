@@ -74,7 +74,7 @@
             <span class="nav-link disabled">Created At: 2020.01.22</span>
           </li>
           <li class="nav-item">
-            <span class="nav-link disabled">Updated At: 2020.01.29</span>
+            <span class="nav-link disabled">Updated At: 2020.10.26</span>
           </li>
           
         </ul>
@@ -111,73 +111,61 @@
         <h1>Web Frontend を Next.js &#43; TypeScript で書いて Docker でビルドする</h1>
       </div>
       <p>「手っ取り早く Web インターフェースを手に入れる方法 2020」シリーズ(?)の<a href="/posts/2020.01/dockerized-typescript-webapi-project/">BFF サンプルプロジェクト</a> と同じように Web Frontend サンプルプロジェクトを作ってみました。</p>
-
-<p>今回もプロジェクト構成やビルド方法の検証が主目的です。<br />
+<p>今回もプロジェクト構成やビルド方法の検証が主目的です。<br>
 そのためアプリケーション自体は Docker イメージを実行すると<a href="https://nextjs.org/">Next.js</a>の Web サーバーが起動しこんなページが表示されるだけのシンプルな機能しかありません。</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shellsession" data-lang="shellsession">❯ docker run -it --rm -p 3000:3000 b2ee27d0d01d
+<pre><code class="language-shellsession" data-lang="shellsession">❯ docker run -it --rm -p 3000:3000 b2ee27d0d01d
 
 &gt; @ start /app
 &gt; next start
 
-&gt; Ready on http://localhost:3000</code></pre></div>
-<figure>
+&gt; Ready on http://localhost:3000
+
+</code></pre><figure>
     <img src="0010.png"/> 
 </figure>
 
-
-<p>コードは&rdquo;<a href="https://github.com/mazgi-showcase/202001.nextjs-typescript-jest/tree/bc32494ed41b3c46ff969bc8230e32be0f1399c8">mazgi-showcase/202001.nextjs-typescript-jest</a>&ldquo;にあります。</p>
-
+<p>コードは&quot;<a href="https://github.com/mazgi-showcase/202001.nextjs-typescript-jest/tree/bc32494ed41b3c46ff969bc8230e32be0f1399c8">mazgi-showcase/202001.nextjs-typescript-jest</a>&ldquo;にあります。</p>
 <p>使っている技術スタックは概ね以下です。</p>
-
 <ul>
 <li><a href="https://www.typescriptlang.org/">TypeScript</a></li>
 <li><a href="https://nextjs.org/">Next.js v9</a>
-
 <ul>
 <li>TypeScript 対応が強化された <code>9</code> 以降を使っています</li>
 <li><code>9.1</code> からは <code>pages</code> を <code>src</code> の中に入れられるようになりました</li>
 <li><a href="https://github.com/tleunen/babel-plugin-module-resolver">babel-plugin-module-resolver</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="https://jestjs.io/">Jest</a></li>
 <li><a href="https://www.docker.com/">Docker &amp; Docker Compose</a></li>
 <li><a href="https://github.com/sagiegurari/cargo-make">cargo-make</a></li>
 </ul>
-
 <h2 id="out-of-scope">Out of Scope</h2>
-
 <p>今回のサンプルでは以下を扱いません。</p>
-
 <ul>
 <li>Web API / BFF</li>
 <li>Business or domain logic</li>
 <li>Deploy</li>
 </ul>
-
 <h2 id="how-to-run">How to run</h2>
-
 <p>BFF と同じように次の 3 ステップで起動できるはずです。</p>
-
 <ol>
 <li><code>cargo-make</code>を<a href="https://github.com/sagiegurari/cargo-make/releases">リリースページ</a>からダウンロードして <code>bin/cargo-make</code> に配置</li>
 <li>(optional) <code>bin/cargo-make make --makefile tasks/setup-project.toml</code> を実行して空の設定ファイルを生成
-
 <ul>
 <li>Linux 上で実行する場合にこの手順が必要です</li>
-</ul></li>
+</ul>
+</li>
 <li><code>docker-compose up</code></li>
 </ol>
-
 <p><code>docker-compose up</code> すると次の 2 つの Docker コンテナが起動します。</p>
-
 <ul>
 <li><a href="https://code.visualstudio.com/">Visual Studio Code</a>用の Docker コンテナ
-
 <ul>
 <li>起動してすぐ終了しますが意図した動作です</li>
-</ul></li>
-
-<li><p>Web Frontend の Docker コンテナ</p>
-
+</ul>
+</li>
+<li>Web Frontend の Docker コンテナ</li>
+</ul>
 <pre><code>❯ docker-compose up
 Creating network &quot;202001nextjs-typescript-jest_default&quot; with the default driver
 Creating 202001nextjs-typescript-jest_vscode_1   ... done
@@ -211,11 +199,7 @@ frontend_1  | [ wait ]  starting the development server ...
 frontend_1  | [ info ]  waiting on http://localhost:3000 ...
 frontend_1  | [ info ]  bundled successfully, waiting for typecheck results...
 frontend_1  | [ ready ] compiled successfully - ready on http://localhost:3000
-</code></pre></li>
-</ul>
-
-<p>接続すると記事冒頭のスクリーンショットのようなページが返ります。</p>
-
+</code></pre><p>接続すると記事冒頭のスクリーンショットのようなページが返ります。</p>
 <pre><code>❯ curl -LI 127.0.0.1:3000
 HTTP/1.1 200 OK
 Cache-Control: no-store, must-revalidate
@@ -226,10 +210,7 @@ Content-Length: 1714
 Vary: Accept-Encoding
 Date: Wed, 22 Jan 2020 13:10:11 GMT
 Connection: keep-alive
-</code></pre>
-
-<p>また Web Frontend といいつつサーバーが立っているので存在しない path に接続するとちゃんと 404 が返ります。</p>
-
+</code></pre><p>また Web Frontend といいつつサーバーが立っているので存在しない path に接続するとちゃんと 404 が返ります。</p>
 <pre><code>❯ curl -LI 127.0.0.1:3000/not-found
 HTTP/1.1 404 Not Found
 Cache-Control: no-store, must-revalidate
@@ -240,38 +221,25 @@ Content-Length: 2187
 Vary: Accept-Encoding
 Date: Wed, 22 Jan 2020 13:10:17 GMT
 Connection: keep-alive
-</code></pre>
-
-<h2 id="how-to-resolve-module-paths">How to resolve module paths</h2>
-
+</code></pre><h2 id="how-to-resolve-module-paths">How to resolve module paths</h2>
 <p>Web Frontend 開発ではだいたい次のようなステップを手動/自動問わず繰り返して開発を進めることになると思います。</p>
-
 <ul>
 <li><code>npm run dev</code></li>
 <li><code>npm run test</code></li>
 <li><code>npm run build</code></li>
 </ul>
-
 <p>そしてこれらのステップを繰り返す中で使われるツールも <code>tsc</code>, <code>webpack</code>, <code>babel</code> やそれらのプラグイン等多岐にわたります。</p>
-
 <p>そんな中で module の解決に頭を抱えることが多々 <em><code>Module not found: Can't resolve 'components/xxx' in '/workspace/src/pages'</code></em></p>
-
-<p>本サンプルでは試行錯誤の結果、どうにか path 定義の重複を減らすことができた気がします。<br />
+<p>本サンプルでは試行錯誤の結果、どうにか path 定義の重複を減らすことができた気がします。<br>
 ポイントは以下 2 つのようです。</p>
-
 <ul>
 <li><a href="https://github.com/mazgi-showcase/202001.nextjs-typescript-jest/blob/bc32494ed41b3c46ff969bc8230e32be0f1399c8/frontend/tsconfig.json#L13"><code>tsconfig.json</code> の <code>baseUrl</code> を指定する</a>( <code>paths</code> は指定不要)</li>
 <li><a href="https://github.com/mazgi-showcase/202001.nextjs-typescript-jest/blob/bc32494ed41b3c46ff969bc8230e32be0f1399c8/frontend/.babelrc#L5-L11"><code>.babelrc</code> 内で <code>babel-plugin-module-resolver</code> の <code>root</code> と <code>extensions</code> を設定する</a></li>
 </ul>
-
 <p>だいぶ時間を溶かしたのですが解決してみればたった 2 点ですね、そんなもんです。</p>
-
 <h2 id="build-and-just-before-deploy">Build and just before Deploy</h2>
-
 <p>BFF とあまり変わらないのですが、Next.js の<a href="https://nextjs.org/docs/deployment#self-hosting">Deployment &gt; Self hosting</a>に「<code>.next</code>, <code>node_modules</code>, <code>package.json</code> をサーバーに置くべし」と書かれているので<a href="https://github.com/mazgi-showcase/202001.nextjs-typescript-jest/blob/bc32494ed41b3c46ff969bc8230e32be0f1399c8/Dockerfile.d/frontend/Dockerfile#L12"><code>Dockerfile</code>の中でそのようにしています。</a></p>
-
-<h2 id="that-s-all">That&rsquo;s all</h2>
-
+<h2 id="thats-all">That&rsquo;s all</h2>
 <p>どうにか Web API に加えて Web Frontend の 2020 年らしいたたき台を作れたので今後の開発に活かそうと思います。</p>
     </article>
   </div>
@@ -280,24 +248,19 @@ Connection: keep-alive
   
   <h4><a href="/about/">About</a></h4>
   <p><strong>Hidenori MATSUKI</strong></p>
-
 <p>🍣 🍶</p>
-
 <p>another website: <a href="https://mazgi.com/">mazgi.com</a></p>
   
   <hr />
   <h4>TableOfContents</h4>
   <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#out-of-scope">Out of Scope</a></li>
-<li><a href="#how-to-run">How to run</a></li>
-<li><a href="#how-to-resolve-module-paths">How to resolve module paths</a></li>
-<li><a href="#build-and-just-before-deploy">Build and just before Deploy</a></li>
-<li><a href="#that-s-all">That&rsquo;s all</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#out-of-scope">Out of Scope</a></li>
+    <li><a href="#how-to-run">How to run</a></li>
+    <li><a href="#how-to-resolve-module-paths">How to resolve module paths</a></li>
+    <li><a href="#build-and-just-before-deploy">Build and just before Deploy</a></li>
+    <li><a href="#thats-all">That&rsquo;s all</a></li>
+  </ul>
 </nav>
   <hr />
   <h4><a href="/categories/">Categories</a></h4>
