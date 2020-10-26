@@ -6,7 +6,16 @@
     <description>Recent content on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 14 May 2020 13:13:17 +0000</lastBuildDate><atom:link href="https://mazgi.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 19 Sep 2020 13:55:08 +0000</lastBuildDate><atom:link href="https://mazgi.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2020年代を生き抜くWebアプリケーション基盤の私的整理</title>
+      <link>https://mazgi.github.io/posts/2020.09/better-web-application-infrastructure-in-my-case/</link>
+      <pubDate>Sat, 19 Sep 2020 13:55:08 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2020.09/better-web-application-infrastructure-in-my-case/</guid>
+      <description>Webアプリケーションを動かすためにはどうしてもCPU、メモリ、ストレージなどが必要です。 せっかく作ったWebアプリケーションを誰かに使って</description>
+    </item>
+    
     <item>
       <title>Terraformを使ってWebアプリケーション運用向けにGCEを構築する</title>
       <link>https://mazgi.github.io/posts/2020.05/provision-gce-webapp-environment-by-terraform/</link>
