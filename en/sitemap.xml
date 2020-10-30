@@ -3,23 +3,38 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://mazgi.github.io/en/tags/docker/</loc>
-    <lastmod>2020-10-29T14:04:31+09:00</lastmod>
+    <loc>https://mazgi.github.io/en/categories/</loc>
+    <lastmod>2020-10-30T16:53:58+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://mazgi.github.io/tags/docker/"
+                href="https://mazgi.github.io/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://mazgi.github.io/en/tags/docker/"
+                href="https://mazgi.github.io/en/categories/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/en/tags/git/</loc>
+    <lastmod>2020-10-30T16:53:58+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/tags/git/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/tags/git/"
                 />
   </url>
   
   <url>
     <loc>https://mazgi.github.io/en/tags/github/</loc>
-    <lastmod>2020-10-29T14:04:31+09:00</lastmod>
+    <lastmod>2020-10-30T16:53:58+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
@@ -33,38 +48,23 @@
   </url>
   
   <url>
-    <loc>https://mazgi.github.io/en/tags/github-actions/</loc>
-    <lastmod>2020-10-29T14:04:31+09:00</lastmod>
+    <loc>https://mazgi.github.io/en/posts/2020.10/how-to-change-git-default-branch-to-main-from-master/</loc>
+    <lastmod>2020-10-30T16:53:58+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://mazgi.github.io/tags/github-actions/"
+                href="https://mazgi.github.io/posts/2020.10/how-to-change-git-default-branch-to-main-from-master/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://mazgi.github.io/en/tags/github-actions/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://mazgi.github.io/en/tags/github-package-registry/</loc>
-    <lastmod>2020-10-29T14:04:31+09:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/tags/github-package-registry/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/tags/github-package-registry/"
+                href="https://mazgi.github.io/en/posts/2020.10/how-to-change-git-default-branch-to-main-from-master/"
                 />
   </url>
   
   <url>
     <loc>https://mazgi.github.io/en/</loc>
-    <lastmod>2020-10-29T14:04:31+09:00</lastmod>
+    <lastmod>2020-10-30T16:53:58+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
@@ -79,7 +79,7 @@
   
   <url>
     <loc>https://mazgi.github.io/en/posts/</loc>
-    <lastmod>2020-10-29T14:04:31+09:00</lastmod>
+    <lastmod>2020-10-30T16:53:58+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
@@ -94,7 +94,7 @@
   
   <url>
     <loc>https://mazgi.github.io/en/tags/</loc>
-    <lastmod>2020-10-29T14:04:31+09:00</lastmod>
+    <lastmod>2020-10-30T16:53:58+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
@@ -108,8 +108,68 @@
   </url>
   
   <url>
+    <loc>https://mazgi.github.io/en/categories/tips/</loc>
+    <lastmod>2020-10-30T16:53:58+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/categories/tips/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/categories/tips/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/en/tags/docker/</loc>
+    <lastmod>2020-10-30T16:53:58+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/tags/docker/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/tags/docker/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/en/tags/github-actions/</loc>
+    <lastmod>2020-10-30T16:53:58+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/tags/github-actions/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/tags/github-actions/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://mazgi.github.io/en/tags/github-package-registry/</loc>
+    <lastmod>2020-10-30T16:53:58+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://mazgi.github.io/tags/github-package-registry/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://mazgi.github.io/en/tags/github-package-registry/"
+                />
+  </url>
+  
+  <url>
     <loc>https://mazgi.github.io/en/posts/2019.08/use-github-actions-cicd-with-github-package-registry/</loc>
-    <lastmod>2020-10-29T14:04:31+09:00</lastmod>
+    <lastmod>2020-10-30T16:53:58+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
@@ -124,7 +184,7 @@
   
   <url>
     <loc>https://mazgi.github.io/en/tags/hugo/</loc>
-    <lastmod>2020-10-29T14:04:31+09:00</lastmod>
+    <lastmod>2020-10-30T16:53:58+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
@@ -139,7 +199,7 @@
   
   <url>
     <loc>https://mazgi.github.io/en/tags/hugo-theme/</loc>
-    <lastmod>2020-10-29T14:04:31+09:00</lastmod>
+    <lastmod>2020-10-30T16:53:58+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
@@ -154,7 +214,7 @@
   
   <url>
     <loc>https://mazgi.github.io/en/posts/2018.12/this-blogs-theme-appeared-in-the-hugo-themes/</loc>
-    <lastmod>2020-10-29T14:04:31+09:00</lastmod>
+    <lastmod>2020-10-30T16:53:58+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
@@ -164,20 +224,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://mazgi.github.io/en/posts/2018.12/this-blogs-theme-appeared-in-the-hugo-themes/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://mazgi.github.io/en/categories/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://mazgi.github.io/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mazgi.github.io/en/categories/"
                 />
   </url>
   

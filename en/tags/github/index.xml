@@ -6,7 +6,16 @@
     <description>Recent content in github on mazgi.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 18 Aug 2019 07:24:00 +0000</lastBuildDate><atom:link href="https://mazgi.github.io/en/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 30 Oct 2020 07:43:36 +0000</lastBuildDate><atom:link href="https://mazgi.github.io/en/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Change Git Default Branch to &#34;main&#34; from &#34;master&#34;</title>
+      <link>https://mazgi.github.io/en/posts/2020.10/how-to-change-git-default-branch-to-main-from-master/</link>
+      <pubDate>Fri, 30 Oct 2020 07:43:36 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/en/posts/2020.10/how-to-change-git-default-branch-to-main-from-master/</guid>
+      <description>tl;dr  git branch --move master main git remote set-head origin --auto  https://github.com/mazgi-sandbox/202010.change-git-default-branch</description>
+    </item>
+    
     <item>
       <title>Use Github Actions Cicd With Github Package Registry</title>
       <link>https://mazgi.github.io/en/posts/2019.08/use-github-actions-cicd-with-github-package-registry/</link>

@@ -68,6 +68,20 @@
         
         <ul class="navbar-nav mr-auto">
           
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbar_dropdown_lang" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              翻訳を表示
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbar_dropdown_lang">
+              
+              <a class="dropdown-item" href="https://mazgi.github.io/en/categories/tips/">
+                <span class="badge badge-light">English</span>
+                tips
+              </a>
+              
+            </div>
+          </li>
+          
           
         </ul>
         
@@ -105,11 +119,47 @@
     
     <article>
       <div class="row">
+        <h3><a href="/posts/2020.01/dockerized-typescript-webapi-project/">Web APIをTypeScriptで書いてDockerでビルドする</a></h3>
+      </div>
+      <div class="row">
+        <span class="ml-1">Created At: 2020.01.16</span>
+        <span class="ml-1">Updated At: 2020.10.30</span>
+        
+      </div>
+      <div class="row">
+        <p>「手っ取り早く Web インターフェースを手に入れる方法 2020」みたいなことを考えながら勉強のために BFF(Backend For Frontend) のサンプルプロジェクトを作ってみました。<br>
+ただしプロジェクト構成やビルド方法の検証が主なので BFF に特化した機能はなく、実行すると Express が起動してコンソールログが表示されるだけのアプリケーションです。</p>
+<pre><code class="language-shellsession" data-lang="shellsession">❯ docker run -it --rm 19472c5d8df4
+💽 Loaded the configuration: version: 2020.1.0-default, baseVersion: 2020.1.0-default
+⚡ App is running at :4000 in production mode
+  Press CTRL-C to stop
+</code></pre>
+      </div>
+      <div class="row">
+        
+        
+        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/typescript/">typescript</a>
+        
+        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/docker/">docker</a>
+        
+        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/web-api/">web-api</a>
+        
+        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/cargo-make/">cargo-make</a>
+        
+        
+      </div>
+    </article>
+    <hr/>
+    
+    
+    
+    <article>
+      <div class="row">
         <h3><a href="/posts/2020.01/where-are-photoshop-2020-document-presets/">Adobe Photoshop 2020 の Document Presets の在りか(macOS)</a></h3>
       </div>
       <div class="row">
         <span class="ml-1">Created At: 2020.01.08</span>
-        <span class="ml-1">Updated At: 2020.10.29</span>
+        <span class="ml-1">Updated At: 2020.10.30</span>
         
       </div>
       <div class="row">
@@ -133,7 +183,7 @@
       </div>
       <div class="row">
         <span class="ml-1">Created At: 2019.12.18</span>
-        <span class="ml-1">Updated At: 2020.10.29</span>
+        <span class="ml-1">Updated At: 2020.10.30</span>
         
       </div>
       <div class="row">
@@ -166,7 +216,7 @@
       </div>
       <div class="row">
         <span class="ml-1">Created At: 2019.12.18</span>
-        <span class="ml-1">Updated At: 2020.10.29</span>
+        <span class="ml-1">Updated At: 2020.10.30</span>
         
       </div>
       <div class="row">
@@ -199,7 +249,7 @@
       </div>
       <div class="row">
         <span class="ml-1">Created At: 2019.08.18</span>
-        <span class="ml-1">Updated At: 2020.10.29</span>
+        <span class="ml-1">Updated At: 2020.10.30</span>
         
       </div>
       <div class="row">
@@ -229,7 +279,7 @@
       </div>
       <div class="row">
         <span class="ml-1">Created At: 2019.07.07</span>
-        <span class="ml-1">Updated At: 2020.10.29</span>
+        <span class="ml-1">Updated At: 2020.10.30</span>
         
       </div>
       <div class="row">
@@ -253,7 +303,7 @@
       </div>
       <div class="row">
         <span class="ml-1">Created At: 2019.07.06</span>
-        <span class="ml-1">Updated At: 2020.10.29</span>
+        <span class="ml-1">Updated At: 2020.10.30</span>
         
       </div>
       <div class="row">
@@ -279,7 +329,7 @@
       </div>
       <div class="row">
         <span class="ml-1">Created At: 2019.06.29</span>
-        <span class="ml-1">Updated At: 2020.10.29</span>
+        <span class="ml-1">Updated At: 2020.10.30</span>
         
       </div>
       <div class="row">
@@ -305,7 +355,7 @@
       </div>
       <div class="row">
         <span class="ml-1">Created At: 2019.06.22</span>
-        <span class="ml-1">Updated At: 2020.10.29</span>
+        <span class="ml-1">Updated At: 2020.10.30</span>
         
       </div>
       <div class="row">
@@ -337,7 +387,7 @@
       </div>
       <div class="row">
         <span class="ml-1">Created At: 2019.06.22</span>
-        <span class="ml-1">Updated At: 2020.10.29</span>
+        <span class="ml-1">Updated At: 2020.10.30</span>
         
       </div>
       <div class="row">
@@ -355,36 +405,6 @@
         <a class="ml-1 badge badge-pill badge-secondary" href="/tags/file-system/">file system</a>
         
         <a class="ml-1 badge badge-pill badge-secondary" href="/tags/nfs/">nfs</a>
-        
-        
-      </div>
-    </article>
-    <hr/>
-    
-    
-    
-    <article>
-      <div class="row">
-        <h3><a href="/posts/2019.06/the-simplest-ml-environment-with-terraform-on-aws/">安全かつ最小にTerraformでGPUサーバーを起動する(AWS編)</a></h3>
-      </div>
-      <div class="row">
-        <span class="ml-1">Created At: 2019.06.11</span>
-        <span class="ml-1">Updated At: 2020.10.29</span>
-        
-      </div>
-      <div class="row">
-        普段、会社でやっているML Ops業務の振り返りを兼ねて最低限必要そうなAmazon VPC構成用のTerraform Moduleを作りました。
-      </div>
-      <div class="row">
-        
-        
-        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/aws/">aws</a>
-        
-        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/terraform/">terraform</a>
-        
-        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/terraform-module/">terraform module</a>
-        
-        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/ml-engineering/">ml engineering</a>
         
         
       </div>
