@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="/common/favicon.ico">
+    
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/common/site.css">
+    
+    
+    <title>mazgi.log :: 新しいGitHub ActionsとGitHub Package RegistryでCI/CD(サンプルあり)</title>
+    <meta property="og:title"       content="mazgi.log :: 新しいGitHub ActionsとGitHub Package RegistryでCI/CD(サンプルあり)" />
+    <meta property="og:type"        content="article" />
+    
+    <meta property="og:url"         content="https://mazgi.github.io/ja/posts/2019.08/use-github-actions-cicd-with-github-package-registry/" />
+    
+      
+      <meta property="og:description" content="mazgi&#39;s tech blog" />
+      
+    
+    
+    
+    
+    <meta property="og:image"       content="https://mazgi.github.io/posts/2019.08/use-github-actions-cicd-with-github-package-registry/og.png" />
+    <meta property="twitter:image"  content="https://mazgi.github.io/posts/2019.08/use-github-actions-cicd-with-github-package-registry/og.png" />
+    <meta property="twitter:image:src"  content="https://mazgi.github.io/posts/2019.08/use-github-actions-cicd-with-github-package-registry/og.png" />
+    
+    
+    
+    
+    
+    
+    
+    
+    <meta name="twitter:card"       content="summary" />
+    
+    
+  </head>
+  <body>
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark">
+      
+      <span class="navbar-text mr-1">I am on</span>
+      
+      <ul class="navbar-nav">
+        
+        <li class="nav-item">
+          <a class="nav-link" target="github_mazgi" rel="noopener" href="https://github.com/mazgi">GitHub<i class="ml-1 fab fa-github"></i></a>
+        </li>
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" target="twitter_mazgi" rel="noopener" href="https://twitter.com/@mazgi">Twitter<i class="ml-1 fab fa-twitter"></i></a>
+        </li>
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" target="instagram_mazgi" rel="noopener" href="https://www.instagram.com/mazgi">Instagram<i class="ml-1 fab fa-instagram"></i></a>
+        </li>
+        
+        
+      </ul>
+    </header>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="https://mazgi.github.io/">mazgi.log</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_nav" aria-controls="navbar_nav" aria-expand="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar_nav">
+        
+        <ul class="navbar-nav mr-auto">
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbar_dropdown_lang" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              翻訳を表示
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbar_dropdown_lang">
+              
+              <a class="dropdown-item" href="https://mazgi.github.io/en/posts/2019.08/use-github-actions-cicd-with-github-package-registry/">
+                <span class="badge badge-light">English</span>
+                Use Github Actions Cicd With Github Package Registry
+              </a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <span class="nav-link disabled">Created At: 2019.08.18</span>
+          </li>
+          <li class="nav-item">
+            <span class="nav-link disabled">Updated At: 2020.11.01</span>
+          </li>
+          
+        </ul>
+        
+        <div class="navbar-nav ml-auto">
+          <span class="navbar-text mr-1">share this page via</span>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="https://twitter.com/share?url=https%3a%2f%2fmazgi.github.io%2fja%2fposts%2f2019.08%2fuse-github-actions-cicd-with-github-package-registry%2f&text=%e6%96%b0%e3%81%97%e3%81%84GitHub%20Actions%e3%81%a8GitHub%20Package%20Registry%e3%81%a7CI%2fCD%28%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab%e3%81%82%e3%82%8a%29" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fmazgi.github.io%2fja%2fposts%2f2019.08%2fuse-github-actions-cicd-with-github-package-registry%2f" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.linkedin.com/shareArticle?url=https%3a%2f%2fmazgi.github.io%2fja%2fposts%2f2019.08%2fuse-github-actions-cicd-with-github-package-registry%2f&title=%e6%96%b0%e3%81%97%e3%81%84GitHub%20Actions%e3%81%a8GitHub%20Package%20Registry%e3%81%a7CI%2fCD%28%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab%e3%81%82%e3%82%8a%29" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://plusone.google.com/_/+1/confirm?url=https%3a%2f%2fmazgi.github.io%2fja%2fposts%2f2019.08%2fuse-github-actions-cicd-with-github-package-registry%2f" target="_blank" rel="noopener"><i class="fab fa-google-plus"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://b.hatena.ne.jp/entry/https://mazgi.github.io/ja/posts/2019.08/use-github-actions-cicd-with-github-package-registry/" target="_blank" rel="noopener">b!</a>
+            </li>
+          </ul>
+        </div>
+        
+      </div>
+    </nav>
+    <main role="main" class="container-fluid col-lg-10 offset-lg-1">
+
+<div class="row">
+  <div class="col-lg-9">
+    <article>
+      <div class="row">
+        <h1>新しいGitHub ActionsとGitHub Package RegistryでCI/CD(サンプルあり)</h1>
+      </div>
+      <p>ありがたいことに<a href="https://github.com/features/actions">GitHub Actions(beta)</a>と<a href="https://github.com/features/package-registry">GitHub Package Registry(beta)</a>両方が使えるようになったので試してみました。</p>
+<h1 id="about">About</h1>
+<p>絶賛limited public betaなGitHub Actionsですが既に2世代存在します。</p>
+<ul>
+<li><code>/.github/*.workflow</code> をHCLで書くもの
+<ul>
+<li><em>忘れましょう</em></li>
+</ul>
+</li>
+<li><code>/.github/workflows/*.yml</code> を書くもの
+<ul>
+<li>この記事ではこちらのみ扱います</li>
+<li>CI/CDできる！</li>
+<li><a href="https://azure.microsoft.com/en-us/services/devops/pipelines/">Azure Pipelines</a>で<a href="https://help.github.com/en/articles/virtual-environments-for-github-actions#about-virtual-environments">動いていて</a>Ubuntu, macOS, Windowsで並列実行できる！</li>
+</ul>
+</li>
+</ul>
+<p>ですので、もしこの画像のページにたどりついてしまったらハズレです。<br>
+<a href="https://help.github.com/en/articles/about-github-actions">https://help.github.com/en/articles/about-github-actions</a> に行きましょう。</p>
+<figure>
+    <img src="0020.png"/> 
+</figure>
+
+<p>またGitHub Package Registryの概要は<a href="/ja/posts/2019.06/publish-docker-image-to-github-package-registry/">Docker imageをローカルからpushする記事</a>もご参照ください。</p>
+<h1 id="examples">Examples</h1>
+<p>サンプルはこのリポジトリにあります。</p>
+<p><a href="https://github.com/mazgi/201908.github-actions-cicd-examples">201908.github-actions-cicd-examples</a></p>
+<p>GitHub Actionsの実行結果はGitHubにログインしていれば<a href="https://github.com/mazgi/201908.github-actions-cicd-examples/actions">Actionsタブ</a>から見れます。<br>
+未ログインだとpublic repositoryでも今のところ404になります。</p>
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">なるほど、未ログインだと404ですね<br>タブも出ない<br>仕様か調整中かは不明ですが <a href="https://t.co/TPRz96ZuRg">pic.twitter.com/TPRz96ZuRg</a></p>&mdash; Hidenori Matsuki (@mazgi) <a href="https://twitter.com/mazgi/status/1161126959381827585?ref_src=twsrc%5Etfw">August 13, 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>各workflowのyamlと内容はざっと以下です。</p>
+<ul>
+<li><a href="https://github.com/mazgi/201908.github-actions-cicd-examples/blob/master/.github/workflows/basic-01-environment.yml">/.github/workflows/basic-01-environment.yml</a>
+<ul>
+<li><code>strategy</code> を使ってmacOS, Ubuntu両方でjobを実行する</li>
+<li>commit hashを指定してactionを使う</li>
+<li><code>name</code> などでemojiや記号を使ってみる</li>
+<li><a href="https://help.github.com/en/articles/contexts-and-expression-syntax-for-github-actions"><code>GitHub Context</code></a>を取得する</li>
+<li><a href="https://help.github.com/en/articles/virtual-environments-for-github-actions#environment-variables">&ldquo;default environment variables&rdquo;</a>を参照する</li>
+<li>環境変数とBashのParameter Expansionを組み合わせて使う</li>
+</ul>
+</li>
+<li><a href="https://github.com/mazgi/201908.github-actions-cicd-examples/blob/master/.github/workflows/docker-01-build.yml">/.github/workflows/docker-01-build.yml</a>
+<ul>
+<li><code>Dockerfile</code> からDocker imageをbuildする</li>
+<li>buildしたDocker imageをGitHub Package Registryに<a href="https://github.com/mazgi/201908.github-actions-cicd-examples/packages/16273">publish</a>する</li>
+</ul>
+</li>
+<li><a href="https://github.com/mazgi/201908.github-actions-cicd-examples/blob/master/.github/workflows/xcode-01-macos-app.yml">/.github/workflows/xcode-01-macos-app.yml</a>
+<ul>
+<li><code>xcodebuild</code> でmacOSアプリをbuild &amp;&amp; archiveする</li>
+<li>DMGイメージを作ってarchiveしたmacOSアプリを格納する</li>
+<li>tag契機の実行であれば作ったDMGイメージを<a href="https://github.com/mazgi/201908.github-actions-cicd-examples/releases">release</a>のassetとしてuploadする</li>
+</ul>
+</li>
+</ul>
+<h2 id="status-badge">Status badge</h2>
+<p>同僚に教えていただいたのですが</p>
+<p><code>https://github.com/${NAMESPACE}/${REPOSITORY}/workflows/${WORKFLOW_NAME}/badge.svg</code></p>
+<p>でステータスバッヂが取れます。</p>
+<figure>
+    <img src="0040.png"/> 
+</figure>
+
+<p>注意点としては <strong><code>${WORKFLOW_NAME}</code> はworkflowファイル名ではなく <code>name</code> で指定</strong> するようです。</p>
+<p>したがって <code>/.github/workflows/basic-01-environment.yml</code> に</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#062873;font-weight:bold">name</span>:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;Basic 01: Environment&#34;</span><span style="color:#bbb">
+</span></code></pre></div><p>と書いた場合、badgeを取得するためには <code>basic-01-environment</code> ではなく <code>Basic%2001%3A%20Environment</code> と指定する必要があります。</p>
+<p>今回の例であれば <code>https://github.com/mazgi/201908.github-actions-cicd-examples/workflows/Basic%2001%3A%20Environment/badge.svg</code> みたいな感じですね。<br>
+<em>&hellip;workflow名をもう少しシンプルにすればよかった。</em></p>
+<h1 id="thats-all">That&rsquo;s all</h1>
+<p>私は <code>Context</code> で取れるものを調べたりちょっとした書き方でハマってしまって時間を費やしたので、この記事がどなたかの参考になれば幸いです。</p>
+<p>また <a href="https://github.com/ruby/ruby">github.com/ruby/ruby</a> のworkflowはとても参考になりました。<br>
+ありがとうございます 🙏</p>
+<p>GitHub Actionsは特に <code>on</code> で思った通りに発火しないとか <code>[skip ci]</code> 的なことできなさそうとかbetaなこともあり色々と試行錯誤していますが、総じてとても便利な機能だと感じたので引き続きじゃんじゃん使わせていただきます 💪</p>
+
+    </article>
+  </div>
+  <div class="col-lg-3">
+    <div class="sidebar">
+  
+  <h4><a href="/ja/about/">About</a></h4>
+  <p><strong>Hidenori MATSUKI</strong></p>
+<p>🍣 🍶</p>
+<p>another website: <a href="https://mazgi.com/">mazgi.com</a></p>
+  
+  <hr />
+  <h4>TableOfContents</h4>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#status-badge">Status badge</a></li>
+  </ul>
+</nav>
+  <hr />
+  <h4><a href="/ja/categories/">Categories</a></h4>
+  
+  <hr />
+  <h4><a href="/ja/tags/">Tags</a></h4>
+  
+  <div>
+    
+    <a class="badge badge-pill badge-secondary" href="/ja/tags/docker/">docker</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/ja/tags/github/">github</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/ja/tags/github-actions/">github actions</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/ja/tags/github-package-registry/">github package registry</a>
+    
+  </div>
+  
+</div>
+
+  </div>
+</div>
+      <div class="row">
+        <footer class="col-lg-12">
+          <hr/>
+          <span>&copy; mazgi.log</span>
+          <span>&nbsp;&middot;&nbsp;</span>
+          <i class="fas fa-bolt"></i>
+          <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a></span>
+          
+          <span>&nbsp;&middot;&nbsp;</span>
+          <span>This website <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">uses Google Analytics</a>.</span>
+          
+        </footer>
+      </div>
+    </div>
+    </main>
+    
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68170979-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-68170979-2');
+    </script>
+    
+      
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+      });
+    </script>
+  </body>
+</html>
+

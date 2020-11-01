@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hugo on mazgi.log</title>
+    <link>https://mazgi.github.io/ja/tags/hugo/</link>
+    <description>Recent content in hugo on mazgi.log</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 25 Apr 2019 03:37:18 +0000</lastBuildDate><atom:link href="https://mazgi.github.io/ja/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GitHub&#43;CircleCI&#43;S3でNoOpsなBlogを構築した</title>
+      <link>https://mazgi.github.io/ja/posts/2019.04/built-noops-blog-with-github-circleci-s3/</link>
+      <pubDate>Thu, 25 Apr 2019 03:37:18 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/ja/posts/2019.04/built-noops-blog-with-github-circleci-s3/</guid>
+      <description>本業の傍ら会社の技術Blogリニューアルに携わっており、概要をAdvent Calendarで「DeNA Engineers&#39; Blogをリニューアルしている話」と</description>
+    </item>
+    
+    <item>
+      <title>このブログのテーマがHugo Themesに載りました！</title>
+      <link>https://mazgi.github.io/ja/posts/2018.12/this-blogs-theme-appeared-in-the-hugo-themes/</link>
+      <pubDate>Fri, 30 Nov 2018 23:48:23 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/ja/posts/2018.12/this-blogs-theme-appeared-in-the-hugo-themes/</guid>
+      <description>このBlog用に作ったHugoテーマ「techlog-simple」をHugoのテーマサイトに載せていただきました。やったね 🎉 Techblog Simple is a Bootstrap-based blog theme</description>
+    </item>
+    
+    <item>
+      <title>Hugo 0.42 からSpeaker Deck貼付はshortcodeではなくembed codeを使う</title>
+      <link>https://mazgi.github.io/ja/posts/2018.08/hugo-removed-speakerdeck-shortcode/</link>
+      <pubDate>Sun, 19 Aug 2018 16:44:43 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/ja/posts/2018.08/hugo-removed-speakerdeck-shortcode/</guid>
+      <description>tldr: Hugo 0.42 以降でSpeaker Deckのスライドを貼り付けるときはSpeaker Deckのembed codeを使いましょう。 ある日hugo ser</description>
+    </item>
+    
+    <item>
+      <title>このWebサイトの見た目をちょっとまともにした</title>
+      <link>https://mazgi.github.io/ja/posts/2018.05/update-hugo-theme/</link>
+      <pubDate>Sun, 06 May 2018 21:04:37 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/ja/posts/2018.05/update-hugo-theme/</guid>
+      <description>このWebサイト( https://mazgi.github.io/ )は専用のHugoテーマで公開しているのだけど色々基本的なところが足りていなかったので直した。 一覧ページ(list.ht</description>
+    </item>
+    
+    <item>
+      <title>S3 &#43; CloudFrontをTerraformで設定してCircleCIで更新する</title>
+      <link>https://mazgi.github.io/ja/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/</link>
+      <pubDate>Thu, 15 Feb 2018 05:24:40 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/ja/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/</guid>
+      <description>「TerraformでS3+CloudFront+SSL/TLS証明書 w/ ACMを設定してHugoで作ったstaticなWebサイトをCirc</description>
+    </item>
+    
+    <item>
+      <title>簡易な技術ドキュメントをHugoで書くと便利だった</title>
+      <link>https://mazgi.github.io/ja/posts/2017.12/technical-docs-with-hugo/</link>
+      <pubDate>Fri, 08 Dec 2017 07:00:00 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/ja/posts/2017.12/technical-docs-with-hugo/</guid>
+      <description>サンプルコードのドキュメントをHugoで書いてサンプルコードと一緒に配ったら便利そうだったのでやってみた。 やりたいこと 仕事で他社さんにサンプ</description>
+    </item>
+    
+  </channel>
+</rss>

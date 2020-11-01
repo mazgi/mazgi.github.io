@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gentoo on mazgi.log</title>
+    <link>https://mazgi.github.io/ja/tags/gentoo/</link>
+    <description>Recent content in gentoo on mazgi.log</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 18 Feb 2016 14:36:02 +0900</lastBuildDate><atom:link href="https://mazgi.github.io/ja/tags/gentoo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gentoo で普通の CVE-2015-7547 対策</title>
+      <link>https://mazgi.github.io/ja/posts/2016.02/cve-2015-7547-on-gentoo/</link>
+      <pubDate>Thu, 18 Feb 2016 14:36:02 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/ja/posts/2016.02/cve-2015-7547-on-gentoo/</guid>
+      <description>追記 私が何か勘違いしてたようですが glibc-2.21-r2 (~amd64マスクされてない)でpatchが取り込まれてますね。。 # emerge -fOq glibc &amp;gt;&amp;gt;&amp;gt; Fetching (1 of 1) sys-libs/glibc-2.21-r2::gentoo # tar tf /usr/portage/distfiles/glibc-2.21-patches-7.tar.bz2 | grep &#39;CVE-2015-7547&#39; patches/00_all_0028-CVE-2015-7547-getaddrinfo-stack-based-buffer-overflo.patch</description>
+    </item>
+    
+    <item>
+      <title>ssmjp で Gentoo の話をしてきました</title>
+      <link>https://mazgi.github.io/ja/posts/2015.10/gentoo-talk-on-ssmjp/</link>
+      <pubDate>Mon, 05 Oct 2015 15:44:24 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/ja/posts/2015.10/gentoo-talk-on-ssmjp/</guid>
+      <description>先週の話ですがssmjp 2015/09の回におじゃましてきました。 「一緒にプロダクション環境でのGentoo勉強会」やりましょう！という話を</description>
+    </item>
+    
+  </channel>
+</rss>

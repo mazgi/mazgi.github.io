@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="/common/favicon.ico">
+    
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/common/site.css">
+    
+    
+    <title>mazgi.log :: AI時代のDocker &#43; XaaS簡単理解</title>
+    <meta property="og:title"       content="mazgi.log :: AI時代のDocker &#43; XaaS簡単理解" />
+    <meta property="og:type"        content="article" />
+    
+    <meta property="og:url"         content="https://mazgi.github.io/ja/posts/2019.05/brief-description-of-xaas-in-the-ai-era/" />
+    
+      
+      <meta property="og:description" content="mazgi&#39;s tech blog" />
+      
+    
+    
+    
+    
+    <meta property="og:image"       content="https://mazgi.github.io/posts/2019.05/brief-description-of-xaas-in-the-ai-era/og.png" />
+    <meta property="twitter:image"  content="https://mazgi.github.io/posts/2019.05/brief-description-of-xaas-in-the-ai-era/og.png" />
+    <meta property="twitter:image:src"  content="https://mazgi.github.io/posts/2019.05/brief-description-of-xaas-in-the-ai-era/og.png" />
+    
+    
+    
+    
+    
+    
+    
+    
+    <meta name="twitter:card"       content="summary" />
+    
+    
+  </head>
+  <body>
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark">
+      
+      <span class="navbar-text mr-1">I am on</span>
+      
+      <ul class="navbar-nav">
+        
+        <li class="nav-item">
+          <a class="nav-link" target="github_mazgi" rel="noopener" href="https://github.com/mazgi">GitHub<i class="ml-1 fab fa-github"></i></a>
+        </li>
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" target="twitter_mazgi" rel="noopener" href="https://twitter.com/@mazgi">Twitter<i class="ml-1 fab fa-twitter"></i></a>
+        </li>
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" target="instagram_mazgi" rel="noopener" href="https://www.instagram.com/mazgi">Instagram<i class="ml-1 fab fa-instagram"></i></a>
+        </li>
+        
+        
+      </ul>
+    </header>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="https://mazgi.github.io/">mazgi.log</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_nav" aria-controls="navbar_nav" aria-expand="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar_nav">
+        
+        <ul class="navbar-nav mr-auto">
+          
+          
+          
+          <li class="nav-item">
+            <span class="nav-link disabled">Created At: 2019.05.27</span>
+          </li>
+          <li class="nav-item">
+            <span class="nav-link disabled">Updated At: 2020.11.01</span>
+          </li>
+          
+        </ul>
+        
+        <div class="navbar-nav ml-auto">
+          <span class="navbar-text mr-1">share this page via</span>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="https://twitter.com/share?url=https%3a%2f%2fmazgi.github.io%2fja%2fposts%2f2019.05%2fbrief-description-of-xaas-in-the-ai-era%2f&text=AI%e6%99%82%e4%bb%a3%e3%81%aeDocker%20%2b%20XaaS%e7%b0%a1%e5%8d%98%e7%90%86%e8%a7%a3" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fmazgi.github.io%2fja%2fposts%2f2019.05%2fbrief-description-of-xaas-in-the-ai-era%2f" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.linkedin.com/shareArticle?url=https%3a%2f%2fmazgi.github.io%2fja%2fposts%2f2019.05%2fbrief-description-of-xaas-in-the-ai-era%2f&title=AI%e6%99%82%e4%bb%a3%e3%81%aeDocker%20%2b%20XaaS%e7%b0%a1%e5%8d%98%e7%90%86%e8%a7%a3" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://plusone.google.com/_/+1/confirm?url=https%3a%2f%2fmazgi.github.io%2fja%2fposts%2f2019.05%2fbrief-description-of-xaas-in-the-ai-era%2f" target="_blank" rel="noopener"><i class="fab fa-google-plus"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://b.hatena.ne.jp/entry/https://mazgi.github.io/ja/posts/2019.05/brief-description-of-xaas-in-the-ai-era/" target="_blank" rel="noopener">b!</a>
+            </li>
+          </ul>
+        </div>
+        
+      </div>
+    </nav>
+    <main role="main" class="container-fluid col-lg-10 offset-lg-1">
+
+<div class="row">
+  <div class="col-lg-9">
+    <article>
+      <div class="row">
+        <h1>AI時代のDocker &#43; XaaS簡単理解</h1>
+      </div>
+      <p>私が所属している<a href="/ja/posts/2019.04/my-role-in-dena-was-simplified/">DeNA AIシステム部</a>の部内勉強会でDockerとXaaS（ザース）の話をさせていただいたので資料を公開します。<br>
+XaaS（ザース）はIaaS, FaaS, SaaSなどの総称です。</p>
+<p>資料は大きく「Docker編」と「XaaS編」から成っており、普段業務でなんとなくDockerやクラウド(IaaS)を使っている方向けに、これらの概要を説明する資料となっています。</p>
+<!-- raw HTML omitted -->
+<p>部内向けということもありいくつかの項目を省略しましたので、この記事で補足します。</p>
+<h2 id="前提と聴衆">前提と聴衆</h2>
+<p>まず部内では自明なこととして資料中では聴衆の関心事やスキルセットを端折っていますが以下のような方を対象としています。</p>
+<ul>
+<li>Dockerを使用する必要/関心がある</li>
+<li>IaaS（クラウド）を使用する必要/関心がある</li>
+<li>機械学習等でGPUの計算リソースを必要としている</li>
+<li>(Web)アプリケーションエンジニア <strong>ではない</strong></li>
+<li>DevOpsやML Ops <strong>ではない</strong></li>
+</ul>
+<p>つまり部内の大勢を占めるAIリサーチャーやデータサイエンティストの方を対象として作った資料です。<br>
+また、5月ということもあり新卒入社してくださったメンバーが部内に多くいることも考慮に入れています。</p>
+<p>本資料を発表した部内勉強会は事前にトピックが公開されている任意参加の社内イベントで、当日は概ね30名の方が参加してくださいました。</p>
+<h3 id="意識したこと">意識したこと</h3>
+<p>スライドの最初の方にスクリーンショットを貼っていますが、今回の資料を作るにあたってAIリサーチャー/データサイエンティストの方に「Dockerにどれくらい慣れ親しんでいるか」事前アンケートを取らせていただきました。</p>
+<!-- raw HTML omitted -->
+<p>このアンケート結果から、部内に「Dockerに慣れている方」から「Dockerを自分では使ったことがない方」まで幅広く存在していることを改めて認識しました。</p>
+<p>このような聴衆が想定される中、特に今回は「Dockerよくわからない」と感じている方の&quot;よくわからなさ&quot;をポイントを絞って解消したいと考えました。</p>
+<p>例えば設定例やコマンドラインオプションは今後SlackやIssueコメントでサポートできますしチートシートのリンクを紹介して試していただくこともできます。</p>
+<p>しかしエンジニア組織において「そもそもの仕組みや考え方がわからない」状態は健全ではなく、AIリサーチャーやデータサイエンティスト間でのコードレビューの障害となり得ます。<br>
+個々人としてはよくわからないまま使うことで頭の中のワーキングメモリを無為に消費し続け苦手意識を持ち続けてしまうこともあるでしょう。</p>
+<p>一方で、AIリサーチャー/データサイエンティストの皆さんがDockerやIaaSを深く知る必要はないためマニアックな内容にならないよう気をつけました。</p>
+<p>またIaaSについては私のようなDevOps/ML Opsエンジニアが環境構築や仕組みの提供を行えるため概要紹介に留めました。</p>
+<h2 id="docker編">Docker編</h2>
+<p>アンケート結果からDockerを使いこなしている方が半数程度居り「隣の人に聞ける」状況ではあることが読み取れたため、「Dockerとは何か」といった全く初めての人向けの話は端折りました。</p>
+<p>またWebサービスの開発のように複数Dockerコンテナを同時実行するよりは、個々のDockerコンテナでJupyter Notebookなどを起動するケースが多いと想定しネットワークに関しても触れていません。</p>
+<p>代わりに普段意識する機会の少ないであろうコンテナの概要を説明することで、今後&quot;Docker on Mac(=Linux)とmacOSで同じファイルを参照した際のOSの違いによるハマり&quot;などに遭遇しても解決しやすくなるよう構成を考えました。</p>
+<h3 id="dockerfile">Dockerfile</h3>
+<p>Dockerイメージをビルドするためのレシピとなる<a href="https://docs.docker.com/engine/reference/builder/">Dockerfile</a>は「存在と役割は知られている、あるいは周りの方がサポート可能」と判断し説明しませんでした。</p>
+<p>これは社内のGitHub Enterpriseを検索したところ、AIリサーチャーやデータサイエンティストの方が主にcommitしているリポジトリに既に多くの <code>Dockerfile</code> が存在したことによります。</p>
+<figure>
+    <img src="0020.png" width="640"/> 
+</figure>
+
+<h3 id="docker-compose">Docker Compose</h3>
+<p>一方で複数Dockerコンテナの管理ツールであるDocker Composeは <code>Dockerfile</code> ほどには設定ファイルが存在せず、また普段のSlack上の会話などからも「興味はあるが使っていない」「使い方や使い所がよくわからない」といった声があり、導入が進んでいないことを把握していました。</p>
+<figure>
+    <img src="0021.png" width="640"/> 
+</figure>
+
+<p>そのため極めて単純な例から順に内容を増やしていくサンプルを用意しました。<br>
+そのサンプルはこちらのリポジトリで公開しています。</p>
+<p><a href="https://github.com/mazgi-sandbox/201905.note.brief-description-of-docker-and-xaas-in-the-ai-era/tree/master/sample-files">201905.note.brief-description-of-docker-and-xaas-in-the-ai-era/sample-files</a></p>
+<h3 id="dockerベストプラクティス">Dockerベストプラクティス</h3>
+<p>またDockerビルド時のベストプラクティスを、パフォーマンスとセキュリティそれぞれの観点から全員に押さえていただきたいポイントに厳選してご説明しました。</p>
+<p><strong>1つはDockerfileの書き方によってイメージサイズを増やさない方法です。</strong></p>
+<p>これは1行ずつ複数の <code>RUN</code> が書かれた <code>Dockerfile</code> をいくつか目にしたためです。</p>
+<!-- raw HTML omitted -->
+<p>どうしても機械学習関連のDockerイメージはサイズが大きくなる傾向があり、今後ますますDockerの活用が進んだ際にストレージコストは無視できなくなる可能性があるため今のうちに共通認識を持っていただきたいと考えました。</p>
+<p><strong>もう1つはBuildKitの <code>--mount=type=secret</code> の使い方と効果の説明です。</strong></p>
+<p>業務上GitHubのPrivate RepositoryやAmazon S3、Google Cloud Storageにアクセスするための秘密鍵やCredentialsを取り扱うことは多々あり、Dockerビルド時に必要となるケースも増えていくと想定されます。</p>
+<p>Dockerの新しいbuilderであるBuildKitでは、Dockerビルド時にこれらの秘匿すべきデータを安全に取り扱うことができるので「もしそうしなかったらどう危険なのか」とともに紹介しました。</p>
+<!-- raw HTML omitted -->
+<p>時間が足りずデモはできなかったのですが、<a href="https://github.com/mazgi-sandbox/201905.note.brief-description-of-docker-and-xaas-in-the-ai-era/tree/master/sample-files/05.docker-tensorflow">サンプルリポジトリに例があります</a>。</p>
+<p>当日は以上2つのベストプラクティスのみ紹介しましたが、こちらの資料に2019年5月時点のベストプラクティスがまとまっています。<br>
+この資料は<a href="/ja/posts/2019.05/went-to-container-build-meetup-02/">「Container Build Meetup #02」に参加した際</a>教えていただきました 😄</p>
+<!-- raw HTML omitted -->
+<p>またGoogle Cloudの「<a href="https://cloud.google.com/solutions/best-practices-for-building-containers">Best practices for building containers</a>」もとても良いドキュメントだと思います。<br>
+当日も参加いただいた部内の若者がSlackに貼ってくれていました 😄</p>
+<h2 id="xaasザース編">XaaS（ザース）編</h2>
+<p>XaaSについては言葉の整理をしつつ、AWS上でGPUインスタンスを起動してDocker Composeを使ってDockerコンテナを動かすデモを行いました。</p>
+<p>先述の通り、部内ではAIリサーチャー/データサイエンティストの方がAWSやGCP上の込み入ったインフラを構築する必要はないため、以下のようなポイントに絞って説明したいと考えました。</p>
+<ul>
+<li>IaaS, FaaS, SaaSなど「* as a Service」に種類があり名前がついていること</li>
+<li>XaaS、特にIaaSは便利であると同時に危険性が伴うこと</li>
+<li>部内の環境はInfrastructure as Code(IaC)という考え方で構成されていること</li>
+</ul>
+<p>ただ、時間をオーバーしてしまい最後はかなり駆け足になってしまいました。</p>
+<h3 id="デモ環境の構成">デモ環境の構成</h3>
+<p>デモでは次のような極めてシンプルなAWS上の機械学習インフラを使いました。</p>
+<!-- raw HTML omitted -->
+<p>この環境を作るサンプルは次のリポジトリで公開しています。</p>
+<p><a href="https://github.com/mazgi/terraform-aws-simple-vpc/tree/v2019.05.2/examples/simple-ml">terraform-aws-simple-vpc/examples/simple-ml</a></p>
+<p>Infrastructure as Code(IaC)を実現するツールは<a href="https://www.terraform.io/">Terraform</a>のみを使っており、サンプルはTerraform Moduleになっています。</p>
+<p>またTerraformを実行時にIPアドレスを取得し接続元としてAWSのセキュリティグループ（ファイアウォール）を設定することで、業務でよく使われるであろう接続元IPアドレスによるアクセス制御を実現しています。</p>
+<p>Terraform実行は数分程度の時間がかかりますし、内容の詳細を知っていただきたい訳ではなかったため事前に2倍速の動画として用意しておきました。<br>
+YouTubeに同じ動画をアップロードしています。</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/aJiaQASr0G4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<p>AWSアカウントを1つ用意してこのサンプルを適用していただくと、READMEの最後のようにTensorFlowが使えるJupyter Notebookが起動でき、Dockerコンテナ上からも <code>nvidia-smi</code> コマンドでGPUが接続されていることを確認できるはずです。</p>
+<p>もちろん業務で扱っている環境はもう少し複雑な作りになっているのですが、社内独自の作り込みなどは検索しても情報が得られないため、あくまで一般に公開されている情報とツールを使ってデモ環境を構成しています。</p>
+<h2 id="反応">反応</h2>
+<p>今回話をさせていただいた部内勉強会は、普段は機械学習やデータサイエンスのトピックが多くこの内容は話す側としてとても不安でした。</p>
+<p>終了後にアンケートを取らせていただいたのですが、思ったよりも「参考になった」と回答してくださった方が多く準備した甲斐がありました。</p>
+<figure>
+    <img src="0010.png" width="640"/> 
+</figure>
+
+<p>「使ってみようと思った」と「自分でもやってみようと思った」は後から追加したのですが、すでに多くの方が回答済みだったからか1票も入らずでした。。</p>
+<h2 id="参考資料">参考資料</h2>
+<p>最後に今回の資料の構成検討と制作にあたっては参考にさせていただいた資料を紹介します。</p>
+<ul>
+<li>「#マンガでわかるDocker」シリーズ
+<ul>
+<li><a href="https://llminatoll.booth.pm/items/825879">#マンガでわかるDocker ① 〜概念・基本コマンド編〜</a></li>
+<li><a href="https://llminatoll.booth.pm/items/1036317">#マンガでわかるDocker ② 〜開発環境を作ろう編〜 </a></li>
+</ul>
+</li>
+</ul>
+<p>初めてDockerを触るところからマンガで説明されており、初心者の方の入門書としてはもちろん、導入や表現も大変勉強になりました。</p>
+<p><a href="https://llminatoll.booth.pm/items/1242542">#マンガでわかるDocker ③ 〜AWS編〜</a>まで読むとAmazon ECS上でDockerコンテナを動かす方法まで一通り学べます。</p>
+<ul>
+<li><a href="https://www.amazon.co.jp/dp/B00VHW3PKW">Linuxコンテナー最新ツール Dockerを支える技術</a></li>
+</ul>
+<p>Dockerがどのような技術で成り立っているか、Linuxを含めて開設されている書籍です。<br>
+2015年に出版された本ですがLinux Namespaces等の主要機能は大きく変わっておらず変わらず参考になります。</p>
+
+    </article>
+  </div>
+  <div class="col-lg-3">
+    <div class="sidebar">
+  
+  <h4><a href="/ja/about/">About</a></h4>
+  <p><strong>Hidenori MATSUKI</strong></p>
+<p>🍣 🍶</p>
+<p>another website: <a href="https://mazgi.com/">mazgi.com</a></p>
+  
+  <hr />
+  <h4>TableOfContents</h4>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#前提と聴衆">前提と聴衆</a>
+      <ul>
+        <li><a href="#意識したこと">意識したこと</a></li>
+      </ul>
+    </li>
+    <li><a href="#docker編">Docker編</a>
+      <ul>
+        <li><a href="#dockerfile">Dockerfile</a></li>
+        <li><a href="#docker-compose">Docker Compose</a></li>
+        <li><a href="#dockerベストプラクティス">Dockerベストプラクティス</a></li>
+      </ul>
+    </li>
+    <li><a href="#xaasザース編">XaaS（ザース）編</a>
+      <ul>
+        <li><a href="#デモ環境の構成">デモ環境の構成</a></li>
+      </ul>
+    </li>
+    <li><a href="#反応">反応</a></li>
+    <li><a href="#参考資料">参考資料</a></li>
+  </ul>
+</nav>
+  <hr />
+  <h4><a href="/ja/categories/">Categories</a></h4>
+  
+  <div>
+    <ul>
+      
+      <li>
+        <a href="/ja/categories/event/">event</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+  <hr />
+  <h4><a href="/ja/tags/">Tags</a></h4>
+  
+  <div>
+    
+    <a class="badge badge-pill badge-secondary" href="/ja/tags/docker/">docker</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/ja/tags/docker-compose/">docker-compose</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/ja/tags/xaas/">xaas</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/ja/tags/aws/">aws</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/ja/tags/terraform/">terraform</a>
+    
+  </div>
+  
+</div>
+
+  </div>
+</div>
+      <div class="row">
+        <footer class="col-lg-12">
+          <hr/>
+          <span>&copy; mazgi.log</span>
+          <span>&nbsp;&middot;&nbsp;</span>
+          <i class="fas fa-bolt"></i>
+          <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a></span>
+          
+          <span>&nbsp;&middot;&nbsp;</span>
+          <span>This website <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">uses Google Analytics</a>.</span>
+          
+        </footer>
+      </div>
+    </div>
+    </main>
+    
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68170979-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-68170979-2');
+    </script>
+    
+      
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+      });
+    </script>
+  </body>
+</html>
+

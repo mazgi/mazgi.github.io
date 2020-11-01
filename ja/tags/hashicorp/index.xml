@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hashicorp on mazgi.log</title>
+    <link>https://mazgi.github.io/ja/tags/hashicorp/</link>
+    <description>Recent content in hashicorp on mazgi.log</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 16 Sep 2018 02:14:25 +0900</lastBuildDate><atom:link href="https://mazgi.github.io/ja/tags/hashicorp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HashiCorp JapanさんとMeetupを開催&amp;登壇しました</title>
+      <link>https://mazgi.github.io/ja/posts/2018.09/hashicorp-japan-meatup-on-dena/</link>
+      <pubDate>Sun, 16 Sep 2018 02:14:25 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/ja/posts/2018.09/hashicorp-japan-meatup-on-dena/</guid>
+      <description>先日HashiCorp Japanさん主催で「DevOpsを支える今話題のHashiCorpツール群について」と題したMeet-upを開催させ</description>
+    </item>
+    
+  </channel>
+</rss>

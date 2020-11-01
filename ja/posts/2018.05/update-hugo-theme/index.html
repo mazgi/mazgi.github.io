@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="/common/favicon.ico">
+    
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/common/site.css">
+    
+    
+    <title>mazgi.log :: このWebサイトの見た目をちょっとまともにした</title>
+    <meta property="og:title"       content="mazgi.log :: このWebサイトの見た目をちょっとまともにした" />
+    <meta property="og:type"        content="article" />
+    
+    <meta property="og:url"         content="https://mazgi.github.io/ja/posts/2018.05/update-hugo-theme/" />
+    
+      
+      <meta property="og:description" content="mazgi&#39;s tech blog" />
+      
+    
+    
+    
+    
+    <meta property="og:image"       content="https://mazgi.github.io/posts/2018.05/update-hugo-theme/og.png" />
+    <meta property="twitter:image"  content="https://mazgi.github.io/posts/2018.05/update-hugo-theme/og.png" />
+    <meta property="twitter:image:src"  content="https://mazgi.github.io/posts/2018.05/update-hugo-theme/og.png" />
+    
+    
+    
+    
+    
+    
+    
+    
+    <meta name="twitter:card"       content="summary" />
+    
+    
+  </head>
+  <body>
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark">
+      
+      <span class="navbar-text mr-1">I am on</span>
+      
+      <ul class="navbar-nav">
+        
+        <li class="nav-item">
+          <a class="nav-link" target="github_mazgi" rel="noopener" href="https://github.com/mazgi">GitHub<i class="ml-1 fab fa-github"></i></a>
+        </li>
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" target="twitter_mazgi" rel="noopener" href="https://twitter.com/@mazgi">Twitter<i class="ml-1 fab fa-twitter"></i></a>
+        </li>
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" target="instagram_mazgi" rel="noopener" href="https://www.instagram.com/mazgi">Instagram<i class="ml-1 fab fa-instagram"></i></a>
+        </li>
+        
+        
+      </ul>
+    </header>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="https://mazgi.github.io/">mazgi.log</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_nav" aria-controls="navbar_nav" aria-expand="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar_nav">
+        
+        <ul class="navbar-nav mr-auto">
+          
+          
+          
+          <li class="nav-item">
+            <span class="nav-link disabled">Created At: 2018.05.06</span>
+          </li>
+          <li class="nav-item">
+            <span class="nav-link disabled">Updated At: 2020.11.01</span>
+          </li>
+          
+        </ul>
+        
+        <div class="navbar-nav ml-auto">
+          <span class="navbar-text mr-1">share this page via</span>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="https://twitter.com/share?url=https%3a%2f%2fmazgi.github.io%2fja%2fposts%2f2018.05%2fupdate-hugo-theme%2f&text=%e3%81%93%e3%81%aeWeb%e3%82%b5%e3%82%a4%e3%83%88%e3%81%ae%e8%a6%8b%e3%81%9f%e7%9b%ae%e3%82%92%e3%81%a1%e3%82%87%e3%81%a3%e3%81%a8%e3%81%be%e3%81%a8%e3%82%82%e3%81%ab%e3%81%97%e3%81%9f" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fmazgi.github.io%2fja%2fposts%2f2018.05%2fupdate-hugo-theme%2f" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.linkedin.com/shareArticle?url=https%3a%2f%2fmazgi.github.io%2fja%2fposts%2f2018.05%2fupdate-hugo-theme%2f&title=%e3%81%93%e3%81%aeWeb%e3%82%b5%e3%82%a4%e3%83%88%e3%81%ae%e8%a6%8b%e3%81%9f%e7%9b%ae%e3%82%92%e3%81%a1%e3%82%87%e3%81%a3%e3%81%a8%e3%81%be%e3%81%a8%e3%82%82%e3%81%ab%e3%81%97%e3%81%9f" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://plusone.google.com/_/+1/confirm?url=https%3a%2f%2fmazgi.github.io%2fja%2fposts%2f2018.05%2fupdate-hugo-theme%2f" target="_blank" rel="noopener"><i class="fab fa-google-plus"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://b.hatena.ne.jp/entry/https://mazgi.github.io/ja/posts/2018.05/update-hugo-theme/" target="_blank" rel="noopener">b!</a>
+            </li>
+          </ul>
+        </div>
+        
+      </div>
+    </nav>
+    <main role="main" class="container-fluid col-lg-10 offset-lg-1">
+
+<div class="row">
+  <div class="col-lg-9">
+    <article>
+      <div class="row">
+        <h1>このWebサイトの見た目をちょっとまともにした</h1>
+      </div>
+      <p>このWebサイト( <a href="https://mazgi.github.io/">https://mazgi.github.io/</a> )は専用のHugoテーマで公開しているのだけど色々基本的なところが足りていなかったので直した。</p>
+<h2 id="一覧ページlisthtml">一覧ページ(list.html)</h2>
+<p>Hugoテーマの場合、一覧ページのテンプレートは <code>layouts/_default/list.html</code> というPATHで作る。<br>
+なおTOPページは <code>layouts/index.html</code> というPATHでテンプレートを作っておくとそちらが適用されるが、このサイトの場合は特にTOPページだけに載せたいものがないので、TOPページと一覧ページは同じテンプレートを使っている。</p>
+<p>これまでの一覧ページ。<br>
+<figure>
+    <img src="/posts/2018.05/update-hugo-theme/0001.png"/> <figcaption>
+            <h4>before</h4>
+        </figcaption>
+</figure>
+</p>
+<p>かろうじてサイドバー(右)に記事一覧、左側には全記事の本文がすべて表示されるというつらい構成だった。<br>
+それをこうした。<br>
+<figure>
+    <img src="/posts/2018.05/update-hugo-theme/0002.png"/> <figcaption>
+            <h4>after</h4>
+        </figcaption>
+</figure>
+</p>
+<p>左側に記事一覧をタイトル/タグ/サマリと共に表示し、見えていないがページングもした。<br>
+(おそろしいことにこれまでページングしていなかった)</p>
+<p><strong>a)</strong> 用意だけして使っていなかったナビゲーションバー(黒)にSNSアカウントのリンクを表示できるようにした。<br>
+<code>config.toml</code> にこんな感じで書くと表示される。</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">[params.sns]
+github = <span style="color:#4070a0">&#34;megu_shinonome&#34;</span>
+twitter = <span style="color:#4070a0">&#34;_KaguyaLuna&#34;</span>
+instagram = <span style="color:#4070a0">&#34;SIROyoutuber&#34;</span>
+</code></pre></div><p><strong>b)</strong> シェアボタンもナビゲーションバーに合わせてかわいくした。<a href="https://fontawesome.com/">Font Awesome</a>、ほんと最高！</p>
+<p><strong>c)</strong> サイドバーをちゃんと <code>partial</code> として作った。<br>
+上から順に、</p>
+<ol>
+<li><code>/about</code> のサマリを表示する</li>
+<li>(単一ページであれば)その記事のタグ一覧を表示する</li>
+<li>カテゴリ一覧を表示する</li>
+</ol>
+<p>ようにしている。<br>
+うん、それっぽくなった(気がする)。</p>
+<h2 id="単一ページsinglehtml">単一ページ(single.html)</h2>
+<p>記事本文等の単一ページのテンプレートは <code>layouts/_default/single.html</code> というPATHで作る。</p>
+<p>まず、これまでのページ。<br>
+<figure>
+    <img src="/posts/2018.05/update-hugo-theme/0003.png"/> <figcaption>
+            <h4>before</h4>
+        </figcaption>
+</figure>
+</p>
+<p>恐ろしいことに他の記事へ移動できるリンクが一切ない。<br>
+私はどれだけ直帰率を高めたいのだろうか?</p>
+<p>サイドバーを作ったので読むだけでこうなった。<br>
+<figure>
+    <img src="/posts/2018.05/update-hugo-theme/0004.png"/> <figcaption>
+            <h4>after</h4>
+        </figcaption>
+</figure>
+</p>
+<p>タグから関連記事を辿れるので少しはマシになった気がする。</p>
+<p>本当は関連記事へのリンクなどを表示するといいのだろうな、とは思う。<br>
+&hellip;ま、そのうちに。。</p>
+<h2 id="タグ一覧">タグ一覧</h2>
+<p>前述の通りタグをちゃんと使っていくことにしたので、これまで書いた記事にタグを追加してタグ一覧も表示できるようにした。<br>
+<figure>
+    <img src="/posts/2018.05/update-hugo-theme/0005.png"/> 
+</figure>
+</p>
+<p>Hugo上でタグ、カテゴリなどは <code>Taxonomy</code> といって実は区別されていないらしい。<br>
+ともかくタグの一覧が表示できれば十分なので <code>/layouts/_default/terms.html</code> を以下のような内容で作った。<br>
+<a href="https://gohugo.io/templates/taxonomy-templates/">ドキュメントはこちら</a></p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go-html-template" data-lang="go-html-template"><span style="color:#007020">{{</span><span style="color:#bbb"> </span>partial<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;header.html&#34;</span><span style="color:#bbb"> </span><span style="color:#4070a0">.</span><span style="color:#bbb"> </span><span style="color:#007020">}}</span>
+&lt;<span style="color:#062873;font-weight:bold">div</span> <span style="color:#4070a0">class</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;row&#34;</span>&gt;
+  &lt;<span style="color:#062873;font-weight:bold">div</span> <span style="color:#4070a0">class</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;col-lg-9&#34;</span>&gt;
+    <span style="color:#007020">{{</span><span style="color:#bbb"> </span>$plural<span style="color:#bbb"> </span><span style="color:#666">:=</span><span style="color:#bbb"> </span><span style="color:#4070a0">.Data.Plural</span><span style="color:#bbb"> </span><span style="color:#007020">}}</span>
+    <span style="color:#007020">{{</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">range</span><span style="color:#bbb"> </span>$key<span style="">,</span><span style="color:#bbb"> </span>$value<span style="color:#bbb"> </span><span style="color:#666">:=</span><span style="color:#bbb"> </span><span style="color:#4070a0">.Data.Terms</span><span style="color:#bbb"> </span><span style="color:#007020">}}</span>
+    &lt;<span style="color:#062873;font-weight:bold">a</span> <span style="color:#4070a0">class</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;m-1 btn btn-lg btn-secondary badge-pill&#34;</span> <span style="color:#4070a0">href</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;</span><span style="color:#007020">{{</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#34;/&#34;</span><span style="color:#bbb"> </span><span style="color:#666">|</span><span style="color:#bbb"> </span>relLangURL<span style="color:#007020">}}{{</span><span style="color:#bbb"> </span>$plural<span style="color:#bbb"> </span><span style="color:#007020">}}</span><span style="color:#4070a0">/</span><span style="color:#007020">{{</span><span style="color:#bbb"> </span>$key<span style="color:#bbb"> </span><span style="color:#666">|</span><span style="color:#bbb"> </span>urlize<span style="color:#bbb"> </span><span style="color:#007020">}}</span><span style="color:#4070a0">&#34;</span>&gt;
+      <span style="color:#007020">{{</span><span style="color:#bbb"> </span>$key<span style="color:#bbb"> </span><span style="color:#007020">}}</span>
+      &lt;<span style="color:#062873;font-weight:bold">span</span> <span style="color:#4070a0">class</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;badge badge-light&#34;</span>&gt;<span style="color:#007020">{{</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">len</span><span style="color:#bbb"> </span>$value<span style="color:#bbb"> </span><span style="color:#007020">}}</span>&lt;/<span style="color:#062873;font-weight:bold">span</span>&gt;
+    &lt;/<span style="color:#062873;font-weight:bold">a</span>&gt;
+    <span style="color:#007020">{{</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">end</span><span style="color:#bbb"> </span><span style="color:#007020">}}</span>
+  &lt;/<span style="color:#062873;font-weight:bold">div</span>&gt;
+  &lt;<span style="color:#062873;font-weight:bold">div</span> <span style="color:#4070a0">class</span><span style="color:#666">=</span><span style="color:#4070a0">&#34;col-lg-3&#34;</span>&gt;
+    <span style="color:#007020">{{</span><span style="color:#bbb"> </span>partial<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;sidebar.html&#34;</span><span style="color:#bbb"> </span><span style="color:#4070a0">.</span><span style="color:#bbb"> </span><span style="color:#007020">}}</span>
+  &lt;/<span style="color:#062873;font-weight:bold">div</span>&gt;
+&lt;/<span style="color:#062873;font-weight:bold">div</span>&gt;
+<span style="color:#007020">{{</span><span style="color:#bbb"> </span>partial<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;footer.html&#34;</span><span style="color:#bbb"> </span><span style="color:#4070a0">.</span><span style="color:#bbb"> </span><span style="color:#007020">}}</span>
+</code></pre></div><p>そして <code>config.toml</code> に <code>Taxonomy</code> について以下のように書き、</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">[taxonomies]
+category = <span style="color:#4070a0">&#34;categories&#34;</span>
+tag = <span style="color:#4070a0">&#34;tags&#34;</span>
+</code></pre></div><p>記事のMarkdownソースファイルの先頭に以下のように書くとタグ一覧が更新される。</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#0e84b5;font-weight:bold">---</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#062873;font-weight:bold">title</span>:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;このWebサイトのデザインをちょっとまともにした&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#062873;font-weight:bold">date</span>:<span style="color:#bbb"> </span>2018-05-06T21:04:37<span style="color:#40a070">+09</span>:<span style="color:#40a070">00</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#062873;font-weight:bold">categories</span>:<span style="color:#bbb"> </span>[<span style="color:#4070a0">&#34;static website&#34;</span>]<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#062873;font-weight:bold">tags</span>:<span style="color:#bbb"> </span>[<span style="color:#4070a0">&#34;github&#34;</span>,<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;github pages&#34;</span>,<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;hugo&#34;</span>,<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;hugo theme&#34;</span>,<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;web desing&#34;</span>,<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;bootstrap&#34;</span>,<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;bootstrap 4&#34;</span>]<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#0e84b5;font-weight:bold">---</span><span style="color:#bbb">
+</span></code></pre></div><p>以上、自分でスクラッチで作ったテーマにしてはだいぶまともになって来た気がする。<br>
+画像の表示やモバイル対応等まだまだ課題があるので少しずつ手を入れていきたい。<br>
+Hugoの機能とカスタマイズ性と必要な手間のバランスには今のところ満足 🙏</p>
+
+    </article>
+  </div>
+  <div class="col-lg-3">
+    <div class="sidebar">
+  
+  <h4><a href="/ja/about/">About</a></h4>
+  <p><strong>Hidenori MATSUKI</strong></p>
+<p>🍣 🍶</p>
+<p>another website: <a href="https://mazgi.com/">mazgi.com</a></p>
+  
+  <hr />
+  <h4>TableOfContents</h4>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一覧ページlisthtml">一覧ページ(list.html)</a></li>
+    <li><a href="#単一ページsinglehtml">単一ページ(single.html)</a></li>
+    <li><a href="#タグ一覧">タグ一覧</a></li>
+  </ul>
+</nav>
+  <hr />
+  <h4><a href="/ja/categories/">Categories</a></h4>
+  
+  <div>
+    <ul>
+      
+      <li>
+        <a href="/ja/categories/static-website/">static website</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+  <hr />
+  <h4><a href="/ja/tags/">Tags</a></h4>
+  
+  <div>
+    
+    <a class="badge badge-pill badge-secondary" href="/ja/tags/github/">github</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/ja/tags/github-pages/">github pages</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/ja/tags/hugo/">hugo</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/ja/tags/hugo-theme/">hugo theme</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/ja/tags/web-design/">web design</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/ja/tags/bootstrap/">bootstrap</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/ja/tags/bootstrap-4/">bootstrap 4</a>
+    
+  </div>
+  
+</div>
+
+  </div>
+</div>
+      <div class="row">
+        <footer class="col-lg-12">
+          <hr/>
+          <span>&copy; mazgi.log</span>
+          <span>&nbsp;&middot;&nbsp;</span>
+          <i class="fas fa-bolt"></i>
+          <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a></span>
+          
+          <span>&nbsp;&middot;&nbsp;</span>
+          <span>This website <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">uses Google Analytics</a>.</span>
+          
+        </footer>
+      </div>
+    </div>
+    </main>
+    
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68170979-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-68170979-2');
+    </script>
+    
+      
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+      });
+    </script>
+  </body>
+</html>
+

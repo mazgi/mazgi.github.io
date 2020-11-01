@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>News on mazgi.log</title>
+    <link>https://mazgi.github.io/ja/news/</link>
+    <description>Recent content in News on mazgi.log</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 27 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://mazgi.github.io/ja/news/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>技術書典８ 2/29(土) 11〜17時 Day1あ38 出展します - 567e5bd</title>
+      <link>https://mazgi.github.io/ja/news/2020.01/provision-workstation-on-gcp-on-techbookfest-8/</link>
+      <pubDate>Mon, 27 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/ja/news/2020.01/provision-workstation-on-gcp-on-techbookfest-8/</guid>
+      <description>このページを随時更新します。 技術書オンリーイベント「技術書典８」の1日目、 2020/2/29(土) に出展させていただきます！ 場所は池袋サンシ</description>
+    </item>
+    
+  </channel>
+</rss>
