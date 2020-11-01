@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nfs on mazgi.log</title>
+    <link>https://mazgi.github.io/tags/nfs/</link>
+    <description>Recent content in nfs on mazgi.log</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 22 Jun 2019 12:12:44 +0000</lastBuildDate><atom:link href="https://mazgi.github.io/tags/nfs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWSストレージ概観</title>
+      <link>https://mazgi.github.io/posts/2019.06/the-trend-of-aws-storages/</link>
+      <pubDate>Sat, 22 Jun 2019 12:12:44 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2019.06/the-trend-of-aws-storages/</guid>
+      <description>AWSで使えるローカルストレージとNFSストレージを一通り試してみました。 GCP編はこちら。 About ベンチマークはfioコマンドで取得した。 機械学</description>
+    </item>
+    
+    <item>
+      <title>GCPストレージ概観</title>
+      <link>https://mazgi.github.io/posts/2019.06/the-trend-of-gcp-storages/</link>
+      <pubDate>Sat, 22 Jun 2019 12:12:44 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2019.06/the-trend-of-gcp-storages/</guid>
+      <description>GCPで使えるローカルストレージとNFSストレージを一通り試してみました。 AWS編はこちら。 About ベンチマークはfioコマンドで取得した。 機械学</description>
+    </item>
+    
+  </channel>
+</rss>

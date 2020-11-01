@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="/common/favicon.ico">
+    
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/common/site.css">
+    
+    
+    <title>mazgi.log :: GitHub&#43;CircleCI&#43;S3でNoOpsなBlogを構築した</title>
+    <meta property="og:title"       content="mazgi.log :: GitHub&#43;CircleCI&#43;S3でNoOpsなBlogを構築した" />
+    <meta property="og:type"        content="article" />
+    
+    <meta property="og:url"         content="https://mazgi.github.io/posts/2019.04/built-noops-blog-with-github-circleci-s3/" />
+    
+      
+      <meta property="og:description" content="mazgi&#39;s tech blog" />
+      
+    
+    
+    
+    
+    <meta property="og:image"       content="https://mazgi.github.io/posts/2019.04/built-noops-blog-with-github-circleci-s3/og.png" />
+    <meta property="twitter:image"  content="https://mazgi.github.io/posts/2019.04/built-noops-blog-with-github-circleci-s3/og.png" />
+    <meta property="twitter:image:src"  content="https://mazgi.github.io/posts/2019.04/built-noops-blog-with-github-circleci-s3/og.png" />
+    
+    
+    
+    
+    
+    
+    
+    
+    <meta name="twitter:card"       content="summary" />
+    
+    
+  </head>
+  <body>
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark">
+      
+      <span class="navbar-text mr-1">I am on</span>
+      
+      <ul class="navbar-nav">
+        
+        <li class="nav-item">
+          <a class="nav-link" target="github_mazgi" rel="noopener" href="https://github.com/mazgi">GitHub<i class="ml-1 fab fa-github"></i></a>
+        </li>
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" target="twitter_mazgi" rel="noopener" href="https://twitter.com/@mazgi">Twitter<i class="ml-1 fab fa-twitter"></i></a>
+        </li>
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" target="instagram_mazgi" rel="noopener" href="https://www.instagram.com/mazgi">Instagram<i class="ml-1 fab fa-instagram"></i></a>
+        </li>
+        
+        
+      </ul>
+    </header>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="https://mazgi.github.io/">mazgi.log</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_nav" aria-controls="navbar_nav" aria-expand="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar_nav">
+        
+        <ul class="navbar-nav mr-auto">
+          
+          
+          
+          <li class="nav-item">
+            <span class="nav-link disabled">Created At: 2019.04.25</span>
+          </li>
+          <li class="nav-item">
+            <span class="nav-link disabled">Updated At: 2020.11.01</span>
+          </li>
+          
+        </ul>
+        
+        <div class="navbar-nav ml-auto">
+          <span class="navbar-text mr-1">share this page via</span>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="https://twitter.com/share?url=https%3a%2f%2fmazgi.github.io%2fposts%2f2019.04%2fbuilt-noops-blog-with-github-circleci-s3%2f&text=GitHub%2bCircleCI%2bS3%e3%81%a7NoOps%e3%81%aaBlog%e3%82%92%e6%a7%8b%e7%af%89%e3%81%97%e3%81%9f" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fmazgi.github.io%2fposts%2f2019.04%2fbuilt-noops-blog-with-github-circleci-s3%2f" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.linkedin.com/shareArticle?url=https%3a%2f%2fmazgi.github.io%2fposts%2f2019.04%2fbuilt-noops-blog-with-github-circleci-s3%2f&title=GitHub%2bCircleCI%2bS3%e3%81%a7NoOps%e3%81%aaBlog%e3%82%92%e6%a7%8b%e7%af%89%e3%81%97%e3%81%9f" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://plusone.google.com/_/+1/confirm?url=https%3a%2f%2fmazgi.github.io%2fposts%2f2019.04%2fbuilt-noops-blog-with-github-circleci-s3%2f" target="_blank" rel="noopener"><i class="fab fa-google-plus"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://b.hatena.ne.jp/entry/https://mazgi.github.io/posts/2019.04/built-noops-blog-with-github-circleci-s3/" target="_blank" rel="noopener">b!</a>
+            </li>
+          </ul>
+        </div>
+        
+      </div>
+    </nav>
+    <main role="main" class="container-fluid col-lg-10 offset-lg-1">
+
+<div class="row">
+  <div class="col-lg-9">
+    <article>
+      <div class="row">
+        <h1>GitHub&#43;CircleCI&#43;S3でNoOpsなBlogを構築した</h1>
+      </div>
+      <p>本業の傍ら会社の技術Blogリニューアルに携わっており、概要をAdvent Calendarで「<a href="https://engineer.dena.jp/2018/12/we-just-building-new-dena-engineers-blog.html">DeNA Engineers' Blogをリニューアルしている話</a>」として書きました。<br>
+「DeNA Engineers' Blogをリニューアルしている話」ではコンセプトや進め方を中心に書いたので、この記事でもう少しシステム面を書いておきます。<br>
+ついでに会社の引き継ぎ資料にしてしまおうという目論見があります。</p>
+<h1 id="about">About</h1>
+<p>先の記事の繰り返しになりますが、Blogリニューアルの理由は次の3点です。</p>
+<ul>
+<li>もっと活性化してほしい</li>
+<li>機能追加やシステム更新がつらくなってきた</li>
+<li>オンプレミスでのセルフホスティングをやめたい</li>
+</ul>
+<p>従ってそれぞれ改善施策をシステムとしても盛り込んでいます。</p>
+<p><strong>もっと活性化してほしい</strong></p>
+<p>活性化するためにヒト対ヒトのコミュニケーションはもちろん大事なのですが、Blog記事執筆やレビューのシステムも世の中でも広く使われているGitHubとCircleCIに寄せることで以下を担保しています。</p>
+<ul>
+<li>Blog執筆専用にアカウントを申請する必要がない</li>
+<li>執筆やレビューに際して専用ツールを使う必要がない、好きなエディタで書ける！</li>
+<li>執筆の過程が透明になり誰でも執筆やレビューに参加できる</li>
+<li>新しく入社した方もすぐキャッチアップできる</li>
+<li>会社に興味を持ってくださった社外の方も想像しやすい</li>
+<li>単純に見た目やデザインが新しい方がうれしい！</li>
+</ul>
+<p>最後の「見た目やデザインが新しい方がうれしい」については本記事では触れませんが「<a href="https://engineer.dena.jp/2018/12/we-just-building-new-dena-engineers-blog.html">DeNA Engineers' Blogをリニューアルしている話</a>」をご覧いただくとデザイナー兼フロントエンドエンジニアの方が作ってくださったかっこいいテーマがちょっと載ってます。<br>
+また私の本業がML OpsでAIシステム部という部署に所属しているので部内から要望のあったマルチリンガルや数式の表示にも対応させています。</p>
+<p><strong>機能追加やシステム更新がつらくなってきた</strong></p>
+<p>もちろんBlogがリニューアルされた後には色々な機能追加が行われるでしょうしシステムの更新も長期では避けられないでしょう。<br>
+しかしできる限り機能追加やシステム更新のつらみを減らす工夫をしました。</p>
+<ul>
+<li>システムの大部分を一般的な開発環境と共通化することで&quot;Blog専用システム&quot;の運用を大幅に削減した</li>
+<li>コンテンツ生成を単一バイナリで完結しているHugoで行うことで使用ライブラリの一部が入手できなくなる等のリスクを低減した</li>
+<li>原稿自体をMarkdown形式のテキストファイルとしてGitHubに保持することで仮に他のシステムに移行する際でもマイグレーションを容易にした</li>
+<li>Websiteホスティング部分を完全にマネージドサービスに乗せることで通常の運用をセキュリティアップデートを不要にした。NoOps! 👏</li>
+</ul>
+<p><strong>オンプレミスでのセルフホスティングをやめたい</strong></p>
+<p>これは言わずもがなですね。<br>
+オンプレミスのサーバーどころかOSもWebサーバーも構築していません。<br>
+そもそも<a href="https://fullswing.dena.com/archives/3107">全社的に全面クラウド移行している最中</a>です。<br>
+専任のサーバーサイドエンジニアが張り付けるわけではないので通常時の運用はゼロにしました。<br>
+S3とCloudFrontはそれぞれ実質無尽蔵といえる容量とトラフィックへのキャパシティを提供してくれます。<br>
+AWS Certificate ManagerのおかげでTLS証明書は自動更新されるので有効期限切れを心配する必要もありません。<br>
+Viva! NoOps!! 🎉</p>
+<h1 id="structure">Structure</h1>
+<p>以前の記事に書いた通り、このシステムは以下のコンポーネントで構成されています。</p>
+<ul>
+<li>Static Website Generatorとして<a href="https://gohugo.io/">Hugo</a>を使用
+<ul>
+<li>動的コンテンツはホスティングしない</li>
+</ul>
+</li>
+<li>原稿管理は<a href="https://github.com/enterprise">GitHub Enterprise</a></li>
+<li><a href="https://circleci.com/enterprise/">CircleCI Enterprise</a>で記事公開のワークフローを構築</li>
+<li>ホスティングは<a href="https://aws.amazon.com/s3/">Amazon S3</a>+<a href="https://aws.amazon.com/cloudfront/">Amazon CloudFront</a></li>
+<li>TLS証明書は<a href="https://aws.amazon.com/certificate-manager/">AWS Certificate Manager</a>で発行/管理</li>
+<li>一部コンテンツを社内に限定公開するために<a href="https://aws.amazon.com/waf/">AWS WAF</a>を併用</li>
+<li>AWSの構成は<a href="https://www.terraform.io/">Terraform</a>で行い手オペはしない</li>
+</ul>
+<p>そして以下3つの環境(Webサイト)が存在します。</p>
+<ul>
+<li>公開Blog
+<ul>
+<li>現在の <a href="https://engineer.dena.jp/">https://engineer.dena.jp/</a> に置き換わるもの</li>
+</ul>
+</li>
+<li>社内向けBlog
+<ul>
+<li>社内からのみアクセスできるBlogで公開Blogよりも気軽に記事を書くことができる</li>
+</ul>
+</li>
+<li>レビュー用Blog
+<ul>
+<li>公開前にレビューを受けるためのBlog</li>
+<li>記事編集ごとに専用URLが発行される</li>
+</ul>
+</li>
+</ul>
+<p>このシステムの全体像を図に示します。</p>
+<figure>
+    <img src="0010.png" width="800"/> 
+</figure>
+
+<p>またAWS上のコンポーネントを管理するTerraformのサンプルを以下に公開しました。</p>
+<p>サンプルリポジトリ:<br>
+<a href="https://github.com/mazgi-showcase/2019.04.built-noops-blog-with-github-circleci-s3.provisioning/tree/2019.04.1">mazgi-showcase/2019.04.built-noops-blog-with-github-circleci-s3.provisioning</a></p>
+<h2 id="前提">前提</h2>
+<p>本記事では世界有数のIaaS(Infrastructure as a Service)ベンダーであるAWS自体やその契約方法、IaC(Infrastructure as Code)やその著名なツールであるTerraform自体について深くは触れません。<br>
+しかし本記事を読んでいただく上で最小限必要となる知識や設定については前提として以下に記載します。</p>
+<h3 id="terraformの実行とawsアクセスキー">Terraformの実行とAWSアクセスキー</h3>
+<p>Terraformは特別なインストール作業不要でお使いのOSに合わせたバイナリをダウンロードし配置するだけで実行できます。<br>
+しかしTerraformも他の多くのOSSツールと同じく進歩の早いソフトウェアなので<a href="https://github.com/tfutils/tfenv">tfenv</a>のような複数のTerraformバージョンを管理できるツールを使うと便利です。</p>
+<p>サンプルリポジトリの<a href="https://github.com/mazgi-showcase/2019.04.built-noops-blog-with-github-circleci-s3.provisioning/blob/b466bce2d5f60acd7b6716ab402d73fdaebbe56f/variables.tf#L1-L2">variables.tf#L1-L2</a>ではAWSのアクセスキーIDとシークレットアクセスキーを空にしています。</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-terraform" data-lang="terraform"><span style="color:#007020;font-weight:bold">variable</span> <span style="color:#4070a0">&#34;aws_access_key_id&#34;</span> {}
+<span style="color:#007020;font-weight:bold">variable</span> <span style="color:#4070a0">&#34;aws_secret_access_key&#34;</span> {}</code></pre></td></tr></table>
+</div>
+</div>
+<p>これはTerraformの通常の運用方法で <code>variables.tf</code> ファイルはリポジトリに登録されるため、秘匿すべき情報であるアクセスキーIDやシークレットアクセスキーを書くわけにはいきません。<br>
+代わりに <code>variables.tf</code> ファイルと同じ階層に <code>terraform.tfvars</code> ファイルを用意して以下の内容を書いておくとTerraform実行時に自動で変数が読み込まれます。</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-terraform" data-lang="terraform"><span style="color:#4070a0">aws_access_key_id</span> = <span style="color:#4070a0">&#34;Xx******************&#34;</span>
+<span style="color:#4070a0">aws_secret_access_key</span> = <span style="color:#4070a0">&#34;Zz**************************************&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>この場合 <code>terraform.tfvars</code> ファイルを誤ってGitの管理下に入れてしまわないよう <code>.gitignore</code> に登録しておくことを強く推奨します。<br>
+またTerraform実行時に <code>-var</code> オプションでこれらの変数を指定することもできます。<br>
+ただしシェルの履歴に残るので注意してください。</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ terraform apply <span style="color:#4070a0;font-weight:bold">\
+</span><span style="color:#4070a0;font-weight:bold"></span>    -var <span style="color:#4070a0">&#39;aws_access_key_id=Xx******************&#39;</span> <span style="color:#4070a0;font-weight:bold">\
+</span><span style="color:#4070a0;font-weight:bold"></span>    -var <span style="color:#4070a0">&#39;aws_secret_access_key=Zz**************************************&#39;</span></code></pre></div>
+<p>参考:<br>
+<a href="https://learn.hashicorp.com/terraform/getting-started/variables.html">Input Variables</a></p>
+<p>いずれにしてもAWSのアクセスキーIDやシークレットアクセスキーは絶対に公開しないよう、万が一公開してしまった場合はすぐに無効化し不正利用されていないか確認するよう注意してください。</p>
+<p>参考:<br>
+<a href="https://docs.aws.amazon.com/ja_jp/general/latest/gr/aws-access-keys-best-practices.html">AWS アクセスキーを管理するためのベストプラクティス </a></p>
+<h3 id="terraformのstate管理">TerraformのState管理</h3>
+<p>TerraformはAWSやGCP、Azureその他どのIaaSベンダーとも独立した<a href="https://www.hashicorp.com/">HashiCorp</a>主導で開発されているOSSです。<br>
+したがってTerraformで構築したAWS上のシステムの設定情報などはAWSで自動で保存されるわけではありません。<br>
+しかしどのような設定を行なったかはどこかに記録しておく必要があります。<br>
+Terraformはこれを<a href="https://www.terraform.io/docs/state/">State</a>として管理します。</p>
+<p>TerraformのStateを管理する方法はいくつかありますが本記事ではAWSをTerraformで構成する際に一番多く使われているであろうS3による管理を想定します。</p>
+<p>Terraformの基本設定はサンプルリポジトリの <code>terraform.tf</code> ファイルにまとまっていますが、Stateの管理方法を定義している箇所は<a href="https://github.com/mazgi-showcase/2019.04.built-noops-blog-with-github-circleci-s3.provisioning/blob/2019.04.1/terraform.tf#L7-L11">terraform.tf#L7-L11</a>です。<br>
+S3についてはBlogコンテンツの格納の項で触れますが入れ物を表す <code>bucket</code> としてユニークな名前が指定されている必要があります。<br>
+ここで指定した名前のS3バケットをあらかじめ作っておく必要があります。</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-terraform" data-lang="terraform">  backend <span style="color:#4070a0">&#34;s3&#34;</span> {
+    <span style="color:#4070a0">bucket</span> = <span style="color:#4070a0">&#34;example-engineers-blog-aws-terraform&#34;</span>
+    <span style="color:#4070a0">key</span>    = <span style="color:#4070a0">&#34;example-engineers-blog-aws/terraform&#34;</span>
+    <span style="color:#4070a0">region</span> = <span style="color:#4070a0">&#34;us-east-1&#34;</span>
+  }</code></pre></td></tr></table>
+</div>
+</div>
+<p>なお本記事上の行番号はサンプルリポジトリ上の行番号と合わせています。</p>
+<p><strong>Terraform実行時の注意</strong></p>
+<p>Terraform実行時にはまずBackendであるS3へのアクセスが検証されます。<br>
+検証は前述の <code>terraform.tfvars</code> 読み込みより早く行われるため別の方法でAWSのアクセスキーIDとシークレットアクセスキーをTerraformに知らせる必要があります。</p>
+<p>1つの方法はアクセスキーIDとシークレットアクセスキーを <code>AWS_ACCESS_KEY_ID</code> と <code>AWS_SECRET_ACCESS_KEY</code> という環境変数に入れておくことです。<br>
+ただし <code>export AWS_ACCESS_KEY_ID='Xx******************'</code> とシェルで実行した場合は履歴に残ることに注意する必要があります。</p>
+<p>もう1つの方法はAWS CLIをインストールして <code>aws configure</code> を実行することです。</p>
+<p>参考:<br>
+<a href="https://www.terraform.io/docs/backends/types/s3.html">Backend Type: s3</a><br>
+<a href="https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/cli-configure-envvars.html">Environment Variables</a>
+<a href="https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/cli-chap-configure.html">AWS CLI の設定</a></p>
+<h3 id="awsのリージョン">AWSのリージョン</h3>
+<p>AWSにせよ他のIaaSにせよ21世紀初頭の現代ではまだ物理的な立地を意識する必要があります。<br>
+AWSでは物理的な立地を「リージョン」として指定できます。</p>
+<p>サンプルリポジトリではすべてのコンポーネントをUSのバージニア州にある <code>us-east-1</code> リージョンに配置しています。<br>
+この辺だそうです、バージニア。</p>
+<!-- raw HTML omitted -->
+<p>もし日本国内に配置する場合は東京にある <code>ap-northeast-1</code> を指定してください。<br>
+書き換える箇所は<a href="https://github.com/mazgi-showcase/2019.04.built-noops-blog-with-github-circleci-s3.provisioning/blob/2019.04.1/terraform.tf#L10">terraform.tf#L10</a>と<a href="https://github.com/mazgi-showcase/2019.04.built-noops-blog-with-github-circleci-s3.provisioning/blob/2019.04.1/terraform.tf#L18">terraform.tf#L18</a>の2箇所です。</p>
+<p>参考:<br>
+<a href="https://docs.aws.amazon.com/ja_jp/general/latest/gr/rande.html">AWS のリージョンとエンドポイント</a></p>
+<h2 id="3つの環境">3つの環境</h2>
+<p>このシステムでは前述の通り以下の3つの環境が存在します。<br>
+またよくある話ですが <code>.com</code> と <code>.jp</code> で同じコンテンツを表示できるよう考慮しています。<br>
+それぞれ実際のURLを例示するわけにはいかないので以下を例として使用します。</p>
+<ul>
+<li>公開Blog
+<ul>
+<li>URL(com): <code>https://example.com</code></li>
+<li>URL(jp): <code>https://example.jp</code></li>
+<li>コンテンツS3バケット: <code>external-engineers-blog-content</code></li>
+</ul>
+</li>
+<li>社内向けBlog
+<ul>
+<li>URL(com): <code>https://internal.example.com</code></li>
+<li>URL(jp): <code>https://internal.example.jp</code></li>
+<li>コンテンツS3バケット: <code>internal-engineers-blog-content</code></li>
+</ul>
+</li>
+<li>レビュー用Blog
+<ul>
+<li>URL(com): <code>https://review.example.com</code></li>
+<li>URL(jp): <code>https://review.example.jp</code></li>
+<li>コンテンツS3バケット: <code>review-engineers-blog-content</code></li>
+</ul>
+</li>
+</ul>
+<p>つまりBlogにアクセスできるTLD(トップレベルドメイン)は <code>.com</code> と <code>.jp</code> の2パターンが存在し、各環境のprefixとして <code>external</code>, <code>internal</code>, <code>review</code> のいずれかが付く、ただし公開Blogはちょっと特殊ということですね。</p>
+<p>とてもよく似た3パターンのコンポーネントを個別に設定したくはないので環境名を列挙してTerraformの機能でループを回せるようにしておきます。<br>
+そのため<a href="https://github.com/mazgi-showcase/2019.04.built-noops-blog-with-github-circleci-s3.provisioning/blob/b466bce2d5f60acd7b6716ab402d73fdaebbe56f/variables.tf#L12-L18">variables.tf#L12-L18</a>でこのように環境を列挙しておきます。</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-terraform" data-lang="terraform"><span style="color:#007020;font-weight:bold">variable</span> <span style="color:#4070a0">&#34;envs&#34;</span> {
+  <span style="color:#4070a0">default</span> = [
+    <span style="color:#4070a0">&#34;external&#34;</span>,<span style="color:#60a0b0;font-style:italic"> # https://example.jp/
+</span><span style="color:#60a0b0;font-style:italic"></span>    <span style="color:#4070a0">&#34;review&#34;</span>,<span style="color:#60a0b0;font-style:italic">   # review environment for external and internal
+</span><span style="color:#60a0b0;font-style:italic"></span>    <span style="color:#4070a0">&#34;internal&#34;</span>,
+  ]
+}</code></pre></td></tr></table>
+</div>
+</div>
+<p>これによって <code>length(var.envs)&quot;</code> で要素数を、 <code>element(var.envs, count.index)</code> でN番目の要素を扱えるようになります。<br>
+以降の例では <code>length</code>, <code>element</code> を多用しますが詳細はTerraformドキュメントの<a href="https://www.terraform.io/docs/configuration/functions/length.html">length</a>や<a href="https://www.terraform.io/docs/configuration/functions/element.html">element</a>も参照してください。</p>
+<h2 id="s3">S3</h2>
+<p>Amazon S3はバケットと呼ばれる入れ物にファイルを大量に格納できるオブジェクトストレージサービスです。<br>
+外付けHDDのような通常のストレージとの違いの1つはWebAPIでオブジェクト(ファイル)の出し入れを行うことです。</p>
+<p>参考:<br>
+<a href="https://docs.aws.amazon.com/ja_jp/AmazonS3/latest/dev/Welcome.html">Amazon S3 とは何ですか？</a></p>
+<p>今回、HTML, CSS, JavaScript、画像等のBlogコンテンツはこのS3バケットに配置します。<br>
+しかしAudience(Blogを読んでくださる方)が読み取る際には <code>https://example.com</code> のようなURLでのみアクセスできるようにします。<br>
+これは「オリジンアクセスアイデンティティ」を使用してCDNであるCloudFront経由のアクセスだけ許可することで実現できます。</p>
+<p>参考:<br>
+<a href="https://docs.aws.amazon.com/ja_jp/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html">オリジンアクセスアイデンティティを使用して Amazon S3 コンテンツへのアクセスを制限する</a></p>
+<p>これらのS3の構成は<a href="https://github.com/mazgi-showcase/2019.04.built-noops-blog-with-github-circleci-s3.provisioning/blob/2019.04.1/s3.website.tf">s3.website.tf</a>にまとまっています。<br>
+順に解説しますが行番号が前後します。</p>
+<h3 id="s3バケット作成">S3バケット作成</h3>
+<p>まずはBlogコンテンツを格納するS3バケットを作ります。<br>
+そのコードは<a href="https://github.com/mazgi-showcase/2019.04.built-noops-blog-with-github-circleci-s3.provisioning/blob/b466bce2d5f60acd7b6716ab402d73fdaebbe56f/s3.website.tf#L48-L62">s3.website.tf#L48-L62</a>です。</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-terraform" data-lang="terraform"><span style="color:#007020;font-weight:bold">resource</span> <span style="color:#4070a0">&#34;aws_s3_bucket&#34;</span> <span style="color:#4070a0">&#34;website-content&#34;</span> {
+  <span style="color:#4070a0">count</span> = <span style="color:#4070a0">&#34;</span><span style="color:#70a0d0;font-style:italic">${</span>length(<span style="color:#007020">var</span>.envs)<span style="color:#70a0d0;font-style:italic">}</span><span style="color:#4070a0">&#34;</span>
+
+  <span style="color:#4070a0">bucket</span> = <span style="color:#4070a0">&#34;</span><span style="color:#70a0d0;font-style:italic">${</span>element(<span style="color:#007020">var</span>.envs, <span style="color:#007020">count</span>.index)<span style="color:#70a0d0;font-style:italic">}</span><span style="color:#4070a0">-</span><span style="color:#70a0d0;font-style:italic">${</span><span style="color:#007020">var</span>.service_name<span style="color:#70a0d0;font-style:italic">}</span><span style="color:#4070a0">-content&#34;</span>
+  <span style="color:#4070a0">acl</span>    = <span style="color:#4070a0">&#34;public-read&#34;</span>
+
+  website {
+    <span style="color:#4070a0">index_document</span> = <span style="color:#007020">&#34;index</span>.html<span style="color:#4070a0">&#34;
+</span><span style="color:#4070a0">    error_document = &#34;</span><span style="color:#40a070">404</span>.html<span style="color:#4070a0">&#34;
+</span><span style="color:#4070a0">  }
+</span><span style="color:#4070a0">
+</span><span style="color:#4070a0">  tags {}
+</span><span style="color:#4070a0">
+</span><span style="color:#4070a0">  force_destroy = true
+</span><span style="color:#4070a0">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><strong>1行目:</strong><br>
+AWSのリソース&quot;S3バケット&quot;を <code>website-content</code> という名前で作ることを宣言しています。<br>
+なおこの名前はTerraformの管理上使われるものでありURL等で公開されるわけではないので管理しやすい命名にします。<br>
+<code>aws_s3_bucket</code> で検索すると<a href="https://www.terraform.io/docs/providers/aws/r/s3_bucket.html">公式ドキュメント</a>にたどり着くことができます。</p>
+<p><strong>2行目:</strong><br>
+<code>count</code> という変数に環境名のリスト <code>var.envs</code> の要素数を代入しています。<br>
+前述の通り3つの環境を作るためにほぼ同じコードを3回書きたくはないのでこの要素数を使ってループを回します。</p>
+<p><strong>4行目:</strong><br>
+<code>bucket = バケット名</code> でS3バケットの名前を指定します。<br>
+このS3バケット名は実際にAWSのS3バケット名になります。<br>
+AWSの仕様でS3バケットの名前は全世界でユニークにしなければならないので重複しなさそうな命名にします。<br>
+Terraformを使ってAWS上にシステムを構築する際の心がけると良い習慣の1つは「Terraformの仕様なのか、それともAWSの仕様なのか」と意識することです。</p>
+<p>ここではTerraformの関数と変数を使って以下の3つのS3バケット名を生成しています。</p>
+<ul>
+<li><code>external</code>-engineers-blog-content</li>
+<li><code>review</code>-engineers-blog-content</li>
+<li><code>internal</code>-engineers-blog-content</li>
+</ul>
+<p>なお「3つの環境」の項で書きましたがS3バケットは環境ごとに1つ作成し <code>.com</code> と <code>.jp</code> で共有します。<br>
+つまり公開Blogへのアクセスは <code>.com</code> でアクセスしても <code>.jp</code> でアクセスしても <code>external-engineers-blog-content</code> の内容が表示されます。<br>
+(もちろんこれはサンプルなので実際のBlogシステムでこの名前のS3バケットを使っているわけではありません)</p>
+<p><strong>5行目:</strong><br>
+S3バケットのアクセス権を設定します。<br>
+<a href="https://www.terraform.io/docs/providers/aws/r/s3_bucket.html#acl">Terraformドキュメントのaclの項</a>をみると <code>acl - (Optional) The canned ACL to apply. Defaults to &quot;private&quot;.</code> と書いてあります。<br>
+<code>canned ACL</code> の部分が<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">AWSの公式ドキュメント</a>へのリンクになっており、リンクを開くとデフォルトである <code>private</code> のほか <code>public-read</code>, <code>public-read-write</code> などが指定できることがわかります。<br>
+このようにしてTerraformとAWS両方のドキュメントを参照しながらコードを書いていきます。</p>
+<p><strong>7-10行目:</strong><br>
+今回のようにS3でWebサイトを提供する場合の設定です。</p>
+<p><strong>14行目:</strong><br>
+<code>force_destroy</code> を <code>true</code> にしておくとS3バケット内にオブジェクト(ファイル)が存在しても削除することができます。<br>
+Terraformでは適用した場合にS3バケット等が削除と再作成されることがあり、Webサイトのコンテンツが入ったままS3バケットを作り直せるよう <code>true</code> に設定しています。<br>
+もちろんS3バケットが作り直されると中身は消えてしまうのですが、今回の例ではコンテンツの元となる原稿はGitHubリポジトリに存在するので復元可能です。</p>
+<p>これでBlogコンテンツ用のS3バケットが作られます。<br>
+また<a href="https://github.com/mazgi-showcase/2019.04.built-noops-blog-with-github-circleci-s3.provisioning/blob/b466bce2d5f60acd7b6716ab402d73fdaebbe56f/s3.website.tf#L66-L80">s3.website.tf#L66-L80</a>ではアクセスログを蓄積するS3バケットを作っています。</p>
+<h3 id="s3バケットの権限">S3バケットの権限</h3>
+<p>Amazon S3では前述の通りWebAPIを使用してオブジェクトの読み書きを行います。<br>
+そして可能な操作をかなり細かく権限設定することができます。<br>
+例えば今回は扱いませんが通常のファイルシステムでは困難な「書き込みのみ」といった権限も実現できます。</p>
+<p><a href="https://github.com/mazgi-showcase/2019.04.built-noops-blog-with-github-circleci-s3.provisioning/blob/b466bce2d5f60acd7b6716ab402d73fdaebbe56f/s3.website.tf#L3-L37">s3.website.tf#L3-L37</a>が権限設定を表す「S3バケットポリシー」の定義です。</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-terraform" data-lang="terraform"><span style="color:#007020;font-weight:bold">data</span> <span style="color:#4070a0">&#34;aws_iam_policy_document&#34;</span> <span style="color:#4070a0">&#34;website-s3-policy&#34;</span> {
+  <span style="color:#4070a0">count</span> = <span style="color:#4070a0">&#34;</span><span style="color:#70a0d0;font-style:italic">${</span>length(<span style="color:#007020">var</span>.envs)<span style="color:#70a0d0;font-style:italic">}</span><span style="color:#4070a0">&#34;</span>
+
+  statement {
+    <span style="color:#4070a0">actions</span> = [
+      <span style="color:#4070a0">&#34;s3:GetObject&#34;</span>,
+    ]
+
+    <span style="color:#4070a0">resources</span> = [
+      <span style="color:#4070a0">&#34;</span><span style="color:#70a0d0;font-style:italic">${</span>element(aws_s3_bucket.website<span style="color:#666">-</span>content.<span style="color:#666">*</span>.arn, <span style="color:#007020">count</span>.index)<span style="color:#70a0d0;font-style:italic">}</span><span style="color:#4070a0">/*&#34;</span>,
+    ]
+
+    principals {
+      <span style="color:#4070a0">type</span> = <span style="color:#4070a0">&#34;AWS&#34;</span>
+
+      <span style="color:#4070a0">identifiers</span> = [<span style="color:#4070a0">&#34;</span><span style="color:#70a0d0;font-style:italic">${</span>element(aws_cloudfront_origin_access_identity.website<span style="color:#666">-</span>origin_access_identities.<span style="color:#666">*</span>.iam_arn, <span style="color:#007020">count</span>.index)<span style="color:#70a0d0;font-style:italic">}</span><span style="color:#4070a0">&#34;</span>]
+    }
+  }
+
+  statement {
+    <span style="color:#4070a0">actions</span> = [
+      <span style="color:#4070a0">&#34;s3:ListBucket&#34;</span>,
+    ]
+
+    <span style="color:#4070a0">resources</span> = [
+      <span style="color:#4070a0">&#34;</span><span style="color:#70a0d0;font-style:italic">${</span>element(aws_s3_bucket.website<span style="color:#666">-</span>content.<span style="color:#666">*</span>.arn, <span style="color:#007020">count</span>.index)<span style="color:#70a0d0;font-style:italic">}</span><span style="color:#4070a0">&#34;</span>,
+    ]
+
+    principals {
+      <span style="color:#4070a0">type</span> = <span style="color:#4070a0">&#34;AWS&#34;</span>
+
+      <span style="color:#4070a0">identifiers</span> = [<span style="color:#4070a0">&#34;</span><span style="color:#70a0d0;font-style:italic">${</span>element(aws_cloudfront_origin_access_identity.website<span style="color:#666">-</span>origin_access_identities.<span style="color:#666">*</span>.iam_arn, <span style="color:#007020">count</span>.index)<span style="color:#70a0d0;font-style:italic">}</span><span style="color:#4070a0">&#34;</span>]
+    }
+  }
+}</code></pre></td></tr></table>
+</div>
+</div>
+<p>ではS3バケットポリシーも各行の意味を簡単に解説します。</p>
+<p><strong>1行目:</strong><br>
+S3バケットの作成では <code>resource</code> を定義するコードでしたが今度は <code>data</code> を定義します。</p>
+<p><strong>5-7行目:</strong><br>
+S3バケットに対して許可する操作を定義しています。<br>
+例ではオブジェクト(ファイル)を読み取る <code>s3:GetObject</code> のみを許可していますが複数の操作を列挙することができます。<br>
+S3バケットに対して許可できる操作の一覧は<a href="https://docs.aws.amazon.com/ja_jp/AmazonS3/latest/dev/using-with-s3-actions.html">ポリシーでのアクセス許可の指定</a>などにあります。</p>
+<p><strong>9-11行目:</strong><br>
+今度はこのS3バケットポリシーの対象となるリソースを列挙しています。<br>
+S3バケットの作成と同じく変数を使って指定することで仮に環境が増えたり変わった場合でもこの部分は変更不要です。</p>
+<p><code>10</code> 行目で <code>aws_s3_bucket.website-content.*.arn</code> のN番目を取得しています。<br>
+これはTerraformの文法で、作成したS3バケットを示すIDを <code>aws_s3_bucket</code> の <code>website-content</code> のN番目の要素の <code>ARN</code> として取得しています。<br>
+<code>ARN</code> はAWSのリソース表現方法でS3バケットの1つ1つ、EC2での仮想マシンの1つ1つ、AWS上のありとあらゆるリソースを一意に示すことができます。<br>
+<a href="https://docs.aws.amazon.com/ja_jp/general/latest/gr/aws-arns-and-namespaces.html">Amazon リソースネーム (ARN) と AWS サービスの名前空間</a>に例がたくさん載っています。</p>
+<p><strong>13-17行目:</strong><br>
+プリンシパルとして後ほど出てくる「オリジンアクセスアイデンティティ」を指定しています。<br>
+これによってS3バケットが特定のCloudFront(CDN)からしかアクセスできないよう制限できます。</p>
+<p><strong>20-347行目:</strong><br>
+ここでも <code>4-18</code> 行目と近い設定をしていますが、以下が異なります。<br>
+<code>6</code> 行目では <code>s3:GetObject</code> を許可しているのに対し、 <code>22</code> 行目では <code>s3:ListBucket</code> を許可しています。<br>
+その操作を <code>10</code> 行目では <code>S3バケット名/*</code> に許可しているのに対し、 <code>26</code> 行目では <code>S3バケット名</code> に許可しています。<br>
+これによってS3バケットの各階層ではオブジェクトの一覧を取得でき、各オブジェクトに対しては内容を読めるようになるのですが&hellip;まとめても実害ない気がします。<br>
+当時かなり細かく権限設定をしたようです 🤔</p>
+<p>AWSの考え方としてこのように多くの権限を「ポリシー」として定義し、S3バケットなどの「リソース」にアタッチすることで有効化します。<br>
+<a href="https://github.com/mazgi-showcase/2019.04.built-noops-blog-with-github-circleci-s3.provisioning/blob/b466bce2d5f60acd7b6716ab402d73fdaebbe56f/s3.website.tf#L39-L44">s3.website.tf#L39-L44</a>がポリシーをS3バケットにアタッチする例です。</p>
+<h2 id="cloudfront">CloudFront</h2>
+<p>Amazon CloudFrontはAWSのCDN(Contents Delivery Network)で、AkamaiやFastlyのようにコンテンツをキャッシュして世界中に高速に配信できるサービスです。</p>
+<p>参考:<br>
+<a href="https://aws.amazon.com/jp/cloudfront/">Amazon CloudFront（グローバルなコンテンツ配信ネットワーク）</a></p>
+<p>しかし今回はS3と組み合わせることで独自ドメインによるHTTPSでの静的コンテンツ配信をサーバーを立てずに実現するために使っています。<br>
+Terraformの設定は<a href="https://github.com/mazgi-showcase/2019.04.built-noops-blog-with-github-circleci-s3.provisioning/blob/2019.04.1/cloudfront.com.example.tf">cloudfront.com.example.tf</a>と<a href="https://github.com/mazgi-showcase/2019.04.built-noops-blog-with-github-circleci-s3.provisioning/blob/2019.04.1/cloudfront.jp.example.tf">cloudfront.jp.example.tf</a>ですが、前述の通り同じ構成で <code>.com</code> と <code>.jp</code> を提供するため内容にはほぼ差がないので以降 <code>.com</code> を例に解説します。<br>
+ほぼ同じ内容にも関わらずファイルを分けているのは、最初は同じWebサイトでも往々にして途中からそれぞれの内容が変わっていくためです。</p>
+<p>またS3の項で登場した「オリジンアクセスアイデンティティ」は<a href="https://github.com/mazgi-showcase/2019.04.built-noops-blog-with-github-circleci-s3.provisioning/blob/2019.04.1/cloudfront_origin_access_identity.website.tf">cloudfront_origin_access_identity.website.tf</a>で設定しています。<br>
+内容は <code>aws_cloudfront_origin_access_identity</code> リソースを3環境分作っているだけなので割愛します。</p>
+<p><strong>オリジンとなるS3バケットの指定</strong></p>
+<p><code>domain_name</code> でS3バケットのドメイン名を指定しています。<br>
+このドメイン(FQDN)はBlogのURLとは関係なく、S3バケットを作成した際にAWS上で自動付与されるFQDNです。<br>
+またオリジンアクセスアイデンティティの設定を <code>s3_origin_config</code> 内で行なっています。</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-terraform" data-lang="terraform">  origin {
+    <span style="color:#4070a0">domain_name</span> = <span style="color:#4070a0">&#34;</span><span style="color:#70a0d0;font-style:italic">${</span>element(aws_s3_bucket.website<span style="color:#666">-</span>content.<span style="color:#666">*</span>.bucket_regional_domain_name, <span style="color:#007020">count</span>.index)<span style="color:#70a0d0;font-style:italic">}</span><span style="color:#4070a0">&#34;</span>
+    <span style="color:#4070a0">origin_id</span>   = <span style="color:#4070a0">&#34;</span><span style="color:#70a0d0;font-style:italic">${</span>element(<span style="color:#007020">var</span>.envs, <span style="color:#007020">count</span>.index)<span style="color:#70a0d0;font-style:italic">}</span><span style="color:#4070a0">-</span><span style="color:#70a0d0;font-style:italic">${</span><span style="color:#007020">var</span>.service_name<span style="color:#70a0d0;font-style:italic">}</span><span style="color:#4070a0">-origin_id&#34;</span>
+
+    s3_origin_config {
+      <span style="color:#4070a0">origin_access_identity</span> = <span style="color:#4070a0">&#34;</span><span style="color:#70a0d0;font-style:italic">${</span>element(aws_cloudfront_origin_access_identity.website<span style="color:#666">-</span>origin_access_identities.<span style="color:#666">*</span>.cloudfront_access_identity_path, <span style="color:#007020">count</span>.index)<span style="color:#70a0d0;font-style:italic">}</span><span style="color:#4070a0">&#34;</span>
+    }
+  }</code></pre></td></tr></table>
+</div>
+</div>
+<p><strong>DNSエイリアスの指定(CloudFront側)</strong></p>
+<p>CloudFrontでは「ディストリビューション」を作成することでリクエストを受け付けることができます。<br>
+この例では「1つのディストリビューションは1つのWebサイト」と捉えて問題ありません。</p>
+<p>そしてディストリビューションごとに1つのDNSエイリアスを設定しています。<br>
+例えばディストリビューションAには <code>example.com</code> を設定し、ディストリビューションBには <code>review.example.com</code> を設定します。</p>
+<p><code>.com</code> だけ考えても3環境あるのですが、以降の箇所だけでこれらを設定しています。</p>
+<p>まず再掲しますが<a href="https://github.com/mazgi-showcase/2019.04.built-noops-blog-with-github-circleci-s3.provisioning/blob/b466bce2d5f60acd7b6716ab402d73fdaebbe56f/variables.tf#L8-L18">variables.tf#L8-L18</a>で変数として各環境を表すリスト <code>envs</code> と公開Blogがどの環境かを示す <code>default_env_name</code> の2種類を定義しています。</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-terraform" data-lang="terraform"><span style="color:#007020;font-weight:bold">variable</span> <span style="color:#4070a0">&#34;default_env_name&#34;</span> {
+  <span style="color:#4070a0">default</span> = <span style="color:#4070a0">&#34;external&#34;</span>
+}
+<span style="color:#007020;font-weight:bold">
+</span><span style="color:#007020;font-weight:bold">variable</span> <span style="color:#4070a0">&#34;envs&#34;</span> {
+  <span style="color:#4070a0">default</span> = [
+    <span style="color:#4070a0">&#34;external&#34;</span>,<span style="color:#60a0b0;font-style:italic"> # https://example.jp/
+</span><span style="color:#60a0b0;font-style:italic"></span>    <span style="color:#4070a0">&#34;review&#34;</span>,<span style="color:#60a0b0;font-style:italic">   # review environment for external and internal
+</span><span style="color:#60a0b0;font-style:italic"></span>    <span style="color:#4070a0">&#34;internal&#34;</span>,
+  ]
+}</code></pre></td></tr></table>
+</div>
+</div>
+<p>これらの変数を元にループの中で条件演算子を使って <code>example.com</code> のホスト名を以下の2パターンに分岐しています。</p>
+<ul>
+<li>今扱っている環境が公開Blogであれば <code>&quot;&quot;</code> (空文字列)</li>
+<li>その他の環境であれば <code>環境名.</code></li>
+</ul>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-terraform" data-lang="terraform">  <span style="color:#4070a0">aliases</span> = [
+    <span style="color:#4070a0">&#34;</span><span style="color:#70a0d0;font-style:italic">${</span>element(<span style="color:#007020">var</span>.envs, <span style="color:#007020">count</span>.index) <span style="color:#666">==</span> <span style="color:#007020">var</span>.default_env_name <span style="color:#666">?</span> <span style="color:#4070a0">&#34;&#34;</span> <span style="color:#666">:</span> <span style="color:#007020">format</span>(<span style="color:#4070a0">&#34;%s.&#34;</span>,<span style="color:#007020"> element</span>(<span style="color:#007020">var</span>.envs, <span style="color:#007020">count</span>.index))<span style="color:#70a0d0;font-style:italic">}</span><span style="color:#4070a0">example.com&#34;</span>,
+  ]</code></pre></td></tr></table>
+</div>
+</div>
+<p>これによって3パターンそれぞれのCloudFrontディストリビューションに以下それぞれのドメイン名(FQDN)がDNSエイリアスとして設定されます。</p>
+<ul>
+<li><code>example.com</code> : 指す先のS3バケットは <code>external</code>-engineers-blog-content</li>
+<li><code>review.example.com</code> : 指す先のS3バケットは <code>review</code>-engineers-blog-content</li>
+<li><code>internal.example.com</code> : 指す先のS3バケットは <code>internal</code>-engineers-blog-content</li>
+</ul>
+<p>このように変数やループ、分岐を使ってあたかもプログラミングのようにインフラストラクチャーを柔軟に扱えることが <code>Infrastructure as Code(IaC)</code> のメリットです。<br>
+ただし分岐しすぎるとインフラストラクチャーが動的になりすぎ実行時の諸条件に左右されてしまいますので注意が必要です。<br>
+またTerraformとAWS両方のドキュメントを確認しながらコードを書いていくことは手間がかかりますが、ほぼ同じ文法でAWSやGCP、Azureなど複数のIaaS上にシステムを構築できることがTerraformのメリットです。<br>
+(もしAWSだけを考えるのであれば<a href="https://aws.amazon.com/jp/cloudformation/">AWS CloudFormation</a>というAWS製のIaCサービスもあります)</p>
+<p><strong>DNSレコードの指定(Route 53側)</strong></p>
+<p>AWSのDNSサービスである<a href="https://aws.amazon.com/jp/route53/">Route 53</a>の設定も同じファイル内に書いています。<br>
+このDNSレコードがCloudFrontのディストリビューションを指すため同じファイル内にあった方が見通しが良いという理由です。</p>
+<p>公開BlogのDNSレコードを本当に更新してしまうと今の技術Blogが置き換わってしまうため公開BlogのDNSレコードは <code>temporary</code> という仮のホスト名を設定しています。<br>
+本記事を試す場合は <code>85</code> 行目の <code>&quot;temporary.&quot;</code> を <code>&quot;&quot;</code> (空文字列)に変えてください。</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">79
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">80
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">81
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">82
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">83
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">84
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">85
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">86
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">87
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">88
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">89
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">90
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">91
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">92
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">93
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-terraform" data-lang="terraform"><span style="color:#007020;font-weight:bold">resource</span> <span style="color:#4070a0">&#34;aws_route53_record&#34;</span> <span style="color:#4070a0">&#34;records_com_example_&#34;</span> {
+  <span style="color:#4070a0">count</span> = <span style="color:#4070a0">&#34;</span><span style="color:#70a0d0;font-style:italic">${</span>length(<span style="color:#007020">var</span>.envs)<span style="color:#70a0d0;font-style:italic">}</span><span style="color:#4070a0">&#34;</span>
+
+  <span style="color:#4070a0">zone_id</span> = <span style="color:#4070a0">&#34;</span><span style="color:#70a0d0;font-style:italic">${</span>aws_route53_zone.zone_com_example.zone_id<span style="color:#70a0d0;font-style:italic">}</span><span style="color:#4070a0">&#34;</span><span style="color:#60a0b0;font-style:italic">
+</span><span style="color:#60a0b0;font-style:italic">
+</span><span style="color:#60a0b0;font-style:italic">  # ToDo: remove `temporary.`
+</span><span style="color:#60a0b0;font-style:italic"></span>  <span style="color:#4070a0">name</span> = <span style="color:#4070a0">&#34;</span><span style="color:#70a0d0;font-style:italic">${</span>element(<span style="color:#007020">var</span>.envs, <span style="color:#007020">count</span>.index) <span style="color:#666">==</span> <span style="color:#007020">var</span>.default_env_name <span style="color:#666">?</span> <span style="color:#4070a0">&#34;temporary.&#34;</span> <span style="color:#666">:</span> <span style="color:#007020">format</span>(<span style="color:#4070a0">&#34;%s.&#34;</span>,<span style="color:#007020"> element</span>(<span style="color:#007020">var</span>.envs, <span style="color:#007020">count</span>.index))<span style="color:#70a0d0;font-style:italic">}</span><span style="color:#4070a0">example.com&#34;</span>
+  <span style="color:#4070a0">type</span> = <span style="color:#4070a0">&#34;A&#34;</span>
+
+  alias {
+    <span style="color:#4070a0">name</span>                   = <span style="color:#4070a0">&#34;</span><span style="color:#70a0d0;font-style:italic">${</span>element(aws_cloudfront_distribution.distribution_com_example.<span style="color:#666">*</span>.domain_name, <span style="color:#007020">count</span>.index)<span style="color:#70a0d0;font-style:italic">}</span><span style="color:#4070a0">&#34;</span>
+    <span style="color:#4070a0">zone_id</span>                = <span style="color:#4070a0">&#34;</span><span style="color:#70a0d0;font-style:italic">${</span>element(aws_cloudfront_distribution.distribution_com_example.<span style="color:#666">*</span>.hosted_zone_id, <span style="color:#007020">count</span>.index)<span style="color:#70a0d0;font-style:italic">}</span><span style="color:#4070a0">&#34;</span>
+    <span style="color:#4070a0">evaluate_target_health</span> = <span style="color:#007020;font-weight:bold">false</span>
+  }
+}</code></pre></td></tr></table>
+</div>
+</div>
+<p>本記事ではRoute 53自体の解説は行いませんが管理するDNSゾーンの設定は<a href="https://github.com/mazgi-showcase/2019.04.built-noops-blog-with-github-circleci-s3.provisioning/blob/2019.04.1/route53.com.example.tf">route53.com.example.tf</a>と<a href="https://github.com/mazgi-showcase/2019.04.built-noops-blog-with-github-circleci-s3.provisioning/blob/2019.04.1/route53.jp.example.tf">route53.jp.example.tf</a>にあります。<br>
+もしサブドメインを委任した場合でも設定はほぼ変わりません。</p>
+<p><strong>コンテンツのTTL設定</strong></p>
+<p>CDNであるCloudFrontが同じコンテンツを何秒間キャッシュし続けるかを指示するTTL(Time To Live)を設定しています。<br>
+後述しますがCloudFrontのキャッシュはCircleCIでBlog記事が執筆されコンテンツが更新された際に明示的に破棄しますのでTTLを長めに設定しています。</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-terraform" data-lang="terraform">    <span style="color:#4070a0">min_ttl</span>                = <span style="color:#40a070">0</span>
+    <span style="color:#4070a0">default_ttl</span>            = <span style="color:#40a070">3600</span>
+    <span style="color:#4070a0">max_ttl</span>                = <span style="color:#40a070">86400</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><strong>TLS証明書の設定</strong></p>
+<p>現代のWebサイトはHTTPS接続が基本で、経路が暗号化されないHTTP接続はほとんど使われません。<br>
+そしてHTTPSでWebサイトを公開するためにはTLS(SSL)証明書が必要です。<br>
+とても便利なことに今回のようにAWS上でWebサイトを提供する場合にはAWSの証明書管理サービス<a href="https://aws.amazon.com/jp/certificate-manager/">AWS Certificate Manager</a>(ACM)でTLS証明書を発行することができます。<br>
+さらにACMのTLS証明書は自動更新されるので毎年毎年TLS証明書を購入してアップロードする必要もありません。<br>
+TLS証明書の更新は運用者の引き継ぎなどで漏れやすいことの1つです。これもNoOpsの大事な要素です。</p>
+<p>ここではACMの証明書を使う設定を行なっています。</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">69
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">70
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">71
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">72
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-terraform" data-lang="terraform">  viewer_certificate {
+    <span style="color:#4070a0">acm_certificate_arn</span> = <span style="color:#4070a0">&#34;</span><span style="color:#70a0d0;font-style:italic">${</span>aws_acm_certificate.certificate_com_example_.arn<span style="color:#70a0d0;font-style:italic">}</span><span style="color:#4070a0">&#34;</span>
+    <span style="color:#4070a0">ssl_support_method</span>  = <span style="color:#4070a0">&#34;sni-only&#34;</span>
+  }</code></pre></td></tr></table>
+</div>
+</div>
+<p>ACMでTLS証明書を管理する設定は<a href="https://github.com/mazgi-showcase/2019.04.built-noops-blog-with-github-circleci-s3.provisioning/blob/2019.04.1/acm.com.example._.tf">acm.com.example._.tf</a>と<a href="https://github.com/mazgi-showcase/2019.04.built-noops-blog-with-github-circleci-s3.provisioning/blob/2019.04.1/acm.jp.example._.tf">acm.jp.example._.tf</a>にあります。<br>
+本記事では各行を挙げることはしませんが「DNS認証」でドメイン <code>example.com</code> の所有者であることをACMに検証してもらいTLS証明書を管理するよう設定しています。<br>
+「DNS認証」はACMに指定されたDNSレコードをDNSサーバーにセットすることでドメインの持ち主であることを証明します。<br>
+そのためファイル内にはDNSサーバーであるRoute 53の設定も含めて見通しを良くしています。</p>
+<p><strong>WAFの設定(CloudFront側)</strong></p>
+<p>レビュー用Blogと社内向けBlogでは接続元IPアドレスによるアクセス制限を行います。<br>
+今回は<a href="https://aws.amazon.com/jp/waf/">AWS WAF（Web アプリケーションファイアーウォール）</a>でこの制限を実現します。<br>
+AWS WAF自体の設定は後述しますがCloudFront側からWAFを使う設定は以下の通り <code>web_acl_id</code> を指定するだけです。<br>
+公開Blogでは接続元IPアドレスによる制限は不要なのでDNSエイリアスと同じように条件演算子によって公開BlogだけAWS WAFを使用しないよう設定しています。</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-terraform" data-lang="terraform"><span style="color:#60a0b0;font-style:italic">  # WAF:
+</span><span style="color:#60a0b0;font-style:italic">  # Enabled if environments are:
+</span><span style="color:#60a0b0;font-style:italic">  #   - `external` =&gt; disabled (blank)
+</span><span style="color:#60a0b0;font-style:italic">  #   - `internal` or `review` =&gt; enabled
+</span><span style="color:#60a0b0;font-style:italic"></span>  <span style="color:#4070a0">web_acl_id</span> = <span style="color:#4070a0">&#34;</span><span style="color:#70a0d0;font-style:italic">${</span>element(<span style="color:#007020">var</span>.envs, <span style="color:#007020">count</span>.index) <span style="color:#666">==</span> <span style="color:#007020">var</span>.default_env_name <span style="color:#666">?</span> <span style="color:#4070a0">&#34;&#34;</span> <span style="color:#666">:</span> aws_waf_web_acl.website<span style="color:#666">-</span>waf<span style="color:#666">-</span>web<span style="color:#666">-</span>acl.id<span style="color:#70a0d0;font-style:italic">}</span><span style="color:#4070a0">&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>なお要件により接続元IPアドレス制限だけではなく他のアクセス制御を組み合わせて使用すべきです。</p>
+<p><strong>Lambda@Edgeの設定(CloudFront側)</strong></p>
+<p>AudienceのS3バケットへの接続経路をCloudFront経由に限定した代償として1つ不都合が発生します。<br>
+それは「 <code>/</code> で終わるpathでアクセスしても <code>index.html</code> が返されない」という不都合です。</p>
+<p>例えば通常 <code>https://foo.example.com/bar/baz/</code> にアクセスすると <code>https://foo.example.com/bar/baz/index.html</code> などと同じ内容が表示されます。<br>
+これは通常のWebサーバーやS3バケットで直接静的コンテンツを配信する場合 <code>/</code> で終わるpathにアクセスすると <code>index.html</code> (インデックスドキュメント)のpathが補完され返されるためです。<br>
+しかし今回の構成ではその補完が行われず <code>/</code> で終わるpathにアクセスすると想定したコンテンツが表示されません。<br>
+そこでCloudFrontで任意の関数を実行できる<a href="https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/lambda-edge.html">Lambda@Edge</a>を使ってこの不都合を解消します。</p>
+<p>参考:<br>
+<a href="https://docs.aws.amazon.com/ja_jp/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html">オリジンアクセスアイデンティティを使用して Amazon S3 コンテンツへのアクセスを制限する</a><br>
+<a href="https://dev.classmethod.jp/cloud/aws/directory-indexes-in-s3-origin-backed-cloudfront/">できた！S3 オリジンへの直接アクセス制限と、インデックスドキュメント機能を共存させる方法</a></p>
+<p>Lambda@EdgeはAWSのFunction as a Service(FaaS)である<a href="https://aws.amazon.com/jp/lambda/">AWS Lambda</a>をCloudFrontで実行できるようにしたサービスです。<br>
+LambdaのようなFaaSはJavaScriptやPythonで書いた関数をアップロードしておき、例えば「S3バケットにファイルがアップロードされた」等のイベントをトリガーとしてその関数を実行できます。</p>
+<p>つまり今回の不都合はLambda@Edgeを使って「Audienceが <code>/</code> で終わるURLをリクエストした時」に「リクエストURL終端の <code>/</code> を <code>/index.html</code> に書き換える関数」を実行すれば解消できます。</p>
+<p>以下がCloudFrontでリクエストを受けた際にLambda@Edgeを呼び出す設定です。<br>
+Lambda関数自体は後述します。</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-terraform" data-lang="terraform">    <span style="color:#4070a0">lambda_function_association</span> = [
+      {
+        <span style="color:#4070a0">event_type</span> = <span style="color:#4070a0">&#34;viewer-request&#34;</span>
+        <span style="color:#4070a0">lambda_arn</span> = <span style="color:#4070a0">&#34;</span><span style="color:#70a0d0;font-style:italic">${</span>aws_lambda_function.website<span style="color:#666">-</span>lambda<span style="color:#666">-</span>redirect<span style="color:#666">-</span>to<span style="color:#007020">-index</span><span style="color:#666">-</span>document.qualified_arn<span style="color:#70a0d0;font-style:italic">}</span><span style="color:#4070a0">&#34;</span>
+      },
+    ]</code></pre></td></tr></table>
+</div>
+</div>
+<p>以降でWAFとLambda@Edgeの設定を解説します。</p>
+<h2 id="waf">WAF</h2>
+<p>前述したように今回は<a href="https://aws.amazon.com/jp/waf/">AWS WAF（Web アプリケーションファイアーウォール）</a>でレビュー用Blogと社内向けBlogへの接続元IPアドレスによるアクセス制限を実現します。<br>
+WAF自体の設定は<a href="https://github.com/mazgi-showcase/2019.04.built-noops-blog-with-github-circleci-s3.provisioning/blob/2019.04.1/waf.website.tf">waf.website.tf</a>です。<br>
+接続元IPアドレスを制限する環境はレビュー用Blogと社内向けBlog両方ですが接続元はいずれのWebサイトでも今後変わらない想定なのでWAFの設定は1つで複数のWebサイト(CloudFrontディストリビューション)に同じWAF設定を適用します。</p>
+<p><strong>接続許可IPアドレスリストの定義</strong></p>
+<p>そのためにまず接続を許可するIPアドレスを列挙した <code>aws_waf_ipset</code> を定義します。<br>
+なお記載したIPアドレスはすべて例示用に予約されているもので実際には使用できません。</p>
+<p>参考:<br>
+<a href="https://tools.ietf.org/html/rfc5737">IPv4 Address Blocks Reserved for Documentation</a></p>
+<p>下記のように複数のIPアドレスセットを定義することができます。</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-terraform" data-lang="terraform"><span style="color:#60a0b0;font-style:italic">  # Office
+</span><span style="color:#60a0b0;font-style:italic"></span>  ip_set_descriptors {
+    <span style="color:#4070a0">type</span>  = <span style="color:#4070a0">&#34;IPV4&#34;</span>
+    <span style="color:#4070a0">value</span> = <span style="color:#4070a0">&#34;192.0.2.0/24&#34;</span>
+  }<span style="color:#60a0b0;font-style:italic">
+</span><span style="color:#60a0b0;font-style:italic">
+</span><span style="color:#60a0b0;font-style:italic">  # VPN
+</span><span style="color:#60a0b0;font-style:italic"></span>  ip_set_descriptors {
+    <span style="color:#4070a0">type</span>  = <span style="color:#4070a0">&#34;IPV4&#34;</span>
+    <span style="color:#4070a0">value</span> = <span style="color:#4070a0">&#34;198.51.100.0/24&#34;</span>
+  }<span style="color:#60a0b0;font-style:italic">
+</span><span style="color:#60a0b0;font-style:italic">
+</span><span style="color:#60a0b0;font-style:italic">  # IDC
+</span><span style="color:#60a0b0;font-style:italic"></span>  ip_set_descriptors {
+    <span style="color:#4070a0">type</span>  = <span style="color:#4070a0">&#34;IPV4&#34;</span>
+    <span style="color:#4070a0">value</span> = <span style="color:#4070a0">&#34;203.0.113.0/24&#34;</span>
+  }</code></pre></td></tr></table>
+</div>
+</div>
+<p><strong>WAFルールの設定</strong></p>
+<p>次に作ったIPアドレスリストをルールに組み込みます。<br>
+<code>negated</code> を <code>false</code> にセットしているので2重否定になり接続元IPアドレスがIPアドレスリストにマッチすれば適用されるルールになります。<br>
+(実際に接続を許可する、あるいは拒否する設定は次の <code>aws_waf_web_acl</code> で指定します。)</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-terraform" data-lang="terraform">  predicates {
+    <span style="color:#4070a0">data_id</span> = <span style="color:#4070a0">&#34;</span><span style="color:#70a0d0;font-style:italic">${</span>aws_waf_ipset.website<span style="color:#666">-</span>waf<span style="color:#666">-</span>allowed<span style="color:#666">-</span>ipset.id<span style="color:#70a0d0;font-style:italic">}</span><span style="color:#4070a0">&#34;</span>
+    <span style="color:#4070a0">negated</span> = <span style="color:#007020;font-weight:bold">false</span>
+    <span style="color:#4070a0">type</span>    = <span style="color:#4070a0">&#34;IPMatch&#34;</span>
+  }</code></pre></td></tr></table>
+</div>
+</div>
+<p><strong>WAF ACLの設定</strong></p>
+<p><code>aws_waf_web_acl</code> で実際のアクセス許可/拒否の設定を行います。<br>
+まず <code>default_action</code> を <code>BLOCK</code> に設定し全てのアクセスを拒否します。<br>
+次いで <code>rules</code> 内で <code>action</code> を <code>ALLOW</code> に設定し前述のルールを指定します。</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-terraform" data-lang="terraform">  default_action {
+    <span style="color:#4070a0">type</span> = <span style="color:#4070a0">&#34;BLOCK&#34;</span>
+  }
+
+  rules {
+    action {
+      <span style="color:#4070a0">type</span> = <span style="color:#4070a0">&#34;ALLOW&#34;</span>
+    }
+
+    <span style="color:#4070a0">priority</span> = <span style="color:#40a070">1</span>
+    <span style="color:#4070a0">rule_id</span>  = <span style="color:#4070a0">&#34;</span><span style="color:#70a0d0;font-style:italic">${</span>aws_waf_rule.website<span style="color:#666">-</span>waf<span style="color:#666">-</span>rule.id<span style="color:#70a0d0;font-style:italic">}</span><span style="color:#4070a0">&#34;</span>
+    <span style="color:#4070a0">type</span>     = <span style="color:#4070a0">&#34;REGULAR&#34;</span>
+  }</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="lambdaedge">Lambda@Edge</h2>
+<p>次に末尾 <code>/</code> でアクセスされた際に <code>index.html</code> を補うLambda@Edgeの設定とソースコードを掲載します。</p>
+<p><strong>Lambda@Edgeソースコード</strong></p>
+<p>ソースコードはJavaScriptで実装しており<a href="https://github.com/mazgi-showcase/2019.04.built-noops-blog-with-github-circleci-s3.provisioning/blob/2019.04.1/lambda-sources/redirect-to-index-document/index.js">lambda-sources/redirect-to-index-document/index.js</a>がすべてです。<br>
+内容も正規表現で <code>/$</code> にマッチしたら <code>/index.html</code> に置き換えるという極めてシンプルな関数です。</p>
+<p>JavaScriptのソースコードも同じリポジトリに置いているので今後リファクタリングや仕様変更を行なってもTerraformと合わせて変更を管理できます。<br>
+また後述しますがTerraformでソースコードファイルをAWSにアップロードしてLambda関数として登録できるので同じディレクトリツリーにおいておいたほうが便利です。</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="display:block;width:100%;background-color:#d8d8d8"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span></span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#4070a0">&#39;use strict&#39;</span>;
+exports.handler <span style="color:#666">=</span> (event, context, callback) =&gt; {
+  <span style="color:#007020;font-weight:bold">const</span> request <span style="color:#666">=</span> event.Records[<span style="color:#40a070">0</span>].cf.request;
+  <span style="color:#007020;font-weight:bold">const</span> originalUri <span style="color:#666">=</span> request.uri;
+<span style="display:block;width:100%;background-color:#d8d8d8">  <span style="color:#007020;font-weight:bold">const</span> replacedUri <span style="color:#666">=</span> originalUri.replace(<span style="color:#235388">/\/$/</span>, <span style="color:#4070a0">&#39;/index.html&#39;</span>);
+</span>
+  <span style="color:#60a0b0;font-style:italic">//console.log(&#39;Request URI: &#39; + originalUri + &#39; =&gt; &#39; + replacedUri);
+</span><span style="color:#60a0b0;font-style:italic"></span>
+  request.uri <span style="color:#666">=</span> replacedUri;
+  <span style="color:#007020;font-weight:bold">return</span> callback(<span style="color:#007020;font-weight:bold">null</span>, request);
+}
+</code></pre></td></tr></table>
+</div>
+</div>
+<p><strong>Lambda@Edge向け権限設定</strong></p>
+<p>Lambda@Edgeを設定するTerraformのコードは<a href="https://github.com/mazgi-showcase/2019.04.built-noops-blog-with-github-circleci-s3.provisioning/blob/2019.04.1/lambda.website.tf">lambda.website.tf</a>ですが前半でLambda関数の実行を許可する権限設定を行なっています。</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-terraform" data-lang="terraform"><span style="color:#007020;font-weight:bold">data</span> <span style="color:#4070a0">&#34;aws_iam_policy_document&#34;</span> <span style="color:#4070a0">&#34;website-lambda-assume-role-policy&#34;</span> {
+  statement {
+    <span style="color:#4070a0">actions</span> = [<span style="color:#4070a0">&#34;sts:AssumeRole&#34;</span>]
+
+    principals {
+      <span style="color:#4070a0">type</span> = <span style="color:#4070a0">&#34;Service&#34;</span>
+
+      <span style="color:#4070a0">identifiers</span> = [
+        <span style="color:#4070a0">&#34;lambda.amazonaws.com&#34;</span>,
+        <span style="color:#4070a0">&#34;edgelambda.amazonaws.com&#34;</span>,
+      ]
+    }
+  }
+}
+<span style="color:#007020;font-weight:bold">
+</span><span style="color:#007020;font-weight:bold">resource</span> <span style="color:#4070a0">&#34;aws_iam_role&#34;</span> <span style="color:#4070a0">&#34;website-lambda-assume-role&#34;</span> {
+  <span style="color:#4070a0">name</span>               = <span style="color:#4070a0">&#34;website-lambda-assume-role&#34;</span>
+  <span style="color:#4070a0">assume_role_policy</span> = <span style="color:#4070a0">&#34;</span><span style="color:#70a0d0;font-style:italic">${</span><span style="color:#007020">data</span>.aws_iam_policy_document.website<span style="color:#666">-</span>lambda<span style="color:#666">-</span>assume<span style="color:#666">-</span>role<span style="color:#666">-</span>policy.json<span style="color:#70a0d0;font-style:italic">}</span><span style="color:#4070a0">&#34;</span>
+}
+<span style="color:#007020;font-weight:bold">
+</span><span style="color:#007020;font-weight:bold">resource</span> <span style="color:#4070a0">&#34;aws_iam_role_policy_attachment&#34;</span> <span style="color:#4070a0">&#34;website-lambda-assume-role-policy-attachment&#34;</span> {
+  <span style="color:#4070a0">role</span>       = <span style="color:#4070a0">&#34;</span><span style="color:#70a0d0;font-style:italic">${</span>aws_iam_role.website<span style="color:#666">-</span>lambda<span style="color:#666">-</span>assume<span style="color:#666">-</span>role.name<span style="color:#70a0d0;font-style:italic">}</span><span style="color:#4070a0">&#34;</span>
+  <span style="color:#4070a0">policy_arn</span> = <span style="color:#4070a0">&#34;arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole&#34;</span>
+}</code></pre></td></tr></table>
+</div>
+</div>
+<p><code>1-14</code> 行目で定義したAWS IAM(Identity and Access Management)のポリシーを定義しています。<br>
+書式はS3バケットポリシーと一緒です。</p>
+<p><code>16-24</code> 行目で定義したポリシーをLambda関数用のロールにアタッチしています。</p>
+<p><strong>Lambda@Edge向け権限設定</strong></p>
+<p>Lambda@Edgeを設定するTerraformのコードは<a href="https://github.com/mazgi-showcase/2019.04.built-noops-blog-with-github-circleci-s3.provisioning/blob/2019.04.1/lambda.website.tf">lambda.website.tf</a>の後半では前述のJavaScriptソースコードファイルをアップロードしLambda関数として登録しています。</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-terraform" data-lang="terraform"><span style="color:#007020;font-weight:bold">data</span> <span style="color:#4070a0">&#34;archive_file&#34;</span> <span style="color:#4070a0">&#34;website-lambda-redirect-to-index-document&#34;</span> {
+  <span style="color:#4070a0">type</span>        = <span style="color:#4070a0">&#34;zip&#34;</span>
+  <span style="color:#4070a0">source_dir</span>  = <span style="color:#4070a0">&#34;lambda-sources/redirect-to-index-document&#34;</span>
+  <span style="color:#4070a0">output_path</span> = <span style="color:#4070a0">&#34;lambda-arhives/redirect-to-index-document.zip&#34;</span>
+}
+<span style="color:#007020;font-weight:bold">
+</span><span style="color:#007020;font-weight:bold">resource</span> <span style="color:#4070a0">&#34;aws_lambda_function&#34;</span> <span style="color:#4070a0">&#34;website-lambda-redirect-to-index-document&#34;</span> {
+  <span style="color:#4070a0">filename</span>         = <span style="color:#4070a0">&#34;</span><span style="color:#70a0d0;font-style:italic">${</span><span style="color:#007020">data</span>.archive_file.website<span style="color:#666">-</span>lambda<span style="color:#666">-</span>redirect<span style="color:#666">-</span>to<span style="color:#007020">-index</span><span style="color:#666">-</span>document.output_path<span style="color:#70a0d0;font-style:italic">}</span><span style="color:#4070a0">&#34;</span>
+  <span style="color:#4070a0">function_name</span>    = <span style="color:#4070a0">&#34;website-lambda-redirect-to-index-document&#34;</span>
+  <span style="color:#4070a0">role</span>             = <span style="color:#4070a0">&#34;</span><span style="color:#70a0d0;font-style:italic">${</span>aws_iam_role.website<span style="color:#666">-</span>lambda<span style="color:#666">-</span>assume<span style="color:#666">-</span>role.arn<span style="color:#70a0d0;font-style:italic">}</span><span style="color:#4070a0">&#34;</span>
+  <span style="color:#4070a0">handler</span>          = <span style="color:#007020">&#34;index</span>.handler<span style="color:#4070a0">&#34;
+</span><span style="color:#4070a0">  source_code_hash = &#34;</span><span style="">$</span>{<span style="color:#007020">data</span>.archive_file.website<span style="color:#666">-</span>lambda<span style="color:#666">-</span>redirect<span style="color:#666">-</span>to<span style="color:#007020">-index</span><span style="color:#666">-</span>document.output_base64sha256}<span style="color:#4070a0">&#34;
+</span><span style="color:#4070a0">  runtime          = &#34;</span>nodejs8.<span style="color:#40a070">10</span><span style="color:#4070a0">&#34;
+</span><span style="color:#4070a0">  publish          = true
+</span><span style="color:#4070a0">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><code>26-30</code> 行目では <code>source_dir</code> で指定したディレクトリをZIPアーカイブにして <code>output_path</code> に配置するよう設定しています。</p>
+<p><code>32-40</code> 行目の <code>aws_lambda_function</code> リソース定義でLambda関数を登録するよう設定しています。</p>
+<h1 id="workflow">Workflow</h1>
+<p>レビュー用のBlogは次のスクリーンショットのようにPull RequestにCommitをPushするごとにCommit hashを使って専用URLを発行します。<br>
+このURLは社内からGitHubアカウント不要でアクセスできるので、GitHubアカウントを持っていない方でもレビューに参加できます。<br>
+ユースケースとして記事内容の法務チェックが必要な場合にSlackやメールに貼り付けてレビューを依頼する等を想定しています。</p>
+<figure>
+    <img src="0001.png" width="800"/> 
+</figure>
+
+<h2 id="レビューurlの仕様">レビューURLの仕様</h2>
+<p>この仕組みでは何回記事内容を更新してPushしても1度発行されたレビュー用URLにアクセスして表示されるコンテンツは変わりません。<br>
+これはあえての仕様です。</p>
+<p>同じURLをリロードすることで最新のコンテンツが表示される方が便利に感じますが、メールのような非同期コミュニケーションの場合「昨日のN時頃の内容でレビューした」「午前中みた内容はOKだったが今見た内容はNG」といった行き違いが発生しがちです。<br>
+このような行き違いをGitやCommit hashを普段使っておられない非エンジニアの方とのコミュニケーションで防ぐためには「これが同じであれば内容は同じです」と担保できる「バージョン」あるいは「版数」のようなものが必要です。<br>
+しかし記事執筆者が毎回バージョンや版数を振るルールでは漏れが発生しますし負担が大きくなり活性化とは真逆の方向に進んでしまいます。<br>
+そこでレビュー専用のURLが都度事項発行され、しかもURLが同じ限り内容が変わらないことが担保されていれば「このアドレス(URL)に対してレビューをお願いします」と依頼することでそのような認識のズレや事故を防ぐことができます。</p>
+<h2 id="記事執筆から公開まで">記事執筆から公開まで</h2>
+<p>記事執筆から公開までのワークフローと各コンポーネントの関係図を再掲します。<br>
+上半分(緑)の矢印が社内向けBlogの執筆、下半分(青)の矢印が公開Blogの執筆ですが、図のDeploy先が異なるだけでやっていることは一緒です。<br>
+またレビュー用Blogは公開Blogと社内向けBlogで共有しています。</p>
+<figure>
+    <img src="0010.png" width="800"/> 
+</figure>
+
+<p>下の図では公開Blogに <strong>e1 - e6</strong> , 社内向けBlogに <strong>i1 - i6</strong> の番号を振っていますがそれぞれ行なっていることは以下です。</p>
+<ul>
+<li>e1, i1 : GitHub上のPull Requestに執筆中のBlog原稿をPushする</li>
+<li>e2, i2 : CircleCI上でJobが実行されコンテンツのHTML, CSS, JavaScriptなどが生成される
+<ul>
+<li>コンテンツ内容はPull Requestのブランチの該当Commit</li>
+<li>レビュー用URLもこの時に生成されPull Requestコメントとして書き込まれる</li>
+</ul>
+</li>
+<li>e3, i3 : 生成されたコンテンツがレビュー用BlogのS3バケットにアップロードされる</li>
+<li>e4, i4 : レビュー用BlogのCloudFrontキャッシュを削除する</li>
+<li>e5, i5 : 生成されたコンテンツが公開Blog / 社内向けBlogのS3バケットにアップロードされる</li>
+<li>e6, i6 : 公開Blog / 社内向けBlogのCloudFrontキャッシュを削除する</li>
+</ul>
+<p>もう少し細かいシーケンスを次のサンプルと図で説明します。<br>
+サンプルリポジトリはおそらく動作しませんが実際の公開Blog / 社内向けBlogと概ね近しい構成になっています。<br>
+なお公開Blogと社内向けBlogはそれぞれ独立したリポジトリとして存在していますが、Blog記事以外の内容はほぼ同じです。<br>
+そのため公開するサンプルリポジトリは1つです。</p>
+<p>サンプルリポジトリ:<br>
+<a href="https://github.com/mazgi-showcase/2019.04.built-noops-blog-with-github-circleci-s3.example-content/tree/2019.04.1">mazgi-showcase/2019.04.built-noops-blog-with-github-circleci-s3.example-content</a></p>
+<figure>
+    <img src="0020.png" width="800"/> 
+</figure>
+
+<p><strong>ローカルPCでHugoを起動する</strong></p>
+<p>まず以下のシーケンスでローカルPC上でBlogの原稿を書ける状態を作ります。</p>
+<ul>
+<li>Fork the content repository</li>
+<li>(中略)</li>
+<li>Write a draft with a preferred text editor</li>
+</ul>
+<p>ForkはGitHubのWebUIなどから行ってもらいますが、ForkしたリポジトリをCloneした後、Blog原稿の生成まではシェルスクリプトを用意しています。<br>
+次の順番で実行することでHugoバイナリのダウンロード、Hugoの起動、Blog原稿の生成まで行えます。</p>
+<ol>
+<li><a href="https://github.com/mazgi-showcase/2019.04.built-noops-blog-with-github-circleci-s3.example-content/blob/2019.04.1/scripts/download-hugo.sh">scripts/download-hugo.sh</a></li>
+<li><a href="https://github.com/mazgi-showcase/2019.04.built-noops-blog-with-github-circleci-s3.example-content/blob/2019.04.1/scripts/run-dev-server.sh">scripts/run-dev-server.sh</a></li>
+<li><a href="https://github.com/mazgi-showcase/2019.04.built-noops-blog-with-github-circleci-s3.example-content/blob/2019.04.1/scripts/write-new-post.sh">scripts/write-new-post.sh</a></li>
+</ol>
+<p>どれも中身はシンプルなのでそのままシェルスクリプトを実行するか、あるいは中を読んで同等のことをより自分に合った別の方法で行うかは執筆者に任されています。<br>
+また一口に「社内でGitHubアカウントを持っている人」と言っても細かくみると多彩な方がいるのであえて <code>docker-compose</code> 等は使っていません。<br>
+<em>(多彩な方といいつつWindowsもLinuxも想定できていないのですがそこはContribute頼みです)</em></p>
+<p><strong>Pull Requestを作ってレビューを受ける</strong></p>
+<p>BranchをPushしたらWIP(Work In Progress)を明記した上での早めのPull Request作成を推奨しています。<br>
+図のシーケンスでいう以下の間、CommitをPushするたびにレビュー用Blogに専用URLが発行されます。</p>
+<ul>
+<li>Create a Pull Request</li>
+<li>(中略)</li>
+<li>Merge the Pull Request</li>
+</ul>
+<p>Pull RequestにCommitがPushされる度にレビュー用コンテンツをDeployする部分は以下のCircleCIの設定とシェルスクリプトで行っています。<br>
+各種TokenやCredentialsの扱いが甘いですが社内ということで現状こんな感じです。</p>
+<ul>
+<li><a href="https://github.com/mazgi-showcase/2019.04.built-noops-blog-with-github-circleci-s3.example-content/blob/046e5639aa08bbdc84c0024148de9c157a72a4e4/.circleci/config.yml#L37-L64">.circleci/config.yml#L37-L64</a></li>
+<li><a href="https://github.com/mazgi-showcase/2019.04.built-noops-blog-with-github-circleci-s3.example-content/blob/2019.04.1/scripts/build-for-review.sh">scripts/build-for-review.sh</a></li>
+</ul>
+<p><strong>Pull RequestをMergeしてBlogを公開する</strong></p>
+<p>Pull RequestがMergeされると今度はmaster branchが公開Blog / 社内向けBlogにDeployされます。<br>
+やっていることは<a href="https://github.com/mazgi-showcase/2019.04.built-noops-blog-with-github-circleci-s3.example-content/blob/046e5639aa08bbdc84c0024148de9c157a72a4e4/.circleci/config.yml#L8-L35">.circleci/config.yml</a>の通りです。</p>
+<h1 id="thats-it">That’s it!</h1>
+<p>以上、NoOpsなBlogの仕組みでした。<br>
+特殊なことをやっていないので運用工数を限りなく削減できるのではないかと期待しています。</p>
+
+    </article>
+  </div>
+  <div class="col-lg-3">
+    <div class="sidebar">
+  
+  <h4><a href="/about/">About</a></h4>
+  <p><strong>Hidenori MATSUKI</strong></p>
+<p>🍣 🍶</p>
+<p>another website: <a href="https://mazgi.com/">mazgi.com</a></p>
+  
+  <hr />
+  <h4>TableOfContents</h4>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#前提">前提</a>
+      <ul>
+        <li><a href="#terraformの実行とawsアクセスキー">Terraformの実行とAWSアクセスキー</a></li>
+        <li><a href="#terraformのstate管理">TerraformのState管理</a></li>
+        <li><a href="#awsのリージョン">AWSのリージョン</a></li>
+      </ul>
+    </li>
+    <li><a href="#3つの環境">3つの環境</a></li>
+    <li><a href="#s3">S3</a>
+      <ul>
+        <li><a href="#s3バケット作成">S3バケット作成</a></li>
+        <li><a href="#s3バケットの権限">S3バケットの権限</a></li>
+      </ul>
+    </li>
+    <li><a href="#cloudfront">CloudFront</a></li>
+    <li><a href="#waf">WAF</a></li>
+    <li><a href="#lambdaedge">Lambda@Edge</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#レビューurlの仕様">レビューURLの仕様</a></li>
+    <li><a href="#記事執筆から公開まで">記事執筆から公開まで</a></li>
+  </ul>
+</nav>
+  <hr />
+  <h4><a href="/categories/">Categories</a></h4>
+  
+  <div>
+    <ul>
+      
+      <li>
+        <a href="/categories/static-website/">static website</a>
+      </li>
+      
+      <li>
+        <a href="/categories/continuous-integration-and-delivery/">continuous integration and delivery</a>
+      </li>
+      
+      <li>
+        <a href="/categories/noops/">noops</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+  <hr />
+  <h4><a href="/tags/">Tags</a></h4>
+  
+  <div>
+    
+    <a class="badge badge-pill badge-secondary" href="/tags/dena/">dena</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/tags/hugo/">hugo</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/tags/github/">github</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/tags/circleci/">circleci</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/tags/terraform/">terraform</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/tags/aws/">aws</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/tags/amazon-s3/">amazon s3</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/tags/amazon-cloudfront/">amazon cloudfront</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/tags/aws-certificate-manager/">aws certificate manager</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/tags/aws-waf/">aws waf</a>
+    
+  </div>
+  
+</div>
+
+  </div>
+</div>
+      <div class="row">
+        <footer class="col-lg-12">
+          <hr/>
+          <span>&copy; mazgi.log</span>
+          <span>&nbsp;&middot;&nbsp;</span>
+          <i class="fas fa-bolt"></i>
+          <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a></span>
+          
+          <span>&nbsp;&middot;&nbsp;</span>
+          <span>This website <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">uses Google Analytics</a>.</span>
+          
+        </footer>
+      </div>
+    </div>
+    </main>
+    
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68170979-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-68170979-2');
+    </script>
+    
+      
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+      });
+    </script>
+  </body>
+</html>
+

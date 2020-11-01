@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>event on mazgi.log</title>
+    <link>https://mazgi.github.io/categories/event/</link>
+    <description>Recent content in event on mazgi.log</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 18 Dec 2019 22:35:25 +0000</lastBuildDate><atom:link href="https://mazgi.github.io/categories/event/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>「GCPUG Tokyo December 2019」でお話させていただきました</title>
+      <link>https://mazgi.github.io/posts/2019.12/went-to-gcpug-tokyo-dec-2019/</link>
+      <pubDate>Wed, 18 Dec 2019 22:35:25 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2019.12/went-to-gcpug-tokyo-dec-2019/</guid>
+      <description>&lt;p&gt;昨日 12/18 に開催された「&lt;a href=&#34;https://gcpug-tokyo.connpass.com/event/152607/&#34;&gt;GCPUG Tokyo December 2019&lt;/a&gt;」で「&lt;a href=&#34;https://speakerdeck.com/mazgi/fast-development-for-ml-web-service-on-gke-and-gcp&#34;&gt;ML アプリケーション短期開発 / Fast development for ML Web Service on GKE &amp;amp; GCP&lt;/a&gt;」と題してお話しさせていただきました。&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
+      <title>AI時代のDocker &#43; XaaS簡単理解</title>
+      <link>https://mazgi.github.io/posts/2019.05/brief-description-of-xaas-in-the-ai-era/</link>
+      <pubDate>Mon, 27 May 2019 22:04:33 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2019.05/brief-description-of-xaas-in-the-ai-era/</guid>
+      <description>私が所属しているDeNA AIシステム部の部内勉強会でDockerとXaaS（ザース）の話をさせていただいたので資料を公開します。 XaaS（ザ</description>
+    </item>
+    
+    <item>
+      <title>「Container Build Meetup #02」に行ってきた #container_build</title>
+      <link>https://mazgi.github.io/posts/2019.05/went-to-container-build-meetup-02/</link>
+      <pubDate>Wed, 15 May 2019 17:13:58 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2019.05/went-to-container-build-meetup-02/</guid>
+      <description>「Container Build Meetup」に参加してきました。 Container Build Meetup #2 - connpass タイムテーブル 分刻みですね。 なお開始時点で「予定のタイトルでしゃべる人は</description>
+    </item>
+    
+    <item>
+      <title>#gc_k8sday &#34;Google Cloud Kubernetes Day&#34;に行ってきました</title>
+      <link>https://mazgi.github.io/posts/2019.03/went-to-google-cloud-kubernetes-day/</link>
+      <pubDate>Tue, 26 Mar 2019 11:54:51 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2019.03/went-to-google-cloud-kubernetes-day/</guid>
+      <description>3/26に開催された「Google Cloud Kubernetes Day」に当選したので参加してきました。 最前列でひたすらメモったので放出しておきます。 Program こんなプログラ</description>
+    </item>
+    
+    <item>
+      <title>HashiCorp JapanさんとMeetupを開催&amp;登壇しました</title>
+      <link>https://mazgi.github.io/posts/2018.09/hashicorp-japan-meatup-on-dena/</link>
+      <pubDate>Sun, 16 Sep 2018 02:14:25 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2018.09/hashicorp-japan-meatup-on-dena/</guid>
+      <description>先日HashiCorp Japanさん主催で「DevOpsを支える今話題のHashiCorpツール群について」と題したMeet-upを開催させ</description>
+    </item>
+    
+    <item>
+      <title>「TD Tech Talk 2018」で分析基盤の話をさせていただきました</title>
+      <link>https://mazgi.github.io/posts/2018.05/td-tech-talk-2018/</link>
+      <pubDate>Tue, 22 May 2018 16:48:42 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2018.05/td-tech-talk-2018/</guid>
+      <description>「PLAZMA Data Platform Day: TD Tech Talk 2018」というイベントにお招きいただいたので「2020年代に向けたDeNAの分析基盤 」というお話しをさせていただ</description>
+    </item>
+    
+    <item>
+      <title>#morisnite 2で生ハム原木担いでラーメンが美味しかった話</title>
+      <link>https://mazgi.github.io/posts/2015.02/morisnite-02-with-whole-prosciutto/</link>
+      <pubDate>Tue, 17 Feb 2015 09:55:37 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2015.02/morisnite-02-with-whole-prosciutto/</guid>
+      <description>モリスナイト2で無事に生ハムをdeployすることができた。 骨は@mirakuiさんが美味しいラーメンにしてくださった。 morisnite #morisnite vol.2をご参</description>
+    </item>
+    
+  </channel>
+</rss>
