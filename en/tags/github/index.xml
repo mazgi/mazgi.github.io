@@ -16,14 +16,5 @@
       <description>tl;dr  git branch --move master main git remote set-head origin --auto  https://github.com/mazgi-sandbox/202010.change-git-default-branch</description>
     </item>
     
-    <item>
-      <title>Use Github Actions Cicd With Github Package Registry</title>
-      <link>https://mazgi.github.io/en/posts/2019.08/use-github-actions-cicd-with-github-package-registry/</link>
-      <pubDate>Sun, 18 Aug 2019 07:24:00 +0000</pubDate>
-      
-      <guid>https://mazgi.github.io/en/posts/2019.08/use-github-actions-cicd-with-github-package-registry/</guid>
-      <description></description>
-    </item>
-    
   </channel>
 </rss>
