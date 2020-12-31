@@ -16,5 +16,18 @@
       <description>tl;dr  git branch --move master main git remote set-head origin --auto  https://github.com/mazgi-sandbox/202010.change-git-default-branch</description>
     </item>
     
+    <item>
+      <title>My Take: Critical Points for Choosing PC Displays for Software Development</title>
+      <link>https://mazgi.github.io/en/posts/2020.03/critical-points-for-choose-the-displays-for-software-development-for-me/</link>
+      <pubDate>Fri, 06 Mar 2020 15:13:25 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/en/posts/2020.03/critical-points-for-choose-the-displays-for-software-development-for-me/</guid>
+      <description>The time was Mar. 2020, working from home has become popular in Japan.
+So, you might also be setting up the work environment in your home.
+If you are an IT developer, you may have placed multiple PC displays on your desk, as I did.
+The best environment, specifically how many of what inch display to use, in order to increase productivity, depends on the individual.
+Some people need just one small laptop without external displays, and other people need multiple large displays.</description>
+    </item>
+    
   </channel>
 </rss>
