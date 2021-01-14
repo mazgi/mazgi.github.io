@@ -158,7 +158,11 @@ VM を作るときに Generation 1 または 2 を選べますが、Generation 2
 具体的には SSH サービスが起動し、GUID パーティションを操作し、Tar 等のアーカイブを展開し、 /dev 等ファイルシステムが提供されている必要があります。</p>
 <p>私はこのような用途で SystemRescue (also known as SystemRescueCd)をよく使います。<br>
 これは数百 MB の ISO イメージに収められた Linux ディストリビュージョンで、その名前の通り HDD や SSD 等のブロックデバイスから起動できなくなった OS を救済する便利なツールが組み込まれています。</p>
-<p>また Ansible を Docker 上で実行しています。<br>
+<p>また SystemRescue は起動後に何もしません。<br>
+つまり他の多くの Linux ディストリビュージョンのインストールメディアと異なり、インストールウィザードが起動することもなければ、クリック 1 つでオススメのパーティション構成がブロックデバイスに書き込まれることもありません。<br>
+単に ISO イメージと RAM 上に一時的に作られたファイルシステムから OS が起動しシェルのプロンプトが現れます。<br>
+この点も私がこのような用途で SystemRescue を好んで使う理由です。</p>
+<p>本記事の構成では Ansible を Docker 上で実行しています。<br>
 この方法により Ansible 自体や他の依存するツール群のインストールを <code>docker-compose up</code> コマンド 1 つに集約できます。<br>
 もちろん Docker を介さず Ansible をインストールすることもできます。<br>
 その場合は <code>Dockerfile</code> や <code>docker-compose.yml</code> 等の内容を参考に手順を組み立ててください。</p>
