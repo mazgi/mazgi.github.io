@@ -140,18 +140,28 @@ OSS として長く安定的にメンテナンスされていること、サー�
 <ul>
 <li>Hyper-V VM
 <ul>
-<li>Generation 2</li>
+<li>Generation 2, <em>See <a href="https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn282285(v=ws.11)">Generation 2 Virtual Machine Overview</a></em></li>
 <li><code>Secure Boot</code> disabled</li>
 </ul>
 </li>
 <li>Docker Compose</li>
 </ul>
-<p>Hyper-V 上で構築していますが、他の仮想化ソフトウェアやベアメタルでも実行方法はあまり変わらないでしょう。<br>
-また Ansible をインストールすることで Docker Compose を使わずに実行することもできます。</p>
 <figure>
     <img src="structure.png" width="800"/> 
 </figure>
 
+<p>Hyper-V 上は Windows 標準の仮想化ソフトウェアです。<br>
+VM を作るときに Generation 1 または 2 を選べますが、Generation 2 を指定することで UEFI からの起動がサポートされます。</p>
+<p>本記事では Hyper-V VM を例にしますが、他の仮想化ソフトウェアやベアメタルでも実行方法はあまり変わらないでしょう。<br>
+ただしベアメタルの場合、NIC や RAID コントローラのドライバを Linux Kernel の config で有効にしたり、事前に RAID を構築しておくなどの手順が必要なことがあります。</p>
+<p>本記事でご紹介する手順で Gentoo Linux をインストールするためにはインストール対象のホストが何らかの Linux ディストリビュージョンで起動している必要があります。<br>
+具体的には SSH サービスが起動し、GUID パーティションを操作し、Tar 等のアーカイブを展開し、 /dev 等ファイルシステムが提供されている必要があります。</p>
+<p>私はこのような用途で SystemRescue (also known as SystemRescueCd)をよく使います。<br>
+これは数百 MB の ISO イメージに収められた Linux ディストリビュージョンで、その名前の通り HDD や SSD 等のブロックデバイスから起動できなくなった OS を救済する便利なツールが組み込まれています。</p>
+<p>また Ansible を Docker 上で実行しています。<br>
+この方法により Ansible 自体や他の依存するツール群のインストールを <code>docker-compose up</code> コマンド 1 つに集約できます。<br>
+もちろん Docker を介さず Ansible をインストールすることもできます。<br>
+その場合は <code>Dockerfile</code> や <code>docker-compose.yml</code> 等の内容を参考に手順を組み立ててください。</p>
 <p><strong>1. <code>.env</code> ファイルを作る</strong></p>
 <p>リポジトリを Clone したディレクトリに移動し Docker Compose で読み込まれる .env ファイルを作ります。<br>
 Bash や Z shell では次のように実行することで作成できます。</p>
@@ -161,14 +171,22 @@ cat&lt;&lt;EOE &gt;&gt; .env
 CURRENT_ENV_NAME=production
 DOCKER_GID=$(getent group docker | cut -d : -f 3)
 EOE
-</code></pre><p><strong>2. VM を SystemRescueCD から起動し SSHD を有効にする</strong></p>
-<p>Gentoo Linux をインストールする対象の VM を、<a href="https://www.system-rescue.org/">SystemRescueCD</a>の ISO イメージから起動します。<br>
+</code></pre><p><strong>2. VM を SystemRescue から起動し SSHD を有効にする</strong></p>
+<p>Gentoo Linux をインストールする対象の VM を、<a href="https://www.system-rescue.org/">SystemRescue</a>の ISO イメージから起動します。<br>
 またこの時 SSH デーモン(SSHD)も起動します。<br>
 これは SSH 経由で Ansible を適用するためです。</p>
 <p>SSHD を起動するため <a href="https://www.system-rescue.org/manual/Booting_SystemRescueCd/">Booting SystemRescueCd</a> に従って起動時に次の 2 つのパラメタを渡してください。</p>
 <ul>
-<li><code>rootpass=(任意のパスワード)</code></li>
-<li><code>nofirewall</code></li>
+<li><code>rootpass=(任意のパスワード)</code>
+<ul>
+<li><em>Sets the root password of the system running on the livecd to ****. That way you can connect from the network and ssh on the livecd and authenticate using this password.</em></li>
+</ul>
+</li>
+<li><code>nofirewall</code>
+<ul>
+<li><em>You need to use this option if you need to establish connections to the system running SystemRescueCd from outside (for example connections to sshd).</em></li>
+</ul>
+</li>
 </ul>
 <p><figure>
     <img src="boot-from-systemrescuecd.0.png" width="800"/> 
@@ -182,7 +200,7 @@ EOE
 しかし root のパスワードが設定されていないと SSH 接続できないため何か設定する必要があります。<br>
 あるいは起動後に <code>passwd</code> コマンドで設定し、Firewall を Off にしても同等です。</p>
 <p><strong>3. 公開鍵認証で SSH ログインできるよう設定する</strong></p>
-<p>SystemRescueCD で起動した VM に Ansible 実行ホストから SSH 経由で provisioning するため、公開鍵認証でログインできるように設定します。</p>
+<p>SystemRescue で起動した VM に Ansible 実行ホストから SSH 経由で provisioning するため、公開鍵認証でログインできるように設定します。</p>
 <p>今回は <code>ssh-keygen</code> コマンドで一時的に鍵ペアを生成して <code>~/.ssh</code> ディレクトリを作ります。<br>
 鍵ペア自体は使わないので <code>mkdir &amp;&amp; chown &amp;&amp; chmod</code> で <code>~/.ssh</code> ディレクトリを作っても問題ありません。</p>
 <p>ホスト側の秘密鍵に合う公開鍵を <code>~/.ssh/authorized_keys</code> に保存します。<br>
@@ -323,6 +341,16 @@ VM を再起動すると VM のブロックデバイスから Gentoo Linux が�
   
   <hr />
   <h4><a href="/tags/">Tags</a></h4>
+  
+  <div>
+    
+    <a class="badge badge-pill badge-secondary" href="/tags/ansible/">ansible</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/tags/gentoo/">gentoo</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/tags/hyper-v/">hyper-v</a>
+    
+  </div>
   
 </div>
 
