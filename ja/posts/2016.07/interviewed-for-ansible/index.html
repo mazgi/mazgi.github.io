@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="/common/favicon.ico">
+    
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/common/site.css">
+    
+    
+    <title>mazgi.log :: 【SELECK掲載記念】AnsibleでPartitionを切る！</title>
+    <meta property="og:title"       content="mazgi.log :: 【SELECK掲載記念】AnsibleでPartitionを切る！" />
+    <meta property="og:type"        content="article" />
+    
+    <meta property="og:url"         content="https://mazgi.github.io/ja/posts/2016.07/interviewed-for-ansible/" />
+    
+      
+      <meta property="og:description" content="mazgi&#39;s tech blog" />
+      
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <meta name="twitter:card"       content="summary" />
+    
+    
+  </head>
+  <body>
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark">
+      
+      <span class="navbar-text mr-1">I am on</span>
+      
+      <ul class="navbar-nav">
+        
+        <li class="nav-item">
+          <a class="nav-link" target="github_mazgi" rel="noopener" href="https://github.com/mazgi">GitHub<i class="ml-1 fab fa-github"></i></a>
+        </li>
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" target="twitter_mazgi" rel="noopener" href="https://twitter.com/@mazgi">Twitter<i class="ml-1 fab fa-twitter"></i></a>
+        </li>
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" target="instagram_mazgi" rel="noopener" href="https://www.instagram.com/mazgi">Instagram<i class="ml-1 fab fa-instagram"></i></a>
+        </li>
+        
+        
+      </ul>
+    </header>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="https://mazgi.github.io/">mazgi.log</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_nav" aria-controls="navbar_nav" aria-expand="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar_nav">
+        
+        <ul class="navbar-nav mr-auto">
+          
+          
+          
+          <li class="nav-item">
+            <span class="nav-link disabled">Created At: 2016.07.15</span>
+          </li>
+          <li class="nav-item">
+            <span class="nav-link disabled">Updated At: 2021.01.16</span>
+          </li>
+          
+        </ul>
+        
+        <div class="navbar-nav ml-auto">
+          <span class="navbar-text mr-1">share this page via</span>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="https://twitter.com/share?url=https%3a%2f%2fmazgi.github.io%2fja%2fposts%2f2016.07%2finterviewed-for-ansible%2f&text=%e3%80%90SELECK%e6%8e%b2%e8%bc%89%e8%a8%98%e5%bf%b5%e3%80%91Ansible%e3%81%a7Partition%e3%82%92%e5%88%87%e3%82%8b%ef%bc%81" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fmazgi.github.io%2fja%2fposts%2f2016.07%2finterviewed-for-ansible%2f" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.linkedin.com/shareArticle?url=https%3a%2f%2fmazgi.github.io%2fja%2fposts%2f2016.07%2finterviewed-for-ansible%2f&title=%e3%80%90SELECK%e6%8e%b2%e8%bc%89%e8%a8%98%e5%bf%b5%e3%80%91Ansible%e3%81%a7Partition%e3%82%92%e5%88%87%e3%82%8b%ef%bc%81" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://plusone.google.com/_/+1/confirm?url=https%3a%2f%2fmazgi.github.io%2fja%2fposts%2f2016.07%2finterviewed-for-ansible%2f" target="_blank" rel="noopener"><i class="fab fa-google-plus"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://b.hatena.ne.jp/entry/https://mazgi.github.io/ja/posts/2016.07/interviewed-for-ansible/" target="_blank" rel="noopener">b!</a>
+            </li>
+          </ul>
+        </div>
+        
+      </div>
+    </nav>
+    <main role="main" class="container-fluid col-lg-10 offset-lg-1">
+
+<div class="row">
+  <div class="col-lg-9">
+    <article>
+      <div class="row">
+        <h1>【SELECK掲載記念】AnsibleでPartitionを切る！</h1>
+      </div>
+      <h3 id="追記">追記</h3>
+<p><a href="http://cloud.sakura.ad.jp">さくらのクラウド</a>について取材していただいた記事も公開されました！<br>
+合わせてご覧ください！！</p>
+<p><a href="https://seleck.cc/article/459">さくらのクラウドで「尖ったインフラ環境」を構築。カスタマイズに強い、その実力とは | SELECK</a></p>
+<hr>
+<h2 id="本編">本編</h2>
+<p>先日「<a href="https://seleck.cc">SELECK(セレック)</a>」様に<a href="https://www.ansible.com">Ansible</a>の活用事例をインタビューいただきました。</p>
+<p><a href="https://seleck.cc/article/437">数百台のサーバー構成を「Ansible」で管理。大規模DSPシステムを支える技術とは | SELECK</a></p>
+<p>素晴らしい記事にしていただいたのでせっかくなら何か<!-- raw HTML omitted -->ネタになりそうな<!-- raw HTML omitted -->実例をご紹介したいと考えた結果(?)、<!-- raw HTML omitted -->バッドノウハウが詰まった<!-- raw HTML omitted -->パーティションの切り方をご紹介したいと思います！</p>
+<p><a href="https://groups.google.com/forum/#!msg/ansible-project/AlmNfHshvAw/pPirMfYKG1AJ">Googleグループでも話題になって</a>いますが、本記事を書いている時点ではAnsibleにpartitionを切るモジュールはないようです。<br>
+しかしながら物理サーバーや場合によってはクラウドサーバーでもパーティションを切りたいケースは当然あります。</p>
+<h2 id="hddssdにパーティションを切る">HDD/SSDにパーティションを切る</h2>
+<p>さすがに会社のプライベートリポジトリからPlaybookを持ってくるわけにもいかないので、今回は近いものとして私の個人的なPlaybookをご紹介します。</p>
+<p><a href="https://github.com/mazgi/ansible-gentooinstallbattle">mazgi/ansible-gentooinstallbattle</a></p>
+<p>なお、実際のギョウムでは優秀な若者が改善したPlaybookが使われていることを申し添えておきます。</p>
+<p><code>gdisk</code> や <code>fdisk</code> ではなく <code>parted</code> を使うとAnsibleでも比較的簡単にパーティションを切ることができます。<br>
+いつ何時数十台のサーバーで同時にパーティションを切る必要が生じるとも限りませんので覚えておいて損はないと思います！！</p>
+<ul>
+<li>GPTパーティションテーブルを作る</li>
+</ul>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#062873;font-weight:bold">name</span>:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;Create partition table&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#062873;font-weight:bold">command</span>:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;parted --script --align optimal /dev/vda -- mklabel gpt&#34;</span></code></pre></div>
+<ul>
+<li>各パーティションを切る</li>
+</ul>
+<p>ここでは、<br>
+第1パーティションはGRUB2用にVFATで、<br>
+第2パーティションはSWAP用に、<br>
+第3パーティションはOS用に切ることにします。</p>
+<p>GRUB2用のパーティションはFAT32で4MiBもあれば十分です。フォーマットしなくても使える気がします。<br>
+OS用の第3パーティションは空き領域を全て割り当てるため最後の引数に <code>-1</code> を渡しています。</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#062873;font-weight:bold">name</span>:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;Create BIOS boot partition&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#062873;font-weight:bold">command</span>:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;parted --script --align optimal /dev/vda -- mkpart bios_boot fat32 1MiB 5MiB&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span>- <span style="color:#062873;font-weight:bold">name</span>:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;Set BIOS boot partition&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#062873;font-weight:bold">command</span>:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;parted --script --align optimal /dev/vda -- set 1 bios_grub on&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span>- <span style="color:#062873;font-weight:bold">name</span>:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;Create filesystem for grub2&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#062873;font-weight:bold">filesystem</span>:<span style="color:#bbb"> </span>fstype=vfat dev=/dev/vda1<span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span>- <span style="color:#062873;font-weight:bold">name</span>:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;Create swap partition&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#062873;font-weight:bold">command</span>:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;parted --script --align optimal /dev/vda -- mkpart swap linux-swap 5MiB 4GiB&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span>- <span style="color:#062873;font-weight:bold">name</span>:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;Create filesystem for swap&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#062873;font-weight:bold">command</span>:<span style="color:#bbb"> </span>mkswap /dev/vda2<span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span>- <span style="color:#062873;font-weight:bold">name</span>:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;Create root partition&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#062873;font-weight:bold">command</span>:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;parted --script --align optimal /dev/vda -- mkpart linux btrfs 4GiB -1&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span>- <span style="color:#062873;font-weight:bold">name</span>:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;Create filesystem for /&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#062873;font-weight:bold">filesystem</span>:<span style="color:#bbb"> </span>fstype=btrfs dev=/dev/vda3</code></pre></div>
+<p>対話式インタフェースがメインの <code>gdisk</code> や <code>fdisk</code> と違って <code>parted</code> ならAnsibleのcommandモジュールで扱いやすいですね！<br>
+あとはパーティションサイズの指定をもう少し楽にできると尚良しです。</p>
+<p>なお、この方法では「冪等性？なにそれおいしいの？」になってしまいます。<br>
+<a href="http://docs.ansible.com/ansible/filesystem_module.html">filesystemモジュール</a>はあるので、&ldquo;partition module&quot;みたいなのが提供されるとうれしいですね！<br>
+どなたか作ってください！！</p>
+<h2 id="さいごに">さいごに</h2>
+<p>SELECKではAnsibleを含めた色々なツールやサービスの事例を知ることができておすすめです！！(宣伝)</p>
+<p><a href="https://seleck.cc/article/437">数百台のサーバー構成を「Ansible」で管理。大規模DSPシステムを支える技術とは | SELECK</a></p>
+    </article>
+  </div>
+  <div class="col-lg-3">
+    <div class="sidebar">
+  
+  <h4><a href="/ja/about/">About</a></h4>
+  <p><strong>Hidenori MATSUKI</strong></p>
+<p>🍣 🍶</p>
+<p>another website: <a href="https://mazgi.com/">mazgi.com</a></p>
+  
+  <hr />
+  <h4>TableOfContents</h4>
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#追記">追記</a></li>
+      </ul>
+    </li>
+    <li><a href="#本編">本編</a></li>
+    <li><a href="#hddssdにパーティションを切る">HDD/SSDにパーティションを切る</a></li>
+    <li><a href="#さいごに">さいごに</a></li>
+  </ul>
+</nav>
+  <hr />
+  <h4><a href="/ja/categories/">Categories</a></h4>
+  
+  <hr />
+  <h4><a href="/ja/tags/">Tags</a></h4>
+  
+</div>
+
+  </div>
+</div>
+      <div class="row">
+        <footer class="col-lg-12">
+          <hr/>
+          <span>&copy; mazgi.log</span>
+          <span>&nbsp;&middot;&nbsp;</span>
+          <i class="fas fa-bolt"></i>
+          <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a></span>
+          
+          <span>&nbsp;&middot;&nbsp;</span>
+          <span>This website <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">uses Google Analytics</a>.</span>
+          
+        </footer>
+      </div>
+    </div>
+    </main>
+    
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68170979-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-68170979-2');
+    </script>
+    
+      
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+      });
+    </script>
+  </body>
+</html>
+

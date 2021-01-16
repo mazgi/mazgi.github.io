@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="/common/favicon.ico">
+    
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/common/site.css">
+    
+    
+    <title>mazgi.log :: AWSストレージ概観</title>
+    <meta property="og:title"       content="mazgi.log :: AWSストレージ概観" />
+    <meta property="og:type"        content="article" />
+    
+    <meta property="og:url"         content="https://mazgi.github.io/ja/posts/2019.06/the-trend-of-aws-storages/" />
+    
+      
+      <meta property="og:description" content="mazgi&#39;s tech blog" />
+      
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <meta name="twitter:card"       content="summary" />
+    
+    
+  </head>
+  <body>
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark">
+      
+      <span class="navbar-text mr-1">I am on</span>
+      
+      <ul class="navbar-nav">
+        
+        <li class="nav-item">
+          <a class="nav-link" target="github_mazgi" rel="noopener" href="https://github.com/mazgi">GitHub<i class="ml-1 fab fa-github"></i></a>
+        </li>
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" target="twitter_mazgi" rel="noopener" href="https://twitter.com/@mazgi">Twitter<i class="ml-1 fab fa-twitter"></i></a>
+        </li>
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" target="instagram_mazgi" rel="noopener" href="https://www.instagram.com/mazgi">Instagram<i class="ml-1 fab fa-instagram"></i></a>
+        </li>
+        
+        
+      </ul>
+    </header>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="https://mazgi.github.io/">mazgi.log</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_nav" aria-controls="navbar_nav" aria-expand="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar_nav">
+        
+        <ul class="navbar-nav mr-auto">
+          
+          
+          
+          <li class="nav-item">
+            <span class="nav-link disabled">Created At: 2019.06.22</span>
+          </li>
+          <li class="nav-item">
+            <span class="nav-link disabled">Updated At: 2021.01.16</span>
+          </li>
+          
+        </ul>
+        
+        <div class="navbar-nav ml-auto">
+          <span class="navbar-text mr-1">share this page via</span>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="https://twitter.com/share?url=https%3a%2f%2fmazgi.github.io%2fja%2fposts%2f2019.06%2fthe-trend-of-aws-storages%2f&text=AWS%e3%82%b9%e3%83%88%e3%83%ac%e3%83%bc%e3%82%b8%e6%a6%82%e8%a6%b3" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fmazgi.github.io%2fja%2fposts%2f2019.06%2fthe-trend-of-aws-storages%2f" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.linkedin.com/shareArticle?url=https%3a%2f%2fmazgi.github.io%2fja%2fposts%2f2019.06%2fthe-trend-of-aws-storages%2f&title=AWS%e3%82%b9%e3%83%88%e3%83%ac%e3%83%bc%e3%82%b8%e6%a6%82%e8%a6%b3" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://plusone.google.com/_/+1/confirm?url=https%3a%2f%2fmazgi.github.io%2fja%2fposts%2f2019.06%2fthe-trend-of-aws-storages%2f" target="_blank" rel="noopener"><i class="fab fa-google-plus"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://b.hatena.ne.jp/entry/https://mazgi.github.io/ja/posts/2019.06/the-trend-of-aws-storages/" target="_blank" rel="noopener">b!</a>
+            </li>
+          </ul>
+        </div>
+        
+      </div>
+    </nav>
+    <main role="main" class="container-fluid col-lg-10 offset-lg-1">
+
+<div class="row">
+  <div class="col-lg-9">
+    <article>
+      <div class="row">
+        <h1>AWSストレージ概観</h1>
+      </div>
+      <p>AWSで使えるローカルストレージとNFSストレージを一通り試してみました。<br>
+<a href="/ja/posts/2019.06/the-trend-of-gcp-storages/">GCP編はこちら</a>。</p>
+<h1 id="about">About</h1>
+<p>ベンチマークはfioコマンドで取得した。<br>
+機械学習のワークロードで扱う機会が多い、CSVのような小さめのテキストファイルとマルチメディアファイルを想定して4kと32mのデータで測定した。</p>
+<p>なお、ストレージタイプごとの傾向をざっくりと知りたかったので性能を引き出すような設定や調整は行なっていない。<br>
+また以下の理由でIaaSのストレージを厳密に測定してもあまり意味はないと考えている。</p>
+<ul>
+<li>IaaSのリソースはシェアされているので他のユーザー(テナント)の影響を受ける</li>
+<li>非公開な仕様が特に告知なく更新される(バス幅や各種ストレージの物理仕様など)</li>
+</ul>
+<p>試したストレージは以下。</p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume</a>(ローカルブロックデバイス)
+<ul>
+<li><code>gp2</code> : 汎用, SSD</li>
+<li><code>io1</code> : Highest-performance SSD</li>
+<li><em>HDD(<code>st1</code>, <code>sc1</code>)は試さなかった</em></li>
+</ul>
+</li>
+<li><a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html">Amazon EFS Performance</a>(マネージドNFSサービス)</li>
+</ul>
+<h1 id="results">Results</h1>
+<p>以下の通りTerraformによるIaCでprovisioningした。<br>
+<a href="https://github.com/mazgi/terraform-aws-simple-vpc/tree/v2019.06.2/examples/multiple-volumes">https://github.com/mazgi/terraform-aws-simple-vpc/tree/v2019.06.2/examples/multiple-volumes</a></p>
+<p>また<a href="https://aws.amazon.com/ec2/instance-types/i3en/"><code>i3en</code></a>インスタンスを使って測定したので<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro</a>アーキテクチャでの結果となる。</p>
+<p>結果はこちら。<br>
+<a href="https://gist.github.com/mazgi/fa855f576aca50ff0f204f6386c275dc">https://gist.github.com/mazgi/fa855f576aca50ff0f204f6386c275dc</a></p>
+<p>結果をテーブルにまとめた。</p>
+<h2 id="ebs">EBS</h2>
+<p><code>io1</code> はたしかに、</p>
+<blockquote>
+<p>more than 16,000 IOPS or 250 MiB/s of throughput per volume</p>
+</blockquote>
+<p>と<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">書いてある</a>通りの性能が出ている。</p>
+<p><code>i3en</code> についてくるNVMe SSDも速い。<br>
+ボリュームサイズが <code>1,250 GB</code> の倍数で自動的に決まってしまう制約はあるが使えるシチュエーションはそれなりにありそう。<br>
+4k randreadが妙に遅いのでこれは実行タイミングで何かあったのかもしれない。</p>
+<table>
+<thead>
+<tr>
+<th>type</th>
+<th>r/w</th>
+<th>rand/seq</th>
+<th>IOPS 4k</th>
+<th>,32m</th>
+<th>BW/s 4k</th>
+<th>,32m</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gp2</td>
+<td>r</td>
+<td>rand</td>
+<td>3100</td>
+<td>4</td>
+<td>12.1MiB</td>
+<td>129MiB</td>
+</tr>
+<tr>
+<td>gp2</td>
+<td>w</td>
+<td>rand</td>
+<td>1791</td>
+<td>4</td>
+<td>7165KiB</td>
+<td>134MiB</td>
+</tr>
+<tr>
+<td>gp2</td>
+<td>r</td>
+<td>seq</td>
+<td>3100</td>
+<td>4</td>
+<td>12.1MiB</td>
+<td>129MiB</td>
+</tr>
+<tr>
+<td>gp2</td>
+<td>w</td>
+<td>seq</td>
+<td>1863</td>
+<td>4</td>
+<td>7453KiB</td>
+<td>134MiB</td>
+</tr>
+<tr>
+<td>io1</td>
+<td>r</td>
+<td>rand</td>
+<td>17.2k</td>
+<td>13</td>
+<td>67.2MiB</td>
+<td>429MiB</td>
+</tr>
+<tr>
+<td>io1</td>
+<td>w</td>
+<td>rand</td>
+<td>2253</td>
+<td>15</td>
+<td>9014KiB</td>
+<td>484MiB</td>
+</tr>
+<tr>
+<td>io1</td>
+<td>r</td>
+<td>seq</td>
+<td>17.3k</td>
+<td>13</td>
+<td>67.6MiB</td>
+<td>428MiB</td>
+</tr>
+<tr>
+<td>io1</td>
+<td>w</td>
+<td>seq</td>
+<td>2422</td>
+<td>15</td>
+<td>9690KiB</td>
+<td>483MiB</td>
+</tr>
+<tr>
+<td>NVMe (i3en)</td>
+<td>r</td>
+<td>rand</td>
+<td>20.8k</td>
+<td>10</td>
+<td>81.1MiB</td>
+<td>350MiB</td>
+</tr>
+<tr>
+<td>NVMe (i3en)</td>
+<td>w</td>
+<td>rand</td>
+<td>33.2k</td>
+<td>5</td>
+<td>130MiB</td>
+<td>165MiB</td>
+</tr>
+<tr>
+<td>NVMe (i3en)</td>
+<td>r</td>
+<td>seq</td>
+<td>45.1k</td>
+<td>10</td>
+<td>176MiB</td>
+<td>346MiB</td>
+</tr>
+<tr>
+<td>NVMe (i3en)</td>
+<td>w</td>
+<td>seq</td>
+<td>33.0k</td>
+<td>5</td>
+<td>133MiB</td>
+<td>165MiB</td>
+</tr>
+</tbody>
+</table>
+<h2 id="efs">EFS</h2>
+<p>AWSのマネージドNFSサービスであるEFSは案外選択肢が豊富で、2つの <code>Performance Mode</code> と2つの <code>Throughput Mode</code> を選べるため、 <code>2 * 2 = 4</code> 通りのボリュームを設定できる。</p>
+<ul>
+<li><strong>Performance Mode:</strong> <code>General Purpose</code> or <code>Max I/O</code></li>
+<li><strong>Throughput Modes:</strong> <code>Bursting</code> or <code>Provisioned</code>
+<ul>
+<li><code>Bursting</code> =&gt; <a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html#throughput-modes">使用容量が増えるとスループットが引き上げられる</a>モード、今回は空の状態でベンチマークを実行したので最低ラインのスループットなはず</li>
+<li><code>Provisioned</code> =&gt; 使用容量に関わらず課金でスループットを買えるモード、今回のベンチマークは最大値である <code>1024</code> で測定</li>
+</ul>
+</li>
+</ul>
+<p>Performance Modeの違いはよくわからなかった。<br>
+ほとんどのシチュエーションではGeneral Purposeを使っておけば良さそう。<br>
+(Performance ModeはEFSボリューム作成後に変更できない)</p>
+<p>Throughput ModeはEFSボリュームを作った後でも変更できるので、お金に余裕があるときは <code>Provisioned</code> で始めて容量が増えたら <code>Bursting</code> に変える方法が使えそう。</p>
+<table>
+<thead>
+<tr>
+<th>type</th>
+<th>r/w</th>
+<th>rand/seq</th>
+<th>IOPS 4k</th>
+<th>,32m</th>
+<th>BW/s 4k</th>
+<th>,32m</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GP (bursting)</td>
+<td>r</td>
+<td>rand</td>
+<td>894</td>
+<td>3</td>
+<td>3580KiB</td>
+<td>101MiB</td>
+</tr>
+<tr>
+<td>GP (bursting)</td>
+<td>w</td>
+<td>rand</td>
+<td>250</td>
+<td>3</td>
+<td>1003KiB</td>
+<td>104MiB</td>
+</tr>
+<tr>
+<td>GP (bursting)</td>
+<td>r</td>
+<td>seq</td>
+<td>900</td>
+<td>3</td>
+<td>3604KiB</td>
+<td>101MiB</td>
+</tr>
+<tr>
+<td>GP (bursting)</td>
+<td>w</td>
+<td>seq</td>
+<td>258</td>
+<td>2</td>
+<td>1034KiB</td>
+<td>95.4MiB</td>
+</tr>
+<tr>
+<td>GP (provisioned)</td>
+<td>r</td>
+<td>rand</td>
+<td>919</td>
+<td>8</td>
+<td>3680KiB</td>
+<td>258MiB</td>
+</tr>
+<tr>
+<td>GP (provisioned)</td>
+<td>w</td>
+<td>rand</td>
+<td>253</td>
+<td>6</td>
+<td>1014KiB</td>
+<td>204MiB</td>
+</tr>
+<tr>
+<td>GP (provisioned)</td>
+<td>r</td>
+<td>seq</td>
+<td>1021</td>
+<td>8</td>
+<td>4085KiB</td>
+<td>258MiB</td>
+</tr>
+<tr>
+<td>GP (provisioned)</td>
+<td>w</td>
+<td>seq</td>
+<td>276</td>
+<td>6</td>
+<td>1105KiB</td>
+<td>202MiB</td>
+</tr>
+<tr>
+<td>Max I/O (bursting)</td>
+<td>r</td>
+<td>rand</td>
+<td>665</td>
+<td>3</td>
+<td>2662KiB</td>
+<td>104MiB</td>
+</tr>
+<tr>
+<td>Max I/O (bursting)</td>
+<td>w</td>
+<td>rand</td>
+<td>187</td>
+<td>3</td>
+<td>748KiB</td>
+<td>102MiB</td>
+</tr>
+<tr>
+<td>Max I/O (bursting)</td>
+<td>r</td>
+<td>seq</td>
+<td>775</td>
+<td>3</td>
+<td>3103KiB</td>
+<td>104MiB</td>
+</tr>
+<tr>
+<td>Max I/O (bursting)</td>
+<td>w</td>
+<td>seq</td>
+<td>263</td>
+<td>3</td>
+<td>1054KiB</td>
+<td>103MiB</td>
+</tr>
+<tr>
+<td>Max I/O (provisioned)</td>
+<td>r</td>
+<td>rand</td>
+<td>762</td>
+<td>8</td>
+<td>3052KiB</td>
+<td>257MiB</td>
+</tr>
+<tr>
+<td>Max I/O (provisioned)</td>
+<td>w</td>
+<td>rand</td>
+<td>265</td>
+<td>4</td>
+<td>1061KiB</td>
+<td>153MiB</td>
+</tr>
+<tr>
+<td>Max I/O (provisioned)</td>
+<td>r</td>
+<td>seq</td>
+<td>734</td>
+<td>8</td>
+<td>2940KiB</td>
+<td>258MiB</td>
+</tr>
+<tr>
+<td>Max I/O (provisioned)</td>
+<td>w</td>
+<td>seq</td>
+<td>261</td>
+<td>5</td>
+<td>1048KiB</td>
+<td>161MiB</td>
+</tr>
+</tbody>
+</table>
+<h1 id="thats-all">That&rsquo;s all</h1>
+<p>AWSのストレージは本当に種類が多くて選択に迷っていたので一度全部試してみたかった。</p>
+<p>今回、「インターネットやAIを活用し、世の中にデライトを届けていく」<a href="https://dena.ai/">dena.ai</a>の提供でベンチマーク実行させていただきスッキリしました。感謝 🙏</p>
+
+    </article>
+  </div>
+  <div class="col-lg-3">
+    <div class="sidebar">
+  
+  <h4><a href="/ja/about/">About</a></h4>
+  <p><strong>Hidenori MATSUKI</strong></p>
+<p>🍣 🍶</p>
+<p>another website: <a href="https://mazgi.com/">mazgi.com</a></p>
+  
+  <hr />
+  <h4>TableOfContents</h4>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ebs">EBS</a></li>
+    <li><a href="#efs">EFS</a></li>
+  </ul>
+</nav>
+  <hr />
+  <h4><a href="/ja/categories/">Categories</a></h4>
+  
+  <hr />
+  <h4><a href="/ja/tags/">Tags</a></h4>
+  
+  <div>
+    
+    <a class="badge badge-pill badge-secondary" href="/ja/tags/aws/">aws</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/ja/tags/benchmark/">benchmark</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/ja/tags/storage/">storage</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/ja/tags/file-system/">file system</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/ja/tags/nfs/">nfs</a>
+    
+  </div>
+  
+</div>
+
+  </div>
+</div>
+      <div class="row">
+        <footer class="col-lg-12">
+          <hr/>
+          <span>&copy; mazgi.log</span>
+          <span>&nbsp;&middot;&nbsp;</span>
+          <i class="fas fa-bolt"></i>
+          <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a></span>
+          
+          <span>&nbsp;&middot;&nbsp;</span>
+          <span>This website <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">uses Google Analytics</a>.</span>
+          
+        </footer>
+      </div>
+    </div>
+    </main>
+    
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68170979-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-68170979-2');
+    </script>
+    
+      
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+      });
+    </script>
+  </body>
+</html>
+

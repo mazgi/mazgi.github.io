@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>bootstrap on mazgi.log</title>
+    <link>https://mazgi.github.io/ja/tags/bootstrap/</link>
+    <description>Recent content in bootstrap on mazgi.log</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 06 May 2018 21:04:37 +0900</lastBuildDate><atom:link href="https://mazgi.github.io/ja/tags/bootstrap/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>このWebサイトの見た目をちょっとまともにした</title>
+      <link>https://mazgi.github.io/ja/posts/2018.05/update-hugo-theme/</link>
+      <pubDate>Sun, 06 May 2018 21:04:37 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/ja/posts/2018.05/update-hugo-theme/</guid>
+      <description>このWebサイト( https://mazgi.github.io/ )は専用のHugoテーマで公開しているのだけど色々基本的なところが足りていなかったので直した。 一覧ページ(list.ht</description>
+    </item>
+    
+  </channel>
+</rss>
