@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="/common/favicon.ico">
+    
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/common/site.css">
+    
+    
+    <title>mazgi.log :: なぜそのプロジェクトでKubernetesが選択されたか</title>
+    <meta property="og:title"       content="mazgi.log :: なぜそのプロジェクトでKubernetesが選択されたか" />
+    <meta property="og:type"        content="article" />
+    
+    <meta property="og:url"         content="https://mazgi.github.io/posts/2019.12/why-choose-k8s-for-the-project/" />
+    
+      
+      <meta property="og:description" content="mazgi&#39;s tech blog" />
+      
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <meta name="twitter:card"       content="summary" />
+    
+    
+  </head>
+  <body>
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark">
+      
+      <span class="navbar-text mr-1">I am on</span>
+      
+      <ul class="navbar-nav">
+        
+        <li class="nav-item">
+          <a class="nav-link" target="github_mazgi" rel="noopener" href="https://github.com/mazgi">GitHub<i class="ml-1 fab fa-github"></i></a>
+        </li>
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" target="twitter_mazgi" rel="noopener" href="https://twitter.com/@mazgi">Twitter<i class="ml-1 fab fa-twitter"></i></a>
+        </li>
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" target="instagram_mazgi" rel="noopener" href="https://www.instagram.com/mazgi">Instagram<i class="ml-1 fab fa-instagram"></i></a>
+        </li>
+        
+        
+      </ul>
+    </header>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="https://mazgi.github.io/">mazgi.log</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_nav" aria-controls="navbar_nav" aria-expand="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar_nav">
+        
+        <ul class="navbar-nav mr-auto">
+          
+          
+          
+          <li class="nav-item">
+            <span class="nav-link disabled">Created At: 2019.12.18</span>
+          </li>
+          <li class="nav-item">
+            <span class="nav-link disabled">Updated At: 2021.01.17</span>
+          </li>
+          
+        </ul>
+        
+        <div class="navbar-nav ml-auto">
+          <span class="navbar-text mr-1">share this page via</span>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="https://twitter.com/share?url=https%3a%2f%2fmazgi.github.io%2fposts%2f2019.12%2fwhy-choose-k8s-for-the-project%2f&text=%e3%81%aa%e3%81%9c%e3%81%9d%e3%81%ae%e3%83%97%e3%83%ad%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88%e3%81%a7Kubernetes%e3%81%8c%e9%81%b8%e6%8a%9e%e3%81%95%e3%82%8c%e3%81%9f%e3%81%8b" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fmazgi.github.io%2fposts%2f2019.12%2fwhy-choose-k8s-for-the-project%2f" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.linkedin.com/shareArticle?url=https%3a%2f%2fmazgi.github.io%2fposts%2f2019.12%2fwhy-choose-k8s-for-the-project%2f&title=%e3%81%aa%e3%81%9c%e3%81%9d%e3%81%ae%e3%83%97%e3%83%ad%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88%e3%81%a7Kubernetes%e3%81%8c%e9%81%b8%e6%8a%9e%e3%81%95%e3%82%8c%e3%81%9f%e3%81%8b" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://plusone.google.com/_/+1/confirm?url=https%3a%2f%2fmazgi.github.io%2fposts%2f2019.12%2fwhy-choose-k8s-for-the-project%2f" target="_blank" rel="noopener"><i class="fab fa-google-plus"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://b.hatena.ne.jp/entry/https://mazgi.github.io/posts/2019.12/why-choose-k8s-for-the-project/" target="_blank" rel="noopener">b!</a>
+            </li>
+          </ul>
+        </div>
+        
+      </div>
+    </nav>
+    <main role="main" class="container-fluid col-lg-10 offset-lg-1">
+
+<div class="row">
+  <div class="col-lg-9">
+    <article>
+      <div class="row">
+        <h1>なぜそのプロジェクトでKubernetesが選択されたか</h1>
+      </div>
+      <p>これは<a href="/posts/2019.12/went-to-gcpug-tokyo-dec-2019/">「GCPUG Tokyo December 2019」の記事</a>から「Why Kubernetes? Why not GAE or others?」部分を切り出した記事です。<br>
+本記事のコンテキストとして、イベントでお話しさせていただいた資料「<a href="https://speakerdeck.com/mazgi/fast-development-for-ml-web-service-on-gke-and-gcp">ML アプリケーション短期開発 / Fast development for ML Web Service on GKE &amp; GCP</a>」」を事前にご参照いただけると幸いです。</p>
+<h2 id="why-kubernetes-why-not-gae-or-others">Why Kubernetes? Why not GAE or others?</h2>
+<p>なぜ今回のプロジェクトではより簡単そうに見える GAE やその他開発プラットフォームではなく k8s を提案したのか、私自身の技術選定基準やプロジェクトへの関わり方含めてこの機会に言語化を試みます。</p>
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">GAEとかのほうが、とっつきやすそうだけど、<br>Docker使っているから、k8sなんですね。<br> <a href="https://twitter.com/hashtag/gcpug?src=hash&amp;ref_src=twsrc%5Etfw">#gcpug</a></p>&mdash; やまっぴ🤔 (@Yamappy4) <a href="https://twitter.com/Yamappy4/status/1207249477943189505?ref_src=twsrc%5Etfw">December 18, 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>まず、私自身は軽量に Web アプリケーションを開発することに強いモチベーションがあり、GAE はもちろん Firebase ファミリーや Cloud Functions, AWS Lambda は積極的に活用したいと考えています。<br>
+また所属している社内や部署内を見ても GAE とは限りませんが多様な Web アプリケーション開発プラットフォームの使用実績があります。<br>
+機械学習に絡んだところでは<a href="https://serverless.com/">Serverless フレームワーク</a>を用いて短期間で Web アプリケーションを開発された実績もあります。</p>
+<p><a href="https://www.slideshare.net/dena_tech/full-stack-ai-development-mobilitydev">課題ドリブン、フルスタック AI 開発術 [MOBILITY:dev]</a></p>
+<p>ではなぜ今回 Kubernetes(k8s) を提案したのか?<br>
+私自身としては次の 3 つの要因を元に「Docker Compose で開発して k8s に Deploy する」開発方針が適していると考え提案しました。</p>
+<ul>
+<li>a. チームの現在のスキルセット</li>
+<li>b. チームの Web サービス開発経験値とポテンシャル</li>
+<li>c. 機械学習のシステム的な特性と制約</li>
+</ul>
+<p>業務としてのプロジェクト完遂だけを考えるなら何を使っても同じように余裕はないながら間に合わせることはできたと思っています。<br>
+その上でどのような技術を選択したかによる差異は、k8s を含め汎用的で開発自由度に重きを置いた基盤を使えば世にある膨大な情報と選択肢から適した技術を調べ選ぶコストが発生し、GAE 等の適度に制約が加わったプラットフォームを選べば仕様が 2 転 3 転しより良いサービスを作ろうとする中で制約に気付き対処方法を考え乗り切るか諦めるか判断するコストが発生することだと考えています。</p>
+<p>後者に関しては GAE であれば今回のサービスは完成したでしょうが、しかしチームメンバーがそれぞれ次に加わったプロジェクトでは適さない可能性もあります。<br>
+想定しやすい例としては以下です。</p>
+<ul>
+<li>GPU 資源として Amazon EC2 P シリーズを使用しており Web アプリケーションだけ GAE を使うと運用コストと通信費が跳ね上がる</li>
+<li>エッジデバイスや物理設備と接続する必要があり制約により通信経路が大きく制限される</li>
+<li>Web サービスと同等のオフラインデモンストレーションが必要</li>
+</ul>
+<p>かなりボカしていますがどれも私たちにとってはあり得るものです。<br>
+これらはいずれもある程度の Web サービス開発経験があれば適した技術を選択できるシチュエーションです。<br>
+そして適した技術を選択するために必要なのは Web サービス開発の基礎と経験だと考えています。</p>
+<p>古いあるいはコンサバな考えと言われるかもしれませんが、私は 2019 年現在の Web アプリケーション開発の基礎は NGINX や Apache での HTML, CSS, JavaScript 配信や <code>express().get()</code> や <code>http.ListenAndServe()</code> や <code>curl</code> だと思っていますし、コンテナと聞くと Docker と合わせて LXC や chroot を連想します。<br>
+一方で GAE や FaaS は極めて高度な応用に見えます。（もちろんこれらはとても便利で良いものです）</p>
+<p>基礎を知る機会がないまま「今回は GAE で」「次は XXX で」と異なる開発プラットフォームを使うことには、コンテキストスイッチによる負担が増し技術を深掘りする余裕がなくなると感じます。<br>
+実際、基礎を理解する間がないまま制約を回避するために毎回のように違う技術を使わざるを得ない状況は&quot;振り回される&quot;以外の何ものでもないでしょう。</p>
+<p>私自身も経験がありますが「前回せっかく A を覚えたのに今回は A が全く役に立たないし新たに B を覚えないといけない」状況は無力感に苛まれあるいは強くフラストレーションを感じるのではないでしょうか。<br>
+「それも仕事のうち」と言い聞かせ納得することも時には必要ですが、努力は理不尽を飲み込み耐え続けるためではなく、時間効率を上げ精神負荷を下げ開発効率を上げるために行うべきでしょう。</p>
+<p>せっかくなら「なるほど GAE は Docker とはまた違うコンテナなんだな、ということはランタイムはどうなっているんだろう？」「Lambda は結局 VM 上で実行されるのか、実行ごとにプロセスが起動されてるんだろうか? <code>docker run</code> とは違うのかな?」などなど、基礎の上に積み重ねて新たな応用技術を習得したいですし、その機会を提供したいと常に願っています。</p>
+<p>基礎や原則を軸としディテールを関連付けていくことで理解が進み記憶に残りやすいことはよく知られていますし、多くの方が感覚的にも納得できるところだと思います。</p>
+<p>このような考えのもと、汎用的で開発自由度に重きを置いた基盤としての k8s を提案しました。<br>
+一方で Docker Compose で開発し k8s に Deploy するとなると無数の Web アプリケーション開発技術を調べて選ぶコストが生じます。<br>
+このコストと負担は必要ではなく、少なければ少ないほど良いものです。<br>
+そのためコストと負担をごっそり削減することを狙ってサンプル(<a href="https://speakerdeck.com/mazgi/fast-development-for-ml-web-service-on-gke-and-gcp?slide=14">p.14</a>)を作り叩き台としました。</p>
+<p>「知の高速道路に乗る」という言葉がありますが、サンプルは知の高速道路に乗り、道路が左側通行なのか右側通行なのか、どの車線で時速何 km まで出していいのか教えてくれます。<br>
+サンプルを含めて導入できた技術は<a href="https://speakerdeck.com/mazgi/fast-development-for-ml-web-service-on-gke-and-gcp?slide=23">p.23</a>以降の通りです。</p>
+<p><blockquote class="twitter-tweet"><p lang="ja" dir="ltr">短期間だけどすごくしっかりしたプロジェクトだ･･･ <a href="https://twitter.com/hashtag/gcpug?src=hash&amp;ref_src=twsrc%5Etfw">#gcpug</a></p>&mdash; shu1@AWSコスト本販売中 (@ohsawa0515) <a href="https://twitter.com/ohsawa0515/status/1207247594109296641?ref_src=twsrc%5Etfw">December 18, 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">2ヵ月 + 5人 x 0.1人月でできるプロジェクト構成じゃないほどシッカリしているのですが……？？？？<br>凄い<br> <a href="https://twitter.com/hashtag/gcpug?src=hash&amp;ref_src=twsrc%5Etfw">#gcpug</a></p>&mdash; 0Δ@旦那ｧ!(し) (@0Delta) <a href="https://twitter.com/0Delta/status/1207249024207638529?ref_src=twsrc%5Etfw">December 18, 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</p>
+<p>ただ、今回のプロジェクトでは対面でディスカッションできる機会がとても少なかったのは事実で、例えば「Next.js or React or Material UI の境目がわかりづらい」などサンプルだけでは掴みづらい点が負担となってしまいました。<br>
+優秀なメンバーばかりだったおかげで本当にどうにか乗り切れましたが、どの技術を選択しても&quot;ハマりどころ&quot;みたいなものはあるのでどのようにその躓きを減らせるかは今後の個人的課題です。</p>
+<h2 id="thats-all">That&rsquo;s all</h2>
+<p>そんなわけで「短期間なのにしっかりした構成」と褒めていただけましたが、これはひとえに最高のメンバーが集まったことによります ❇️<br>
+「AI 入門」講座に参加してくださった小学生の皆さんもとても喜んでくださって我々も大きな達成感がありましたが、エンジニアリングとしてはより安定的に成果を出していきたいとも改めて感じた次第です。</p>
+<p><blockquote class="twitter-tweet"><p lang="ja" dir="ltr">チームの4/5が新卒 <a href="https://twitter.com/hashtag/gcpug?src=hash&amp;ref_src=twsrc%5Etfw">#gcpug</a></p>&mdash; papageno (@papagen40734986) <a href="https://twitter.com/papagen40734986/status/1207246995997380609?ref_src=twsrc%5Etfw">December 18, 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">新卒活躍すごい。<br> <a href="https://twitter.com/hashtag/gcpug?src=hash&amp;ref_src=twsrc%5Etfw">#gcpug</a></p>&mdash; やまっぴ🤔 (@Yamappy4) <a href="https://twitter.com/Yamappy4/status/1207246728753106945?ref_src=twsrc%5Etfw">December 18, 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">つよつよ新卒たちのチームだ<a href="https://twitter.com/hashtag/gcpug?src=hash&amp;ref_src=twsrc%5Etfw">#gcpug</a></p>&mdash; _ (@apstndb) <a href="https://twitter.com/apstndb/status/1207246679562285056?ref_src=twsrc%5Etfw">December 18, 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</p>
+<p>あと Web アプリケーション開発に慣れてる方はお気付きの通り、これでも Redux や Job 管理は削ってますし、本番が 1 日限りかつ同時接続数極めて少ないということでパフォーマンスも運用監視も手付かずなので、Web サービスを作って運用するというのは本当に難しいですね。</p>
+<p><em>極めて個人的な思い出ですが<a href="https://twitter.com/onk">@onk</a>さんの「<a href="https://www.slideshare.net/takafumionaka/web-15929881">Web アプリケーションは難しい</a>」を今でもよく思い出します。</em><br>
+<em>当時同僚としてこの話を生で聴けたのは僥倖でした。</em></p>
+<p>良い機会をいただいたので言語化してみたのですが伝われば幸いです。</p>
+    </article>
+  </div>
+  <div class="col-lg-3">
+    <div class="sidebar">
+  
+  <h4><a href="/about/">About</a></h4>
+  <p><strong>Hidenori MATSUKI</strong></p>
+<p>🍣 🍶</p>
+<p>another website: <a href="https://mazgi.com/">mazgi.com</a></p>
+  
+  <hr />
+  <h4>TableOfContents</h4>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#why-kubernetes-why-not-gae-or-others">Why Kubernetes? Why not GAE or others?</a></li>
+    <li><a href="#thats-all">That&rsquo;s all</a></li>
+  </ul>
+</nav>
+  <hr />
+  <h4><a href="/categories/">Categories</a></h4>
+  
+  <hr />
+  <h4><a href="/tags/">Tags</a></h4>
+  
+  <div>
+    
+    <a class="badge badge-pill badge-secondary" href="/tags/kubernetes/">kubernetes</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/tags/docker/">docker</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/tags/docker-compose/">docker-compose</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/tags/ml-engineering/">ml-engineering</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/tags/web-frontend/">web-frontend</a>
+    
+  </div>
+  
+</div>
+
+  </div>
+</div>
+      <div class="row">
+        <footer class="col-lg-12">
+          <hr/>
+          <span>&copy; mazgi.log</span>
+          <span>&nbsp;&middot;&nbsp;</span>
+          <i class="fas fa-bolt"></i>
+          <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a></span>
+          
+          <span>&nbsp;&middot;&nbsp;</span>
+          <span>This website <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">uses Google Analytics</a>.</span>
+          
+        </footer>
+      </div>
+    </div>
+    </main>
+    
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68170979-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-68170979-2');
+    </script>
+    
+      
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+      });
+    </script>
+  </body>
+</html>
+

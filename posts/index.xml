@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on mazgi.log</title>
+    <link>https://mazgi.github.io/posts/</link>
+    <description>Recent content in Posts on mazgi.log</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 14 Jan 2021 02:46:51 +0000</lastBuildDate><atom:link href="https://mazgi.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AnsibleでGentoo Linuxをインストールする</title>
+      <link>https://mazgi.github.io/posts/2021/01/install-gentoo-linux-using-ansible/</link>
+      <pubDate>Thu, 14 Jan 2021 02:46:51 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2021/01/install-gentoo-linux-using-ansible/</guid>
+      <description>Gentoo Linux のインストールは、GUI インストーラが用意された他の多くの Linux ディストリビュージョンと違い、次のようなプリミティブな方法であることが知られ</description>
+    </item>
+    
+    <item>
+      <title>Web系開発者を目指す方向けPC&amp;開発環境(2021年版)</title>
+      <link>https://mazgi.github.io/posts/2020/11/best-pcs-and-environments-for-web-developers-in-2021/</link>
+      <pubDate>Sun, 08 Nov 2020 21:53:42 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2020/11/best-pcs-and-environments-for-web-developers-in-2021/</guid>
+      <description>この記事の目的 この記事では、Web 系開発者を目指す方に向けておすすめの PC と開発環境をご紹介します。 ただ PC を列挙するだけではなく、私がこれらを</description>
+    </item>
+    
+    <item>
+      <title>業界未経験からITエンジニアを目指す人向けのアピール方法</title>
+      <link>https://mazgi.github.io/posts/2020/11/how-to-appeal-yourself-for-an-it-developer-position-when-you-have-zero-experience/</link>
+      <pubDate>Sun, 01 Nov 2020 17:31:14 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2020/11/how-to-appeal-yourself-for-an-it-developer-position-when-you-have-zero-experience/</guid>
+      <description>この記事では未経験から IT エンジニアとして就職を目指している方に向けて、実績 0 あるいは限られた実績が少しでも確実に伝わる方法をご紹介します。 こ</description>
+    </item>
+    
+    <item>
+      <title>Gitのデフォルトブランチを&#34;master&#34;から&#34;main&#34;に変える方法</title>
+      <link>https://mazgi.github.io/posts/2020.10/how-to-change-git-default-branch-to-main-from-master/</link>
+      <pubDate>Fri, 30 Oct 2020 07:43:35 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2020.10/how-to-change-git-default-branch-to-main-from-master/</guid>
+      <description>tl;dr git branch --move master main git remote set-head origin --auto サンプルはこちら。 https://github.com/mazgi-sandbox/202010.change-git-default-branch</description>
+    </item>
+    
+    <item>
+      <title>One-Stop Web Service Development using Docker and Cloud Run</title>
+      <link>https://mazgi.github.io/posts/2020.10/one-stop-web-service-development-using-docker-and-cloud-run/</link>
+      <pubDate>Thu, 29 Oct 2020 03:41:04 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2020.10/one-stop-web-service-development-using-docker-and-cloud-run/</guid>
+      <description>この記事では GitHub, Docker そして Cloud Run を用いた Web アプリケーション開発と Deploy の方法を紹介します。 また本記事で紹介する構成はテンプレートを OSS として公開していま</description>
+    </item>
+    
+    <item>
+      <title>2020年代を生き抜くWebアプリケーション基盤の私的整理</title>
+      <link>https://mazgi.github.io/posts/2020.09/better-web-application-infrastructure-in-my-case/</link>
+      <pubDate>Sat, 19 Sep 2020 13:55:08 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2020.09/better-web-application-infrastructure-in-my-case/</guid>
+      <description>Webアプリケーションを動かすためにはどうしてもCPU、メモリ、ストレージなどが必要です。 せっかく作ったWebアプリケーションを誰かに使って</description>
+    </item>
+    
+    <item>
+      <title>Terraformを使ってWebアプリケーション運用向けにGCEを構築する</title>
+      <link>https://mazgi.github.io/posts/2020.05/provision-gce-webapp-environment-by-terraform/</link>
+      <pubDate>Thu, 14 May 2020 13:13:17 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2020.05/provision-gce-webapp-environment-by-terraform/</guid>
+      <description>&lt;p&gt;普通の Web アプリケーション向け環境を Google Compute Engine(GCE)を中心に構成する、そんなよくあるシステムのサンプルです。&lt;br&gt;
+GKE とか登場しないトラディショナルな構成を先人の知恵に学びつつ機会がある度に色々考えますが、結局こんな感じになるのではと思ってます。&lt;/p&gt;
+&lt;p&gt;ソースコードは&lt;a href=&#34;https://github.com/mazgi-showcase/202005.gce-webapp-environment&#34;&gt;mazgi-showcase/202005.gce-webapp-environment&lt;/a&gt;にあります。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ProvisioningをDocker Composeで完結させる</title>
+      <link>https://mazgi.github.io/posts/2020.05/dockerized-provisioning-project/</link>
+      <pubDate>Thu, 07 May 2020 03:48:13 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2020.05/dockerized-provisioning-project/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://mazgi.github.io/posts/2020.01/dockerized-typescript-nextjs-project/&#34;&gt;Web Frontend 開発環境を Docker 化する記事&lt;/a&gt;や&lt;a href=&#34;https://mazgi.github.io/posts/2020.01/dockerized-typescript-webapi-project/&#34;&gt;BFF(Web API)開発環境を Docker 化する記事&lt;/a&gt;に続いて「IaaS の Provisioning を Docker 化する」方法を考えてみました。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Windows Server on Google Compute Engine</title>
+      <link>https://mazgi.github.io/posts/2020.04/windows-server-on-google-compute-engine/</link>
+      <pubDate>Wed, 22 Apr 2020 10:51:55 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2020.04/windows-server-on-google-compute-engine/</guid>
+      <description>「ちょっと GCP で Windows を使う」みたいな要件が発生して GCE で DaaS っぽい用途の Windows Server を立てたのでメモ。 tl;dr 基本的に「Creating and managing Windows Server instances</description>
+    </item>
+    
+    <item>
+      <title>私的ソフトウェア開発用ディスプレイ選択のポイント</title>
+      <link>https://mazgi.github.io/posts/2020.03/critical-points-for-choose-the-displays-for-software-development-for-me/</link>
+      <pubDate>Fri, 06 Mar 2020 15:13:24 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2020.03/critical-points-for-choose-the-displays-for-software-development-for-me/</guid>
+      <description>時は 2020 年 3 月、日本全国空前の WFH(在宅勤務)ブームで、自宅の作業環境を整えている方も多いのではないでしょうか。 IT エンジニアリングをされてい</description>
+    </item>
+    
+    <item>
+      <title>tarとsshで複数ファイルやディレクトリを送る/取ってくる</title>
+      <link>https://mazgi.github.io/posts/2020.01/how-to-transfer-multiple-files-with-tar-and-multistage-ssh/</link>
+      <pubDate>Wed, 29 Jan 2020 03:53:07 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2020.01/how-to-transfer-multiple-files-with-tar-and-multistage-ssh/</guid>
+      <description>&lt;p&gt;「サーバーにディレクトリ丸っと送りたいんだけど、途中に踏み台サーバーが居て&amp;hellip;」よくあります。&lt;br&gt;
+「え、ProxyCommand塞がれてるの??」とセキュリティ堅い環境でよく聞きます。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;tar+ssh&lt;/code&gt; で大抵回避できるのでコピペで使えるようにまとめました。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Web Frontend を Next.js &#43; TypeScript で書いて Docker でビルドする</title>
+      <link>https://mazgi.github.io/posts/2020.01/dockerized-typescript-nextjs-project/</link>
+      <pubDate>Wed, 22 Jan 2020 12:22:49 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2020.01/dockerized-typescript-nextjs-project/</guid>
+      <description>&lt;p&gt;「手っ取り早く Web インターフェースを手に入れる方法 2020」シリーズ(?)の&lt;a href=&#34;https://mazgi.github.io/posts/2020.01/dockerized-typescript-webapi-project/&#34;&gt;BFF サンプルプロジェクト&lt;/a&gt; と同じように Web Frontend サンプルプロジェクトを作ってみました。&lt;/p&gt;
+&lt;p&gt;今回もプロジェクト構成やビルド方法の検証が主目的です。&lt;br&gt;
+そのためアプリケーション自体は Docker イメージを実行すると&lt;a href=&#34;https://nextjs.org/&#34;&gt;Next.js&lt;/a&gt;の Web サーバーが起動しこんなページが表示されるだけのシンプルな機能しかありません。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-shellsession&#34; data-lang=&#34;shellsession&#34;&gt;❯ docker run -it --rm -p 3000:3000 b2ee27d0d01d
+
+&amp;gt; @ start /app
+&amp;gt; next start
+
+&amp;gt; Ready on http://localhost:3000
+
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>Web APIをTypeScriptで書いてDockerでビルドする</title>
+      <link>https://mazgi.github.io/posts/2020.01/dockerized-typescript-webapi-project/</link>
+      <pubDate>Thu, 16 Jan 2020 00:10:30 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2020.01/dockerized-typescript-webapi-project/</guid>
+      <description>&lt;p&gt;「手っ取り早く Web インターフェースを手に入れる方法 2020」みたいなことを考えながら勉強のために BFF(Backend For Frontend) のサンプルプロジェクトを作ってみました。&lt;br&gt;
+ただしプロジェクト構成やビルド方法の検証が主なので BFF に特化した機能はなく、実行すると Express が起動してコンソールログが表示されるだけのアプリケーションです。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-shellsession&#34; data-lang=&#34;shellsession&#34;&gt;❯ docker run -it --rm 19472c5d8df4
+💽 Loaded the configuration: version: 2020.1.0-default, baseVersion: 2020.1.0-default
+⚡ App is running at :4000 in production mode
+  Press CTRL-C to stop
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>Adobe Photoshop 2020 の Document Presets の在りか(macOS)</title>
+      <link>https://mazgi.github.io/posts/2020.01/where-are-photoshop-2020-document-presets/</link>
+      <pubDate>Wed, 08 Jan 2020 13:24:12 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2020.01/where-are-photoshop-2020-document-presets/</guid>
+      <description>ドキュメントのプリセット、これです。 新しくファイル作る画面で選べるやつ。 用紙サイズとかカラーモード指定用の。 macOS の場合、 ~/Library/Preferences/Adobe Photoshop 2020 Settings/New Doc Sizes.json にあります</description>
+    </item>
+    
+    <item>
+      <title>なぜそのプロジェクトでKubernetesが選択されたか</title>
+      <link>https://mazgi.github.io/posts/2019.12/why-choose-k8s-for-the-project/</link>
+      <pubDate>Wed, 18 Dec 2019 23:35:25 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2019.12/why-choose-k8s-for-the-project/</guid>
+      <description>&lt;p&gt;これは&lt;a href=&#34;https://mazgi.github.io/posts/2019.12/went-to-gcpug-tokyo-dec-2019/&#34;&gt;「GCPUG Tokyo December 2019」の記事&lt;/a&gt;から「Why Kubernetes? Why not GAE or others?」部分を切り出した記事です。&lt;br&gt;
+本記事のコンテキストとして、イベントでお話しさせていただいた資料「&lt;a href=&#34;https://speakerdeck.com/mazgi/fast-development-for-ml-web-service-on-gke-and-gcp&#34;&gt;ML アプリケーション短期開発 / Fast development for ML Web Service on GKE &amp;amp; GCP&lt;/a&gt;」」を事前にご参照いただけると幸いです。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>「GCPUG Tokyo December 2019」でお話させていただきました</title>
+      <link>https://mazgi.github.io/posts/2019.12/went-to-gcpug-tokyo-dec-2019/</link>
+      <pubDate>Wed, 18 Dec 2019 22:35:25 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2019.12/went-to-gcpug-tokyo-dec-2019/</guid>
+      <description>&lt;p&gt;昨日 12/18 に開催された「&lt;a href=&#34;https://gcpug-tokyo.connpass.com/event/152607/&#34;&gt;GCPUG Tokyo December 2019&lt;/a&gt;」で「&lt;a href=&#34;https://speakerdeck.com/mazgi/fast-development-for-ml-web-service-on-gke-and-gcp&#34;&gt;ML アプリケーション短期開発 / Fast development for ML Web Service on GKE &amp;amp; GCP&lt;/a&gt;」と題してお話しさせていただきました。&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
+      <title>新しいGitHub ActionsとGitHub Package RegistryでCI/CD(サンプルあり)</title>
+      <link>https://mazgi.github.io/posts/2019.08/use-github-actions-cicd-with-github-package-registry/</link>
+      <pubDate>Sun, 18 Aug 2019 07:23:57 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2019.08/use-github-actions-cicd-with-github-package-registry/</guid>
+      <description>ありがたいことにGitHub Actions(beta)とGitHub Package Registry(beta)両方が使えるようになったので試してみました</description>
+    </item>
+    
+    <item>
+      <title>1Password Cliの使い方</title>
+      <link>https://mazgi.github.io/posts/2019.07/how-to-use-1password-cli/</link>
+      <pubDate>Sun, 07 Jul 2019 17:18:09 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2019.07/how-to-use-1password-cli/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://support.1password.com/command-line/&#34;&gt;1Password Cli&lt;/a&gt;のサインイン方法を全く覚えられないのでメモ。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>複数のGitHubリポジトリをTerraformて管理する</title>
+      <link>https://mazgi.github.io/posts/2019.07/manage-multiple-github-repositories-with-terraform/</link>
+      <pubDate>Sat, 06 Jul 2019 15:10:53 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2019.07/manage-multiple-github-repositories-with-terraform/</guid>
+      <description>普段の仕事でPoCやその他次々発生する実験的なプロジェクトのために&amp;quot;よく似たGitHubリポジトリ&amp;quot;を管理する必要があっ</description>
+    </item>
+    
+    <item>
+      <title>Publish Docker Image to GitHub Package Registry</title>
+      <link>https://mazgi.github.io/posts/2019.06/publish-docker-image-to-github-package-registry/</link>
+      <pubDate>Sat, 29 Jun 2019 04:00:09 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2019.06/publish-docker-image-to-github-package-registry/</guid>
+      <description>5月に発表されたGitHub Package Registryのlimited public betaが通ったのでひとまずDockerイメージをpushしてみた。 How to Use D</description>
+    </item>
+    
+    <item>
+      <title>AWSストレージ概観</title>
+      <link>https://mazgi.github.io/posts/2019.06/the-trend-of-aws-storages/</link>
+      <pubDate>Sat, 22 Jun 2019 12:12:44 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2019.06/the-trend-of-aws-storages/</guid>
+      <description>AWSで使えるローカルストレージとNFSストレージを一通り試してみました。 GCP編はこちら。 About ベンチマークはfioコマンドで取得した。 機械学</description>
+    </item>
+    
+    <item>
+      <title>GCPストレージ概観</title>
+      <link>https://mazgi.github.io/posts/2019.06/the-trend-of-gcp-storages/</link>
+      <pubDate>Sat, 22 Jun 2019 12:12:44 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2019.06/the-trend-of-gcp-storages/</guid>
+      <description>GCPで使えるローカルストレージとNFSストレージを一通り試してみました。 AWS編はこちら。 About ベンチマークはfioコマンドで取得した。 機械学</description>
+    </item>
+    
+    <item>
+      <title>安全かつ最小にTerraformでGPUサーバーを起動する(AWS編)</title>
+      <link>https://mazgi.github.io/posts/2019.06/the-simplest-ml-environment-with-terraform-on-aws/</link>
+      <pubDate>Tue, 11 Jun 2019 14:27:24 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2019.06/the-simplest-ml-environment-with-terraform-on-aws/</guid>
+      <description>普段、会社でやっているML Ops業務の振り返りを兼ねて最低限必要そうなAmazon VPC構成用のTerraform Moduleを作りました。</description>
+    </item>
+    
+    <item>
+      <title>安全かつ最小にTerraformでGPUサーバーを起動する(GCP編)</title>
+      <link>https://mazgi.github.io/posts/2019.06/the-simplest-ml-environment-with-terraform-on-gcp/</link>
+      <pubDate>Tue, 11 Jun 2019 14:27:24 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2019.06/the-simplest-ml-environment-with-terraform-on-gcp/</guid>
+      <description>普段の仕事でやっているML Ops業務の振り返りを兼ねて最低限必要そうなVPC構成用のTerraform Module for GCPです。 Moduleには&amp;qu</description>
+    </item>
+    
+    <item>
+      <title>AI時代のDocker &#43; XaaS簡単理解</title>
+      <link>https://mazgi.github.io/posts/2019.05/brief-description-of-xaas-in-the-ai-era/</link>
+      <pubDate>Mon, 27 May 2019 22:04:33 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2019.05/brief-description-of-xaas-in-the-ai-era/</guid>
+      <description>私が所属しているDeNA AIシステム部の部内勉強会でDockerとXaaS（ザース）の話をさせていただいたので資料を公開します。 XaaS（ザ</description>
+    </item>
+    
+    <item>
+      <title>「Container Build Meetup #02」に行ってきた #container_build</title>
+      <link>https://mazgi.github.io/posts/2019.05/went-to-container-build-meetup-02/</link>
+      <pubDate>Wed, 15 May 2019 17:13:58 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2019.05/went-to-container-build-meetup-02/</guid>
+      <description>「Container Build Meetup」に参加してきました。 Container Build Meetup #2 - connpass タイムテーブル 分刻みですね。 なお開始時点で「予定のタイトルでしゃべる人は</description>
+    </item>
+    
+    <item>
+      <title>Docker Hubからハッシュ化パスワードとGitHubトークンが漏洩</title>
+      <link>https://mazgi.github.io/posts/2019.04/docker-hub-database-was-hacked/</link>
+      <pubDate>Sat, 27 Apr 2019 20:28:29 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2019.04/docker-hub-database-was-hacked/</guid>
+      <description>tl;dr 公式に以下の情報が出た。 Docker - Unauthorized access to Docker Hub database Docker Hubのデータベースがクラックされ以下が流出した可能性がある ユーザーID, ハッシュ化されたパスワ</description>
+    </item>
+    
+    <item>
+      <title>仕事の振り返り(2019.04)</title>
+      <link>https://mazgi.github.io/posts/2019.04/my-role-in-dena-was-simplified/</link>
+      <pubDate>Sat, 27 Apr 2019 01:03:05 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2019.04/my-role-in-dena-was-simplified/</guid>
+      <description>ここ何年かDeNAという会社で働かせていただいてます。 今月4月に異動したこともあり棚卸し的にやってきたことを振り返ってみました。 4月からは「</description>
+    </item>
+    
+    <item>
+      <title>GitHub&#43;CircleCI&#43;S3でNoOpsなBlogを構築した</title>
+      <link>https://mazgi.github.io/posts/2019.04/built-noops-blog-with-github-circleci-s3/</link>
+      <pubDate>Thu, 25 Apr 2019 03:37:18 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2019.04/built-noops-blog-with-github-circleci-s3/</guid>
+      <description>本業の傍ら会社の技術Blogリニューアルに携わっており、概要をAdvent Calendarで「DeNA Engineers&#39; Blogをリニューアルしている話」と</description>
+    </item>
+    
+    <item>
+      <title>docker-composeでWebアプリ開発する環境をまとめた(Rails, Flask)</title>
+      <link>https://mazgi.github.io/posts/2019.04/published-dev-environments-for-webapps-with-docker-compose/</link>
+      <pubDate>Tue, 09 Apr 2019 19:26:15 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2019.04/published-dev-environments-for-webapps-with-docker-compose/</guid>
+      <description>&lt;p&gt;最近、Macなどのローカルには極力rbenvなどをインストールせずにできる限りDockerコンテナ上に開発環境を作ろうとしています。&lt;br&gt;
+開発中は&lt;a href=&#34;https://docs.docker.com/compose/&#34;&gt;docker-compose&lt;/a&gt;を使っているのですが、いろいろなリポジトリに似たような &lt;code&gt;docker-compose.yml&lt;/code&gt; が増えてきたのでテンプレート代わりにまとめました。&lt;br&gt;
+リポジトリはこちら。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/mazgi-showcase/docker-compose.webapp-dev-envs/tree/2019.04.0&#34;&gt;GitHub repository&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>#gc_k8sday &#34;Google Cloud Kubernetes Day&#34;に行ってきました</title>
+      <link>https://mazgi.github.io/posts/2019.03/went-to-google-cloud-kubernetes-day/</link>
+      <pubDate>Tue, 26 Mar 2019 11:54:51 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2019.03/went-to-google-cloud-kubernetes-day/</guid>
+      <description>3/26に開催された「Google Cloud Kubernetes Day」に当選したので参加してきました。 最前列でひたすらメモったので放出しておきます。 Program こんなプログラ</description>
+    </item>
+    
+    <item>
+      <title>このブログのテーマがHugo Themesに載りました！</title>
+      <link>https://mazgi.github.io/posts/2018.12/this-blogs-theme-appeared-in-the-hugo-themes/</link>
+      <pubDate>Fri, 30 Nov 2018 23:48:23 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2018.12/this-blogs-theme-appeared-in-the-hugo-themes/</guid>
+      <description>このBlog用に作ったHugoテーマ「techlog-simple」をHugoのテーマサイトに載せていただきました。やったね 🎉 Techblog Simple is a Bootstrap-based blog theme</description>
+    </item>
+    
+    <item>
+      <title>AWS/GCPのWeb ConsoleをNativefierで専用アプリにする</title>
+      <link>https://mazgi.github.io/posts/2018.09/create-app-for-cloud-webui-with-nativefier/</link>
+      <pubDate>Mon, 17 Sep 2018 23:32:42 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2018.09/create-app-for-cloud-webui-with-nativefier/</guid>
+      <description>sandbox用のAWSアカウントとGCPプロジェクトを作ったついでにそれぞれのWeb管理画面をNativefierで専用アプリにした。 GC</description>
+    </item>
+    
+    <item>
+      <title>HashiCorp JapanさんとMeetupを開催&amp;登壇しました</title>
+      <link>https://mazgi.github.io/posts/2018.09/hashicorp-japan-meatup-on-dena/</link>
+      <pubDate>Sun, 16 Sep 2018 02:14:25 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2018.09/hashicorp-japan-meatup-on-dena/</guid>
+      <description>先日HashiCorp Japanさん主催で「DevOpsを支える今話題のHashiCorpツール群について」と題したMeet-upを開催させ</description>
+    </item>
+    
+    <item>
+      <title>Packerを使ってECRとGCRに同じDockerイメージをPushする</title>
+      <link>https://mazgi.github.io/posts/2018.09/push-docker-image-to-ecr-and-gcr-with-packer/</link>
+      <pubDate>Sun, 09 Sep 2018 05:15:46 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2018.09/push-docker-image-to-ecr-and-gcr-with-packer/</guid>
+      <description>自分用のML環境としてDockerイメージを作っていたのだが、 FROM: nvidia/cuda:9.2-cudnn7-devel-ubuntu18.04 なのでDockerHubでpublicにするのも憚られ、ECR/GCRに置</description>
+    </item>
+    
+    <item>
+      <title>Hugo 0.42 からSpeaker Deck貼付はshortcodeではなくembed codeを使う</title>
+      <link>https://mazgi.github.io/posts/2018.08/hugo-removed-speakerdeck-shortcode/</link>
+      <pubDate>Sun, 19 Aug 2018 16:44:43 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2018.08/hugo-removed-speakerdeck-shortcode/</guid>
+      <description>tldr: Hugo 0.42 以降でSpeaker Deckのスライドを貼り付けるときはSpeaker Deckのembed codeを使いましょう。 ある日hugo ser</description>
+    </item>
+    
+    <item>
+      <title>AirDropは&#34;Do Not Disturb&#34;をOnにするとOffになる</title>
+      <link>https://mazgi.github.io/posts/2018.07/airdrop-sleeps-when-do-not-disturb-is-turned-on/</link>
+      <pubDate>Sat, 28 Jul 2018 16:01:14 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2018.07/airdrop-sleeps-when-do-not-disturb-is-turned-on/</guid>
+      <description>&lt;p&gt;タイトルの通り。&lt;br&gt;
+&lt;code&gt;Do Not Disturb&lt;/code&gt; をOnにするとAirDropの送り先リストから消えてしまう。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>tmuxとzshのススメ</title>
+      <link>https://mazgi.github.io/posts/2018.07/useful-tmux-with-zsh/</link>
+      <pubDate>Sat, 28 Jul 2018 13:57:40 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2018.07/useful-tmux-with-zsh/</guid>
+      <description>&lt;h2 id=&#34;tldr&#34;&gt;tl;dr&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Terminal.app&lt;/code&gt; や &lt;code&gt;SSH&lt;/code&gt; のようなCUIで作業するときはtmux使うと便利&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tmux&lt;/code&gt; 使うときはシェルを &lt;code&gt;zsh&lt;/code&gt; にすると便利&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;サーバーサイド開発をやってる人には今更な話ですけど最近何度かオススメする機会があったので記事を書くことにしました。&lt;br&gt;
+以下、私の使い方を説明しているだけで特に目新しい話はありません。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>「TD Tech Talk 2018」で分析基盤の話をさせていただきました</title>
+      <link>https://mazgi.github.io/posts/2018.05/td-tech-talk-2018/</link>
+      <pubDate>Tue, 22 May 2018 16:48:42 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2018.05/td-tech-talk-2018/</guid>
+      <description>「PLAZMA Data Platform Day: TD Tech Talk 2018」というイベントにお招きいただいたので「2020年代に向けたDeNAの分析基盤 」というお話しをさせていただ</description>
+    </item>
+    
+    <item>
+      <title>Amazon SageMaker実運用: &#34;Lifecycle Configuration&#34;でEFSを自動マウント</title>
+      <link>https://mazgi.github.io/posts/2018.05/sagemaker-efs-auto-mount-with-lifecycles-configuration/</link>
+      <pubDate>Thu, 10 May 2018 02:03:25 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2018.05/sagemaker-efs-auto-mount-with-lifecycles-configuration/</guid>
+      <description>前回の記事に続いてマネージドJupyterサービスAmazon SageMakerのNotebookインスタンスにEFSのボリュームを自動マウ</description>
+    </item>
+    
+    <item>
+      <title>Amazon SageMaker実運用: NAT GatewayでNotebookの接続元IPアドレスを固定する</title>
+      <link>https://mazgi.github.io/posts/2018.05/sagemaker-internet-access-via-nat-gateway/</link>
+      <pubDate>Wed, 09 May 2018 01:46:59 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2018.05/sagemaker-internet-access-via-nat-gateway/</guid>
+      <description>Amazon SageMakerを使っていてNotebookインスタンスから以下を行いたくなったので構成を考えてみた。 Notebookインスタンスから外</description>
+    </item>
+    
+    <item>
+      <title>このWebサイトの見た目をちょっとまともにした</title>
+      <link>https://mazgi.github.io/posts/2018.05/update-hugo-theme/</link>
+      <pubDate>Sun, 06 May 2018 21:04:37 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2018.05/update-hugo-theme/</guid>
+      <description>このWebサイト( https://mazgi.github.io/ )は専用のHugoテーマで公開しているのだけど色々基本的なところが足りていなかったので直した。 一覧ページ(list.ht</description>
+    </item>
+    
+    <item>
+      <title>S3 &#43; Lambda &#43; SQSでファイル処理する仕組みをTerraformで構築する</title>
+      <link>https://mazgi.github.io/posts/2018.04/processing-with-s3-lambda-sqs/</link>
+      <pubDate>Tue, 17 Apr 2018 00:12:10 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2018.04/processing-with-s3-lambda-sqs/</guid>
+      <description>画像や音声をS3にアップロードするとLambdaでいい感じに前処理をしてSQSに通知くれるような仕組みを想定して作ってみる。 名前は仮に「me</description>
+    </item>
+    
+    <item>
+      <title>Amazon SageMakerをそれなりの人数で使うときの設定</title>
+      <link>https://mazgi.github.io/posts/2018.03/setup-amazon-sagemaker/</link>
+      <pubDate>Tue, 06 Mar 2018 00:06:04 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2018.03/setup-amazon-sagemaker/</guid>
+      <description>AWSのマネージドJupyterサービスである「Amazon SageMaker」を数十名規模で使う機会があったのでインフラ的に設定した内容な</description>
+    </item>
+    
+    <item>
+      <title>SSE-KMSで暗号化したS3バケットをs3fsでmountする</title>
+      <link>https://mazgi.github.io/posts/2018.03/s3fs-for-s3-with-sse-kms/</link>
+      <pubDate>Thu, 01 Mar 2018 04:32:56 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2018.03/s3fs-for-s3-with-sse-kms/</guid>
+      <description>タイトルの通り「AWS Key Management Service (AWS KMS) 」を使って暗号化したAmazon S3バケットをs3fsでUbuntu 16上でmountした。 KMSについては</description>
+    </item>
+    
+    <item>
+      <title>S3 &#43; CloudFrontをTerraformで設定してCircleCIで更新する</title>
+      <link>https://mazgi.github.io/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/</link>
+      <pubDate>Thu, 15 Feb 2018 05:24:40 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/</guid>
+      <description>「TerraformでS3+CloudFront+SSL/TLS証明書 w/ ACMを設定してHugoで作ったstaticなWebサイトをCirc</description>
+    </item>
+    
+    <item>
+      <title>簡易な技術ドキュメントをHugoで書くと便利だった</title>
+      <link>https://mazgi.github.io/posts/2017.12/technical-docs-with-hugo/</link>
+      <pubDate>Fri, 08 Dec 2017 07:00:00 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2017.12/technical-docs-with-hugo/</guid>
+      <description>サンプルコードのドキュメントをHugoで書いてサンプルコードと一緒に配ったら便利そうだったのでやってみた。 やりたいこと 仕事で他社さんにサンプ</description>
+    </item>
+    
+    <item>
+      <title>EC2 P3で使えるChainerMN入りのDockerイメージを作った</title>
+      <link>https://mazgi.github.io/posts/2017.12/dockerimage-for-chainermn-on-v100/</link>
+      <pubDate>Thu, 07 Dec 2017 07:16:07 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2017.12/dockerimage-for-chainermn-on-v100/</guid>
+      <description>sonots先生によるこの記事をやってみたという話です。 docker (nvidia-docker) を使ってマルチノードで ChainerMN を実行する方法(仮) - Qiita 概要 Dockerfileはここに</description>
+    </item>
+    
+    <item>
+      <title>Adobe CCのライセンスを別のPCに移す方法(ライセンス認証解除→再認証)</title>
+      <link>https://mazgi.github.io/posts/2017.02/deactivate-and-activate-adobecc/</link>
+      <pubDate>Sun, 12 Feb 2017 02:13:55 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2017.02/deactivate-and-activate-adobecc/</guid>
+      <description>Adobe CCが不要なPCの認証を解除して、使いたいPCで何かしらのアプリを起動すれば認証されて使えるようになる。 PC買い替えなどのタイミングで必要</description>
+    </item>
+    
+    <item>
+      <title>Hadoop黙々会を始めました</title>
+      <link>https://mazgi.github.io/posts/2016.09/held-hadoop-bootup-0/</link>
+      <pubDate>Mon, 12 Sep 2016 23:42:41 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2016.09/held-hadoop-bootup-0/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://twitter.com/usaturn&#34;&gt;@usaturn&lt;/a&gt;さんと一緒に「&lt;a href=&#34;http://hadoop-bootup.connpass.com/event/39859/&#34;&gt;Hadoop黙々会&lt;/a&gt;」を始めました。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>NISSAN×DeNA @ dots. #23x に行ってきました</title>
+      <link>https://mazgi.github.io/posts/2016.08/went-to-23x/</link>
+      <pubDate>Wed, 31 Aug 2016 23:30:00 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2016.08/went-to-23x/</guid>
+      <description>&lt;h3 id=&#34;追記&#34;&gt;追記&lt;/h3&gt;
+&lt;p&gt;当日のツイートを&lt;a href=&#34;http://togetter.com/li/1018957&#34;&gt;Togetter&lt;/a&gt;にまとめさせていただきました！&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a href=&#34;https://eventdots.jp&#34;&gt;dots.&lt;/a&gt;さんで「NISSAN×DeNA　車は、モノ&amp;lt;プロダクト&amp;gt;なのか、コト&amp;lt;サービス&amp;gt;なのか。当事者たちから見える風景を語る。」というイベントが開催されたので「えっ？日産の方とDeNAの方がDeep Learningや機械学習について語るの！？」と分かりやすく興味喚起されて伺ってきました！&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://eventdots.jp/event/596516&#34;&gt;【満席につき、さらに50名増席します！】NISSAN×DeNA　車は、モノ&amp;lt;プロダクト&amp;gt;なのか、コト&amp;lt;サービス&amp;gt;なのか。当事者たちから見える風景を語る。｜IT勉強会ならTECH PLAY［テックプレイ］&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>【SELECK掲載記念】AnsibleでPartitionを切る！</title>
+      <link>https://mazgi.github.io/posts/2016.07/interviewed-for-ansible/</link>
+      <pubDate>Fri, 15 Jul 2016 20:00:00 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2016.07/interviewed-for-ansible/</guid>
+      <description>&lt;h3 id=&#34;追記&#34;&gt;追記&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;http://cloud.sakura.ad.jp&#34;&gt;さくらのクラウド&lt;/a&gt;について取材していただいた記事も公開されました！&lt;br&gt;
+合わせてご覧ください！！&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://seleck.cc/article/459&#34;&gt;さくらのクラウドで「尖ったインフラ環境」を構築。カスタマイズに強い、その実力とは | SELECK&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;本編&#34;&gt;本編&lt;/h2&gt;
+&lt;p&gt;先日「&lt;a href=&#34;https://seleck.cc&#34;&gt;SELECK(セレック)&lt;/a&gt;」様に&lt;a href=&#34;https://www.ansible.com&#34;&gt;Ansible&lt;/a&gt;の活用事例をインタビューいただきました。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://seleck.cc/article/437&#34;&gt;数百台のサーバー構成を「Ansible」で管理。大規模DSPシステムを支える技術とは | SELECK&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;素晴らしい記事にしていただいたのでせっかくなら何か&lt;!-- raw HTML omitted --&gt;ネタになりそうな&lt;!-- raw HTML omitted --&gt;実例をご紹介したいと考えた結果(?)、&lt;!-- raw HTML omitted --&gt;バッドノウハウが詰まった&lt;!-- raw HTML omitted --&gt;パーティションの切り方をご紹介したいと思います！&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>RackTablesで個人ネットワークを管理する</title>
+      <link>https://mazgi.github.io/posts/2016.07/racktables-for-home-network/</link>
+      <pubDate>Fri, 15 Jul 2016 07:00:00 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2016.07/racktables-for-home-network/</guid>
+      <description>&lt;p&gt;個人で使っている&lt;a href=&#34;http://cloud.sakura.ad.jp&#34;&gt;さくらのクラウド&lt;/a&gt;アカウントでサーバーやスイッチが増えてしまいどれが何やら分からなくなってきたので&lt;a href=&#34;http://racktables.org/&#34;&gt;RackTables&lt;/a&gt;で管理しようと思い(立ってからだいぶ時間が)たちました。&lt;/p&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;https://mazgi.github.io/posts/2016.07/racktables-for-home-network/0001.png&#34; width=&#34;800&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;ようやく重い腰を上げてRackTablesを運用し始めたのでメモしておきます。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>複数のサーバーに対してSSL証明書の期限を確認する</title>
+      <link>https://mazgi.github.io/posts/2016.02/tls-certificates-validation-via-s_client/</link>
+      <pubDate>Mon, 29 Feb 2016 22:21:00 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2016.02/tls-certificates-validation-via-s_client/</guid>
+      <description>会社のサーバーが一斉にSSL証明書更新のシーズンを迎えたのでOpenSSLの各種コマンドで確認の手間を減らしてみる。 まず、 openssl s_client コマンドで /dev/null を</description>
+    </item>
+    
+    <item>
+      <title>Gentoo で普通の CVE-2015-7547 対策</title>
+      <link>https://mazgi.github.io/posts/2016.02/cve-2015-7547-on-gentoo/</link>
+      <pubDate>Thu, 18 Feb 2016 14:36:02 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2016.02/cve-2015-7547-on-gentoo/</guid>
+      <description>追記 私が何か勘違いしてたようですが glibc-2.21-r2 (~amd64マスクされてない)でpatchが取り込まれてますね。。 # emerge -fOq glibc &amp;gt;&amp;gt;&amp;gt; Fetching (1 of 1) sys-libs/glibc-2.21-r2::gentoo # tar tf /usr/portage/distfiles/glibc-2.21-patches-7.tar.bz2 | grep &#39;CVE-2015-7547&#39; patches/00_all_0028-CVE-2015-7547-getaddrinfo-stack-based-buffer-overflo.patch</description>
+    </item>
+    
+    <item>
+      <title>ssmjp で Gentoo の話をしてきました</title>
+      <link>https://mazgi.github.io/posts/2015.10/gentoo-talk-on-ssmjp/</link>
+      <pubDate>Mon, 05 Oct 2015 15:44:24 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2015.10/gentoo-talk-on-ssmjp/</guid>
+      <description>先週の話ですがssmjp 2015/09の回におじゃましてきました。 「一緒にプロダクション環境でのGentoo勉強会」やりましょう！という話を</description>
+    </item>
+    
+    <item>
+      <title>#morisnite 2で生ハム原木担いでラーメンが美味しかった話</title>
+      <link>https://mazgi.github.io/posts/2015.02/morisnite-02-with-whole-prosciutto/</link>
+      <pubDate>Tue, 17 Feb 2015 09:55:37 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2015.02/morisnite-02-with-whole-prosciutto/</guid>
+      <description>モリスナイト2で無事に生ハムをdeployすることができた。 骨は@mirakuiさんが美味しいラーメンにしてくださった。 morisnite #morisnite vol.2をご参</description>
+    </item>
+    
+  </channel>
+</rss>

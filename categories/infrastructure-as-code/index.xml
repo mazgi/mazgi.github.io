@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>infrastructure as code on mazgi.log</title>
+    <link>https://mazgi.github.io/categories/infrastructure-as-code/</link>
+    <description>Recent content in infrastructure as code on mazgi.log</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 14 May 2020 13:13:17 +0000</lastBuildDate><atom:link href="https://mazgi.github.io/categories/infrastructure-as-code/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Terraformを使ってWebアプリケーション運用向けにGCEを構築する</title>
+      <link>https://mazgi.github.io/posts/2020.05/provision-gce-webapp-environment-by-terraform/</link>
+      <pubDate>Thu, 14 May 2020 13:13:17 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2020.05/provision-gce-webapp-environment-by-terraform/</guid>
+      <description>&lt;p&gt;普通の Web アプリケーション向け環境を Google Compute Engine(GCE)を中心に構成する、そんなよくあるシステムのサンプルです。&lt;br&gt;
+GKE とか登場しないトラディショナルな構成を先人の知恵に学びつつ機会がある度に色々考えますが、結局こんな感じになるのではと思ってます。&lt;/p&gt;
+&lt;p&gt;ソースコードは&lt;a href=&#34;https://github.com/mazgi-showcase/202005.gce-webapp-environment&#34;&gt;mazgi-showcase/202005.gce-webapp-environment&lt;/a&gt;にあります。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>安全かつ最小にTerraformでGPUサーバーを起動する(AWS編)</title>
+      <link>https://mazgi.github.io/posts/2019.06/the-simplest-ml-environment-with-terraform-on-aws/</link>
+      <pubDate>Tue, 11 Jun 2019 14:27:24 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2019.06/the-simplest-ml-environment-with-terraform-on-aws/</guid>
+      <description>普段、会社でやっているML Ops業務の振り返りを兼ねて最低限必要そうなAmazon VPC構成用のTerraform Moduleを作りました。</description>
+    </item>
+    
+    <item>
+      <title>安全かつ最小にTerraformでGPUサーバーを起動する(GCP編)</title>
+      <link>https://mazgi.github.io/posts/2019.06/the-simplest-ml-environment-with-terraform-on-gcp/</link>
+      <pubDate>Tue, 11 Jun 2019 14:27:24 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2019.06/the-simplest-ml-environment-with-terraform-on-gcp/</guid>
+      <description>普段の仕事でやっているML Ops業務の振り返りを兼ねて最低限必要そうなVPC構成用のTerraform Module for GCPです。 Moduleには&amp;qu</description>
+    </item>
+    
+    <item>
+      <title>S3 &#43; Lambda &#43; SQSでファイル処理する仕組みをTerraformで構築する</title>
+      <link>https://mazgi.github.io/posts/2018.04/processing-with-s3-lambda-sqs/</link>
+      <pubDate>Tue, 17 Apr 2018 00:12:10 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2018.04/processing-with-s3-lambda-sqs/</guid>
+      <description>画像や音声をS3にアップロードするとLambdaでいい感じに前処理をしてSQSに通知くれるような仕組みを想定して作ってみる。 名前は仮に「me</description>
+    </item>
+    
+    <item>
+      <title>Amazon SageMakerをそれなりの人数で使うときの設定</title>
+      <link>https://mazgi.github.io/posts/2018.03/setup-amazon-sagemaker/</link>
+      <pubDate>Tue, 06 Mar 2018 00:06:04 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2018.03/setup-amazon-sagemaker/</guid>
+      <description>AWSのマネージドJupyterサービスである「Amazon SageMaker」を数十名規模で使う機会があったのでインフラ的に設定した内容な</description>
+    </item>
+    
+    <item>
+      <title>SSE-KMSで暗号化したS3バケットをs3fsでmountする</title>
+      <link>https://mazgi.github.io/posts/2018.03/s3fs-for-s3-with-sse-kms/</link>
+      <pubDate>Thu, 01 Mar 2018 04:32:56 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/posts/2018.03/s3fs-for-s3-with-sse-kms/</guid>
+      <description>タイトルの通り「AWS Key Management Service (AWS KMS) 」を使って暗号化したAmazon S3バケットをs3fsでUbuntu 16上でmountした。 KMSについては</description>
+    </item>
+    
+  </channel>
+</rss>

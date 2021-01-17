@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="/common/favicon.ico">
+    
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/common/site.css">
+    
+    
+    <title>mazgi.log :: Docker Hubからハッシュ化パスワードとGitHubトークンが漏洩</title>
+    <meta property="og:title"       content="mazgi.log :: Docker Hubからハッシュ化パスワードとGitHubトークンが漏洩" />
+    <meta property="og:type"        content="article" />
+    
+    <meta property="og:url"         content="https://mazgi.github.io/posts/2019.04/docker-hub-database-was-hacked/" />
+    
+      
+      <meta property="og:description" content="mazgi&#39;s tech blog" />
+      
+    
+    
+    
+    
+    <meta property="og:image"       content="https://mazgi.github.io/posts/2019.04/docker-hub-database-was-hacked/og.png" />
+    <meta property="twitter:image"  content="https://mazgi.github.io/posts/2019.04/docker-hub-database-was-hacked/og.png" />
+    <meta property="twitter:image:src"  content="https://mazgi.github.io/posts/2019.04/docker-hub-database-was-hacked/og.png" />
+    
+    
+    
+    
+    
+    
+    
+    
+    <meta name="twitter:card"       content="summary" />
+    
+    
+  </head>
+  <body>
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark">
+      
+      <span class="navbar-text mr-1">I am on</span>
+      
+      <ul class="navbar-nav">
+        
+        <li class="nav-item">
+          <a class="nav-link" target="github_mazgi" rel="noopener" href="https://github.com/mazgi">GitHub<i class="ml-1 fab fa-github"></i></a>
+        </li>
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" target="twitter_mazgi" rel="noopener" href="https://twitter.com/@mazgi">Twitter<i class="ml-1 fab fa-twitter"></i></a>
+        </li>
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" target="instagram_mazgi" rel="noopener" href="https://www.instagram.com/mazgi">Instagram<i class="ml-1 fab fa-instagram"></i></a>
+        </li>
+        
+        
+      </ul>
+    </header>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="https://mazgi.github.io/">mazgi.log</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_nav" aria-controls="navbar_nav" aria-expand="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar_nav">
+        
+        <ul class="navbar-nav mr-auto">
+          
+          
+          
+          <li class="nav-item">
+            <span class="nav-link disabled">Created At: 2019.04.27</span>
+          </li>
+          <li class="nav-item">
+            <span class="nav-link disabled">Updated At: 2021.01.17</span>
+          </li>
+          
+        </ul>
+        
+        <div class="navbar-nav ml-auto">
+          <span class="navbar-text mr-1">share this page via</span>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="https://twitter.com/share?url=https%3a%2f%2fmazgi.github.io%2fposts%2f2019.04%2fdocker-hub-database-was-hacked%2f&text=Docker%20Hub%e3%81%8b%e3%82%89%e3%83%8f%e3%83%83%e3%82%b7%e3%83%a5%e5%8c%96%e3%83%91%e3%82%b9%e3%83%af%e3%83%bc%e3%83%89%e3%81%a8GitHub%e3%83%88%e3%83%bc%e3%82%af%e3%83%b3%e3%81%8c%e6%bc%8f%e6%b4%a9" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fmazgi.github.io%2fposts%2f2019.04%2fdocker-hub-database-was-hacked%2f" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.linkedin.com/shareArticle?url=https%3a%2f%2fmazgi.github.io%2fposts%2f2019.04%2fdocker-hub-database-was-hacked%2f&title=Docker%20Hub%e3%81%8b%e3%82%89%e3%83%8f%e3%83%83%e3%82%b7%e3%83%a5%e5%8c%96%e3%83%91%e3%82%b9%e3%83%af%e3%83%bc%e3%83%89%e3%81%a8GitHub%e3%83%88%e3%83%bc%e3%82%af%e3%83%b3%e3%81%8c%e6%bc%8f%e6%b4%a9" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://plusone.google.com/_/+1/confirm?url=https%3a%2f%2fmazgi.github.io%2fposts%2f2019.04%2fdocker-hub-database-was-hacked%2f" target="_blank" rel="noopener"><i class="fab fa-google-plus"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://b.hatena.ne.jp/entry/https://mazgi.github.io/posts/2019.04/docker-hub-database-was-hacked/" target="_blank" rel="noopener">b!</a>
+            </li>
+          </ul>
+        </div>
+        
+      </div>
+    </nav>
+    <main role="main" class="container-fluid col-lg-10 offset-lg-1">
+
+<div class="row">
+  <div class="col-lg-9">
+    <article>
+      <div class="row">
+        <h1>Docker Hubからハッシュ化パスワードとGitHubトークンが漏洩</h1>
+      </div>
+      <h1 id="tldr">tl;dr</h1>
+<p>公式に以下の情報が出た。<br>
+<a href="https://success.docker.com/article/docker-hub-user-notification">Docker - Unauthorized access to Docker Hub database</a></p>
+<ul>
+<li>Docker Hubのデータベースがクラックされ以下が流出した可能性がある
+<ul>
+<li>ユーザーID, ハッシュ化されたパスワード, GitHub/Bitbucketのトークン</li>
+</ul>
+</li>
+<li>被害を受けたのは約190,000アカウント</li>
+<li>以下を行うべき
+<ul>
+<li>Docker Hubパスワードの変更</li>
+<li>必要に応じて<a href="https://docs.docker.com/docker-hub/builds/link-source/">GitHub/Bitbucketとの再接続</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="i-got-a-mail">I got a mail</h1>
+<p>会社のSlackで「Docker Hub、クラックされたって」と見かけて確認したらそんなメールが届いていた。</p>
+<figure>
+    <img src="0010.png" width="800"/> 
+</figure>
+
+<p><code>User Notification</code> という件名はシンプルすぎないだろうか。。</p>
+<p>そこで私個人のDocker Hubアカウントと私が管理している会社のDocker Hubアカウント両方のパスワードを更新した。</p>
+<p>Bitbucketとは接続していなかったがいくつかGitHubとつなげていた。<br>
+会社のDocker Hubアカウントだけ再接続しておいた。<br>
+ゴールデンウィーク明けに自動ビルドできるか確認すればいいだろというくらいの気持ち。</p>
+<p>個人の方はおいおい自動ビルドの確認をするつもり。<br>
+いずれにしてもDocker社の方で漏れたトークンはすでに無効にしてくれているとのことなので自動ビルドできない以上の問題はなさそう。</p>
+<p><a href="https://github.com/settings/security">GitHubのセキュリティログ</a>を確認すると個人アカウントの方はたしかに <code>OAuth application (Docker Hub Registry) deleted by associated OAuth application</code> というログがあった。</p>
+<figure>
+    <img src="0020.png" width="800"/> 
+</figure>
+
+<p>会社アカウントの方はこのログがなかったので漏洩していないアカウントということだろうか。</p>
+<p>メールでの案内も届いた人と届いていない人がいるようでよくわからない。<br>
+(私も個人宛には届いたが会社宛には届いていない)</p>
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">私、<br>個人無料アカウント(Gmail)→通知きた<br>会社無料アカウント(G Suite)→通知こない<br>って状況です</p>&mdash; Hidenori Matsuki (@mazgi) <a href="https://twitter.com/mazgi/status/1122082980367716352?ref_src=twsrc%5Etfw">April 27, 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">見てみたら僕のアカウントにも同様のログがありましたw</p>&mdash; ポジティブな Tori (@toricls) <a href="https://twitter.com/toricls/status/1122085200589017090?ref_src=twsrc%5Etfw">April 27, 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>インシデントはもちろん発生しないことが望ましいが、もしインシデント対応することがあったらメールの件名とアナウンス先はわかりやすくしようと思った。</p>
+<h1 id="1password-is-useful">1Password is useful</h1>
+<p>Docker Hubに限らずパスワード管理はだいたい<a href="https://1password.com/">1Password</a>で行なっているのだけど今回のパスワード更新でもちょっと便利だった。</p>
+<p>Docker Hubも多くのWebサービスと同じくパスワード変更時に以下2種類が必要。</p>
+<ul>
+<li>現在のパスワード</li>
+<li>新しいパスワード</li>
+</ul>
+<figure>
+    <img src="0030.png" width="800"/> 
+</figure>
+
+<p>1Passwordはパスワード履歴を持っているので安心してパスワードを生成し直して保存できる。<br>
+1Password上で新パスワードを生成したあとで落ち着いてDocker Hub上で新旧のパスワードを入力すれば良い。</p>
+<figure>
+    <img src="0031.png" width="800"/> 
+</figure>
+
+<p>ちょっと便利。</p>
+
+    </article>
+  </div>
+  <div class="col-lg-3">
+    <div class="sidebar">
+  
+  <h4><a href="/about/">About</a></h4>
+  <p><strong>Hidenori MATSUKI</strong></p>
+<p>🍣 🍶</p>
+<p>another website: <a href="https://mazgi.com/">mazgi.com</a></p>
+  
+  <hr />
+  <h4>TableOfContents</h4>
+  <nav id="TableOfContents"></nav>
+  <hr />
+  <h4><a href="/categories/">Categories</a></h4>
+  
+  <div>
+    <ul>
+      
+      <li>
+        <a href="/categories/incident/">incident</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+  <hr />
+  <h4><a href="/tags/">Tags</a></h4>
+  
+  <div>
+    
+    <a class="badge badge-pill badge-secondary" href="/tags/docker-hub/">docker-hub</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/tags/security/">security</a>
+    
+  </div>
+  
+</div>
+
+  </div>
+</div>
+      <div class="row">
+        <footer class="col-lg-12">
+          <hr/>
+          <span>&copy; mazgi.log</span>
+          <span>&nbsp;&middot;&nbsp;</span>
+          <i class="fas fa-bolt"></i>
+          <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a></span>
+          
+          <span>&nbsp;&middot;&nbsp;</span>
+          <span>This website <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">uses Google Analytics</a>.</span>
+          
+        </footer>
+      </div>
+    </div>
+    </main>
+    
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68170979-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-68170979-2');
+    </script>
+    
+      
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+      });
+    </script>
+  </body>
+</html>
+
