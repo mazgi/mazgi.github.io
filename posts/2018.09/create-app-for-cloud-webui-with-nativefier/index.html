@@ -115,8 +115,7 @@
         <h1>AWS/GCPのWeb ConsoleをNativefierで専用アプリにする</h1>
       </div>
       <p>sandbox用のAWSアカウントとGCPプロジェクトを作ったついでにそれぞれのWeb管理画面を<a href="https://github.com/jiahaog/nativefier">Nativefier</a>で専用アプリにした。
-<figure>
-    <img src="/posts/2018.09/create-app-for-cloud-webui-with-nativefier/0001.png" width="800"/> 
+<figure><img src="/posts/2018.09/create-app-for-cloud-webui-with-nativefier/0001.png" width="800"/>
 </figure>
 </p>
 <p>GCPプロジェクトは <code>https://console.cloud.google.com/home/dashboard?project=YOUR_GCP_PROJECT_ID</code> のようにURLのクエリパラメタでタブごとに異なるプロジェクトを表示できるし、<br>
@@ -127,8 +126,7 @@ AWSアカウントもswitch roleを使えば複数のAWSアカウント間を行
 <li>AWSアカウントはOrganizationを新しく作った</li>
 </ul>
 <p>しかし専用アプリにしてしまえばこのように異なるAWSアカウントを同時に使うことも可能、便利。
-<figure>
-    <img src="/posts/2018.09/create-app-for-cloud-webui-with-nativefier/0002.png" width="800"/> 
+<figure><img src="/posts/2018.09/create-app-for-cloud-webui-with-nativefier/0002.png" width="800"/>
 </figure>
 </p>
 <p><code>~/Library/Application Support/</code> を覗くとプロファイルディレクトリ自体が分かれているのがわかる。<br>
@@ -138,8 +136,7 @@ AWSアカウントもswitch roleを使えば複数のAWSアカウント間を行
 /Users/hidenori.matsuki/Library/Application Support/aws-console-mazgi-step-aws-nativefier-8a6ce6/
 /Users/hidenori.matsuki/Library/Application Support/gcp-console-mazgi-sandbox-nativefier-6d960f/
 </code></pre><p>もう1つ嬉しい点としてはMacの場合Chromeでプロファイルを複数作っても <code>⌘+TAB</code> でWindowを切り替えることはできないが、Nativefierで作ったアプリならこのように切り替えできる。
-<figure>
-    <img src="/posts/2018.09/create-app-for-cloud-webui-with-nativefier/0003.png" width="800"/> 
+<figure><img src="/posts/2018.09/create-app-for-cloud-webui-with-nativefier/0003.png" width="800"/>
 </figure>
 </p>
 <p>Nativefierのインストールはnodeやnpmがあれば <code>npm install -g nativefier</code> するだけなのだが、最近は手元のMacから色々なソフトウェアを追い出したいと思っていて、Dockerコンテナ内に押し込んだ。<br>
@@ -152,8 +149,7 @@ Dockerfileとimageはそれぞれ以下に公開している。</p>
 気をつけるポイントとしてはDocker(for Mac)はLinux VMで実行されているので <code>--platform osx</code> のようにプラットフォームを指定しないとLinux版のアプリが作られてしまう。</p>
 <pre><code class="language-shellsession" data-lang="shellsession">$ docker run -v $PWD:/pwd -it mazgi/nativefier nativefier --platform osx --counter --bounce --name &quot;AWS Console(mazgi-sb-billing-aws)&quot; console.aws.amazon.com
 </code></pre><p>このように実行したディレクトリ内に各アプリができあがる。
-<figure>
-    <img src="/posts/2018.09/create-app-for-cloud-webui-with-nativefier/0004.png" width="800"/> 
+<figure><img src="/posts/2018.09/create-app-for-cloud-webui-with-nativefier/0004.png" width="800"/>
 </figure>
 </p>
 

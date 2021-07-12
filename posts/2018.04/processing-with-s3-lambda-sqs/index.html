@@ -117,8 +117,7 @@
 <h2 id="構成">構成</h2>
 <p>構成図描くとこんな感じ。<br>
 図は <a href="https://www.draw.io/">https://www.draw.io/</a> で描いた。</p>
-<figure>
-    <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0001.png"/> 
+<figure><img src="/posts/2018.04/processing-with-s3-lambda-sqs/0001.png"/>
 </figure>
 
 <p>ソースコードは <a href="https://github.com/mazgi/mazgi-sandbox-aws.provisioning/tree/v20180417.0">https://github.com/mazgi/mazgi-sandbox-aws.provisioning/tree/v20180417.0</a> にある。</p>
@@ -145,53 +144,45 @@
 </ul>
 <p>その他の構成は「<a href="https://mazgi.github.io/posts/2018.02/s3+cloudfront-website-with-terraform-and-circleci/">S3+CloudFrontをTerraformで設定してCircleCIで更新する</a>」を踏襲している。</p>
 <p>Terraformをapplyすると以下ができる。</p>
-<p><figure>
-    <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0010.png"
-         alt="S3 bucket" width="640"/> <figcaption>
+<p><figure><img src="/posts/2018.04/processing-with-s3-lambda-sqs/0010.png"
+         alt="S3 bucket" width="640"/><figcaption>
             <p>S3 bucket</p>
         </figcaption>
 </figure>
 
-<figure>
-    <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0011.png"
-         alt="Lambda function" width="640"/> <figcaption>
+<figure><img src="/posts/2018.04/processing-with-s3-lambda-sqs/0011.png"
+         alt="Lambda function" width="640"/><figcaption>
             <p>Lambda function</p>
         </figcaption>
 </figure>
 
-<figure>
-    <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0012.png"
-         alt="SQS queue" width="640"/> <figcaption>
+<figure><img src="/posts/2018.04/processing-with-s3-lambda-sqs/0012.png"
+         alt="SQS queue" width="640"/><figcaption>
             <p>SQS queue</p>
         </figcaption>
 </figure>
 </p>
 <h2 id="動作">動作</h2>
 <p>メディアファイルを用意する。</p>
-<figure>
-    <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0020.png"/> 
+<figure><img src="/posts/2018.04/processing-with-s3-lambda-sqs/0020.png"/>
 </figure>
 
 <p>S3 bucketにアップロードする。</p>
-<figure>
-    <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0021.png" width="640"/> 
+<figure><img src="/posts/2018.04/processing-with-s3-lambda-sqs/0021.png" width="640"/>
 </figure>
 
 <p>Lambda functionが動く。</p>
-<figure>
-    <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0022.png" width="800"/> 
+<figure><img src="/posts/2018.04/processing-with-s3-lambda-sqs/0022.png" width="800"/>
 </figure>
 
 <p>SQS queueに通知される。</p>
-<figure>
-    <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0023.png" width="800"/> 
+<figure><img src="/posts/2018.04/processing-with-s3-lambda-sqs/0023.png" width="800"/>
 </figure>
 
 <p>無事思った通りの動作になった。<br>
 なおS3バケットにアップロードしたJPEG画像はこれ。優しい。  
 「<a href="https://www.pakutaso.com/">ぱくたそ</a>」からお借りした。</p>
-<figure>
-    <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0100.jpeg"/> 
+<figure><img src="/posts/2018.04/processing-with-s3-lambda-sqs/0100.jpeg"/>
 </figure>
 
 <h2 id="ポイント">ポイント</h2>
@@ -207,8 +198,7 @@ zipファイルを参照しているのはこちら<br>
 <a href="https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor.tf#L40-L41">https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor.tf#L40-L41</a></p>
 <p>SQS queueのURLは環境変数としてexportしている。<br>
 <a href="https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor.tf#L49">https://github.com/mazgi/mazgi-sandbox-aws.provisioning/blob/v20180417.0/media-processor.tf#L49</a></p>
-<figure>
-    <img src="/posts/2018.04/processing-with-s3-lambda-sqs/0030.png" width="800"/> 
+<figure><img src="/posts/2018.04/processing-with-s3-lambda-sqs/0030.png" width="800"/>
 </figure>
 
 <p>function内では普通に <code>os.environ['SQS_URL']</code> のように参照できる。<br>

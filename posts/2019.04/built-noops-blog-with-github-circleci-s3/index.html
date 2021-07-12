@@ -189,8 +189,7 @@ Viva! NoOps!! 🎉</p>
 </li>
 </ul>
 <p>このシステムの全体像を図に示します。</p>
-<figure>
-    <img src="0010.png" width="800"/> 
+<figure><img src="0010.png" width="800"/>
 </figure>
 
 <p>またAWS上のコンポーネントを管理するTerraformのサンプルを以下に公開しました。</p>
@@ -899,8 +898,7 @@ exports.handler <span style="color:#666">=</span> (event, context, callback) =&g
 </span><span style="color:#60a0b0;font-style:italic"></span>
   request.uri <span style="color:#666">=</span> replacedUri;
   <span style="color:#007020;font-weight:bold">return</span> callback(<span style="color:#007020;font-weight:bold">null</span>, request);
-}
-</code></pre></td></tr></table>
+}</code></pre></td></tr></table>
 </div>
 </div>
 <p><strong>Lambda@Edge向け権限設定</strong></p>
@@ -1006,8 +1004,7 @@ exports.handler <span style="color:#666">=</span> (event, context, callback) =&g
 <p>レビュー用のBlogは次のスクリーンショットのようにPull RequestにCommitをPushするごとにCommit hashを使って専用URLを発行します。<br>
 このURLは社内からGitHubアカウント不要でアクセスできるので、GitHubアカウントを持っていない方でもレビューに参加できます。<br>
 ユースケースとして記事内容の法務チェックが必要な場合にSlackやメールに貼り付けてレビューを依頼する等を想定しています。</p>
-<figure>
-    <img src="0001.png" width="800"/> 
+<figure><img src="0001.png" width="800"/>
 </figure>
 
 <h2 id="レビューurlの仕様">レビューURLの仕様</h2>
@@ -1021,8 +1018,7 @@ exports.handler <span style="color:#666">=</span> (event, context, callback) =&g
 <p>記事執筆から公開までのワークフローと各コンポーネントの関係図を再掲します。<br>
 上半分(緑)の矢印が社内向けBlogの執筆、下半分(青)の矢印が公開Blogの執筆ですが、図のDeploy先が異なるだけでやっていることは一緒です。<br>
 またレビュー用Blogは公開Blogと社内向けBlogで共有しています。</p>
-<figure>
-    <img src="0010.png" width="800"/> 
+<figure><img src="0010.png" width="800"/>
 </figure>
 
 <p>下の図では公開Blogに <strong>e1 - e6</strong> , 社内向けBlogに <strong>i1 - i6</strong> の番号を振っていますがそれぞれ行なっていることは以下です。</p>
@@ -1045,8 +1041,7 @@ exports.handler <span style="color:#666">=</span> (event, context, callback) =&g
 そのため公開するサンプルリポジトリは1つです。</p>
 <p>サンプルリポジトリ:<br>
 <a href="https://github.com/mazgi-showcase/2019.04.built-noops-blog-with-github-circleci-s3.example-content/tree/2019.04.1">mazgi-showcase/2019.04.built-noops-blog-with-github-circleci-s3.example-content</a></p>
-<figure>
-    <img src="0020.png" width="800"/> 
+<figure><img src="0020.png" width="800"/>
 </figure>
 
 <p><strong>ローカルPCでHugoを起動する</strong></p>

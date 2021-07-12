@@ -146,8 +146,7 @@ OSS として長く安定的にメンテナンスされていること、サー�
 </li>
 <li>Docker Compose</li>
 </ul>
-<figure>
-    <img src="structure.png" width="800"/> 
+<figure><img src="structure.png" width="800"/>
 </figure>
 
 <p>Hyper-V 上は Windows 標準の仮想化ソフトウェアです。<br>
@@ -192,12 +191,10 @@ EOE
 </ul>
 </li>
 </ul>
-<p><figure>
-    <img src="boot-from-systemrescuecd.0.png" width="800"/> 
+<p><figure><img src="boot-from-systemrescuecd.0.png" width="800"/>
 </figure>
 
-<figure>
-    <img src="boot-from-systemrescuecd.1.png" width="800"/> 
+<figure><img src="boot-from-systemrescuecd.1.png" width="800"/>
 </figure>
 </p>
 <p>手順の中でここで渡すパスワードを使ってログインすることはありません。<br>
@@ -236,8 +233,7 @@ Please type the new root password:
 Tarball の事前ダウンロードやバイナリパッケージの共有など、時間短縮とエラー発生の削減を工夫していきたいところです。</p>
 <p>次のように結果が表示され、”PLAY RECAP”の <code>unreachable</code> と <code>failed</code> が共に <code>0</code> であれば成功です。<br>
 VM を再起動すると VM のブロックデバイスから Gentoo Linux が起動するはずです。</p>
-<figure>
-    <img src="ansible-result.png" width="800"/> 
+<figure><img src="ansible-result.png" width="800"/>
 </figure>
 
 <h2 id="implementations">Implementations</h2>
@@ -280,8 +276,7 @@ VM を再起動すると VM のブロックデバイスから Gentoo Linux が�
 またファイルシステムを <code>/</code> を起点とした 1 つの Tree として扱います。<br>
 また Ansible では jinja2 テンプレートをテンプレートの Tree に対して適用できます。<br>
 これらの特徴を活かして設定ファイルをあらかじめ適用先に合わせた Tree として配置しておくことで簡単に適用できます。</p>
-<figure>
-    <img src="templates-tree.png" width="400"/> 
+<figure><img src="templates-tree.png" width="400"/>
 </figure>
 
 <p>テンプレートは例えば次のように書けます。<br>

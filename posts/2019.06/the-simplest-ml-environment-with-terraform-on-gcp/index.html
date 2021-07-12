@@ -126,8 +126,7 @@ Moduleには&quot;最小構成&quot;の機械学習環境を作るサンプル�
 <li>GCEインスタンス上のDockerでJupyter Notebookを起動する</li>
 <li>Jupyter NotebookにHTTPアクセスする</li>
 </ul>
-<figure>
-    <img src="0001.png" width="800"/> 
+<figure><img src="0001.png" width="800"/>
 </figure>
 
 <p>とてもシンプルですね。</p>
@@ -151,8 +150,7 @@ Moduleには&quot;最小構成&quot;の機械学習環境を作るサンプル�
 <p>VPC NetworkもGCEインスタンスも複数作ることができますし、1つのVPC Networkは複数のRegionにまたがり、VPC Network内の各Subnetは複数のZoneにまたがります。<br>
 したがってGCEインスタンスを複数のZoneに配置して水平分散することで可用性を担保できます。</p>
 <p>ただし今回は図の赤矢印のところにGCEインスタンスを1つ作って起動したいだけなのでZoneはあまり意識しません。</p>
-<figure>
-    <img src="0010.png" width="800"/> 
+<figure><img src="0010.png" width="800"/>
 </figure>
 
 <p>今回のように明示的にGCEインスタンスを起動する以外にも<a href="https://cloud.google.com/ai-platform/">AI Platform</a>を始め、あまりネットワークや仮想マシンを意識せずにJupyter Notebookを使えるサービスもあります。</p>

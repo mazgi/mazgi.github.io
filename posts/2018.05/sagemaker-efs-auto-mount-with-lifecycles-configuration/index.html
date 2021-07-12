@@ -128,8 +128,7 @@ SageMakerのTerminalすら開かずに使えてほしい。<br>
 </ul>
 <h2 id="notebookインスタンス作成時">Notebookインスタンス作成時</h2>
 <p>前回の記事通りだが、Notebookインスタンス作成時に以下を指定することで、EFSボリュームがマウントされた状態でNotebookインスタンスが起動されるようになる。</p>
-<figure>
-    <img src="/posts/2018.05/sagemaker-efs-auto-mount-with-lifecycles-configuration/0000.png" width="800"/> 
+<figure><img src="/posts/2018.05/sagemaker-efs-auto-mount-with-lifecycles-configuration/0000.png" width="800"/>
 </figure>
 
 <ul>
@@ -151,8 +150,7 @@ SageMakerのTerminalすら開かずに使えてほしい。<br>
 <li><code>Create configuration</code> ボタンをクリックする</li>
 </ol>
 <p>すると以下のようなスクリプトを登録できる画面になる。<br>
-<figure>
-    <img src="/posts/2018.05/sagemaker-efs-auto-mount-with-lifecycles-configuration/0001.png" width="800"/> 
+<figure><img src="/posts/2018.05/sagemaker-efs-auto-mount-with-lifecycles-configuration/0001.png" width="800"/>
 </figure>
 </p>
 <p><code>Name</code> は <code>mount-efs</code> と入力。<br>
@@ -171,8 +169,7 @@ sudo mount -t nfs <span style="color:#4070a0;font-weight:bold">\
 </span><span style="color:#4070a0;font-weight:bold"></span>-o rw,relatime,nfsvers<span style="color:#666">=</span>4.1,rsize<span style="color:#666">=</span>1048576,wsize<span style="color:#666">=</span>1048576,hard,timeo<span style="color:#666">=</span>600,retrans<span style="color:#666">=</span><span style="color:#40a070">2</span> <span style="color:#4070a0;font-weight:bold">\
 </span><span style="color:#4070a0;font-weight:bold"></span>fs-********.efs.us-east-1.amazonaws.com:/ /mnt/nfs
 </code></pre></div><p><code>Create configuration</code> ボタンをクリックすると以下のようにスクリプトが登録される。<br>
-<figure>
-    <img src="/posts/2018.05/sagemaker-efs-auto-mount-with-lifecycles-configuration/0002.png" width="800"/> 
+<figure><img src="/posts/2018.05/sagemaker-efs-auto-mount-with-lifecycles-configuration/0002.png" width="800"/>
 </figure>
 </p>
 <p>以上で、SageMakerのTerminalすら開かずにEFSボリュームがマウントされるようになった。<br>

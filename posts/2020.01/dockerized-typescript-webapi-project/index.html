@@ -247,7 +247,7 @@ bff_1     |
 <p><a href="https://www.agent-grow.com/self20percent/2019/03/11/typescript-paths-work-careful/">TypeScript の paths はパスを解決してくれないので注意すべし！ – 自主的 20%るぅる</a></p>
 <p><a href="https://github.com/microsoft/TypeScript/issues/10866">Issue も賑わっておりロックされています。</a></p>
 <p>その上で <a href="https://github.com/mazgi-showcase/202001.express-typescript-build-with-webpack/blob/b92fdceb1d1af289d7e94a05240133669d02765d/bff/webpack.config.js#L23"><code>bff/webpack.config.js</code></a> の <code>resolve.modules</code> にも <code>src</code> ディレクトリを追加します。</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">modules<span style="color:#666">:</span> [<span style="color:#4070a0">&#39;node_modules&#39;</span>, path.resolve(__dirname, <span style="color:#4070a0">&#39;src&#39;</span>)],
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">modules<span style="color:#666">:</span> [<span style="color:#4070a0">&#39;node_modules&#39;</span>, path.resolve(<span style="color:#40a070">__</span>dirname, <span style="color:#4070a0">&#39;src&#39;</span>)],
 </code></pre></div><p>これで <code>src</code> 以下にモジュールを追加する限りは、開発時でもビルド時でも <code>webpack.config.js</code> も <code>tsconfig.json</code> も書き変えずに参照できる、はずです。たぶん。</p>
 <h2 id="application-configuration">Application Configuration</h2>
 <p>アプリケーションの設定をどのように適用するかは常に悩ましいですが、本サンプルではデフォルトの設定をアプリケーション内に持ち、外部から上書きする想定をしました。</p>
