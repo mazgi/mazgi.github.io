@@ -68,6 +68,20 @@
         
         <ul class="navbar-nav mr-auto">
           
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbar_dropdown_lang" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              翻訳を表示
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbar_dropdown_lang">
+              
+              <a class="dropdown-item" href="https://mazgi.github.io/en/tags/docker/">
+                <span class="badge badge-light">English</span>
+                docker
+              </a>
+              
+            </div>
+          </li>
+          
           
         </ul>
         
@@ -116,11 +130,43 @@
     
     <article>
       <div class="row">
+        <h3><a href="/posts/2022/11/playwright-webkit-hangs-on-ubuntu-22.04-on-20.04/">Playwright の Webkit が Ubuntu 20.04 ホスト上の Ubuntu 22.04 コンテナでハングする</a></h3>
+      </div>
+      <div class="row">
+        <span class="ml-1">Created At: 2022.11.13</span>
+        <span class="ml-1">Updated At: 2022.11.13</span>
+         
+      </div>
+      <div class="row">
+        <p>WebKit を <a href="https://playwright.dev/">Playwright</a>, Docker と組み合わせて使う場合、特定の組み合わせで WebKit がハングします。</p>
+      </div>
+      <div class="row">
+        
+        
+        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/playwright/">playwright</a>
+        
+        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/webkit/">webkit</a>
+        
+        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/docker/">docker</a>
+        
+        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/ubuntu/">ubuntu</a>
+        
+        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/github-actions/">github actions</a>
+         
+         
+      </div>
+    </article>
+    <hr/>
+     
+    
+    
+    <article>
+      <div class="row">
         <h3><a href="/posts/2020.05/dockerized-provisioning-project/">ProvisioningをDocker Composeで完結させる</a></h3>
       </div>
       <div class="row">
         <span class="ml-1">Created At: 2020.05.07</span>
-        <span class="ml-1">Updated At: 2022.09.21</span>
+        <span class="ml-1">Updated At: 2022.11.13</span>
          
       </div>
       <div class="row">
@@ -146,7 +192,7 @@
       </div>
       <div class="row">
         <span class="ml-1">Created At: 2020.01.22</span>
-        <span class="ml-1">Updated At: 2022.09.21</span>
+        <span class="ml-1">Updated At: 2022.11.13</span>
          
       </div>
       <div class="row">
@@ -192,7 +238,7 @@
       </div>
       <div class="row">
         <span class="ml-1">Created At: 2020.01.16</span>
-        <span class="ml-1">Updated At: 2022.09.21</span>
+        <span class="ml-1">Updated At: 2022.11.13</span>
          
       </div>
       <div class="row">
@@ -228,7 +274,7 @@
       </div>
       <div class="row">
         <span class="ml-1">Created At: 2019.12.18</span>
-        <span class="ml-1">Updated At: 2022.09.21</span>
+        <span class="ml-1">Updated At: 2022.11.13</span>
          
       </div>
       <div class="row">
@@ -261,7 +307,7 @@
       </div>
       <div class="row">
         <span class="ml-1">Created At: 2019.12.18</span>
-        <span class="ml-1">Updated At: 2022.09.21</span>
+        <span class="ml-1">Updated At: 2022.11.13</span>
          
       </div>
       <div class="row">
@@ -294,7 +340,7 @@
       </div>
       <div class="row">
         <span class="ml-1">Created At: 2019.08.18</span>
-        <span class="ml-1">Updated At: 2022.09.21</span>
+        <span class="ml-1">Updated At: 2022.11.13</span>
          
       </div>
       <div class="row">
@@ -324,7 +370,7 @@
       </div>
       <div class="row">
         <span class="ml-1">Created At: 2019.06.29</span>
-        <span class="ml-1">Updated At: 2022.09.21</span>
+        <span class="ml-1">Updated At: 2022.11.13</span>
          
       </div>
       <div class="row">
@@ -350,7 +396,7 @@
       </div>
       <div class="row">
         <span class="ml-1">Created At: 2019.05.27</span>
-        <span class="ml-1">Updated At: 2022.09.21</span>
+        <span class="ml-1">Updated At: 2022.11.13</span>
          
       </div>
       <div class="row">
@@ -382,7 +428,7 @@
       </div>
       <div class="row">
         <span class="ml-1">Created At: 2019.05.15</span>
-        <span class="ml-1">Updated At: 2022.09.21</span>
+        <span class="ml-1">Updated At: 2022.11.13</span>
          
       </div>
       <div class="row">
@@ -392,39 +438,6 @@
         
         
         <a class="ml-1 badge badge-pill badge-secondary" href="/tags/docker/">docker</a>
-         
-         
-      </div>
-    </article>
-    <hr/>
-     
-    
-    
-    <article>
-      <div class="row">
-        <h3><a href="/posts/2019.04/published-dev-environments-for-webapps-with-docker-compose/">docker-composeでWebアプリ開発する環境をまとめた(Rails, Flask)</a></h3>
-      </div>
-      <div class="row">
-        <span class="ml-1">Created At: 2019.04.09</span>
-        <span class="ml-1">Updated At: 2022.09.21</span>
-         
-      </div>
-      <div class="row">
-        <p>最近、Macなどのローカルには極力rbenvなどをインストールせずにできる限りDockerコンテナ上に開発環境を作ろうとしています。<br>
-開発中は<a href="https://docs.docker.com/compose/">docker-compose</a>を使っているのですが、いろいろなリポジトリに似たような <code>docker-compose.yml</code> が増えてきたのでテンプレート代わりにまとめました。<br>
-リポジトリはこちら。</p>
-<p><a href="https://github.com/mazgi-showcase/docker-compose.webapp-dev-envs/tree/2019.04.0">GitHub repository</a></p>
-      </div>
-      <div class="row">
-        
-        
-        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/docker/">docker</a>
-        
-        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/docker-compose/">docker-compose</a>
-        
-        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/ruby-on-rails/">ruby-on-rails</a>
-        
-        <a class="ml-1 badge badge-pill badge-secondary" href="/tags/flask/">flask</a>
          
          
       </div>
