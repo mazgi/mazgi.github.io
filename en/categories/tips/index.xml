@@ -9,19 +9,19 @@
     <lastBuildDate>Fri, 30 Oct 2020 07:43:36 +0000</lastBuildDate><atom:link href="https://mazgi.github.io/en/categories/tips/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to Change Git Default Branch to &#34;main&#34; from &#34;master&#34;</title>
-      <link>https://mazgi.github.io/en/posts/2020.10/how-to-change-git-default-branch-to-main-from-master/</link>
+      <link>https://mazgi.github.io/en/posts/2020/10/how-to-change-git-default-branch-to-main-from-master/</link>
       <pubDate>Fri, 30 Oct 2020 07:43:36 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/en/posts/2020.10/how-to-change-git-default-branch-to-main-from-master/</guid>
+      <guid>https://mazgi.github.io/en/posts/2020/10/how-to-change-git-default-branch-to-main-from-master/</guid>
       <description>tl;dr  git branch --move master main git remote set-head origin --auto  https://github.com/mazgi-sandbox/202010.change-git-default-branch</description>
     </item>
     
     <item>
       <title>My Take: Critical Points for Choosing PC Displays for Software Development</title>
-      <link>https://mazgi.github.io/en/posts/2020.03/critical-points-for-choose-the-displays-for-software-development-for-me/</link>
+      <link>https://mazgi.github.io/en/posts/2020/03/critical-points-for-choose-the-displays-for-software-development-for-me/</link>
       <pubDate>Fri, 06 Mar 2020 15:13:25 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/en/posts/2020.03/critical-points-for-choose-the-displays-for-software-development-for-me/</guid>
+      <guid>https://mazgi.github.io/en/posts/2020/03/critical-points-for-choose-the-displays-for-software-development-for-me/</guid>
       <description>The time was Mar. 2020, working from home has become popular in Japan.
 So, you might also be setting up the work environment in your home.
 If you are an IT developer, you may have placed multiple PC displays on your desk, as I did.

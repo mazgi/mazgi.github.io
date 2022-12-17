@@ -9,10 +9,10 @@
     <lastBuildDate>Thu, 14 May 2020 13:13:17 +0000</lastBuildDate><atom:link href="https://mazgi.github.io/ja/tags/google-compute-engine/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Terraformを使ってWebアプリケーション運用向けにGCEを構築する</title>
-      <link>https://mazgi.github.io/ja/posts/2020.05/provision-gce-webapp-environment-by-terraform/</link>
+      <link>https://mazgi.github.io/ja/posts/2020/05/provision-gce-webapp-environment-by-terraform/</link>
       <pubDate>Thu, 14 May 2020 13:13:17 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2020.05/provision-gce-webapp-environment-by-terraform/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2020/05/provision-gce-webapp-environment-by-terraform/</guid>
       <description>&lt;p&gt;普通の Web アプリケーション向け環境を Google Compute Engine(GCE)を中心に構成する、そんなよくあるシステムのサンプルです。&lt;br&gt;
 GKE とか登場しないトラディショナルな構成を先人の知恵に学びつつ機会がある度に色々考えますが、結局こんな感じになるのではと思ってます。&lt;/p&gt;
 &lt;p&gt;ソースコードは&lt;a href=&#34;https://github.com/mazgi-showcase/202005.gce-webapp-environment&#34;&gt;mazgi-showcase/202005.gce-webapp-environment&lt;/a&gt;にあります。&lt;/p&gt;</description>
@@ -20,10 +20,10 @@ GKE とか登場しないトラディショナルな構成を先人の知恵に�
     
     <item>
       <title>Windows Server on Google Compute Engine</title>
-      <link>https://mazgi.github.io/ja/posts/2020.04/windows-server-on-google-compute-engine/</link>
+      <link>https://mazgi.github.io/ja/posts/2020/04/windows-server-on-google-compute-engine/</link>
       <pubDate>Wed, 22 Apr 2020 10:51:55 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2020.04/windows-server-on-google-compute-engine/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2020/04/windows-server-on-google-compute-engine/</guid>
       <description>「ちょっと GCP で Windows を使う」みたいな要件が発生して GCE で DaaS っぽい用途の Windows Server を立てたのでメモ。 tl;dr 基本的に「Creating and managing Windows Server instances</description>
     </item>
     

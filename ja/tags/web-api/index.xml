@@ -9,10 +9,10 @@
     <lastBuildDate>Thu, 16 Jan 2020 00:10:30 +0000</lastBuildDate><atom:link href="https://mazgi.github.io/ja/tags/web-api/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Web APIをTypeScriptで書いてDockerでビルドする</title>
-      <link>https://mazgi.github.io/ja/posts/2020.01/dockerized-typescript-webapi-project/</link>
+      <link>https://mazgi.github.io/ja/posts/2020/01/dockerized-typescript-webapi-project/</link>
       <pubDate>Thu, 16 Jan 2020 00:10:30 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2020.01/dockerized-typescript-webapi-project/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2020/01/dockerized-typescript-webapi-project/</guid>
       <description>&lt;p&gt;「手っ取り早く Web インターフェースを手に入れる方法 2020」みたいなことを考えながら勉強のために BFF(Backend For Frontend) のサンプルプロジェクトを作ってみました。&lt;br&gt;
 ただしプロジェクト構成やビルド方法の検証が主なので BFF に特化した機能はなく、実行すると Express が起動してコンソールログが表示されるだけのアプリケーションです。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-shellsession&#34; data-lang=&#34;shellsession&#34;&gt;❯ docker run -it --rm 19472c5d8df4

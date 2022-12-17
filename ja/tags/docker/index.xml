@@ -18,20 +18,20 @@
     
     <item>
       <title>ProvisioningをDocker Composeで完結させる</title>
-      <link>https://mazgi.github.io/ja/posts/2020.05/dockerized-provisioning-project/</link>
+      <link>https://mazgi.github.io/ja/posts/2020/05/dockerized-provisioning-project/</link>
       <pubDate>Thu, 07 May 2020 03:48:13 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2020.05/dockerized-provisioning-project/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://mazgi.github.io/ja/posts/2020.01/dockerized-typescript-nextjs-project/&#34;&gt;Web Frontend 開発環境を Docker 化する記事&lt;/a&gt;や&lt;a href=&#34;https://mazgi.github.io/ja/posts/2020.01/dockerized-typescript-webapi-project/&#34;&gt;BFF(Web API)開発環境を Docker 化する記事&lt;/a&gt;に続いて「IaaS の Provisioning を Docker 化する」方法を考えてみました。&lt;/p&gt;</description>
+      <guid>https://mazgi.github.io/ja/posts/2020/05/dockerized-provisioning-project/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://mazgi.github.io/ja/posts/2020/01/dockerized-typescript-nextjs-project/&#34;&gt;Web Frontend 開発環境を Docker 化する記事&lt;/a&gt;や&lt;a href=&#34;https://mazgi.github.io/ja/posts/2020/01/dockerized-typescript-webapi-project/&#34;&gt;BFF(Web API)開発環境を Docker 化する記事&lt;/a&gt;に続いて「IaaS の Provisioning を Docker 化する」方法を考えてみました。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Web Frontend を Next.js &#43; TypeScript で書いて Docker でビルドする</title>
-      <link>https://mazgi.github.io/ja/posts/2020.01/dockerized-typescript-nextjs-project/</link>
+      <link>https://mazgi.github.io/ja/posts/2020/01/dockerized-typescript-nextjs-project/</link>
       <pubDate>Wed, 22 Jan 2020 12:22:49 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2020.01/dockerized-typescript-nextjs-project/</guid>
-      <description>&lt;p&gt;「手っ取り早く Web インターフェースを手に入れる方法 2020」シリーズ(?)の&lt;a href=&#34;https://mazgi.github.io/ja/posts/2020.01/dockerized-typescript-webapi-project/&#34;&gt;BFF サンプルプロジェクト&lt;/a&gt; と同じように Web Frontend サンプルプロジェクトを作ってみました。&lt;/p&gt;
+      <guid>https://mazgi.github.io/ja/posts/2020/01/dockerized-typescript-nextjs-project/</guid>
+      <description>&lt;p&gt;「手っ取り早く Web インターフェースを手に入れる方法 2020」シリーズ(?)の&lt;a href=&#34;https://mazgi.github.io/ja/posts/2020/01/dockerized-typescript-webapi-project/&#34;&gt;BFF サンプルプロジェクト&lt;/a&gt; と同じように Web Frontend サンプルプロジェクトを作ってみました。&lt;/p&gt;
 &lt;p&gt;今回もプロジェクト構成やビルド方法の検証が主目的です。&lt;br&gt;
 そのためアプリケーション自体は Docker イメージを実行すると&lt;a href=&#34;https://nextjs.org/&#34;&gt;Next.js&lt;/a&gt;の Web サーバーが起動しこんなページが表示されるだけのシンプルな機能しかありません。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-shellsession&#34; data-lang=&#34;shellsession&#34;&gt;❯ docker run -it --rm -p 3000:3000 b2ee27d0d01d
@@ -46,10 +46,10 @@
     
     <item>
       <title>Web APIをTypeScriptで書いてDockerでビルドする</title>
-      <link>https://mazgi.github.io/ja/posts/2020.01/dockerized-typescript-webapi-project/</link>
+      <link>https://mazgi.github.io/ja/posts/2020/01/dockerized-typescript-webapi-project/</link>
       <pubDate>Thu, 16 Jan 2020 00:10:30 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2020.01/dockerized-typescript-webapi-project/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2020/01/dockerized-typescript-webapi-project/</guid>
       <description>&lt;p&gt;「手っ取り早く Web インターフェースを手に入れる方法 2020」みたいなことを考えながら勉強のために BFF(Backend For Frontend) のサンプルプロジェクトを作ってみました。&lt;br&gt;
 ただしプロジェクト構成やビルド方法の検証が主なので BFF に特化した機能はなく、実行すると Express が起動してコンソールログが表示されるだけのアプリケーションです。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-shellsession&#34; data-lang=&#34;shellsession&#34;&gt;❯ docker run -it --rm 19472c5d8df4
