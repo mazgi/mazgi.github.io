@@ -428,10 +428,10 @@ GKE とか登場しないトラディショナルな構成を先人の知恵に�
     
     <item>
       <title>このWebサイトの見た目をちょっとまともにした</title>
-      <link>https://mazgi.github.io/ja/posts/2018.05/update-hugo-theme/</link>
+      <link>https://mazgi.github.io/ja/posts/2018/05/update-hugo-theme/</link>
       <pubDate>Sun, 06 May 2018 21:04:37 +0900</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2018.05/update-hugo-theme/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2018/05/update-hugo-theme/</guid>
       <description>この Web サイト( https://mazgi.github.io/ )は専用の Hugo テーマで公開しているのだけど色々基本的なところが足りていなかったので直した。 一覧ページ(list.html) Hugo テ</description>
     </item>
     
