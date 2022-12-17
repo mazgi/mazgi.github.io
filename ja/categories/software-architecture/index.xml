@@ -9,19 +9,19 @@
     <lastBuildDate>Thu, 10 May 2018 02:03:25 +0900</lastBuildDate><atom:link href="https://mazgi.github.io/ja/categories/software-architecture/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Amazon SageMaker実運用: &#34;Lifecycle Configuration&#34;でEFSを自動マウント</title>
-      <link>https://mazgi.github.io/ja/posts/2018.05/sagemaker-efs-auto-mount-with-lifecycles-configuration/</link>
+      <link>https://mazgi.github.io/ja/posts/2018/05/sagemaker-efs-auto-mount-with-lifecycles-configuration/</link>
       <pubDate>Thu, 10 May 2018 02:03:25 +0900</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2018.05/sagemaker-efs-auto-mount-with-lifecycles-configuration/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2018/05/sagemaker-efs-auto-mount-with-lifecycles-configuration/</guid>
       <description>前回の記事に続いてマネージド Jupyter サービスAmazon SageMakerの Notebook インスタンスに EFS のボリュームを自動マウントする。 なおこの発言の真意で</description>
     </item>
     
     <item>
       <title>Amazon SageMaker実運用: NAT GatewayでNotebookの接続元IPアドレスを固定する</title>
-      <link>https://mazgi.github.io/ja/posts/2018.05/sagemaker-internet-access-via-nat-gateway/</link>
+      <link>https://mazgi.github.io/ja/posts/2018/05/sagemaker-internet-access-via-nat-gateway/</link>
       <pubDate>Wed, 09 May 2018 01:46:59 +0900</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2018.05/sagemaker-internet-access-via-nat-gateway/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2018/05/sagemaker-internet-access-via-nat-gateway/</guid>
       <description>Amazon SageMakerを使っていて Notebook インスタンスから以下を行いたくなったので構成を考えてみた。 Notebook インスタンスから外部システムにアクセスしたい 対</description>
     </item>
     

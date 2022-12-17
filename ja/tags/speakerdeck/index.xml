@@ -9,10 +9,10 @@
     <lastBuildDate>Sun, 19 Aug 2018 16:44:43 +0900</lastBuildDate><atom:link href="https://mazgi.github.io/ja/tags/speakerdeck/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo 0.42 からSpeaker Deck貼付はshortcodeではなくembed codeを使う</title>
-      <link>https://mazgi.github.io/ja/posts/2018.08/hugo-removed-speakerdeck-shortcode/</link>
+      <link>https://mazgi.github.io/ja/posts/2018/08/hugo-removed-speakerdeck-shortcode/</link>
       <pubDate>Sun, 19 Aug 2018 16:44:43 +0900</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2018.08/hugo-removed-speakerdeck-shortcode/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2018/08/hugo-removed-speakerdeck-shortcode/</guid>
       <description>tldr: Hugo 0.42 以降で Speaker Deck のスライドを貼り付けるときは Speaker Deck の embed code を使いましょう。 ある日 hugo server が実行できなくなった Hugo のバージョンを上げてこの blog の原稿を開い</description>
     </item>
     

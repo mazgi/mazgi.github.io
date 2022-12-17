@@ -18,19 +18,19 @@
     
     <item>
       <title>このブログのテーマがHugo Themesに載りました！</title>
-      <link>https://mazgi.github.io/ja/posts/2018.12/this-blogs-theme-appeared-in-the-hugo-themes/</link>
+      <link>https://mazgi.github.io/ja/posts/2018/12/this-blogs-theme-appeared-in-the-hugo-themes/</link>
       <pubDate>Fri, 30 Nov 2018 23:48:23 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2018.12/this-blogs-theme-appeared-in-the-hugo-themes/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2018/12/this-blogs-theme-appeared-in-the-hugo-themes/</guid>
       <description>このBlog用に作ったHugoテーマ「techlog-simple」をHugoのテーマサイトに載せていただきました。やったね 🎉 Techblog Simple is a Bootstrap-based blog theme</description>
     </item>
     
     <item>
       <title>Hugo 0.42 からSpeaker Deck貼付はshortcodeではなくembed codeを使う</title>
-      <link>https://mazgi.github.io/ja/posts/2018.08/hugo-removed-speakerdeck-shortcode/</link>
+      <link>https://mazgi.github.io/ja/posts/2018/08/hugo-removed-speakerdeck-shortcode/</link>
       <pubDate>Sun, 19 Aug 2018 16:44:43 +0900</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2018.08/hugo-removed-speakerdeck-shortcode/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2018/08/hugo-removed-speakerdeck-shortcode/</guid>
       <description>tldr: Hugo 0.42 以降で Speaker Deck のスライドを貼り付けるときは Speaker Deck の embed code を使いましょう。 ある日 hugo server が実行できなくなった Hugo のバージョンを上げてこの blog の原稿を開い</description>
     </item>
     
@@ -45,10 +45,10 @@
     
     <item>
       <title>S3 &#43; CloudFrontをTerraformで設定してCircleCIで更新する</title>
-      <link>https://mazgi.github.io/ja/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/</link>
+      <link>https://mazgi.github.io/ja/posts/2018/02/s3&#43;cloudfront-website-with-terraform-and-circleci/</link>
       <pubDate>Thu, 15 Feb 2018 05:24:40 +0900</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2018/02/s3&#43;cloudfront-website-with-terraform-and-circleci/</guid>
       <description>「Terraform で S3+CloudFront+SSL/TLS 証明書 w/ ACM を設定して Hugo で作った static な Web サイトを CircleCI で自動 deploy する」やつができた。 できたもの 普通のいかにもHugoで作った Web</description>
     </item>
     

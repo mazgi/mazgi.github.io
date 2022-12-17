@@ -65,10 +65,10 @@ GKE とか登場しないトラディショナルな構成を先人の知恵に�
     
     <item>
       <title>S3 &#43; CloudFrontをTerraformで設定してCircleCIで更新する</title>
-      <link>https://mazgi.github.io/ja/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/</link>
+      <link>https://mazgi.github.io/ja/posts/2018/02/s3&#43;cloudfront-website-with-terraform-and-circleci/</link>
       <pubDate>Thu, 15 Feb 2018 05:24:40 +0900</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2018/02/s3&#43;cloudfront-website-with-terraform-and-circleci/</guid>
       <description>「Terraform で S3+CloudFront+SSL/TLS 証明書 w/ ACM を設定して Hugo で作った static な Web サイトを CircleCI で自動 deploy する」やつができた。 できたもの 普通のいかにもHugoで作った Web</description>
     </item>
     

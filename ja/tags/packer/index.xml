@@ -9,10 +9,10 @@
     <lastBuildDate>Sun, 09 Sep 2018 05:15:46 +0900</lastBuildDate><atom:link href="https://mazgi.github.io/ja/tags/packer/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Packerを使ってECRとGCRに同じDockerイメージをPushする</title>
-      <link>https://mazgi.github.io/ja/posts/2018.09/push-docker-image-to-ecr-and-gcr-with-packer/</link>
+      <link>https://mazgi.github.io/ja/posts/2018/09/push-docker-image-to-ecr-and-gcr-with-packer/</link>
       <pubDate>Sun, 09 Sep 2018 05:15:46 +0900</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2018.09/push-docker-image-to-ecr-and-gcr-with-packer/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2018/09/push-docker-image-to-ecr-and-gcr-with-packer/</guid>
       <description>自分用の ML 環境として Docker イメージを作っていたのだが、 FROM: nvidia/cuda:9.2-cudnn7-devel-ubuntu18.04 なので DockerHub で public にするのも憚られ、ECR/GCR に置くことにした。 ECR/GCR に置くついでに packer build だけ</description>
     </item>
     

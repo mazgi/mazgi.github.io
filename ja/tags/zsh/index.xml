@@ -9,10 +9,10 @@
     <lastBuildDate>Sat, 28 Jul 2018 13:57:40 +0900</lastBuildDate><atom:link href="https://mazgi.github.io/ja/tags/zsh/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>tmuxとzshのススメ</title>
-      <link>https://mazgi.github.io/ja/posts/2018.07/useful-tmux-with-zsh/</link>
+      <link>https://mazgi.github.io/ja/posts/2018/07/useful-tmux-with-zsh/</link>
       <pubDate>Sat, 28 Jul 2018 13:57:40 +0900</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2018.07/useful-tmux-with-zsh/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2018/07/useful-tmux-with-zsh/</guid>
       <description>&lt;h2 id=&#34;tldr&#34;&gt;tl;dr&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;Terminal.app&lt;/code&gt; や &lt;code&gt;SSH&lt;/code&gt; のような CUI で作業するときは tmux 使うと便利&lt;/li&gt;

@@ -9,10 +9,10 @@
     <lastBuildDate>Mon, 17 Sep 2018 23:32:42 +0900</lastBuildDate><atom:link href="https://mazgi.github.io/ja/tags/nativefier/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AWS/GCPのWeb ConsoleをNativefierで専用アプリにする</title>
-      <link>https://mazgi.github.io/ja/posts/2018.09/create-app-for-cloud-webui-with-nativefier/</link>
+      <link>https://mazgi.github.io/ja/posts/2018/09/create-app-for-cloud-webui-with-nativefier/</link>
       <pubDate>Mon, 17 Sep 2018 23:32:42 +0900</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2018.09/create-app-for-cloud-webui-with-nativefier/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2018/09/create-app-for-cloud-webui-with-nativefier/</guid>
       <description>sandbox 用の AWS アカウントと GCP プロジェクトを作ったついでにそれぞれの Web 管理画面をNativefierで専用アプリにした。 GCP プロジェクトは https://console.cloud.google.com/home/dashboard?project=YOUR_GCP_PROJECT_ID のように URL</description>
     </item>
     

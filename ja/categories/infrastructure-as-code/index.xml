@@ -38,28 +38,28 @@ GKE とか登場しないトラディショナルな構成を先人の知恵に�
     
     <item>
       <title>S3 &#43; Lambda &#43; SQSでファイル処理する仕組みをTerraformで構築する</title>
-      <link>https://mazgi.github.io/ja/posts/2018.04/processing-with-s3-lambda-sqs/</link>
+      <link>https://mazgi.github.io/ja/posts/2018/04/processing-with-s3-lambda-sqs/</link>
       <pubDate>Tue, 17 Apr 2018 00:12:10 +0900</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2018.04/processing-with-s3-lambda-sqs/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2018/04/processing-with-s3-lambda-sqs/</guid>
       <description>画像や音声を S3 にアップロードすると Lambda でいい感じに前処理をして SQS に通知くれるような仕組みを想定して作ってみる。 名前は仮に「media-proc</description>
     </item>
     
     <item>
       <title>Amazon SageMakerをそれなりの人数で使うときの設定</title>
-      <link>https://mazgi.github.io/ja/posts/2018.03/setup-amazon-sagemaker/</link>
+      <link>https://mazgi.github.io/ja/posts/2018/03/setup-amazon-sagemaker/</link>
       <pubDate>Tue, 06 Mar 2018 00:06:04 +0900</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2018.03/setup-amazon-sagemaker/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2018/03/setup-amazon-sagemaker/</guid>
       <description>AWS のマネージド Jupyter サービスである「Amazon SageMaker」を数十名規模で使う機会があったのでインフラ的に設定した内容などを書いておく。</description>
     </item>
     
     <item>
       <title>SSE-KMSで暗号化したS3バケットをs3fsでmountする</title>
-      <link>https://mazgi.github.io/ja/posts/2018.03/s3fs-for-s3-with-sse-kms/</link>
+      <link>https://mazgi.github.io/ja/posts/2018/03/s3fs-for-s3-with-sse-kms/</link>
       <pubDate>Thu, 01 Mar 2018 04:32:56 +0900</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2018.03/s3fs-for-s3-with-sse-kms/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2018/03/s3fs-for-s3-with-sse-kms/</guid>
       <description>タイトルの通り「AWS Key Management Service (AWS KMS) 」を使って暗号化した Amazon S3 バケットを s3fs で Ubuntu 16 上で mount した。 KMS については以下のドキュメントが詳しいが要は暗号化の際</description>
     </item>
     

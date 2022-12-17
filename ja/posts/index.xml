@@ -331,65 +331,65 @@ GKE とか登場しないトラディショナルな構成を先人の知恵に�
     
     <item>
       <title>このブログのテーマがHugo Themesに載りました！</title>
-      <link>https://mazgi.github.io/ja/posts/2018.12/this-blogs-theme-appeared-in-the-hugo-themes/</link>
+      <link>https://mazgi.github.io/ja/posts/2018/12/this-blogs-theme-appeared-in-the-hugo-themes/</link>
       <pubDate>Fri, 30 Nov 2018 23:48:23 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2018.12/this-blogs-theme-appeared-in-the-hugo-themes/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2018/12/this-blogs-theme-appeared-in-the-hugo-themes/</guid>
       <description>このBlog用に作ったHugoテーマ「techlog-simple」をHugoのテーマサイトに載せていただきました。やったね 🎉 Techblog Simple is a Bootstrap-based blog theme</description>
     </item>
     
     <item>
       <title>AWS/GCPのWeb ConsoleをNativefierで専用アプリにする</title>
-      <link>https://mazgi.github.io/ja/posts/2018.09/create-app-for-cloud-webui-with-nativefier/</link>
+      <link>https://mazgi.github.io/ja/posts/2018/09/create-app-for-cloud-webui-with-nativefier/</link>
       <pubDate>Mon, 17 Sep 2018 23:32:42 +0900</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2018.09/create-app-for-cloud-webui-with-nativefier/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2018/09/create-app-for-cloud-webui-with-nativefier/</guid>
       <description>sandbox 用の AWS アカウントと GCP プロジェクトを作ったついでにそれぞれの Web 管理画面をNativefierで専用アプリにした。 GCP プロジェクトは https://console.cloud.google.com/home/dashboard?project=YOUR_GCP_PROJECT_ID のように URL</description>
     </item>
     
     <item>
       <title>HashiCorp JapanさんとMeetupを開催&amp;登壇しました</title>
-      <link>https://mazgi.github.io/ja/posts/2018.09/hashicorp-japan-meatup-on-dena/</link>
+      <link>https://mazgi.github.io/ja/posts/2018/09/hashicorp-japan-meatup-on-dena/</link>
       <pubDate>Sun, 16 Sep 2018 02:14:25 +0900</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2018.09/hashicorp-japan-meatup-on-dena/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2018/09/hashicorp-japan-meatup-on-dena/</guid>
       <description>先日 HashiCorp Japan さん主催で「DevOps を支える今話題の HashiCorp ツール群について」と題した Meet-up を開催させていただきました。 私も会場係と登壇をさせていただいた</description>
     </item>
     
     <item>
       <title>Packerを使ってECRとGCRに同じDockerイメージをPushする</title>
-      <link>https://mazgi.github.io/ja/posts/2018.09/push-docker-image-to-ecr-and-gcr-with-packer/</link>
+      <link>https://mazgi.github.io/ja/posts/2018/09/push-docker-image-to-ecr-and-gcr-with-packer/</link>
       <pubDate>Sun, 09 Sep 2018 05:15:46 +0900</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2018.09/push-docker-image-to-ecr-and-gcr-with-packer/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2018/09/push-docker-image-to-ecr-and-gcr-with-packer/</guid>
       <description>自分用の ML 環境として Docker イメージを作っていたのだが、 FROM: nvidia/cuda:9.2-cudnn7-devel-ubuntu18.04 なので DockerHub で public にするのも憚られ、ECR/GCR に置くことにした。 ECR/GCR に置くついでに packer build だけ</description>
     </item>
     
     <item>
       <title>Hugo 0.42 からSpeaker Deck貼付はshortcodeではなくembed codeを使う</title>
-      <link>https://mazgi.github.io/ja/posts/2018.08/hugo-removed-speakerdeck-shortcode/</link>
+      <link>https://mazgi.github.io/ja/posts/2018/08/hugo-removed-speakerdeck-shortcode/</link>
       <pubDate>Sun, 19 Aug 2018 16:44:43 +0900</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2018.08/hugo-removed-speakerdeck-shortcode/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2018/08/hugo-removed-speakerdeck-shortcode/</guid>
       <description>tldr: Hugo 0.42 以降で Speaker Deck のスライドを貼り付けるときは Speaker Deck の embed code を使いましょう。 ある日 hugo server が実行できなくなった Hugo のバージョンを上げてこの blog の原稿を開い</description>
     </item>
     
     <item>
       <title>AirDropは&#34;Do Not Disturb&#34;をOnにするとOffになる</title>
-      <link>https://mazgi.github.io/ja/posts/2018.07/airdrop-sleeps-when-do-not-disturb-is-turned-on/</link>
+      <link>https://mazgi.github.io/ja/posts/2018/07/airdrop-sleeps-when-do-not-disturb-is-turned-on/</link>
       <pubDate>Sat, 28 Jul 2018 16:01:14 +0900</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2018.07/airdrop-sleeps-when-do-not-disturb-is-turned-on/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2018/07/airdrop-sleeps-when-do-not-disturb-is-turned-on/</guid>
       <description>&lt;p&gt;タイトルの通り。&lt;br&gt;
 &lt;code&gt;Do Not Disturb&lt;/code&gt; を On にすると AirDrop の送り先リストから消えてしまう。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>tmuxとzshのススメ</title>
-      <link>https://mazgi.github.io/ja/posts/2018.07/useful-tmux-with-zsh/</link>
+      <link>https://mazgi.github.io/ja/posts/2018/07/useful-tmux-with-zsh/</link>
       <pubDate>Sat, 28 Jul 2018 13:57:40 +0900</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2018.07/useful-tmux-with-zsh/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2018/07/useful-tmux-with-zsh/</guid>
       <description>&lt;h2 id=&#34;tldr&#34;&gt;tl;dr&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;Terminal.app&lt;/code&gt; や &lt;code&gt;SSH&lt;/code&gt; のような CUI で作業するときは tmux 使うと便利&lt;/li&gt;
@@ -401,28 +401,28 @@ GKE とか登場しないトラディショナルな構成を先人の知恵に�
     
     <item>
       <title>「TD Tech Talk 2018」で分析基盤の話をさせていただきました</title>
-      <link>https://mazgi.github.io/ja/posts/2018.05/td-tech-talk-2018/</link>
+      <link>https://mazgi.github.io/ja/posts/2018/05/td-tech-talk-2018/</link>
       <pubDate>Tue, 22 May 2018 16:48:42 +0900</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2018.05/td-tech-talk-2018/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2018/05/td-tech-talk-2018/</guid>
       <description>「PLAZMA Data Platform Day: TD Tech Talk 2018」というイベントにお招きいただいたので「2020 年代に向けた DeNA の分析基盤 」というお話しをさせていただきまし</description>
     </item>
     
     <item>
       <title>Amazon SageMaker実運用: &#34;Lifecycle Configuration&#34;でEFSを自動マウント</title>
-      <link>https://mazgi.github.io/ja/posts/2018.05/sagemaker-efs-auto-mount-with-lifecycles-configuration/</link>
+      <link>https://mazgi.github.io/ja/posts/2018/05/sagemaker-efs-auto-mount-with-lifecycles-configuration/</link>
       <pubDate>Thu, 10 May 2018 02:03:25 +0900</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2018.05/sagemaker-efs-auto-mount-with-lifecycles-configuration/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2018/05/sagemaker-efs-auto-mount-with-lifecycles-configuration/</guid>
       <description>前回の記事に続いてマネージド Jupyter サービスAmazon SageMakerの Notebook インスタンスに EFS のボリュームを自動マウントする。 なおこの発言の真意で</description>
     </item>
     
     <item>
       <title>Amazon SageMaker実運用: NAT GatewayでNotebookの接続元IPアドレスを固定する</title>
-      <link>https://mazgi.github.io/ja/posts/2018.05/sagemaker-internet-access-via-nat-gateway/</link>
+      <link>https://mazgi.github.io/ja/posts/2018/05/sagemaker-internet-access-via-nat-gateway/</link>
       <pubDate>Wed, 09 May 2018 01:46:59 +0900</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2018.05/sagemaker-internet-access-via-nat-gateway/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2018/05/sagemaker-internet-access-via-nat-gateway/</guid>
       <description>Amazon SageMakerを使っていて Notebook インスタンスから以下を行いたくなったので構成を考えてみた。 Notebook インスタンスから外部システムにアクセスしたい 対</description>
     </item>
     
@@ -437,37 +437,37 @@ GKE とか登場しないトラディショナルな構成を先人の知恵に�
     
     <item>
       <title>S3 &#43; Lambda &#43; SQSでファイル処理する仕組みをTerraformで構築する</title>
-      <link>https://mazgi.github.io/ja/posts/2018.04/processing-with-s3-lambda-sqs/</link>
+      <link>https://mazgi.github.io/ja/posts/2018/04/processing-with-s3-lambda-sqs/</link>
       <pubDate>Tue, 17 Apr 2018 00:12:10 +0900</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2018.04/processing-with-s3-lambda-sqs/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2018/04/processing-with-s3-lambda-sqs/</guid>
       <description>画像や音声を S3 にアップロードすると Lambda でいい感じに前処理をして SQS に通知くれるような仕組みを想定して作ってみる。 名前は仮に「media-proc</description>
     </item>
     
     <item>
       <title>Amazon SageMakerをそれなりの人数で使うときの設定</title>
-      <link>https://mazgi.github.io/ja/posts/2018.03/setup-amazon-sagemaker/</link>
+      <link>https://mazgi.github.io/ja/posts/2018/03/setup-amazon-sagemaker/</link>
       <pubDate>Tue, 06 Mar 2018 00:06:04 +0900</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2018.03/setup-amazon-sagemaker/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2018/03/setup-amazon-sagemaker/</guid>
       <description>AWS のマネージド Jupyter サービスである「Amazon SageMaker」を数十名規模で使う機会があったのでインフラ的に設定した内容などを書いておく。</description>
     </item>
     
     <item>
       <title>SSE-KMSで暗号化したS3バケットをs3fsでmountする</title>
-      <link>https://mazgi.github.io/ja/posts/2018.03/s3fs-for-s3-with-sse-kms/</link>
+      <link>https://mazgi.github.io/ja/posts/2018/03/s3fs-for-s3-with-sse-kms/</link>
       <pubDate>Thu, 01 Mar 2018 04:32:56 +0900</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2018.03/s3fs-for-s3-with-sse-kms/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2018/03/s3fs-for-s3-with-sse-kms/</guid>
       <description>タイトルの通り「AWS Key Management Service (AWS KMS) 」を使って暗号化した Amazon S3 バケットを s3fs で Ubuntu 16 上で mount した。 KMS については以下のドキュメントが詳しいが要は暗号化の際</description>
     </item>
     
     <item>
       <title>S3 &#43; CloudFrontをTerraformで設定してCircleCIで更新する</title>
-      <link>https://mazgi.github.io/ja/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/</link>
+      <link>https://mazgi.github.io/ja/posts/2018/02/s3&#43;cloudfront-website-with-terraform-and-circleci/</link>
       <pubDate>Thu, 15 Feb 2018 05:24:40 +0900</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2018/02/s3&#43;cloudfront-website-with-terraform-and-circleci/</guid>
       <description>「Terraform で S3+CloudFront+SSL/TLS 証明書 w/ ACM を設定して Hugo で作った static な Web サイトを CircleCI で自動 deploy する」やつができた。 できたもの 普通のいかにもHugoで作った Web</description>
     </item>
     
