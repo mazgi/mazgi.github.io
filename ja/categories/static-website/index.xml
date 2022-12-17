@@ -36,10 +36,10 @@
     
     <item>
       <title>簡易な技術ドキュメントをHugoで書くと便利だった</title>
-      <link>https://mazgi.github.io/ja/posts/2017.12/technical-docs-with-hugo/</link>
+      <link>https://mazgi.github.io/ja/posts/2017/12/technical-docs-with-hugo/</link>
       <pubDate>Fri, 08 Dec 2017 07:00:00 +0900</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2017.12/technical-docs-with-hugo/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2017/12/technical-docs-with-hugo/</guid>
       <description>サンプルコードのドキュメントをHugoで書いてサンプルコードと一緒に配ったら便利そうだったのでやってみた。 やりたいこと 仕事で他社さんにサンプ</description>
     </item>
     

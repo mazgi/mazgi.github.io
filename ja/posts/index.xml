@@ -473,46 +473,46 @@ GKE とか登場しないトラディショナルな構成を先人の知恵に�
     
     <item>
       <title>簡易な技術ドキュメントをHugoで書くと便利だった</title>
-      <link>https://mazgi.github.io/ja/posts/2017.12/technical-docs-with-hugo/</link>
+      <link>https://mazgi.github.io/ja/posts/2017/12/technical-docs-with-hugo/</link>
       <pubDate>Fri, 08 Dec 2017 07:00:00 +0900</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2017.12/technical-docs-with-hugo/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2017/12/technical-docs-with-hugo/</guid>
       <description>サンプルコードのドキュメントをHugoで書いてサンプルコードと一緒に配ったら便利そうだったのでやってみた。 やりたいこと 仕事で他社さんにサンプ</description>
     </item>
     
     <item>
       <title>EC2 P3で使えるChainerMN入りのDockerイメージを作った</title>
-      <link>https://mazgi.github.io/ja/posts/2017.12/dockerimage-for-chainermn-on-v100/</link>
+      <link>https://mazgi.github.io/ja/posts/2017/12/dockerimage-for-chainermn-on-v100/</link>
       <pubDate>Thu, 07 Dec 2017 07:16:07 +0900</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2017.12/dockerimage-for-chainermn-on-v100/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2017/12/dockerimage-for-chainermn-on-v100/</guid>
       <description>sonots 先生によるこの記事をやってみたという話です。 docker (nvidia-docker) を使ってマルチノードで ChainerMN を実行する方法(仮) - Qiita 概要 Dockerfile はここにあります。 mazgi/docker-cuda-cv: based on: https://gitlab.com/nvidia/cuda ベースは NVIDIA</description>
     </item>
     
     <item>
       <title>Adobe CCのライセンスを別のPCに移す方法(ライセンス認証解除→再認証)</title>
-      <link>https://mazgi.github.io/ja/posts/2017.02/deactivate-and-activate-adobecc/</link>
+      <link>https://mazgi.github.io/ja/posts/2017/02/deactivate-and-activate-adobecc/</link>
       <pubDate>Sun, 12 Feb 2017 02:13:55 +0900</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2017.02/deactivate-and-activate-adobecc/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2017/02/deactivate-and-activate-adobecc/</guid>
       <description>Adobe CC が不要な PC の認証を解除して、使いたい PC で何かしらのアプリを起動すれば認証されて使えるようになる。 PC 買い替えなどのタイミングで必要になるが</description>
     </item>
     
     <item>
       <title>Hadoop黙々会を始めました</title>
-      <link>https://mazgi.github.io/ja/posts/2016.09/held-hadoop-bootup-0/</link>
+      <link>https://mazgi.github.io/ja/posts/2016/09/held-hadoop-bootup-0/</link>
       <pubDate>Mon, 12 Sep 2016 23:42:41 +0900</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2016.09/held-hadoop-bootup-0/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2016/09/held-hadoop-bootup-0/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://twitter.com/usaturn&#34;&gt;@usaturn&lt;/a&gt;さんと一緒に「&lt;a href=&#34;http://hadoop-bootup.connpass.com/event/39859/&#34;&gt;Hadoop 黙々会&lt;/a&gt;」を始めました。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>NISSAN×DeNA @ dots. #23x に行ってきました</title>
-      <link>https://mazgi.github.io/ja/posts/2016.08/went-to-23x/</link>
+      <link>https://mazgi.github.io/ja/posts/2016/08/went-to-23x/</link>
       <pubDate>Wed, 31 Aug 2016 23:30:00 +0900</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2016.08/went-to-23x/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2016/08/went-to-23x/</guid>
       <description>&lt;h3 id=&#34;追記&#34;&gt;追記&lt;/h3&gt;
 &lt;p&gt;当日のツイートを&lt;a href=&#34;http://togetter.com/li/1018957&#34;&gt;Togetter&lt;/a&gt;にまとめさせていただきました！&lt;/p&gt;
 &lt;hr&gt;
@@ -522,10 +522,10 @@ GKE とか登場しないトラディショナルな構成を先人の知恵に�
     
     <item>
       <title>【SELECK掲載記念】AnsibleでPartitionを切る！</title>
-      <link>https://mazgi.github.io/ja/posts/2016.07/interviewed-for-ansible/</link>
+      <link>https://mazgi.github.io/ja/posts/2016/07/interviewed-for-ansible/</link>
       <pubDate>Fri, 15 Jul 2016 20:00:00 +0900</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2016.07/interviewed-for-ansible/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2016/07/interviewed-for-ansible/</guid>
       <description>&lt;h3 id=&#34;追記&#34;&gt;追記&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&#34;http://cloud.sakura.ad.jp&#34;&gt;さくらのクラウド&lt;/a&gt;について取材していただいた記事も公開されました！&lt;br&gt;
 合わせてご覧ください！！&lt;/p&gt;
@@ -539,10 +539,10 @@ GKE とか登場しないトラディショナルな構成を先人の知恵に�
     
     <item>
       <title>RackTablesで個人ネットワークを管理する</title>
-      <link>https://mazgi.github.io/ja/posts/2016.07/racktables-for-home-network/</link>
+      <link>https://mazgi.github.io/ja/posts/2016/07/racktables-for-home-network/</link>
       <pubDate>Fri, 15 Jul 2016 07:00:00 +0900</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2016.07/racktables-for-home-network/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2016/07/racktables-for-home-network/</guid>
       <description>&lt;p&gt;個人で使っている&lt;a href=&#34;http://cloud.sakura.ad.jp&#34;&gt;さくらのクラウド&lt;/a&gt;アカウントでサーバーやスイッチが増えてしまいどれが何やら分からなくなってきたので&lt;a href=&#34;http://racktables.org/&#34;&gt;RackTables&lt;/a&gt;で管理しようと思い(立ってからだいぶ時間が)たちました。&lt;/p&gt;
 &lt;figure&gt;&lt;img src=&#34;0001.png&#34; width=&#34;800&#34;/&gt;
 &lt;/figure&gt;
@@ -552,37 +552,37 @@ GKE とか登場しないトラディショナルな構成を先人の知恵に�
     
     <item>
       <title>複数のサーバーに対してSSL証明書の期限を確認する</title>
-      <link>https://mazgi.github.io/ja/posts/2016.02/tls-certificates-validation-via-s_client/</link>
+      <link>https://mazgi.github.io/ja/posts/2016/02/tls-certificates-validation-via-s_client/</link>
       <pubDate>Mon, 29 Feb 2016 22:21:00 +0900</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2016.02/tls-certificates-validation-via-s_client/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2016/02/tls-certificates-validation-via-s_client/</guid>
       <description>会社のサーバーが一斉に SSL 証明書更新のシーズンを迎えたので OpenSSL の各種コマンドで確認の手間を減らしてみる。 まず、 openssl s_client コマンドで /dev/null を標準入力に入れつ</description>
     </item>
     
     <item>
       <title>Gentoo で普通の CVE-2015-7547 対策</title>
-      <link>https://mazgi.github.io/ja/posts/2016.02/cve-2015-7547-on-gentoo/</link>
+      <link>https://mazgi.github.io/ja/posts/2016/02/cve-2015-7547-on-gentoo/</link>
       <pubDate>Thu, 18 Feb 2016 14:36:02 +0900</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2016.02/cve-2015-7547-on-gentoo/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2016/02/cve-2015-7547-on-gentoo/</guid>
       <description>追記 私が何か勘違いしてたようですが glibc-2.21-r2 (~amd64 マスクされてない)で patch が取り込まれてますね。。 # emerge -fOq glibc &amp;gt;&amp;gt;&amp;gt; Fetching (1 of 1) sys-libs/glibc-2.21-r2::gentoo # tar tf /usr/portage/distfiles/glibc-2.21-patches-7.tar.bz2 | grep &#39;CVE-2015-7547&#39; patches/00_all_0028-CVE-2015-7547-getaddrinfo-stack-based-buffer-overflo.patch 本文 皆さまにおかれま</description>
     </item>
     
     <item>
       <title>ssmjp で Gentoo の話をしてきました</title>
-      <link>https://mazgi.github.io/ja/posts/2015.10/gentoo-talk-on-ssmjp/</link>
+      <link>https://mazgi.github.io/ja/posts/2015/10/gentoo-talk-on-ssmjp/</link>
       <pubDate>Mon, 05 Oct 2015 15:44:24 +0900</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2015.10/gentoo-talk-on-ssmjp/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2015/10/gentoo-talk-on-ssmjp/</guid>
       <description>先週の話ですがssmjp 2015/09 の回におじゃましてきました。 「一緒にプロダクション環境での Gentoo 勉強会」やりましょう！という話を現実にしてくださった@</description>
     </item>
     
     <item>
       <title>#morisnite 2で生ハム原木担いでラーメンが美味しかった話</title>
-      <link>https://mazgi.github.io/ja/posts/2015.02/morisnite-02-with-whole-prosciutto/</link>
+      <link>https://mazgi.github.io/ja/posts/2015/02/morisnite-02-with-whole-prosciutto/</link>
       <pubDate>Tue, 17 Feb 2015 09:55:37 +0900</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2015.02/morisnite-02-with-whole-prosciutto/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2015/02/morisnite-02-with-whole-prosciutto/</guid>
       <description>モリスナイト 2で無事に生ハムを deploy することができた。 骨は@mirakuiさんが美味しいラーメンにしてくださった。 morisnite #morisnite vol.2をご参照のこと。</description>
     </item>
     
