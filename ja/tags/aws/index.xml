@@ -9,37 +9,37 @@
     <lastBuildDate>Sat, 22 Jun 2019 12:12:44 +0000</lastBuildDate><atom:link href="https://mazgi.github.io/ja/tags/aws/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AWSストレージ概観</title>
-      <link>https://mazgi.github.io/ja/posts/2019.06/the-trend-of-aws-storages/</link>
+      <link>https://mazgi.github.io/ja/posts/2019/06/the-trend-of-aws-storages/</link>
       <pubDate>Sat, 22 Jun 2019 12:12:44 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2019.06/the-trend-of-aws-storages/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2019/06/the-trend-of-aws-storages/</guid>
       <description>AWS で使えるローカルストレージと NFS ストレージを一通り試してみました。 GCP 編はこちら。 About ベンチマークは fio コマンドで取得した。 機械学習のワークロード</description>
     </item>
     
     <item>
       <title>安全かつ最小にTerraformでGPUサーバーを起動する(AWS編)</title>
-      <link>https://mazgi.github.io/ja/posts/2019.06/the-simplest-ml-environment-with-terraform-on-aws/</link>
+      <link>https://mazgi.github.io/ja/posts/2019/06/the-simplest-ml-environment-with-terraform-on-aws/</link>
       <pubDate>Tue, 11 Jun 2019 14:27:24 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2019.06/the-simplest-ml-environment-with-terraform-on-aws/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2019/06/the-simplest-ml-environment-with-terraform-on-aws/</guid>
       <description>普段、会社でやっている ML Ops 業務の振り返りを兼ねて最低限必要そうな Amazon VPC 構成用の Terraform Module を作りました。 そして Module には&amp;quot;最小構成&amp;quot;の</description>
     </item>
     
     <item>
       <title>AI時代のDocker &#43; XaaS簡単理解</title>
-      <link>https://mazgi.github.io/ja/posts/2019.05/brief-description-of-xaas-in-the-ai-era/</link>
+      <link>https://mazgi.github.io/ja/posts/2019/05/brief-description-of-xaas-in-the-ai-era/</link>
       <pubDate>Mon, 27 May 2019 22:04:33 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2019.05/brief-description-of-xaas-in-the-ai-era/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2019/05/brief-description-of-xaas-in-the-ai-era/</guid>
       <description>私が所属しているDeNA AI システム部の部内勉強会で Docker と XaaS（ザース）の話をさせていただいたので資料を公開します。 XaaS（ザース）は IaaS, FaaS,</description>
     </item>
     
     <item>
       <title>GitHub&#43;CircleCI&#43;S3でNoOpsなBlogを構築した</title>
-      <link>https://mazgi.github.io/ja/posts/2019.04/built-noops-blog-with-github-circleci-s3/</link>
+      <link>https://mazgi.github.io/ja/posts/2019/04/built-noops-blog-with-github-circleci-s3/</link>
       <pubDate>Thu, 25 Apr 2019 03:37:18 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2019.04/built-noops-blog-with-github-circleci-s3/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2019/04/built-noops-blog-with-github-circleci-s3/</guid>
       <description>本業の傍ら会社の技術 Blog リニューアルに携わっており、概要を Advent Calendar で「DeNA Engineers&#39; Blog をリニューアルしている話」として書きました。 「DeNA Engineers&#39; Blog をリニ</description>
     </item>
     

@@ -9,19 +9,19 @@
     <lastBuildDate>Sat, 27 Apr 2019 01:03:05 +0000</lastBuildDate><atom:link href="https://mazgi.github.io/ja/tags/dena/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>仕事の振り返り(2019.04)</title>
-      <link>https://mazgi.github.io/ja/posts/2019.04/my-role-in-dena-was-simplified/</link>
+      <link>https://mazgi.github.io/ja/posts/2019/04/my-role-in-dena-was-simplified/</link>
       <pubDate>Sat, 27 Apr 2019 01:03:05 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2019.04/my-role-in-dena-was-simplified/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2019/04/my-role-in-dena-was-simplified/</guid>
       <description>ここ何年か DeNA という会社で働かせていただいてます。 今月 4 月に異動したこともあり棚卸し的にやってきたことを振り返ってみました。 4 月からは「AI 本</description>
     </item>
     
     <item>
       <title>GitHub&#43;CircleCI&#43;S3でNoOpsなBlogを構築した</title>
-      <link>https://mazgi.github.io/ja/posts/2019.04/built-noops-blog-with-github-circleci-s3/</link>
+      <link>https://mazgi.github.io/ja/posts/2019/04/built-noops-blog-with-github-circleci-s3/</link>
       <pubDate>Thu, 25 Apr 2019 03:37:18 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2019.04/built-noops-blog-with-github-circleci-s3/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2019/04/built-noops-blog-with-github-circleci-s3/</guid>
       <description>本業の傍ら会社の技術 Blog リニューアルに携わっており、概要を Advent Calendar で「DeNA Engineers&#39; Blog をリニューアルしている話」として書きました。 「DeNA Engineers&#39; Blog をリニ</description>
     </item>
     

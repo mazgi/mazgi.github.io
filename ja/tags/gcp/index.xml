@@ -29,19 +29,19 @@ GKE とか登場しないトラディショナルな構成を先人の知恵に�
     
     <item>
       <title>GCPストレージ概観</title>
-      <link>https://mazgi.github.io/ja/posts/2019.06/the-trend-of-gcp-storages/</link>
+      <link>https://mazgi.github.io/ja/posts/2019/06/the-trend-of-gcp-storages/</link>
       <pubDate>Sat, 22 Jun 2019 12:12:44 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2019.06/the-trend-of-gcp-storages/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2019/06/the-trend-of-gcp-storages/</guid>
       <description>GCP で使えるローカルストレージと NFS ストレージを一通り試してみました。 AWS 編はこちら。 About ベンチマークは fio コマンドで取得した。 機械学習のワークロード</description>
     </item>
     
     <item>
       <title>安全かつ最小にTerraformでGPUサーバーを起動する(GCP編)</title>
-      <link>https://mazgi.github.io/ja/posts/2019.06/the-simplest-ml-environment-with-terraform-on-gcp/</link>
+      <link>https://mazgi.github.io/ja/posts/2019/06/the-simplest-ml-environment-with-terraform-on-gcp/</link>
       <pubDate>Tue, 11 Jun 2019 14:27:24 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2019.06/the-simplest-ml-environment-with-terraform-on-gcp/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2019/06/the-simplest-ml-environment-with-terraform-on-gcp/</guid>
       <description>普段の仕事でやっている ML Ops 業務の振り返りを兼ねて最低限必要そうな VPC 構成用の Terraform Module for GCP です。 Module には&amp;quot;最小構成&amp;quot;の機械学習環境</description>
     </item>
     

@@ -9,30 +9,30 @@
     <lastBuildDate>Wed, 18 Dec 2019 23:35:25 +0000</lastBuildDate><atom:link href="https://mazgi.github.io/ja/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>なぜそのプロジェクトでKubernetesが選択されたか</title>
-      <link>https://mazgi.github.io/ja/posts/2019.12/why-choose-k8s-for-the-project/</link>
+      <link>https://mazgi.github.io/ja/posts/2019/12/why-choose-k8s-for-the-project/</link>
       <pubDate>Wed, 18 Dec 2019 23:35:25 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2019.12/why-choose-k8s-for-the-project/</guid>
-      <description>&lt;p&gt;これは&lt;a href=&#34;https://mazgi.github.io/ja/posts/2019.12/went-to-gcpug-tokyo-dec-2019/&#34;&gt;「GCPUG Tokyo December 2019」の記事&lt;/a&gt;から「Why Kubernetes? Why not GAE or others?」部分を切り出した記事です。&lt;br&gt;
+      <guid>https://mazgi.github.io/ja/posts/2019/12/why-choose-k8s-for-the-project/</guid>
+      <description>&lt;p&gt;これは&lt;a href=&#34;https://mazgi.github.io/ja/posts/2019/12/went-to-gcpug-tokyo-dec-2019/&#34;&gt;「GCPUG Tokyo December 2019」の記事&lt;/a&gt;から「Why Kubernetes? Why not GAE or others?」部分を切り出した記事です。&lt;br&gt;
 本記事のコンテキストとして、イベントでお話しさせていただいた資料「&lt;a href=&#34;https://speakerdeck.com/mazgi/fast-development-for-ml-web-service-on-gke-and-gcp&#34;&gt;ML アプリケーション短期開発 / Fast development for ML Web Service on GKE &amp;amp; GCP&lt;/a&gt;」」を事前にご参照いただけると幸いです。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>「GCPUG Tokyo December 2019」でお話させていただきました</title>
-      <link>https://mazgi.github.io/ja/posts/2019.12/went-to-gcpug-tokyo-dec-2019/</link>
+      <link>https://mazgi.github.io/ja/posts/2019/12/went-to-gcpug-tokyo-dec-2019/</link>
       <pubDate>Wed, 18 Dec 2019 22:35:25 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2019.12/went-to-gcpug-tokyo-dec-2019/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2019/12/went-to-gcpug-tokyo-dec-2019/</guid>
       <description>&lt;p&gt;昨日 12/18 に開催された「&lt;a href=&#34;https://gcpug-tokyo.connpass.com/event/152607/&#34;&gt;GCPUG Tokyo December 2019&lt;/a&gt;」で「&lt;a href=&#34;https://speakerdeck.com/mazgi/fast-development-for-ml-web-service-on-gke-and-gcp&#34;&gt;ML アプリケーション短期開発 / Fast development for ML Web Service on GKE &amp;amp; GCP&lt;/a&gt;」と題してお話しさせていただきました。&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
     <item>
       <title>#gc_k8sday &#34;Google Cloud Kubernetes Day&#34;に行ってきました</title>
-      <link>https://mazgi.github.io/ja/posts/2019.03/went-to-google-cloud-kubernetes-day/</link>
+      <link>https://mazgi.github.io/ja/posts/2019/03/went-to-google-cloud-kubernetes-day/</link>
       <pubDate>Tue, 26 Mar 2019 11:54:51 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2019.03/went-to-google-cloud-kubernetes-day/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2019/03/went-to-google-cloud-kubernetes-day/</guid>
       <description>3/26 に開催された「Google Cloud Kubernetes Day」に当選したので参加してきました。 最前列でひたすらメモったので放出しておきます。 Program こんなプログラムでし</description>
     </item>
     

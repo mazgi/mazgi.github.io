@@ -9,48 +9,48 @@
     <lastBuildDate>Wed, 18 Dec 2019 23:35:25 +0000</lastBuildDate><atom:link href="https://mazgi.github.io/ja/tags/ml-engineering/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>なぜそのプロジェクトでKubernetesが選択されたか</title>
-      <link>https://mazgi.github.io/ja/posts/2019.12/why-choose-k8s-for-the-project/</link>
+      <link>https://mazgi.github.io/ja/posts/2019/12/why-choose-k8s-for-the-project/</link>
       <pubDate>Wed, 18 Dec 2019 23:35:25 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2019.12/why-choose-k8s-for-the-project/</guid>
-      <description>&lt;p&gt;これは&lt;a href=&#34;https://mazgi.github.io/ja/posts/2019.12/went-to-gcpug-tokyo-dec-2019/&#34;&gt;「GCPUG Tokyo December 2019」の記事&lt;/a&gt;から「Why Kubernetes? Why not GAE or others?」部分を切り出した記事です。&lt;br&gt;
+      <guid>https://mazgi.github.io/ja/posts/2019/12/why-choose-k8s-for-the-project/</guid>
+      <description>&lt;p&gt;これは&lt;a href=&#34;https://mazgi.github.io/ja/posts/2019/12/went-to-gcpug-tokyo-dec-2019/&#34;&gt;「GCPUG Tokyo December 2019」の記事&lt;/a&gt;から「Why Kubernetes? Why not GAE or others?」部分を切り出した記事です。&lt;br&gt;
 本記事のコンテキストとして、イベントでお話しさせていただいた資料「&lt;a href=&#34;https://speakerdeck.com/mazgi/fast-development-for-ml-web-service-on-gke-and-gcp&#34;&gt;ML アプリケーション短期開発 / Fast development for ML Web Service on GKE &amp;amp; GCP&lt;/a&gt;」」を事前にご参照いただけると幸いです。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>「GCPUG Tokyo December 2019」でお話させていただきました</title>
-      <link>https://mazgi.github.io/ja/posts/2019.12/went-to-gcpug-tokyo-dec-2019/</link>
+      <link>https://mazgi.github.io/ja/posts/2019/12/went-to-gcpug-tokyo-dec-2019/</link>
       <pubDate>Wed, 18 Dec 2019 22:35:25 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2019.12/went-to-gcpug-tokyo-dec-2019/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2019/12/went-to-gcpug-tokyo-dec-2019/</guid>
       <description>&lt;p&gt;昨日 12/18 に開催された「&lt;a href=&#34;https://gcpug-tokyo.connpass.com/event/152607/&#34;&gt;GCPUG Tokyo December 2019&lt;/a&gt;」で「&lt;a href=&#34;https://speakerdeck.com/mazgi/fast-development-for-ml-web-service-on-gke-and-gcp&#34;&gt;ML アプリケーション短期開発 / Fast development for ML Web Service on GKE &amp;amp; GCP&lt;/a&gt;」と題してお話しさせていただきました。&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
     <item>
       <title>安全かつ最小にTerraformでGPUサーバーを起動する(AWS編)</title>
-      <link>https://mazgi.github.io/ja/posts/2019.06/the-simplest-ml-environment-with-terraform-on-aws/</link>
+      <link>https://mazgi.github.io/ja/posts/2019/06/the-simplest-ml-environment-with-terraform-on-aws/</link>
       <pubDate>Tue, 11 Jun 2019 14:27:24 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2019.06/the-simplest-ml-environment-with-terraform-on-aws/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2019/06/the-simplest-ml-environment-with-terraform-on-aws/</guid>
       <description>普段、会社でやっている ML Ops 業務の振り返りを兼ねて最低限必要そうな Amazon VPC 構成用の Terraform Module を作りました。 そして Module には&amp;quot;最小構成&amp;quot;の</description>
     </item>
     
     <item>
       <title>安全かつ最小にTerraformでGPUサーバーを起動する(GCP編)</title>
-      <link>https://mazgi.github.io/ja/posts/2019.06/the-simplest-ml-environment-with-terraform-on-gcp/</link>
+      <link>https://mazgi.github.io/ja/posts/2019/06/the-simplest-ml-environment-with-terraform-on-gcp/</link>
       <pubDate>Tue, 11 Jun 2019 14:27:24 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2019.06/the-simplest-ml-environment-with-terraform-on-gcp/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2019/06/the-simplest-ml-environment-with-terraform-on-gcp/</guid>
       <description>普段の仕事でやっている ML Ops 業務の振り返りを兼ねて最低限必要そうな VPC 構成用の Terraform Module for GCP です。 Module には&amp;quot;最小構成&amp;quot;の機械学習環境</description>
     </item>
     
     <item>
       <title>仕事の振り返り(2019.04)</title>
-      <link>https://mazgi.github.io/ja/posts/2019.04/my-role-in-dena-was-simplified/</link>
+      <link>https://mazgi.github.io/ja/posts/2019/04/my-role-in-dena-was-simplified/</link>
       <pubDate>Sat, 27 Apr 2019 01:03:05 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2019.04/my-role-in-dena-was-simplified/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2019/04/my-role-in-dena-was-simplified/</guid>
       <description>ここ何年か DeNA という会社で働かせていただいてます。 今月 4 月に異動したこともあり棚卸し的にやってきたことを振り返ってみました。 4 月からは「AI 本</description>
     </item>
     

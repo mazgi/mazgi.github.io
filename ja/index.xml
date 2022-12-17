@@ -182,147 +182,147 @@ GKE とか登場しないトラディショナルな構成を先人の知恵に�
     
     <item>
       <title>なぜそのプロジェクトでKubernetesが選択されたか</title>
-      <link>https://mazgi.github.io/ja/posts/2019.12/why-choose-k8s-for-the-project/</link>
+      <link>https://mazgi.github.io/ja/posts/2019/12/why-choose-k8s-for-the-project/</link>
       <pubDate>Wed, 18 Dec 2019 23:35:25 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2019.12/why-choose-k8s-for-the-project/</guid>
-      <description>&lt;p&gt;これは&lt;a href=&#34;https://mazgi.github.io/ja/posts/2019.12/went-to-gcpug-tokyo-dec-2019/&#34;&gt;「GCPUG Tokyo December 2019」の記事&lt;/a&gt;から「Why Kubernetes? Why not GAE or others?」部分を切り出した記事です。&lt;br&gt;
+      <guid>https://mazgi.github.io/ja/posts/2019/12/why-choose-k8s-for-the-project/</guid>
+      <description>&lt;p&gt;これは&lt;a href=&#34;https://mazgi.github.io/ja/posts/2019/12/went-to-gcpug-tokyo-dec-2019/&#34;&gt;「GCPUG Tokyo December 2019」の記事&lt;/a&gt;から「Why Kubernetes? Why not GAE or others?」部分を切り出した記事です。&lt;br&gt;
 本記事のコンテキストとして、イベントでお話しさせていただいた資料「&lt;a href=&#34;https://speakerdeck.com/mazgi/fast-development-for-ml-web-service-on-gke-and-gcp&#34;&gt;ML アプリケーション短期開発 / Fast development for ML Web Service on GKE &amp;amp; GCP&lt;/a&gt;」」を事前にご参照いただけると幸いです。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>「GCPUG Tokyo December 2019」でお話させていただきました</title>
-      <link>https://mazgi.github.io/ja/posts/2019.12/went-to-gcpug-tokyo-dec-2019/</link>
+      <link>https://mazgi.github.io/ja/posts/2019/12/went-to-gcpug-tokyo-dec-2019/</link>
       <pubDate>Wed, 18 Dec 2019 22:35:25 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2019.12/went-to-gcpug-tokyo-dec-2019/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2019/12/went-to-gcpug-tokyo-dec-2019/</guid>
       <description>&lt;p&gt;昨日 12/18 に開催された「&lt;a href=&#34;https://gcpug-tokyo.connpass.com/event/152607/&#34;&gt;GCPUG Tokyo December 2019&lt;/a&gt;」で「&lt;a href=&#34;https://speakerdeck.com/mazgi/fast-development-for-ml-web-service-on-gke-and-gcp&#34;&gt;ML アプリケーション短期開発 / Fast development for ML Web Service on GKE &amp;amp; GCP&lt;/a&gt;」と題してお話しさせていただきました。&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
     <item>
       <title>新しいGitHub ActionsとGitHub Package RegistryでCI/CD(サンプルあり)</title>
-      <link>https://mazgi.github.io/ja/posts/2019.08/use-github-actions-cicd-with-github-package-registry/</link>
+      <link>https://mazgi.github.io/ja/posts/2019/08/use-github-actions-cicd-with-github-package-registry/</link>
       <pubDate>Sun, 18 Aug 2019 07:23:57 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2019.08/use-github-actions-cicd-with-github-package-registry/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2019/08/use-github-actions-cicd-with-github-package-registry/</guid>
       <description>ありがたいことにGitHub Actions(beta)とGitHub Package Registry(beta)両方が使えるようになったので試してみました</description>
     </item>
     
     <item>
       <title>1Password Cliの使い方</title>
-      <link>https://mazgi.github.io/ja/posts/2019.07/how-to-use-1password-cli/</link>
+      <link>https://mazgi.github.io/ja/posts/2019/07/how-to-use-1password-cli/</link>
       <pubDate>Sun, 07 Jul 2019 17:18:09 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2019.07/how-to-use-1password-cli/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2019/07/how-to-use-1password-cli/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://support.1password.com/command-line/&#34;&gt;1Password Cli&lt;/a&gt;のサインイン方法を全く覚えられないのでメモ。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>複数のGitHubリポジトリをTerraformて管理する</title>
-      <link>https://mazgi.github.io/ja/posts/2019.07/manage-multiple-github-repositories-with-terraform/</link>
+      <link>https://mazgi.github.io/ja/posts/2019/07/manage-multiple-github-repositories-with-terraform/</link>
       <pubDate>Sat, 06 Jul 2019 15:10:53 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2019.07/manage-multiple-github-repositories-with-terraform/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2019/07/manage-multiple-github-repositories-with-terraform/</guid>
       <description>普段の仕事で PoC やその他次々発生する実験的なプロジェクトのために&amp;quot;よく似た GitHub リポジトリ&amp;quot;を管理する必要があった。 具体的には</description>
     </item>
     
     <item>
       <title>Publish Docker Image to GitHub Package Registry</title>
-      <link>https://mazgi.github.io/ja/posts/2019.06/publish-docker-image-to-github-package-registry/</link>
+      <link>https://mazgi.github.io/ja/posts/2019/06/publish-docker-image-to-github-package-registry/</link>
       <pubDate>Sat, 29 Jun 2019 04:00:09 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2019.06/publish-docker-image-to-github-package-registry/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2019/06/publish-docker-image-to-github-package-registry/</guid>
       <description>5 月に発表されたGitHub Package Registryの limited public beta が通ったのでひとまず Docker イメージを push してみた。 How to Use Docker イメージを push するための設定方法はこ</description>
     </item>
     
     <item>
       <title>AWSストレージ概観</title>
-      <link>https://mazgi.github.io/ja/posts/2019.06/the-trend-of-aws-storages/</link>
+      <link>https://mazgi.github.io/ja/posts/2019/06/the-trend-of-aws-storages/</link>
       <pubDate>Sat, 22 Jun 2019 12:12:44 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2019.06/the-trend-of-aws-storages/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2019/06/the-trend-of-aws-storages/</guid>
       <description>AWS で使えるローカルストレージと NFS ストレージを一通り試してみました。 GCP 編はこちら。 About ベンチマークは fio コマンドで取得した。 機械学習のワークロード</description>
     </item>
     
     <item>
       <title>GCPストレージ概観</title>
-      <link>https://mazgi.github.io/ja/posts/2019.06/the-trend-of-gcp-storages/</link>
+      <link>https://mazgi.github.io/ja/posts/2019/06/the-trend-of-gcp-storages/</link>
       <pubDate>Sat, 22 Jun 2019 12:12:44 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2019.06/the-trend-of-gcp-storages/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2019/06/the-trend-of-gcp-storages/</guid>
       <description>GCP で使えるローカルストレージと NFS ストレージを一通り試してみました。 AWS 編はこちら。 About ベンチマークは fio コマンドで取得した。 機械学習のワークロード</description>
     </item>
     
     <item>
       <title>安全かつ最小にTerraformでGPUサーバーを起動する(AWS編)</title>
-      <link>https://mazgi.github.io/ja/posts/2019.06/the-simplest-ml-environment-with-terraform-on-aws/</link>
+      <link>https://mazgi.github.io/ja/posts/2019/06/the-simplest-ml-environment-with-terraform-on-aws/</link>
       <pubDate>Tue, 11 Jun 2019 14:27:24 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2019.06/the-simplest-ml-environment-with-terraform-on-aws/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2019/06/the-simplest-ml-environment-with-terraform-on-aws/</guid>
       <description>普段、会社でやっている ML Ops 業務の振り返りを兼ねて最低限必要そうな Amazon VPC 構成用の Terraform Module を作りました。 そして Module には&amp;quot;最小構成&amp;quot;の</description>
     </item>
     
     <item>
       <title>安全かつ最小にTerraformでGPUサーバーを起動する(GCP編)</title>
-      <link>https://mazgi.github.io/ja/posts/2019.06/the-simplest-ml-environment-with-terraform-on-gcp/</link>
+      <link>https://mazgi.github.io/ja/posts/2019/06/the-simplest-ml-environment-with-terraform-on-gcp/</link>
       <pubDate>Tue, 11 Jun 2019 14:27:24 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2019.06/the-simplest-ml-environment-with-terraform-on-gcp/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2019/06/the-simplest-ml-environment-with-terraform-on-gcp/</guid>
       <description>普段の仕事でやっている ML Ops 業務の振り返りを兼ねて最低限必要そうな VPC 構成用の Terraform Module for GCP です。 Module には&amp;quot;最小構成&amp;quot;の機械学習環境</description>
     </item>
     
     <item>
       <title>AI時代のDocker &#43; XaaS簡単理解</title>
-      <link>https://mazgi.github.io/ja/posts/2019.05/brief-description-of-xaas-in-the-ai-era/</link>
+      <link>https://mazgi.github.io/ja/posts/2019/05/brief-description-of-xaas-in-the-ai-era/</link>
       <pubDate>Mon, 27 May 2019 22:04:33 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2019.05/brief-description-of-xaas-in-the-ai-era/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2019/05/brief-description-of-xaas-in-the-ai-era/</guid>
       <description>私が所属しているDeNA AI システム部の部内勉強会で Docker と XaaS（ザース）の話をさせていただいたので資料を公開します。 XaaS（ザース）は IaaS, FaaS,</description>
     </item>
     
     <item>
       <title>「Container Build Meetup #02」に行ってきた #container_build</title>
-      <link>https://mazgi.github.io/ja/posts/2019.05/went-to-container-build-meetup-02/</link>
+      <link>https://mazgi.github.io/ja/posts/2019/05/went-to-container-build-meetup-02/</link>
       <pubDate>Wed, 15 May 2019 17:13:58 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2019.05/went-to-container-build-meetup-02/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2019/05/went-to-container-build-meetup-02/</guid>
       <description>「Container Build Meetup」に参加してきました。 Container Build Meetup #2 - connpass タイムテーブル 分刻みですね。 なお開始時点で「予定のタイトルでしゃべる人は</description>
     </item>
     
     <item>
       <title>Docker Hubからハッシュ化パスワードとGitHubトークンが漏洩</title>
-      <link>https://mazgi.github.io/ja/posts/2019.04/docker-hub-database-was-hacked/</link>
+      <link>https://mazgi.github.io/ja/posts/2019/04/docker-hub-database-was-hacked/</link>
       <pubDate>Sat, 27 Apr 2019 20:28:29 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2019.04/docker-hub-database-was-hacked/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2019/04/docker-hub-database-was-hacked/</guid>
       <description>tl;dr 公式に以下の情報が出た。 Docker - Unauthorized access to Docker Hub database Docker Hub のデータベースがクラックされ以下が流出した可能性がある ユーザー ID, ハッシュ化されたパスワード, GitHub/Bitbucket</description>
     </item>
     
     <item>
       <title>仕事の振り返り(2019.04)</title>
-      <link>https://mazgi.github.io/ja/posts/2019.04/my-role-in-dena-was-simplified/</link>
+      <link>https://mazgi.github.io/ja/posts/2019/04/my-role-in-dena-was-simplified/</link>
       <pubDate>Sat, 27 Apr 2019 01:03:05 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2019.04/my-role-in-dena-was-simplified/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2019/04/my-role-in-dena-was-simplified/</guid>
       <description>ここ何年か DeNA という会社で働かせていただいてます。 今月 4 月に異動したこともあり棚卸し的にやってきたことを振り返ってみました。 4 月からは「AI 本</description>
     </item>
     
     <item>
       <title>GitHub&#43;CircleCI&#43;S3でNoOpsなBlogを構築した</title>
-      <link>https://mazgi.github.io/ja/posts/2019.04/built-noops-blog-with-github-circleci-s3/</link>
+      <link>https://mazgi.github.io/ja/posts/2019/04/built-noops-blog-with-github-circleci-s3/</link>
       <pubDate>Thu, 25 Apr 2019 03:37:18 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2019.04/built-noops-blog-with-github-circleci-s3/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2019/04/built-noops-blog-with-github-circleci-s3/</guid>
       <description>本業の傍ら会社の技術 Blog リニューアルに携わっており、概要を Advent Calendar で「DeNA Engineers&#39; Blog をリニューアルしている話」として書きました。 「DeNA Engineers&#39; Blog をリニ</description>
     </item>
     
     <item>
       <title>docker-composeでWebアプリ開発する環境をまとめた(Rails, Flask)</title>
-      <link>https://mazgi.github.io/ja/posts/2019.04/published-dev-environments-for-webapps-with-docker-compose/</link>
+      <link>https://mazgi.github.io/ja/posts/2019/04/published-dev-environments-for-webapps-with-docker-compose/</link>
       <pubDate>Tue, 09 Apr 2019 19:26:15 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2019.04/published-dev-environments-for-webapps-with-docker-compose/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2019/04/published-dev-environments-for-webapps-with-docker-compose/</guid>
       <description>&lt;p&gt;最近、Mac などのローカルには極力 rbenv などをインストールせずにできる限り Docker コンテナ上に開発環境を作ろうとしています。&lt;br&gt;
 開発中は&lt;a href=&#34;https://docs.docker.com/compose/&#34;&gt;docker-compose&lt;/a&gt;を使っているのですが、いろいろなリポジトリに似たような &lt;code&gt;docker-compose.yml&lt;/code&gt; が増えてきたのでテンプレート代わりにまとめました。&lt;br&gt;
 リポジトリはこちら。&lt;/p&gt;
@@ -331,10 +331,10 @@ GKE とか登場しないトラディショナルな構成を先人の知恵に�
     
     <item>
       <title>#gc_k8sday &#34;Google Cloud Kubernetes Day&#34;に行ってきました</title>
-      <link>https://mazgi.github.io/ja/posts/2019.03/went-to-google-cloud-kubernetes-day/</link>
+      <link>https://mazgi.github.io/ja/posts/2019/03/went-to-google-cloud-kubernetes-day/</link>
       <pubDate>Tue, 26 Mar 2019 11:54:51 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2019.03/went-to-google-cloud-kubernetes-day/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2019/03/went-to-google-cloud-kubernetes-day/</guid>
       <description>3/26 に開催された「Google Cloud Kubernetes Day」に当選したので参加してきました。 最前列でひたすらメモったので放出しておきます。 Program こんなプログラムでし</description>
     </item>
     

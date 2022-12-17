@@ -9,38 +9,38 @@
     <lastBuildDate>Wed, 18 Dec 2019 22:35:25 +0000</lastBuildDate><atom:link href="https://mazgi.github.io/ja/categories/event/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>「GCPUG Tokyo December 2019」でお話させていただきました</title>
-      <link>https://mazgi.github.io/ja/posts/2019.12/went-to-gcpug-tokyo-dec-2019/</link>
+      <link>https://mazgi.github.io/ja/posts/2019/12/went-to-gcpug-tokyo-dec-2019/</link>
       <pubDate>Wed, 18 Dec 2019 22:35:25 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2019.12/went-to-gcpug-tokyo-dec-2019/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2019/12/went-to-gcpug-tokyo-dec-2019/</guid>
       <description>&lt;p&gt;昨日 12/18 に開催された「&lt;a href=&#34;https://gcpug-tokyo.connpass.com/event/152607/&#34;&gt;GCPUG Tokyo December 2019&lt;/a&gt;」で「&lt;a href=&#34;https://speakerdeck.com/mazgi/fast-development-for-ml-web-service-on-gke-and-gcp&#34;&gt;ML アプリケーション短期開発 / Fast development for ML Web Service on GKE &amp;amp; GCP&lt;/a&gt;」と題してお話しさせていただきました。&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
     <item>
       <title>AI時代のDocker &#43; XaaS簡単理解</title>
-      <link>https://mazgi.github.io/ja/posts/2019.05/brief-description-of-xaas-in-the-ai-era/</link>
+      <link>https://mazgi.github.io/ja/posts/2019/05/brief-description-of-xaas-in-the-ai-era/</link>
       <pubDate>Mon, 27 May 2019 22:04:33 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2019.05/brief-description-of-xaas-in-the-ai-era/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2019/05/brief-description-of-xaas-in-the-ai-era/</guid>
       <description>私が所属しているDeNA AI システム部の部内勉強会で Docker と XaaS（ザース）の話をさせていただいたので資料を公開します。 XaaS（ザース）は IaaS, FaaS,</description>
     </item>
     
     <item>
       <title>「Container Build Meetup #02」に行ってきた #container_build</title>
-      <link>https://mazgi.github.io/ja/posts/2019.05/went-to-container-build-meetup-02/</link>
+      <link>https://mazgi.github.io/ja/posts/2019/05/went-to-container-build-meetup-02/</link>
       <pubDate>Wed, 15 May 2019 17:13:58 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2019.05/went-to-container-build-meetup-02/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2019/05/went-to-container-build-meetup-02/</guid>
       <description>「Container Build Meetup」に参加してきました。 Container Build Meetup #2 - connpass タイムテーブル 分刻みですね。 なお開始時点で「予定のタイトルでしゃべる人は</description>
     </item>
     
     <item>
       <title>#gc_k8sday &#34;Google Cloud Kubernetes Day&#34;に行ってきました</title>
-      <link>https://mazgi.github.io/ja/posts/2019.03/went-to-google-cloud-kubernetes-day/</link>
+      <link>https://mazgi.github.io/ja/posts/2019/03/went-to-google-cloud-kubernetes-day/</link>
       <pubDate>Tue, 26 Mar 2019 11:54:51 +0000</pubDate>
       
-      <guid>https://mazgi.github.io/ja/posts/2019.03/went-to-google-cloud-kubernetes-day/</guid>
+      <guid>https://mazgi.github.io/ja/posts/2019/03/went-to-google-cloud-kubernetes-day/</guid>
       <description>3/26 に開催された「Google Cloud Kubernetes Day」に当選したので参加してきました。 最前列でひたすらメモったので放出しておきます。 Program こんなプログラムでし</description>
     </item>
     
