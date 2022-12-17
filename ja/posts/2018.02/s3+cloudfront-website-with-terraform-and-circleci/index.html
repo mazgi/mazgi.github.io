@@ -116,7 +116,7 @@
 もう 2018 年なので手オペなどせず Infrastructure as Code で構築かつ CI でコンテンツ deploy です。<br>
 中身はまだない。<br>
 きっと酒とメシについての何かが書かれるのでしょう。</p>
-<figure><a href="https://sakemeshi.love/"><img src="/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/0001.png"/></a>
+<figure><a href="https://sakemeshi.love/"><img src="0001.png"/></a>
 </figure>
 
 <p>これはそもそも<a href="https://denatechstudio.connpass.com/event/72710/">先日開催したハッカソン</a>でやろうとして途中までしか進められなかったので、その補習も兼ねてます。<br>
@@ -178,14 +178,14 @@
 <h3 id="terraform-実行用-iam-user">Terraform 実行用 IAM User</h3>
 <p><code>terraform-admin</code> という名前で <code>AdministratorAccess</code> を attache した IAM ユーザーを作る。<br>
 credential も払い出して、今回の場合は <code>sakemeshi.terraform-secret</code> リポジトリに push しておく。</p>
-<figure><img src="/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/0002.png"/>
+<figure><img src="0002.png"/>
 </figure>
 
 <h3 id="tfstate-格納用-s3-bucket">tfstate 格納用 S3 Bucket</h3>
 <p>Terraform は設定したクラウド環境の状態を <code>tfstate</code> というファイルで管理するのでそれを格納する S3 バケットを作る。</p>
 <p>バケット名は <code>${AWSアカウント名}-terraform</code> としてバージョニングを有効にする。<br>
 先ほど作った IAM ユーザー <code>terraform-admin</code> からアクセスできれば良い。</p>
-<figure><img src="/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/0003.png"/>
+<figure><img src="0003.png"/>
 </figure>
 
 <p>詳しくは以下参照。</p>
@@ -221,7 +221,7 @@ credential も払い出して、今回の場合は <code>sakemeshi.terraform-sec
 <p><a href="https://registry.terraform.io/modules/mazgi/static-website/aws/0.0.2">Terraform Module Registry | mazgi/static-website/aws</a></p>
 <p>先述の通り Terraform を実行する IAM ユーザーの credential 等は別の private リポジトリを作って配置している。<br>
 公開できないが中身はこの程度。</p>
-<figure><img src="/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/0004.png"/>
+<figure><img src="0004.png"/>
 </figure>
 
 <h3 id="terraform-実行">Terraform 実行</h3>
@@ -232,7 +232,7 @@ $ bin/terraform apply</code></pre></div>
 <p>実行すると初回はもろもろのリソースが作られ、1 件のエラーが発生する。<br>
 2 回目以降はこのように 1 件のエラーが発生する。。<br>
 後述する。</p>
-<figure><img src="/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/0005.png"/>
+<figure><img src="0005.png"/>
 </figure>
 
 <p>細かいことを書くと今回のドメイン自体は Route 53 で管理していないため、別途ネームサーバーを Route 53 に向けておく等の手順が必要です。</p>
@@ -245,11 +245,11 @@ $ bin/terraform apply</code></pre></div>
 結論を書くと<a href="https://gist.github.com/mazgi/6c0dd922f89eee80fe5da6317d7e7aed">こういう <code>.circleci/config.yml</code> </a>を書いた。<br>
 ハマった。</p>
 <p>そのほかは本当に <code>hugo new site .</code> したまま。</p>
-<figure><img src="/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/0006.png"/>
+<figure><img src="0006.png"/>
 </figure>
 
 <p>何はともあれこれで CircleCI での Web サイトのビルドと S3 への同期が行えるようになった！めでたい！</p>
-<figure><img src="/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/0007.png"/>
+<figure><img src="0007.png"/>
 </figure>
 
 <h1 id="おわりに">おわりに</h1>

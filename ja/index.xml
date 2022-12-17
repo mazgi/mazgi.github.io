@@ -564,7 +564,7 @@ GKE とか登場しないトラディショナルな構成を先人の知恵に�
       
       <guid>https://mazgi.github.io/ja/posts/2016.07/racktables-for-home-network/</guid>
       <description>&lt;p&gt;個人で使っている&lt;a href=&#34;http://cloud.sakura.ad.jp&#34;&gt;さくらのクラウド&lt;/a&gt;アカウントでサーバーやスイッチが増えてしまいどれが何やら分からなくなってきたので&lt;a href=&#34;http://racktables.org/&#34;&gt;RackTables&lt;/a&gt;で管理しようと思い(立ってからだいぶ時間が)たちました。&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://mazgi.github.io/posts/2016.07/racktables-for-home-network/0001.png&#34; width=&#34;800&#34;/&gt;
+&lt;figure&gt;&lt;img src=&#34;0001.png&#34; width=&#34;800&#34;/&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;ようやく重い腰を上げて RackTables を運用し始めたのでメモしておきます。&lt;/p&gt;</description>

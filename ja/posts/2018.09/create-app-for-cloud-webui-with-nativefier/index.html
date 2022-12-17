@@ -115,7 +115,7 @@
         <h1>AWS/GCPのWeb ConsoleをNativefierで専用アプリにする</h1>
       </div>
       <p>sandbox 用の AWS アカウントと GCP プロジェクトを作ったついでにそれぞれの Web 管理画面を<a href="https://github.com/jiahaog/nativefier">Nativefier</a>で専用アプリにした。
-<figure><img src="/posts/2018.09/create-app-for-cloud-webui-with-nativefier/0001.png" width="800"/>
+<figure><img src="0001.png" width="800"/>
 </figure>
 </p>
 <p>GCP プロジェクトは <code>https://console.cloud.google.com/home/dashboard?project=YOUR_GCP_PROJECT_ID</code> のように URL のクエリパラメタでタブごとに異なるプロジェクトを表示できるし、<br>
@@ -126,7 +126,7 @@ AWS アカウントも switch role を使えば複数の AWS アカウント間�
 <li>AWS アカウントは Organization を新しく作った</li>
 </ul>
 <p>しかし専用アプリにしてしまえばこのように異なる AWS アカウントを同時に使うことも可能、便利。
-<figure><img src="/posts/2018.09/create-app-for-cloud-webui-with-nativefier/0002.png" width="800"/>
+<figure><img src="0002.png" width="800"/>
 </figure>
 </p>
 <p><code>~/Library/Application Support/</code> を覗くとプロファイルディレクトリ自体が分かれているのがわかる。<br>
@@ -136,7 +136,7 @@ AWS アカウントも switch role を使えば複数の AWS アカウント間�
 /Users/hidenori.matsuki/Library/Application Support/aws-console-mazgi-step-aws-nativefier-8a6ce6/
 /Users/hidenori.matsuki/Library/Application Support/gcp-console-mazgi-sandbox-nativefier-6d960f/
 </code></pre><p>もう 1 つ嬉しい点としては Mac の場合 Chrome でプロファイルを複数作っても <code>⌘+TAB</code> で Window を切り替えることはできないが、Nativefier で作ったアプリならこのように切り替えできる。
-<figure><img src="/posts/2018.09/create-app-for-cloud-webui-with-nativefier/0003.png" width="800"/>
+<figure><img src="0003.png" width="800"/>
 </figure>
 </p>
 <p>Nativefier のインストールは node や npm があれば <code>npm install -g nativefier</code> するだけなのだが、最近は手元の Mac から色々なソフトウェアを追い出したいと思っていて、Docker コンテナ内に押し込んだ。<br>
@@ -149,7 +149,7 @@ Dockerfile と image はそれぞれ以下に公開している。</p>
 気をつけるポイントとしては Docker(for Mac)は Linux VM で実行されているので <code>--platform osx</code> のようにプラットフォームを指定しないと Linux 版のアプリが作られてしまう。</p>
 <pre><code class="language-shellsession" data-lang="shellsession">$ docker run -v $PWD:/pwd -it mazgi/nativefier nativefier --platform osx --counter --bounce --name &quot;AWS Console(mazgi-sb-billing-aws)&quot; console.aws.amazon.com
 </code></pre><p>このように実行したディレクトリ内に各アプリができあがる。
-<figure><img src="/posts/2018.09/create-app-for-cloud-webui-with-nativefier/0004.png" width="800"/>
+<figure><img src="0004.png" width="800"/>
 </figure>
 </p>
 
