@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>do not disturb on mazgi.log</title>
+    <link>https://mazgi.github.io/ja/tags/do-not-disturb/</link>
+    <description>Recent content in do not disturb on mazgi.log</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 28 Jul 2018 16:01:14 +0900</lastBuildDate><atom:link href="https://mazgi.github.io/ja/tags/do-not-disturb/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AirDropは&#34;Do Not Disturb&#34;をOnにするとOffになる</title>
+      <link>https://mazgi.github.io/ja/posts/2018.07/airdrop-sleeps-when-do-not-disturb-is-turned-on/</link>
+      <pubDate>Sat, 28 Jul 2018 16:01:14 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/ja/posts/2018.07/airdrop-sleeps-when-do-not-disturb-is-turned-on/</guid>
+      <description>&lt;p&gt;タイトルの通り。&lt;br&gt;
+&lt;code&gt;Do Not Disturb&lt;/code&gt; を On にすると AirDrop の送り先リストから消えてしまう。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

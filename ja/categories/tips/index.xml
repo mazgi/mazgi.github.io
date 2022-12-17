@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tips on mazgi.log</title>
+    <link>https://mazgi.github.io/ja/categories/tips/</link>
+    <description>Recent content in tips on mazgi.log</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 30 Oct 2020 07:43:35 +0000</lastBuildDate><atom:link href="https://mazgi.github.io/ja/categories/tips/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gitのデフォルトブランチを&#34;master&#34;から&#34;main&#34;に変える方法</title>
+      <link>https://mazgi.github.io/ja/posts/2020.10/how-to-change-git-default-branch-to-main-from-master/</link>
+      <pubDate>Fri, 30 Oct 2020 07:43:35 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/ja/posts/2020.10/how-to-change-git-default-branch-to-main-from-master/</guid>
+      <description>tl;dr git branch --move master main git remote set-head origin --auto サンプルはこちら。 https://github.com/mazgi-sandbox/202010.change-git-default-branch</description>
+    </item>
+    
+    <item>
+      <title>私的ソフトウェア開発用ディスプレイ選択のポイント</title>
+      <link>https://mazgi.github.io/ja/posts/2020.03/critical-points-for-choose-the-displays-for-software-development-for-me/</link>
+      <pubDate>Fri, 06 Mar 2020 15:13:24 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/ja/posts/2020.03/critical-points-for-choose-the-displays-for-software-development-for-me/</guid>
+      <description>時は 2020 年 3 月、日本全国空前の WFH(在宅勤務)ブームで、自宅の作業環境を整えている方も多いのではないでしょうか。 IT エンジニアリングをされてい</description>
+    </item>
+    
+    <item>
+      <title>tarとsshで複数ファイルやディレクトリを送る/取ってくる</title>
+      <link>https://mazgi.github.io/ja/posts/2020.01/how-to-transfer-multiple-files-with-tar-and-multistage-ssh/</link>
+      <pubDate>Wed, 29 Jan 2020 03:53:07 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/ja/posts/2020.01/how-to-transfer-multiple-files-with-tar-and-multistage-ssh/</guid>
+      <description>&lt;p&gt;「サーバーにディレクトリ丸っと送りたいんだけど、途中に踏み台サーバーが居て&amp;hellip;」よくあります。&lt;br&gt;
+「え、ProxyCommand 塞がれてるの??」とセキュリティ堅い環境でよく聞きます。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;tar+ssh&lt;/code&gt; で大抵回避できるのでコピペで使えるようにまとめました。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Adobe Photoshop 2020 の Document Presets の在りか(macOS)</title>
+      <link>https://mazgi.github.io/ja/posts/2020.01/where-are-photoshop-2020-document-presets/</link>
+      <pubDate>Wed, 08 Jan 2020 13:24:12 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/ja/posts/2020.01/where-are-photoshop-2020-document-presets/</guid>
+      <description>ドキュメントのプリセット、これです。 新しくファイル作る画面で選べるやつ。 用紙サイズとかカラーモード指定用の。 macOS の場合、 ~/Library/Preferences/Adobe Photoshop 2020 Settings/New Doc Sizes.json にあります</description>
+    </item>
+    
+    <item>
+      <title>AWS/GCPのWeb ConsoleをNativefierで専用アプリにする</title>
+      <link>https://mazgi.github.io/ja/posts/2018.09/create-app-for-cloud-webui-with-nativefier/</link>
+      <pubDate>Mon, 17 Sep 2018 23:32:42 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/ja/posts/2018.09/create-app-for-cloud-webui-with-nativefier/</guid>
+      <description>sandbox 用の AWS アカウントと GCP プロジェクトを作ったついでにそれぞれの Web 管理画面をNativefierで専用アプリにした。 GCP プロジェクトは https://console.cloud.google.com/home/dashboard?project=YOUR_GCP_PROJECT_ID のように URL</description>
+    </item>
+    
+    <item>
+      <title>AirDropは&#34;Do Not Disturb&#34;をOnにするとOffになる</title>
+      <link>https://mazgi.github.io/ja/posts/2018.07/airdrop-sleeps-when-do-not-disturb-is-turned-on/</link>
+      <pubDate>Sat, 28 Jul 2018 16:01:14 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/ja/posts/2018.07/airdrop-sleeps-when-do-not-disturb-is-turned-on/</guid>
+      <description>&lt;p&gt;タイトルの通り。&lt;br&gt;
+&lt;code&gt;Do Not Disturb&lt;/code&gt; を On にすると AirDrop の送り先リストから消えてしまう。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>tmuxとzshのススメ</title>
+      <link>https://mazgi.github.io/ja/posts/2018.07/useful-tmux-with-zsh/</link>
+      <pubDate>Sat, 28 Jul 2018 13:57:40 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/ja/posts/2018.07/useful-tmux-with-zsh/</guid>
+      <description>&lt;h2 id=&#34;tldr&#34;&gt;tl;dr&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Terminal.app&lt;/code&gt; や &lt;code&gt;SSH&lt;/code&gt; のような CUI で作業するときは tmux 使うと便利&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tmux&lt;/code&gt; 使うときはシェルを &lt;code&gt;zsh&lt;/code&gt; にすると便利&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;サーバーサイド開発をやってる人には今更な話ですけど最近何度かオススメする機会があったので記事を書くことにしました。&lt;br&gt;
+以下、私の使い方を説明しているだけで特に目新しい話はありません。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

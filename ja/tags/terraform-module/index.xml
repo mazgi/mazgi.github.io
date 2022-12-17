@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>terraform module on mazgi.log</title>
+    <link>https://mazgi.github.io/ja/tags/terraform-module/</link>
+    <description>Recent content in terraform module on mazgi.log</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 11 Jun 2019 14:27:24 +0000</lastBuildDate><atom:link href="https://mazgi.github.io/ja/tags/terraform-module/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>安全かつ最小にTerraformでGPUサーバーを起動する(AWS編)</title>
+      <link>https://mazgi.github.io/ja/posts/2019.06/the-simplest-ml-environment-with-terraform-on-aws/</link>
+      <pubDate>Tue, 11 Jun 2019 14:27:24 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/ja/posts/2019.06/the-simplest-ml-environment-with-terraform-on-aws/</guid>
+      <description>普段、会社でやっている ML Ops 業務の振り返りを兼ねて最低限必要そうな Amazon VPC 構成用の Terraform Module を作りました。 そして Module には&amp;quot;最小構成&amp;quot;の</description>
+    </item>
+    
+    <item>
+      <title>安全かつ最小にTerraformでGPUサーバーを起動する(GCP編)</title>
+      <link>https://mazgi.github.io/ja/posts/2019.06/the-simplest-ml-environment-with-terraform-on-gcp/</link>
+      <pubDate>Tue, 11 Jun 2019 14:27:24 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/ja/posts/2019.06/the-simplest-ml-environment-with-terraform-on-gcp/</guid>
+      <description>普段の仕事でやっている ML Ops 業務の振り返りを兼ねて最低限必要そうな VPC 構成用の Terraform Module for GCP です。 Module には&amp;quot;最小構成&amp;quot;の機械学習環境</description>
+    </item>
+    
+  </channel>
+</rss>

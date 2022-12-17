@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>amazon s3 on mazgi.log</title>
+    <link>https://mazgi.github.io/ja/tags/amazon-s3/</link>
+    <description>Recent content in amazon s3 on mazgi.log</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 25 Apr 2019 03:37:18 +0000</lastBuildDate><atom:link href="https://mazgi.github.io/ja/tags/amazon-s3/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GitHub&#43;CircleCI&#43;S3でNoOpsなBlogを構築した</title>
+      <link>https://mazgi.github.io/ja/posts/2019.04/built-noops-blog-with-github-circleci-s3/</link>
+      <pubDate>Thu, 25 Apr 2019 03:37:18 +0000</pubDate>
+      
+      <guid>https://mazgi.github.io/ja/posts/2019.04/built-noops-blog-with-github-circleci-s3/</guid>
+      <description>本業の傍ら会社の技術 Blog リニューアルに携わっており、概要を Advent Calendar で「DeNA Engineers&#39; Blog をリニューアルしている話」として書きました。 「DeNA Engineers&#39; Blog をリニ</description>
+    </item>
+    
+    <item>
+      <title>S3 &#43; Lambda &#43; SQSでファイル処理する仕組みをTerraformで構築する</title>
+      <link>https://mazgi.github.io/ja/posts/2018.04/processing-with-s3-lambda-sqs/</link>
+      <pubDate>Tue, 17 Apr 2018 00:12:10 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/ja/posts/2018.04/processing-with-s3-lambda-sqs/</guid>
+      <description>画像や音声を S3 にアップロードすると Lambda でいい感じに前処理をして SQS に通知くれるような仕組みを想定して作ってみる。 名前は仮に「media-proc</description>
+    </item>
+    
+    <item>
+      <title>SSE-KMSで暗号化したS3バケットをs3fsでmountする</title>
+      <link>https://mazgi.github.io/ja/posts/2018.03/s3fs-for-s3-with-sse-kms/</link>
+      <pubDate>Thu, 01 Mar 2018 04:32:56 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/ja/posts/2018.03/s3fs-for-s3-with-sse-kms/</guid>
+      <description>タイトルの通り「AWS Key Management Service (AWS KMS) 」を使って暗号化した Amazon S3 バケットを s3fs で Ubuntu 16 上で mount した。 KMS については以下のドキュメントが詳しいが要は暗号化の際</description>
+    </item>
+    
+    <item>
+      <title>S3 &#43; CloudFrontをTerraformで設定してCircleCIで更新する</title>
+      <link>https://mazgi.github.io/ja/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/</link>
+      <pubDate>Thu, 15 Feb 2018 05:24:40 +0900</pubDate>
+      
+      <guid>https://mazgi.github.io/ja/posts/2018.02/s3&#43;cloudfront-website-with-terraform-and-circleci/</guid>
+      <description>「Terraform で S3+CloudFront+SSL/TLS 証明書 w/ ACM を設定して Hugo で作った static な Web サイトを CircleCI で自動 deploy する」やつができた。 できたもの 普通のいかにもHugoで作った Web</description>
+    </item>
+    
+  </channel>
+</rss>

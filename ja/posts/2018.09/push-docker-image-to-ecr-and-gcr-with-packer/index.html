@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="/common/favicon.ico">
+    
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/common/site.css">
+    
+    
+    <title>mazgi.log :: Packerを使ってECRとGCRに同じDockerイメージをPushする</title>
+    <meta property="og:title"       content="mazgi.log :: Packerを使ってECRとGCRに同じDockerイメージをPushする" />
+    <meta property="og:type"        content="article" />
+    
+    <meta property="og:url"         content="https://mazgi.github.io/ja/posts/2018.09/push-docker-image-to-ecr-and-gcr-with-packer/" />
+    
+      
+      <meta property="og:description" content="mazgi&#39;s tech blog" />
+      
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <meta name="twitter:card"       content="summary" />
+    
+    
+  </head>
+  <body>
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark">
+      
+      <span class="navbar-text mr-1">I am on</span>
+      
+      <ul class="navbar-nav">
+        
+        <li class="nav-item">
+          <a class="nav-link" target="github_mazgi" rel="noopener" href="https://github.com/mazgi">GitHub<i class="ml-1 fab fa-github"></i></a>
+        </li>
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" target="twitter_mazgi" rel="noopener" href="https://twitter.com/@mazgi">Twitter<i class="ml-1 fab fa-twitter"></i></a>
+        </li>
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" target="instagram_mazgi" rel="noopener" href="https://www.instagram.com/mazgi">Instagram<i class="ml-1 fab fa-instagram"></i></a>
+        </li>
+        
+        
+      </ul>
+    </header>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="https://mazgi.github.io/">mazgi.log</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_nav" aria-controls="navbar_nav" aria-expand="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar_nav">
+        
+        <ul class="navbar-nav mr-auto">
+          
+          
+          
+          <li class="nav-item">
+            <span class="nav-link disabled">Created At: 2018.09.09</span>
+          </li>
+          <li class="nav-item">
+            <span class="nav-link disabled">Updated At: 2022.12.18</span>
+          </li>
+          
+        </ul>
+        
+        <div class="navbar-nav ml-auto">
+          <span class="navbar-text mr-1">share this page via</span>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="https://twitter.com/share?url=https%3a%2f%2fmazgi.github.io%2fja%2fposts%2f2018.09%2fpush-docker-image-to-ecr-and-gcr-with-packer%2f&text=Packer%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6ECR%e3%81%a8GCR%e3%81%ab%e5%90%8c%e3%81%98Docker%e3%82%a4%e3%83%a1%e3%83%bc%e3%82%b8%e3%82%92Push%e3%81%99%e3%82%8b" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fmazgi.github.io%2fja%2fposts%2f2018.09%2fpush-docker-image-to-ecr-and-gcr-with-packer%2f" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.linkedin.com/shareArticle?url=https%3a%2f%2fmazgi.github.io%2fja%2fposts%2f2018.09%2fpush-docker-image-to-ecr-and-gcr-with-packer%2f&title=Packer%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6ECR%e3%81%a8GCR%e3%81%ab%e5%90%8c%e3%81%98Docker%e3%82%a4%e3%83%a1%e3%83%bc%e3%82%b8%e3%82%92Push%e3%81%99%e3%82%8b" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://plusone.google.com/_/+1/confirm?url=https%3a%2f%2fmazgi.github.io%2fja%2fposts%2f2018.09%2fpush-docker-image-to-ecr-and-gcr-with-packer%2f" target="_blank" rel="noopener"><i class="fab fa-google-plus"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://b.hatena.ne.jp/entry/https://mazgi.github.io/ja/posts/2018.09/push-docker-image-to-ecr-and-gcr-with-packer/" target="_blank" rel="noopener">b!</a>
+            </li>
+          </ul>
+        </div>
+        
+      </div>
+    </nav>
+    <main role="main" class="container-fluid col-lg-10 offset-lg-1">
+
+<div class="row">
+  <div class="col-lg-9">
+    <article>
+      <div class="row">
+        <h1>Packerを使ってECRとGCRに同じDockerイメージをPushする</h1>
+      </div>
+      <p>自分用の ML 環境として Docker イメージを作っていたのだが、 <code>FROM: nvidia/cuda:9.2-cudnn7-devel-ubuntu18.04</code> なので DockerHub で public にするのも憚られ、ECR/GCR に置くことにした。<br>
+ECR/GCR に置くついでに <code>packer build</code> だけで ECR と GCR に同じイメージが置かれてほしいと思ってやってみた。</p>
+<p><code>packer.json</code> はこちら。<br>
+<a href="https://github.com/mazgi/docker.ml">https://github.com/mazgi/docker.ml</a></p>
+<p>ECR は Packer が対応しているので<code>post-processors</code> のなかで tag を打って push するだけで済む。便利。</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#4070a0">&#34;post-processors&#34;</span><span style="">:</span> [
+  [
+    {
+      <span style="color:#062873;font-weight:bold">&#34;type&#34;</span>: <span style="color:#4070a0">&#34;docker-tag&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;repository&#34;</span>: <span style="color:#4070a0">&#34;{{ user `ecr_repository_uri` }}/ml&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;tag&#34;</span>: <span style="color:#4070a0">&#34;latest&#34;</span>
+    },
+    {
+      <span style="color:#062873;font-weight:bold">&#34;type&#34;</span>: <span style="color:#4070a0">&#34;docker-push&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;ecr_login&#34;</span>: <span style="color:#007020;font-weight:bold">true</span>,
+      <span style="color:#062873;font-weight:bold">&#34;aws_access_key&#34;</span>: <span style="color:#4070a0">&#34;{{ user `ecr_aws_access_key` }}&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;aws_secret_key&#34;</span>: <span style="color:#4070a0">&#34;{{ user `ecr_aws_secret_key` }}&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;login_server&#34;</span>: <span style="color:#4070a0">&#34;{{ user `ecr_repository_uri` }}&#34;</span>
+    }
+  ]
+]
+</code></pre></div><p>問題は GCR で、Packer が対応しているわけではないので tag は打てるが push ができなさそう。<br>
+結局 <code>shell-local</code> のなかで <code>gcloud docker</code> をたたくことにした。</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#4070a0">&#34;post-processors&#34;</span><span style="">:</span> [
+  [
+    {
+      <span style="color:#062873;font-weight:bold">&#34;type&#34;</span>: <span style="color:#4070a0">&#34;docker-tag&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;repository&#34;</span>: <span style="color:#4070a0">&#34;gcr.io/{{ user `gcr_project_id` }}/ml&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;tag&#34;</span>: <span style="color:#4070a0">&#34;latest&#34;</span>
+    },
+    {
+      <span style="color:#062873;font-weight:bold">&#34;type&#34;</span>: <span style="color:#4070a0">&#34;shell-local&#34;</span>,
+      <span style="color:#062873;font-weight:bold">&#34;inline&#34;</span>: [
+        <span style="color:#4070a0">&#34;gcloud --project {{ user `gcr_project_id` }} docker -- push gcr.io/{{ user `gcr_project_id` }}/ml&#34;</span>
+      ]
+    }
+  ]
+]
+</code></pre></div><p>先に <code>gcloud auth login</code> が必要だがこんな感じで build &amp;&amp; push できる。<br>
+すでに push 済みのイメージを build しているため <code>already exists</code> と言われている、また出力はところどころ省略している。<br>
+アカウント ID とかプロジェクト ID は公開して困る理由が思い当たらなかったので伏せていない。</p>
+<pre><code class="language-shellsession" data-lang="shellsession">$ ECR_REPOSITORY_URI='579744961348.dkr.ecr.us-east-1.amazonaws.com' \
+ECR_AWS_ACCESS_KEY='********' \
+ECR_AWS_SECRET_KEY='********' \
+GCR_PROJECT_ID='mazgi-images-gcp' \
+packer build packer.json
+docker output will be in this color.
+
+==&gt; docker: Creating a temporary directory for sharing data...
+==&gt; docker: Pulling Docker image: nvidia/cuda:9.2-cudnn7-devel-ubuntu18.04
+==&gt; docker: Starting docker container...
+==&gt; docker: Provisioning with shell script: /var/folders/pg/_bczmpq12n35tfw327xw96dhsx9dly/T/packer-shell213792782
+==&gt; docker: Committing the container
+    docker: Image ID: sha256:08098cb675df683a10c04cbd0931a9b927e7db0d854acebb67a3c1f0507284d5
+==&gt; docker: Killing the container: 131c687982f9600150fc1d254f82c4be18b841dce00aa0edf47bbd2e67be7368
+==&gt; docker: Running post-processor: docker-tag
+    docker (docker-tag): Tagging image: sha256:08098cb675df683a10c04cbd0931a9b927e7db0d854acebb67a3c1f0507284d5
+    docker (docker-tag): Repository: gcr.io/mazgi-images-gcp/ml:latest
+==&gt; docker: Running post-processor: shell-local
+==&gt; docker (shell-local): Running local shell script: /var/folders/pg/_bczmpq12n35tfw327xw96dhsx9dly/T/packer-shell861040660
+    docker (shell-local): WARNING: `gcloud docker` will not be supported for Docker client versions above 18.03.
+    docker (shell-local):
+    docker (shell-local): As an alternative, use `gcloud auth configure-docker` to configure `docker` to
+    docker (shell-local): use `gcloud` as a credential helper, then use `docker` as you would for non-GCR
+    docker (shell-local): registries, e.g. `docker pull gcr.io/project-id/my-image`. Add
+    docker (shell-local): `--verbosity=error` to silence this warning: `gcloud docker
+    docker (shell-local): --verbosity=error -- pull gcr.io/project-id/my-image`.
+    docker (shell-local):
+    docker (shell-local): See: https://cloud.google.com/container-registry/docs/support/deprecation-notices#gcloud-docker
+    docker (shell-local):
+    docker (shell-local): The push refers to repository [gcr.io/mazgi-images-gcp/ml]
+    docker (shell-local): 3990d099d2f3: Preparing
+(omitted)
+    docker (shell-local): a30b835850bf: Preparing
+    docker (shell-local): 5b4434a5ca42: Waiting
+(omitted)
+    docker (shell-local): a30b835850bf: Waiting
+    docker (shell-local): 25b849da05b2: Layer already exists
+(omitted)
+    docker (shell-local): f73b2816c52a: Layer already exists
+    docker (shell-local): 3990d099d2f3: Pushed
+    docker (shell-local): latest: digest: sha256:74d82f4a9454b8ead75136caccdbe1b78a2223fa18403e62aa640f10cacc9d2d size: 2837
+==&gt; docker: Running post-processor: docker-tag
+    docker (docker-tag): Tagging image: sha256:08098cb675df683a10c04cbd0931a9b927e7db0d854acebb67a3c1f0507284d5
+    docker (docker-tag): Repository: 579744961348.dkr.ecr.us-east-1.amazonaws.com/ml:latest
+==&gt; docker: Running post-processor: docker-push
+    docker (docker-push): Fetching ECR credentials...
+    docker (docker-push): Logging in...
+    docker (docker-push): Login Succeeded
+    docker (docker-push): Pushing: 579744961348.dkr.ecr.us-east-1.amazonaws.com/ml:latest
+    docker (docker-push): The push refers to repository [579744961348.dkr.ecr.us-east-1.amazonaws.com/ml]
+    docker (docker-push): 3990d099d2f3: Preparing
+(omitted)
+    docker (docker-push): a30b835850bf: Preparing
+    docker (docker-push): 5b4434a5ca42: Waiting
+(omitted)
+    docker (docker-push): a30b835850bf: Waiting
+    docker (docker-push): df42b75d1430: Layer already exists
+(omitted)
+    docker (docker-push): f73b2816c52a: Layer already exists
+    docker (docker-push): 3990d099d2f3: Pushed
+    docker (docker-push): latest: digest: sha256:74d82f4a9454b8ead75136caccdbe1b78a2223fa18403e62aa640f10cacc9d2d size: 2837
+    docker (docker-push): Logging out...
+    docker (docker-push): Removing login credentials for 579744961348.dkr.ecr.us-east-1.amazonaws.com
+    docker (docker-push): WARNING: could not erase credentials: error erasing credentials - err: exit status 1, out: `The specified item could not be found in the keychain.`
+Build 'docker' finished.
+
+==&gt; Builds finished. The artifacts of successful builds are:
+--&gt; docker: Imported Docker image: sha256:08098cb675df683a10c04cbd0931a9b927e7db0d854acebb67a3c1f0507284d5
+--&gt; docker: Imported Docker image: gcr.io/mazgi-images-gcp/ml:latest
+--&gt; docker:
+</code></pre>
+    </article>
+  </div>
+  <div class="col-lg-3">
+    <div class="sidebar">
+  
+  <h4><a href="/ja/about/">About</a></h4>
+  <p><strong>Hidenori MATSUKI</strong></p>
+<p>🍣 🍶</p>
+<p>another website: <a href="https://mazgi.com/">mazgi.com</a></p>
+  
+  <hr />
+  <h4>TableOfContents</h4>
+  <nav id="TableOfContents"></nav>
+  <hr />
+  <h4><a href="/ja/categories/">Categories</a></h4>
+  
+  <div>
+    <ul>
+      
+      <li>
+        <a href="/ja/categories/provisioning/">provisioning</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+  <hr />
+  <h4><a href="/ja/tags/">Tags</a></h4>
+  
+  <div>
+    
+    <a class="badge badge-pill badge-secondary" href="/ja/tags/docker/">docker</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/ja/tags/packer/">packer</a>
+    
+  </div>
+  
+</div>
+
+  </div>
+</div>
+      <div class="row">
+        <footer class="col-lg-12">
+          <hr/>
+          <span>&copy; mazgi.log</span>
+          <span>&nbsp;&middot;&nbsp;</span>
+          <i class="fas fa-bolt"></i>
+          <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a></span>
+          
+          <span>&nbsp;&middot;&nbsp;</span>
+          <span>This website <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">uses Google Analytics</a>.</span>
+          
+        </footer>
+      </div>
+    </div>
+    </main>
+    
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68170979-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-68170979-2');
+    </script>
+    
+      
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+      });
+    </script>
+  </body>
+</html>
+

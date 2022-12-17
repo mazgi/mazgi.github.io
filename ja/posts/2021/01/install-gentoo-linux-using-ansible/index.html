@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="/common/favicon.ico">
+    
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/common/site.css">
+    
+    
+    <title>mazgi.log :: AnsibleでGentoo Linuxをインストールする</title>
+    <meta property="og:title"       content="mazgi.log :: AnsibleでGentoo Linuxをインストールする" />
+    <meta property="og:type"        content="article" />
+    
+    <meta property="og:url"         content="https://mazgi.github.io/ja/posts/2021/01/install-gentoo-linux-using-ansible/" />
+    
+      
+      <meta property="og:description" content="AnsibleでHyper-V VMにGentoo Linuxをインストールする方法: パーティション構成, アーカイブ展開, テンプレート適用, UEFI Boot Managerの設定等" />
+      
+    
+    
+    
+    
+    <meta property="og:image"       content="https://mazgi.github.io/posts/2021/01/install-gentoo-linux-using-ansible/og.png" />
+    <meta property="twitter:image"  content="https://mazgi.github.io/posts/2021/01/install-gentoo-linux-using-ansible/og.png" />
+    <meta property="twitter:image:src"  content="https://mazgi.github.io/posts/2021/01/install-gentoo-linux-using-ansible/og.png" />
+    
+    
+    
+    
+    
+    
+    
+    
+    <meta name="twitter:card"       content="summary" />
+    
+    
+  </head>
+  <body>
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark">
+      
+      <span class="navbar-text mr-1">I am on</span>
+      
+      <ul class="navbar-nav">
+        
+        <li class="nav-item">
+          <a class="nav-link" target="github_mazgi" rel="noopener" href="https://github.com/mazgi">GitHub<i class="ml-1 fab fa-github"></i></a>
+        </li>
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" target="twitter_mazgi" rel="noopener" href="https://twitter.com/@mazgi">Twitter<i class="ml-1 fab fa-twitter"></i></a>
+        </li>
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" target="instagram_mazgi" rel="noopener" href="https://www.instagram.com/mazgi">Instagram<i class="ml-1 fab fa-instagram"></i></a>
+        </li>
+        
+        
+      </ul>
+    </header>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="https://mazgi.github.io/">mazgi.log</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_nav" aria-controls="navbar_nav" aria-expand="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar_nav">
+        
+        <ul class="navbar-nav mr-auto">
+          
+          
+          
+          <li class="nav-item">
+            <span class="nav-link disabled">Created At: 2021.01.14</span>
+          </li>
+          <li class="nav-item">
+            <span class="nav-link disabled">Updated At: 2022.12.18</span>
+          </li>
+          
+        </ul>
+        
+        <div class="navbar-nav ml-auto">
+          <span class="navbar-text mr-1">share this page via</span>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="https://twitter.com/share?url=https%3a%2f%2fmazgi.github.io%2fja%2fposts%2f2021%2f01%2finstall-gentoo-linux-using-ansible%2f&text=Ansible%e3%81%a7Gentoo%20Linux%e3%82%92%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%e3%81%99%e3%82%8b" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fmazgi.github.io%2fja%2fposts%2f2021%2f01%2finstall-gentoo-linux-using-ansible%2f" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.linkedin.com/shareArticle?url=https%3a%2f%2fmazgi.github.io%2fja%2fposts%2f2021%2f01%2finstall-gentoo-linux-using-ansible%2f&title=Ansible%e3%81%a7Gentoo%20Linux%e3%82%92%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%e3%81%99%e3%82%8b" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://plusone.google.com/_/+1/confirm?url=https%3a%2f%2fmazgi.github.io%2fja%2fposts%2f2021%2f01%2finstall-gentoo-linux-using-ansible%2f" target="_blank" rel="noopener"><i class="fab fa-google-plus"></i></a></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://b.hatena.ne.jp/entry/https://mazgi.github.io/ja/posts/2021/01/install-gentoo-linux-using-ansible/" target="_blank" rel="noopener">b!</a>
+            </li>
+          </ul>
+        </div>
+        
+      </div>
+    </nav>
+    <main role="main" class="container-fluid col-lg-10 offset-lg-1">
+
+<div class="row">
+  <div class="col-lg-9">
+    <article>
+      <div class="row">
+        <h1>AnsibleでGentoo Linuxをインストールする</h1>
+      </div>
+      <p><a href="https://www.gentoo.org/">Gentoo Linux</a> のインストールは、GUI インストーラが用意された他の多くの Linux ディストリビュージョンと違い、次のようなプリミティブな方法であることが知られています。</p>
+<ul>
+<li>ブロックデバイス上にパーティションを切る</li>
+<li><code>/</code> ファイルシステムの内容を Tar アーカイブから展開する</li>
+<li>必要なパッケージのソースコードをダウンロード、展開、ビルドする
+<ul>
+<li><a href="https://wiki.gentoo.org/wiki/Ebuild">ebuild</a> と呼ばれる Bash スクリプトライクなテキストファイルによって行われます</li>
+</ul>
+</li>
+<li>Linux Kernel の config を作成しビルドする</li>
+<li>ブロックデバイス上にブートローダを書き込む</li>
+</ul>
+<p>これは柔軟なシステムを構成する上でとても有用ですが、一方で複数回繰り返す場合には煩雑なことも事実です。<br>
+そこでこのようなインストール手順を <a href="https://www.ansible.com/">Ansible</a> を用いて自動化することを考えます。</p>
+<p>なぜ Ansible か?</p>
+<p>Ansible は人気のある構成管理ツールであり、2015 年の Red Hat, Inc.による買収を経て様々な領域で使われています。<br>
+OSS として長く安定的にメンテナンスされていること、サーバーが不要なこと、YAML によるテキスト形式で処理を記述できることなどは個人的に特に扱いやすい点です。</p>
+<p>ただし YAML 形式のトレードオフとして、複雑な処理を書く場合には <a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_templating.html">Jinja2 テンプレート</a>を駆使する必要があるかもしれません。</p>
+<h2 id="how-to-run">How to Run</h2>
+<p>私が作成した Ansible の Role は次のリポジトリで公開しています。<br>
+<a href="https://github.com/mazgi/ansible-galaxy.gentoo-systemd-remote">https://github.com/mazgi/ansible-galaxy.gentoo-systemd-remote</a></p>
+<p>また <code>_driver/provisioning/site.yml</code> には Role を呼び出す Playbook があり、 <a href="https://docs.docker.com/compose/install/">Docker Compose</a> を通して実行できるようにしています。</p>
+<p>この記事では次のような構成で実行する方法を紹介します。</p>
+<ul>
+<li>Hyper-V VM
+<ul>
+<li>Generation 2, <em>See <a href="https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn282285(v=ws.11)">Generation 2 Virtual Machine Overview</a></em></li>
+<li><code>Secure Boot</code> disabled</li>
+</ul>
+</li>
+<li>Docker Compose</li>
+</ul>
+<figure><img src="structure.png" width="800"/>
+</figure>
+
+<p>Hyper-V 上は Windows 標準の仮想化ソフトウェアです。<br>
+VM を作るときに Generation 1 または 2 を選べますが、Generation 2 を指定することで UEFI からの起動がサポートされます。</p>
+<p>本記事では Hyper-V VM を例にしますが、他の仮想化ソフトウェアやベアメタルでも実行方法はあまり変わらないでしょう。<br>
+ただしベアメタルの場合、NIC や RAID コントローラのドライバを Linux Kernel の config で有効にしたり、事前に RAID を構築しておくなどの手順が必要なことがあります。</p>
+<p>本記事でご紹介する手順で Gentoo Linux をインストールするためにはインストール対象のホストが何らかの Linux ディストリビュージョンで起動している必要があります。<br>
+具体的には SSH サービスが起動し、GUID パーティションを操作し、Tar 等のアーカイブを展開し、 /dev 等ファイルシステムが提供されている必要があります。</p>
+<p>私はこのような用途で SystemRescue (also known as SystemRescueCd)をよく使います。<br>
+これは数百 MB の ISO イメージに収められた Linux ディストリビュージョンで、その名前の通り HDD や SSD 等のブロックデバイスから起動できなくなった OS を救済する便利なツールが組み込まれています。</p>
+<p>また SystemRescue は起動後に何もしません。<br>
+つまり他の多くの Linux ディストリビュージョンのインストールメディアと異なり、インストールウィザードが起動することもなければ、クリック 1 つでオススメのパーティション構成がブロックデバイスに書き込まれることもありません。<br>
+単に ISO イメージと RAM 上に一時的に作られたファイルシステムから OS が起動しシェルのプロンプトが現れます。<br>
+この点も私がこのような用途で SystemRescue を好んで使う理由です。</p>
+<p>本記事の構成では Ansible を Docker 上で実行しています。<br>
+この方法により Ansible 自体や他の依存するツール群のインストールを <code>docker-compose up</code> コマンド 1 つに集約できます。<br>
+もちろん Docker を介さず Ansible をインストールすることもできます。<br>
+その場合は <code>Dockerfile</code> や <code>docker-compose.yml</code> 等の内容を参考に手順を組み立ててください。</p>
+<p><strong>1. <code>.env</code> ファイルを作る</strong></p>
+<p>リポジトリを Clone したディレクトリに移動し Docker Compose で読み込まれる .env ファイルを作ります。<br>
+Bash や Z shell では次のように実行することで作成できます。</p>
+<pre><code class="language-shellsession" data-lang="shellsession">rm -f .env
+test $(uname -s) = 'Linux' &amp;&amp; echo &quot;UID=$(id -u)\nGID=$(id -g)&quot; &gt;&gt; .env
+cat&lt;&lt;EOE &gt;&gt; .env
+CURRENT_ENV_NAME=production
+DOCKER_GID=$(getent group docker | cut -d : -f 3)
+EOE
+</code></pre><p><strong>2. VM を SystemRescue から起動し SSHD を有効にする</strong></p>
+<p>Gentoo Linux をインストールする対象の VM を、<a href="https://www.system-rescue.org/">SystemRescue</a>の ISO イメージから起動します。<br>
+またこの時 SSH デーモン(SSHD)も起動します。<br>
+これは SSH 経由で Ansible を適用するためです。</p>
+<p>SSHD を起動するため <a href="https://www.system-rescue.org/manual/Booting_SystemRescueCd/">Booting SystemRescueCd</a> に従って起動時に次の 2 つのパラメタを渡してください。</p>
+<ul>
+<li><code>rootpass=(任意のパスワード)</code>
+<ul>
+<li><em>Sets the root password of the system running on the livecd to ****. That way you can connect from the network and ssh on the livecd and authenticate using this password.</em></li>
+</ul>
+</li>
+<li><code>nofirewall</code>
+<ul>
+<li><em>You need to use this option if you need to establish connections to the system running SystemRescueCd from outside (for example connections to sshd).</em></li>
+</ul>
+</li>
+</ul>
+<p><figure><img src="boot-from-systemrescuecd.0.png" width="800"/>
+</figure>
+
+<figure><img src="boot-from-systemrescuecd.1.png" width="800"/>
+</figure>
+</p>
+<p>手順の中でここで渡すパスワードを使ってログインすることはありません。<br>
+しかし root のパスワードが設定されていないと SSH 接続できないため何か設定する必要があります。<br>
+あるいは起動後に <code>passwd</code> コマンドで設定し、Firewall を Off にしても同等です。</p>
+<p><strong>3. 公開鍵認証で SSH ログインできるよう設定する</strong></p>
+<p>SystemRescue で起動した VM に Ansible 実行ホストから SSH 経由で provisioning するため、公開鍵認証でログインできるように設定します。</p>
+<p>今回は <code>ssh-keygen</code> コマンドで一時的に鍵ペアを生成して <code>~/.ssh</code> ディレクトリを作ります。<br>
+鍵ペア自体は使わないので <code>mkdir &amp;&amp; chown &amp;&amp; chmod</code> で <code>~/.ssh</code> ディレクトリを作っても問題ありません。</p>
+<p>ホスト側の秘密鍵に合う公開鍵を <code>~/.ssh/authorized_keys</code> に保存します。<br>
+私のように GitHub に鍵を預けている方であれば次のように cURL で取得できるでしょう。</p>
+<pre><code class="language-shellsession" data-lang="shellsession">curl -L github.com/mazgi.keys &gt; ~/.ssh/authorized_keys
+</code></pre><p>ip コマンドなどで VM に割り当てられた IP アドレスを表示し、SSH ログインできることを確認します。</p>
+<pre><code class="language-shellsession" data-lang="shellsession">ip a show
+</code></pre><p><strong>4. Provisioning 実行</strong></p>
+<p>リポジトリを Clone したディレクトリで <code>docker-compose up</code> します。<br>
+返り値 <code>0</code> で終了すれば正常です。<br>
+Ansible のコレクションや Role を取得しているため、ネットワーク状況により時間がかかるかもしれません。</p>
+<p>Ansible 上での疎通を確認します。<br>
+次のように Ansible の ping が通るか確認してください。</p>
+<pre><code class="language-shellsession" data-lang="shellsession">docker-compose run provisioning ansible --inventory 192.0.2.1, --user root --module-name ping all
+</code></pre><p>以降、 <code>192.0.2.1</code> は VM に割り当てられた IP アドレスを示します。<br>
+あなたの VM の IP アドレスに読み替えてください。<br>
+また複数の VM を指定する場合、 <code>192.0.2.1,192.0.2.2</code> のように指定できます。</p>
+<p>Ansible の仕様で今回のように Inventory をコマンドラインで指定する場合には <code>192.0.2.1,</code> のように <code>,</code> が必要です。</p>
+<p>疎通が確認できたら Playbook を適用します。</p>
+<p><em><strong>Note</strong>: ここからの手順には長い時間がかかります、また途中で失敗することがあります。</em></p>
+<p>次のように <code>ansible-playbook</code> コマンドを実行してください。</p>
+<pre><code class="language-shellsession" data-lang="shellsession">docker-compose run provisioning ansible-playbook --inventory 192.0.2.1, /project/provisioning/site.yml
+</code></pre><p>次の 3 つの質問に答えます。</p>
+<pre><code class="language-shellsession" data-lang="shellsession">Please type the main device name [sda]:
+Please type the network interface name pattern [eth*]:
+Please type the new root password:
+</code></pre><p>途中、各種パッケージのソースコードなどをダウンロードしてビルドする際にタイムアウトやビルドエラーに遭遇することがあります。<br>
+その場合、多くは <code>ansible-playbook</code> コマンドを再実行することで問題が解消します。<br>
+Tarball の事前ダウンロードやバイナリパッケージの共有など、時間短縮とエラー発生の削減を工夫していきたいところです。</p>
+<p>次のように結果が表示され、”PLAY RECAP”の <code>unreachable</code> と <code>failed</code> が共に <code>0</code> であれば成功です。<br>
+VM を再起動すると VM のブロックデバイスから Gentoo Linux が起動するはずです。</p>
+<figure><img src="ansible-result.png" width="800"/>
+</figure>
+
+<h2 id="implementations">Implementations</h2>
+<p>Gentoo Linux は無数の構成を取れますが、この Role では私が現在最もよく使う次の構成にしています。</p>
+<ul>
+<li>UEFI+GPT</li>
+<li>ファイルシステムは <a href="https://btrfs.wiki.kernel.org/index.php/Main_Page">Btrfs</a></li>
+<li>スーパーデーモンは <a href="https://systemd.io/">systemd</a></li>
+<li>DHCP で IP アドレスを取得する</li>
+<li>SSH サービスが起動し、手元の鍵ペアでログインできる</li>
+<li>Docker サービスが起動する</li>
+</ul>
+<p>追加で必要なサービスやアプリケーション、通常ユーザーとその環境は別途構築する想定です。<br>
+かつてはもっと多様な構成をサポートしようと考えたこともあったのですが、時代や私自身が扱う領域が変わったため単純化しました。</p>
+<p>Gentoo Linux の構成内容と合わせて Ansible Task としての実装方法をいくつか解説します。</p>
+<p><strong>パーティション作成</strong></p>
+<p>Linux でパーティションを構成する際、対話的なツールである GParted や fdisk がよく使われます。<br>
+しかしパーティション作成を自動化する場合、非対話的に実行できる<a href="https://www.gnu.org/software/parted/">GNU Parted</a>が便利です。</p>
+<p>Parted を使うと例えば次のようにパーティションを作ることができます。</p>
+<pre><code class="language-shellsession" data-lang="shellsession">parted --script --align optimal /dev/sda -- mkpart uefi_boot fat32 1MiB 128MiB
+</code></pre><p><strong>Tarball のダウンロードと検証</strong></p>
+<p>Tarball などのアーカイブをダウンロードし、独自の方法で検証したい場合があります。<br>
+例えば提供元からチェックサムが提供されている場合などです。<br>
+その場合、次のように <code>register</code> を使うことで実現できます。</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#062873;font-weight:bold">name</span>:<span style="color:#bbb"> </span>Verify exists stage3 archive<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#062873;font-weight:bold">changed_when</span>:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">no</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#062873;font-weight:bold">ignore_errors</span>:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">yes</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#062873;font-weight:bold">shell</span>:<span style="color:#bbb"> </span>&gt;<span style="color:#4070a0;font-style:italic">
+</span><span style="color:#4070a0;font-style:italic">    </span><span style="color:#bbb">    </span>sha512sum --check /mnt/gentoo/{{ latest_stage3_filename.stdout | basename }}.DIGESTS 2&gt; /dev/null | grep -E &#39;^{{ latest_stage3_filename.stdout | basename }}:\s+OK$&#39;<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#062873;font-weight:bold">args</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#062873;font-weight:bold">chdir</span>:<span style="color:#bbb"> </span>/mnt/gentoo/<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#062873;font-weight:bold">register</span>:<span style="color:#bbb"> </span>latest_stage3_archive_verified<span style="color:#bbb">
+</span><span style="color:#bbb"></span>- <span style="color:#062873;font-weight:bold">name</span>:<span style="color:#bbb"> </span>Download latest stage3 archive<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#062873;font-weight:bold">get_url</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#062873;font-weight:bold">dest</span>:<span style="color:#bbb"> </span>/mnt/gentoo/<span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#062873;font-weight:bold">url</span>:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;{{ portage.mirror_uri }}/releases/amd64/autobuilds/{{ latest_stage3_filename.stdout }}&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#062873;font-weight:bold">when</span>:<span style="color:#bbb"> </span>latest_stage3_archive_verified is failed<span style="color:#bbb">
+</span></code></pre></div><p><strong>あらゆる設定ファイルのテンプレート化</strong></p>
+<p>Linux を含め UNIX like な OS はほとんどの設定をテキストファイルで管理しています。<br>
+またファイルシステムを <code>/</code> を起点とした 1 つの Tree として扱います。<br>
+また Ansible では jinja2 テンプレートをテンプレートの Tree に対して適用できます。<br>
+これらの特徴を活かして設定ファイルをあらかじめ適用先に合わせた Tree として配置しておくことで簡単に適用できます。</p>
+<figure><img src="templates-tree.png" width="400"/>
+</figure>
+
+<p>テンプレートは例えば次のように書けます。<br>
+<code>{{}}</code> が Ansible により置き換えられて配置されます。</p>
+<pre><code>/dev/{{ main_block_device }}3	/	btrfs	defaults,subvol=gentoo	0 1
+/dev/{{ main_block_device }}3	/var/log	btrfs	defaults,subvol=var-log	0 1
+/dev/{{ main_block_device }}1	/boot	vfat	defaults	0 1
+/dev/{{ main_block_device }}2	none		swap		sw		0 0
+</code></pre><p>もちろん置き換えるものがなければテンプレートの内容がそのまま反映されますので、構成を管理したい全てのファイルをテンプレート化しておくことができます。<br>
+例えば Linux Kernel の config は現時点では既存環境の <code>/proc/config.gz</code> を <code>zcat</code> したものをそのまま配置しています。</p>
+<p>このように設定ファイルを実際のファイルシステムに合わせてテンプレートとして配置しておくことで、将来内容が変わっても同じように適用できます。<br>
+このテンプレートを適用するために必要な Ansible Task は次の 2 つだけです。</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#062873;font-weight:bold">name</span>:<span style="color:#bbb"> </span>Create directories by the templates<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#062873;font-weight:bold">file</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#062873;font-weight:bold">path</span>:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;{{ item | regex_replace(&#39;^(&#39;+role_path+&#39;/templates)(.*)&#39;, \&#34;/mnt/gentoo\\2\&#34;) }}&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#062873;font-weight:bold">state</span>:<span style="color:#bbb"> </span>directory<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#062873;font-weight:bold">with_lines</span>:<span style="color:#bbb"> </span>find {{ role_path }}/templates -type d<span style="color:#bbb">
+</span><span style="color:#bbb"></span>- <span style="color:#062873;font-weight:bold">name</span>:<span style="color:#bbb"> </span>Apply templates<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#062873;font-weight:bold">template</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#062873;font-weight:bold">dest</span>:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;{{ item | regex_replace(&#39;^(&#39;+role_path+&#39;/templates)(.*)(.j2$)&#39;, \&#34;/mnt/gentoo\\2\&#34;) }}&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#062873;font-weight:bold">src</span>:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;{{ item }}&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#062873;font-weight:bold">with_lines</span>:<span style="color:#bbb"> </span>find {{ role_path }}/templates -type f -name &#39;*.j2&#39;<span style="color:#bbb">
+</span></code></pre></div><p><strong>標準出力の内容による判別</strong></p>
+<p>Provisioning を行う上で「適用が変更を及ぼしたか」判別したいことがあります。<br>
+特に「変更を及ぼしてもそうではなくても返り値が同じ場合」、標準出力や標準エラー出力の内容を読み取って判断する必要が生じます。</p>
+<p>これは Ansbile Task では次のように <code>register</code> と <code>changed_when</code> を組み合わせることで実現できます。</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#062873;font-weight:bold">name</span>:<span style="color:#bbb"> </span>Generate locales<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#062873;font-weight:bold">changed_when</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span>- <span style="color:#4070a0">&#39;&#34; Adding locales to archive ...&#34; in _result.stdout&#39;</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#062873;font-weight:bold">shell</span>:<span style="color:#bbb"> </span>&gt;<span style="color:#4070a0;font-style:italic">
+</span><span style="color:#4070a0;font-style:italic">    </span><span style="color:#bbb">    </span>chroot /mnt/gentoo /bin/bash -lc &#39;locale-gen --update&#39;<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#062873;font-weight:bold">register</span>:<span style="color:#bbb"> </span>_result<span style="color:#bbb">
+</span></code></pre></div><p><strong>ブートローダの簡略化</strong></p>
+<p>Linux を起動できるブートローダとして GRUB や ELILO が有名です。<br>
+しかし Linux Kernel には UEFI から直接起動できる機能があります( <code>CONFIG_EFI_STUB</code> )。<br>
+これを有効にすることで特定のブートローダをインストールせずに OS を起動できるようになります。</p>
+<p>具体的には <a href="https://linux.die.net/man/8/efibootmgr"><code>efibootmgr</code></a> を用いて次のように実行することで実現できます。</p>
+<pre><code class="language-shellsession" data-lang="shellsession">efibootmgr --create --part 1 --disk /dev/sda --label Gentoo --loader &quot;\\EFI\\Gentoo\\vmlinuz-gentoo.efi&quot; --unicode &quot;root=/dev/sda3 rootflags=subvol=gentoo rootfstype=btrfs initrd=\\EFI\\Gentoo\\initramfs-gentoo.img&quot;
+</code></pre><p>以上、このようなハードウェアとアプリケーションの中間にあたるレイヤーを扱う際に参考になれば幸いです。</p>
+
+    </article>
+  </div>
+  <div class="col-lg-3">
+    <div class="sidebar">
+  
+  <h4><a href="/ja/about/">About</a></h4>
+  <p><strong>Hidenori MATSUKI</strong></p>
+<p>🍣 🍶</p>
+<p>another website: <a href="https://mazgi.com/">mazgi.com</a></p>
+  
+  <hr />
+  <h4>TableOfContents</h4>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#how-to-run">How to Run</a></li>
+    <li><a href="#implementations">Implementations</a></li>
+  </ul>
+</nav>
+  <hr />
+  <h4><a href="/ja/categories/">Categories</a></h4>
+  
+  <hr />
+  <h4><a href="/ja/tags/">Tags</a></h4>
+  
+  <div>
+    
+    <a class="badge badge-pill badge-secondary" href="/ja/tags/ansible/">ansible</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/ja/tags/gentoo/">gentoo</a>
+    
+    <a class="badge badge-pill badge-secondary" href="/ja/tags/hyper-v/">hyper-v</a>
+    
+  </div>
+  
+</div>
+
+  </div>
+</div>
+      <div class="row">
+        <footer class="col-lg-12">
+          <hr/>
+          <span>&copy; mazgi.log</span>
+          <span>&nbsp;&middot;&nbsp;</span>
+          <i class="fas fa-bolt"></i>
+          <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a></span>
+          
+          <span>&nbsp;&middot;&nbsp;</span>
+          <span>This website <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">uses Google Analytics</a>.</span>
+          
+        </footer>
+      </div>
+    </div>
+    </main>
+    
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68170979-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-68170979-2');
+    </script>
+    
+      
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+      });
+    </script>
+  </body>
+</html>
+
